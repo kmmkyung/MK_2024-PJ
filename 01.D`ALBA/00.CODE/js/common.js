@@ -14,10 +14,10 @@ window.addEventListener('DOMContentLoaded',function(){
   for(let title in gndData){
     headerMenuCode += /* html */`
     <li class="menu-list">
-    <a href="#">
-    ${title}
-    </a>
-      <ol>
+      <a href="#">
+        ${title}
+      </a>
+        <ol>
     `
     for(let menu of gndData[title]){
       headerMenuCode += /* html */` 
@@ -33,26 +33,48 @@ window.addEventListener('DOMContentLoaded',function(){
 
   // menu
   // 메뉴 버튼을 누르면 메뉴창 열림 / 메뉴 다른곳 누르면 메뉴창 닫힘
+  const body = document.querySelector('body')
   const menuButton = document.querySelector('.header-left__img .menu');
-  const closeButton = document.querySelector('.header-menu .close');
+  const closeButtonB = document.querySelector('.header-menu__close-b');
+  const closeButtonW = document.querySelector('.header-menu__close-w');
   const headerLeftMenu = document.querySelector('.header-left__menu');
   const headerMenu = document.querySelector('.header-menu');
   const headerMenuBg = document.querySelector('.header-menu__bg');
-  const menuInner = document.querySelector('.menu-inner');
   menuButton.addEventListener('click',function(){
-    menuButton.classList.add('-hidden')
-    headerLeftMenu.classList.add('off')
-    headerMenu.classList.add('on')
+    if(body.classList.contains('black')){
+      menuButton.classList.add('-hidden')
+      headerLeftMenu.classList.add('off')
+      headerMenu.classList.add('blackOn')
+      closeButtonB.style.display='none'
+    }
+    if(body.classList.contains('white')){
+      menuButton.classList.add('-hidden')
+      headerLeftMenu.classList.add('off')
+      headerMenu.classList.add('whiteOn')
+      closeButtonW.style.display='none'
+    }
   });
-  closeButton.addEventListener('click',function(){
+  closeButtonB.addEventListener('click',function(){
     menuButton.classList.remove('-hidden')
     headerLeftMenu.classList.remove('off')
-    headerMenu.classList.remove('on')
+    headerMenu.classList.remove('whiteOn')
+  });
+  closeButtonW.addEventListener('click',function(){
+    menuButton.classList.remove('-hidden')
+    headerLeftMenu.classList.remove('off')
+    headerMenu.classList.remove('blackOn')
   });
   headerMenuBg.addEventListener('click',function(){
-    menuButton.classList.remove('-hidden')
-    headerLeftMenu.classList.remove('off')
-    headerMenu.classList.remove('on')
+    if(body.classList.contains('black')){
+      menuButton.classList.remove('-hidden')
+      headerLeftMenu.classList.remove('off')
+      headerMenu.classList.remove('blackOn')
+    }
+    if(body.classList.contains('white')){
+      menuButton.classList.remove('-hidden')
+      headerLeftMenu.classList.remove('off')
+      headerMenu.classList.remove('whiteOn')
+    }
   })
 
 
@@ -62,7 +84,7 @@ window.addEventListener('DOMContentLoaded',function(){
   const menuItem = document.querySelectorAll('.header-menu .menu-list ol')
   
   menuTitle.forEach(function(ele,idx){
-    menuItem[idx].style.height=menuItem[idx].scrollHeight+'px'
+    menuItem[idx].style.height = menuItem[idx].scrollHeight+'px'
     ele.addEventListener('click',function(){
       click[idx]++;
       if(click[idx]%2==1){
