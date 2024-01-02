@@ -84,7 +84,9 @@ window.addEventListener('DOMContentLoaded',function(){
   const menuItem = document.querySelectorAll('.header-menu .menu-list ol')
   
   menuTitle.forEach(function(ele,idx){
-    menuItem[idx].style.height = menuItem[idx].scrollHeight+'px'
+    console.log(menuItem[idx].style.height = menuItem[idx].scrollHeight+'px');
+    
+    menuItem[idx].style.height = menuItem[idx].scrollHeight+'px';
     ele.addEventListener('click',function(){
       click[idx]++;
       if(click[idx]%2==1){
