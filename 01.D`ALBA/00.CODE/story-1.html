@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>밍바(M`Ingba)</title>
+  <link rel="shortcut icon" href="./assets/images/section-6-symbol-1.png" type="image/x-icon">
+  <!-- css -->
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/root.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <!-- js -->
+  <script src="./js/common.js" type="module" ></script>
+  <script src="./js/index.js" type="module" ></script>
+  <!-- swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>  
+</head>
+<body>
+  <header id="header">
+    <div class="header-wrap">
+      <div class="header-left">
+        <div class="header-left__img">
+          <img class="menu" src="./assets/svg/menu_w.svg" alt="menu">
+        </div>
+        <ul class="header-left__menu font_freightDisplay">
+          <li><a href="#">Stroy</a></li>
+          <li><a href="#">Collection</a></li>
+          <li><a href="#">Product</a></li>
+          <li><a href="#">Home Try</a></li>
+        </ul>
+      </div>
+      <div class="header-logo"></div>
+      <ul class="header-etc">
+        <li>
+          <img src="./assets/svg/wish_w.svg" alt="wish">
+          <img class="-hidden" src="./assets/svg/wish_b.svg" alt="wish">
+        </li>
+        <li>
+          <img src="./assets/svg/mypage_w.svg" alt="myPage">
+          <img class="-hidden" src="./assets/svg/mypage_b.svg" alt="myPage">
+        </li>
+        <li>
+          <img class="header-etc__searchButton" src="./assets/svg/search_w.svg" alt="search">
+          <img class="-hidden" src="./assets/svg/search_b.svg" alt="search">
+        </li>
+        <li>
+          <img src="./assets/svg/cart_w.svg" alt="cart">
+          <img class="-hidden" src="./assets/svg/cart_b.svg" alt="cart">
+        </li>
+      </ul>
+    </div>
+    <div class="header-menu font_freightDisplay">
+      <div class="header-menu__bg"></div>
+      <div class="menu-inner">
+      <img class="close" src="./assets/svg/close_w.svg" alt="close">
+      <ul>
+        <!-- <li class="menu-list">
+          <ol>
+            <li class="menu-item"></li>
+          </ol> -->
+        </ul>
+        <div class="menu-etc">
+          <a href="#">Review</a>
+          <a href="#">Community</a>
+          <a href="#">Sign in</a>
+        </div>
+      </div>
+    </div>
+    <div class="header-search">
+      <div class="search-inner">
+        <img class="search-content__closeButton" src="./assets/svg/close_b.svg" alt="close">
+        <div class="search-content">
+          <input type="text">
+          <img class="search-content__searchButton" src="./assets/svg/search_b.svg" alt="search">
+          <div class="search-tag">
+            <a href="#">화이트 트러플</a>
+            <a href="#">스프레이 세럼</a>
+            <a href="#">인센시브</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section id="section-1">
+      <div class="inner">
+        <h2>d’Alba Story</h2>
+        <p>스킨케어를 넘어선 라이프 스타일 뷰티</p>
+      </div>
+    </section>
+    <section id="section-2">
+      <div class="inner">
+        <div class="section-2-left">
+          <h2>Allure<br>from Basic</h2>
+          <p>
+            당신의 라이프스타일까지 생각한 달바<br>
+            기존 틀을 깬 새롭고 효과 빠른<br>
+            제품에 대한 달바의 끊임없는 연구
+          </p>
+        </div>
+        <div class="section-2-right">
+          <img src="./assets/images/story-2-1.jpg" alt="Allure from Basic">
+        </div>
+      </div>
+    </section>
+    <section id="section-3">
+      <div class="inner">
+        <div class="secton-3-left">
+          <h2>Piedmont</h2>
+          <p>
+            청정지역으로 알려진 화이트트러플의 최고산지<br>
+            아름다움을 전하고자 주 성분인<br>
+            주 성분인 화이트트러플(흰서양송로버섯)을 포함
+          </p>
+        </div>
+        <div class="section-3-right">
+          <img src="./assets/images/story-3-1.png" alt="Piedmont">
+          <p>
+            d’Alba는 청정지역의 깨끗하고 건강한<br>
+            이탈리아 피에몬테 주 <b>알바(Alba)</b>지역에서<br>
+            영감을 받아 탄생한 <b>d’Alba</b>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="section-4">
+      <div class="inner">
+        <p>
+          피부가 걱정 없이 편안하게 사용할 수 있는<br>
+          엄선된 <b>100% 비건 성분</b>으로 채우고,<br>
+          <b>저자극 인체적용시험</b>을 통과한 제품만 출시합니다.
+        </p>
+      </div>
+    </section>
+    <section id="section-5">
+      <div class="inner">
+        <div class="section-5-left">
+          <h2>Unique<br>Professional,<br>Lifestyle</h2>
+        </div>
+        <div class="section-5-right">
+          <img src="./assets/images/story-5-1.png" alt="Unique Professional Lifestyle">
+          <img src="./assets/images/story-5-2.png" alt="Unique Professional Lifestyle">
+          <img src="./assets/images/story-5-3.png" alt="Unique Professional Lifestyle">
+        </div>
+      </div>
+    </section>
+    <section id="section-6">
+      <div class="inner">
+        <div class="section-6-left">
+          <h2>New Paradigm</h2>
+          <p>
+            d’Alba는  바쁜 일상 속에서도<br>
+            프리미엄 스킨케어를 놓치지 않는 당신을 위해<br>
+            색다른 시도와 도전으로<br>
+            새로운 뷰티 패러다임을 제시합니다.
+          </p>
+        </div>
+        <div class="section-6-right">
+          <img src="./assets/images/story-6.jpg" alt="New Paradigm">
+        </div>
+      </div>
+    </section>
+    <section id="section-7">
+      <div class="inner">
+        <div class="section-7-left">
+          <p>
+            달바는 단순 스킨케어 브랜드를 넘어<br>
+            당신의 라이프 스타일을 연구하며,<br>
+            당신의 일상에 신선한 뷰티 경험을 선사합니다.
+          </p>
+          <p>
+            피부에 온전히 집중하고<br>
+            효능을 더해 나를 가꾸는 시간을<br>
+            빠르고, 간편하게
+          </p>
+        </div>
+        <div class="section-7-right">
+          <img src="./assets/images/story-7.jpg" alt="스킨케어">
+        </div>
+      </div>
+    </section>
+    <section id="section-8">
+      <div class="inner">
+        <h2>d’Alba와 함께 매일매일 감각적인 피부 변화를 경험해보세요.</h2>
+        <p>From. d'Alba</p>
+      </div>
+    </section>
+  </main>
+  <footer id="footer">
+    <div class="footer-inner">
+      <img class="footer-logo__gray" src="./assets/svg/logo_g.svg" alt="logo">
+      <img class="footer-logo__black" src="./assets/svg/logo_b.svg" alt="logo">
+      <ul class="footer-menu">
+      </ul>
+      <div class="footer-address">
+        <p>
+          <span class="footer-bold">주식회사 비모뉴먼트</span>
+          서울특별시 마포구 마포대로 78, 12층(도화동, 자람빌딩)(04031)
+        </p>
+        <p>
+          <span class="footer-bold">CEO</span>반성연.
+          <span class="footer-bold">NHN Commerce</span>02-332-7727.
+          <span class="footer-bold">Email</span>dalba@bmonument.com
+          <span class="footer-bold">Information manager</span>유명한
+        </p>
+        <p>
+          <span class="footer-bold">Business Registeration No.</span>840-88-00333.
+        </p>
+        <p>
+          © Bmonument.
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
