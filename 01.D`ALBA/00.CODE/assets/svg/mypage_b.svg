@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>4.Icons/mypage</title>
+    <g id="4.Icons/mypage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Group" transform="translate(4.000000, 4.000000)" stroke="#000000">
+            <path d="M11,3 C11,4.6572 9.65699726,6 8,6 C6.34339475,6 5,4.6572 5,3 C5,1.3428 6.34339475,0 8,0 C9.65699726,0 11,1.3428 11,3 Z" id="Stroke-1"></path>
+            <path d="M8,8 C3.58177778,8 0,11.5815 0,16 L16,16 C16,11.5815 12.4182222,8 8,8 Z" id="Stroke-3"></path>
+        </g>
+    </g>
+</svg>

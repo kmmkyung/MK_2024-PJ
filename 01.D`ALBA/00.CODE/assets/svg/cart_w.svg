@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>4.Icons/cart</title>
+    <g id="4.Icons/cart" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <g id="Group" transform="translate(3.000000, 3.000000)" stroke="#ffffff">
+            <path d="M13,8 L13,3.35076923 C13,1.50030769 11.4330721,0 9.49971726,0 C7.56692786,0 6,1.50030769 6,3.35076923 L6,8" id="Stroke-5" stroke-linecap="round"></path>
+            <polygon id="Rectangle" points="0 6.12639606 19 6.12639606 17.0844755 16.6819516 1.91552449 16.6819516"></polygon>
+        </g>
+    </g>
+</svg>

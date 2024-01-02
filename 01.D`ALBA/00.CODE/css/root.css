@@ -1,0 +1,86 @@
+@charset "utf-8";
+@font-face {
+  font-family: 'FreightNeo';
+  src: url('../assets/font/FreightNeo.ttf');
+}
+@font-face {
+  font-family: 'FreightNeo-Regular';
+  src: url('../assets/font/FreightNeo-Regular.ttf');
+}
+@font-face {
+  font-family: 'FreightDisplay';
+  src: url('../assets/font/FreightDisplay.otf');
+}
+@font-face {
+  font-family: 'FreightDisplay-Regular';
+  src: url('../assets/font/FreightDisplay-Regular.ttf');
+}
+
+body{
+  font-family: 'FreightNeo-Regular','FreightDisplay-Regular', Noto Sans KR;
+}
+
+* {
+  /* outline: 1px dotted turquoise; */
+  /* outline: 1px dotted tomato; */
+}
+
+:root {
+  /* COLOR */
+  --black: #000000;
+  --white: #ffffff;
+  --gray: #111111;
+  --grayf5: #f5f5f5;
+  --main: #D5AE6B;
+  --section3: #e7892f;
+
+  /* FONTSIZE */
+  --font-size-XS: 1.2rem;
+  --font-size-S: 1.8rem;
+  --font-size-M: 2.4rem;
+  --font-size-L: 2.8rem;
+  --font-size-XL: 3.6rem;
+  --font-size-Menu: 6rem;
+  --font-size-Title: 6.5rem;
+  --font-size-Content: 5.2rem;
+}
+/*----------*/
+
+/*-- CSS CLASS --*/
+
+.-hidden {
+  display: none !important
+}
+
+.-show {
+  display: block;
+}
+
+.-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*----- CSS -----*/
+.font_freightDisplay{
+  font-family: 'FreightDisplay-Regular', Noto Sans KR;
+}
+
+.button__W{
+  padding: 25px 25px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.button__B{
+  padding: 25px 25px;
+  border: 1px solid #000;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.button__W:hover{
+  background-color: #fff;
+}

@@ -1,0 +1,95 @@
+@charset "utf-8";
+/* maison margiela PJ 서브 CSS - sub.css */
+
+@import url(./reset.css);
+@import url(./core.css);
+
+
+body{
+    font-family: 'Libre Baskerville', Noto Sans KR;
+    background-color: var(--main);
+}
+
+.null_box{
+    padding-top: 74px;
+}
+
+.main-header{
+    margin-top: 17vh;
+    margin-bottom: 5vw;
+}
+
+.main-title{
+    font-size: 2.4rem;
+    text-align: center;
+    font-weight: normal;
+}
+
+.list-all{
+    /* display: flex;
+    width: 90vw;
+    flex-wrap: wrap;
+    column-gap: min(1vw,10px);
+    row-gap: min(30vw,150px);
+    justify-content: center;
+    margin: 0 auto; */
+}
+
+.list-con{
+    display: grid;
+    grid-template-columns: repeat(4,0fr);
+    gap: 150px 10px;
+    justify-content: center;
+}
+
+.list-con>li{
+    position: relative;
+}
+
+.imgMove:hover{
+    transform: translateY(-8px);
+    transition: transform .4s;
+}
+
+.list-con__img, .list-con__img2{
+    width: min(600px,19.4vw);
+    aspect-ratio: 1/1.5;
+    border-radius: var(--borderR_sub);
+}
+
+.hover{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.list-con__title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.list-con__title h3, .list-con__title2 h3{
+    font-size: min(0.8vw,1.6rem);
+    font-weight: normal;
+    text-align: center;
+}
+
+.list-con__title2{
+    font-size: min(0.8vw,1.6rem);
+    font-weight: normal;
+    position: absolute;
+    padding: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+.list-con__title i{
+    font-size: 1.6rem;
+    margin-left: 8px;
+}

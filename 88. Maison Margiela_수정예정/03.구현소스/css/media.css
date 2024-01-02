@@ -1,0 +1,103 @@
+@charset "utf-8";
+/* maison margiela PJ media CSS - media.css */
+
+/* 1600px 사이즈 이하 미디어쿼리 시작 */
+@media screen and (max-width: 1600px) {
+
+/*---------- _____page5_____ ----------*/
+.page5-title{
+  top: auto;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+}
+
+@media screen and (max-width: 1400px) {
+  /*---------- _____page5_____ ----------*/
+.paga5-con__text {
+  font-size: 5rem;
+}
+.footer-links__btn, .footer-links ul>li>a{
+  font-size: 1.0rem;
+}
+
+.footer-links__box {
+  margin: 0;
+}
+}
+
+@media screen and (max-width: 1035px){
+  .footer-links {
+      flex-direction: column;
+  }
+
+}
+
+@media screen and (max-width: 950px){
+  .page2-list__con a {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 900px){
+  .nav-L__list{
+    display: none;
+  }
+
+  /* 햄버거 버튼 보이기 */
+  .ham {
+    display: block;
+  }
+
+  .nav.on{
+    position: relative;
+  }
+
+  .nav-L__menu.on{
+    width: 80vw;
+    margin: 30px;
+  }
+
+  .nav-L__list.on {
+    position: absolute;
+    top: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+
+}
+
+@media screen and (max-width: 760px){
+  .page1-img{
+    display: none;
+  }
+
+  .page2-listall{
+    overflow: hidden;
+  }
+
+  .page2-list{
+    width: 100%;
+  }
+
+  .page2-list {
+    justify-content: flex-start;
+    margin-left: 10px;
+  }
+
+  .page2-list__con img {
+  
+    width: 220px;
+  }
+  
+  .page2-img{
+    display: block;
+  }
+
+  .page2-bar{
+    display: block;
+  }
+}

@@ -1,0 +1,267 @@
+@charset "utf-8";
+/* maison margiela PJ 공통 CSS - common.css */
+
+@import url(./reset.css);
+@import url(./core.css);
+
+
+body{
+    font-family: 'Libre Baskerville', Noto Sans KR;
+    background-color: var(--main);
+}
+
+/*---------- _____page1_____ ----------*/
+#page1{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--main);
+    overflow: hidden;
+}
+
+.page1-con{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.img-con{
+    position: absolute;
+    width: 100%;
+    display: flex;
+
+    /* padding: 0 -10px; */
+    /* box-sizing: border-box; */
+}
+
+.page1-img{
+    aspect-ratio: 16/9;
+    width: min(95vw,1200px);
+    border-radius: var(--borderR);
+    margin: 0 auto;
+    /* display: block; */
+}
+
+.page2-img{
+    width: min(95vw,1200px);
+    border-radius: var(--borderR);
+    margin: 0 auto;
+}
+
+.text-con h2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: var(--white);
+    font-size: 6rem;
+    font-weight: normal;
+    white-space: nowrap;
+}
+
+.text-con button{
+    position: absolute;
+    top: auto;
+    bottom: 10vw;
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: var(--borderR);
+    border: 1px solid var(--white);
+    font-size: 1.8rem;
+    font-family: 'Libre Franklin', sans-serif;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all ease-in-out;
+}
+
+
+
+.p1-fullimg{
+    transition: all 1.5s ease-in-out;
+    border-radius: 0%;
+    transform: scale(1.65);
+    filter: brightness(0.6)
+}
+
+/*---------- _____page2_____ ----------*/
+#page2{
+    position: relative;
+    height: 89.5vh;
+    background-color: var(--main);
+    width: 100%;
+}
+
+.page2-text{
+    width: 100%;
+    padding: 12vh 0;
+}
+
+.page2-text p{
+    margin: 0 auto;
+    padding: 0 3vw;
+    max-width: 900px;
+    font-size: min(2vw,2rem);
+    text-align: center;
+}
+
+.page2-list{
+    margin: 0 auto;
+    gap: 1vw;
+    display: flex;
+    justify-content: center;
+}
+
+.page2-list__con{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all .3s;
+}
+
+.page2-list__con img{
+    width: min(15vw,220px);
+    border-radius: var(--borderR);
+}
+
+.page2-list__con a{
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.page2-list__con a>div{
+    padding-top: 20px;
+}
+
+.page2-list__con:hover {
+    transform: scale(.99);
+}
+
+.page2-bar{
+    width: 100%;
+    margin-top: 100px;
+}
+
+.bar-full{
+    margin: 0 auto;
+    width: 400px;
+    height: 4px;
+    background-color: var(--gray9e);
+}
+
+.bar-sm{
+    width: 100px;
+    height: 100%;
+    background-color: var(--Lblack);
+}
+/*---------- _____page3_____ ----------*/
+#page3{
+    height: 100vh;
+    overflow: hidden;
+}
+
+.page3-vidbox__cover{
+    /* position: fixed; */
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+}
+
+.vid{
+    position: fixed;
+    width: 100%;
+    top: 0vh;
+    z-index: -1;
+    width: 120vw;
+    height: 100vh;
+    object-fit: cover;
+    /* position: relative; */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*---------- _____page4_____ ----------*/
+#page4{
+    height: 84vh;
+    position: relative;
+}
+
+.page4-text{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: min(65vw,1500px);
+    text-align: center;
+}
+
+.page4-text__en{
+    font-size: min(2.5vw,2rem);
+    margin-bottom: 50px;
+}
+
+.page4-text__ko{
+    font-size: min(2.5vw,2rem);
+}
+
+
+/*---------- _____page5_____ ----------*/
+#page5{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../imges/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.page5-title{
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+}
+
+.page5-title h4{
+    font-size: 1.4rem;
+}
+
+.page5-title h5{
+    font-size: min(2vw,2rem);
+    margin-top: 10px;
+}
+
+.paga5-con__text{
+    position: absolute;
+    font-size: 7rem;
+    width: 90%;
+    text-align: center;
+}
+
+.paga5-con__text-hover-color{
+    color: var(--white);
+}
+
+.paga5-con__text-color{
+    color: var(--graybglight);
+}
+
+.paga5-con__img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 272px;
+    height: 652px;
+    overflow: hidden;
+}
+
+.page5-con__img-1{
+    object-fit: contain;
+    width: 205%;
+    object-position: -133px -94px;
+}
+
+.page5-con__img-2{
+    object-fit: contain;
+    width: 200%;
+    object-position: -112px -81px;
+}

@@ -1,0 +1,14 @@
+{
+  "DUPLEX":{
+    "F429-1":{
+      "idx":0,
+      "img":"assets/images/FIREPROOF/429-1.jpg",
+      "color":"#ffffff",
+      "style":"모던",
+      "collection":"방염벽지 / 방염벽지",
+      "tag":"직물",
+      "size":"106cm(W) x 15.6m(H)",
+      "other":["F429-2","F429-3","F429-4","F429-5"]
+    }
+  }
+}

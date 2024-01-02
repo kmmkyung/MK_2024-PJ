@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* maison margiela PJ root CSS - core.css */
+
+*{
+    /* outline: 1px dotted turquoise; */
+    /* outline: 1px dotted tomato; */
+}
+
+/* 
+font-family: 'Libre Baskerville', serif;
+font-family: 'Libre Franklin', sans-serif;
+font-family: 'Noto Sans KR', sans-serif;
+*/
+
+/*-- root --*/
+:root{
+    --main:#F7F7F2;
+    --black:#000000;
+    --white:#ffffff;
+    --Lblack:#121212;
+    --graybglight:rgba(26,26,26,.08);
+    --gray9e:#9e9e9e;
+    --gray69:#696969;
+    --blue:#007aff;
+    --borderR: 15px;
+    --borderR_sub: 15%;
+}
+/*----------*/
+/*-- CSS --*/
+.-ghost{
+    background-color : transparent;
+}
+
+.-blur:hover{
+    background-color: var(--graybglight);
+    backdrop-filter: blur(135px);
+}
+
+.-blur_show{
+    background-color: var(--graybglight);
+    backdrop-filter: blur(135px);
+}
+
+.-blur_submenu:hover{
+    background-color: var(--graybglight);
+    backdrop-filter: blur(135px);
+}
+
+.-hidden{
+    display: none;
+}
+
+.-show{
+    display: block;
+}
+
+.-center{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.-click:hover{
+    -webkit-box-shadow: 0 0 0 2px #f7f7f2, 0 0 0 4px #1f69ff;
+}
+
+/*----------*/

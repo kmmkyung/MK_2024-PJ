@@ -1,0 +1,317 @@
+@charset "utf-8";
+/* maison margiela PJ Core CSS - core.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Libre+Franklin:wght@400;700&family=Noto+Sans+KR&display=swap');
+/* 
+font-family: 'Libre Baskerville', serif;
+font-family: 'Libre Franklin', sans-serif;
+font-family: 'Noto Sans KR', sans-serif;
+*/
+
+/*---------- _____header_____ ----------*/
+#gnb{
+  font-family: 'Libre Franklin', sans-serif;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 26px 26px 0 26px;
+}
+
+.nav{
+  width: 100%;
+  height: 48px;
+  display: flex;
+  /* border: 1px solid tomato; */
+  justify-content: space-between;
+  border-radius: var(--borderR);
+  transition: .1s ease-in-out;
+}
+
+.nav:hover .nav-inbox{
+  width: 99%;
+  height: calc(99% - 50px);
+  position: absolute;
+  top: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  backdrop-filter: blur(135px);
+  border-radius: var(--borderR);
+}
+
+.nav-L{
+  display: flex;
+  align-items: center;
+  flex-basis: 50%;
+  padding-left: 15px;
+}
+
+.nav-L__list{
+  display: flex;
+  align-items: center;
+}
+
+.nav-L__menu{
+  white-space: nowrap;
+  margin-right: 20px;
+}
+
+.nav-L__menu>a{
+  display: block;
+  font-size: 1.4rem;
+  color: var(--Lblack);
+  padding: 10px;
+  border-radius: var(--borderR);
+  font-weight: bold;
+}
+
+/* 서브메뉴 div */
+.submenu-all{
+position: absolute;
+left: calc(41px - 1%);
+margin-top: 15px;
+overflow: hidden;
+height: 0;
+transition: .2s ease-in-out;
+}
+
+/* 서브메뉴 div >ul */
+.submenu-all>ul{
+display: flex;
+}
+
+.nav-L__submenu{
+  /* margin-right: 40px; */
+  margin: 30px 20px 20px 0;
+  width: 160px;
+}
+
+.nav-L__submenu>a{
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  display: block;
+  padding: 10px;
+  border-radius: var(--borderR);
+  font-weight: bold;
+}
+
+.submenu-list>li{
+  margin: 25px 0;
+  width: 160px;
+}
+
+.submenu-list>li>a{
+  color: var(--gray69);
+  font-size: 1.4rem;
+  padding: 10px;
+  border-radius: var(--borderR);
+  display: block;
+  font-weight: bold;
+}
+
+/* 로고 */
+.nav-C{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+.nav-Logo1, .nav-Logo2{
+  /* position: absolute; */
+  /* 앱솔루트는 자동블럭 */
+  width: 100%;
+  height: 100%;
+  transition: .5s linear;
+}
+
+ /* 글씨 위로갔다 왔다 기본셋팅 */
+ .nav-C.on>div:nth-child(1){
+  transform: rotateX(90deg) translateZ(15px);
+}
+.nav-C.on>div:nth-child(2){
+  transform: rotateX(360deg) translateZ(15px);
+}
+.nav-C>div:nth-child(1){
+  transform: rotateX(0deg) translateZ(15px);
+}
+.nav-C>div:nth-child(2){
+  transform: rotateX(270deg) translateZ(15px);
+}
+
+.nav-C a{
+  display: block;
+  height: 100%;
+}
+
+.nav-Logo1{
+  width: 135px;
+  height: 28px;
+  margin: 10px 0;
+}
+
+.nav-Logo2{
+  width: 135px;
+  height: 28px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.nab-R{
+  display: flex;
+  flex-basis: 50%;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 15px;
+}
+
+.nab-R>button, .ham, .close{
+  box-sizing: border-box;
+  padding: 10px;
+  color: var(--Lblack);
+  cursor: pointer;
+  border-radius: var(--borderR);
+  font-size: 1.3rem;
+  font-family: 'Libre Franklin', sans-serif;
+
+}
+
+
+/* -------모바일-------- */
+/* -------메뉴 on-------- */
+ .on{
+  display: block;
+}
+
+/* 햄버거 버튼, 닫기버튼 */
+.ham, .close{
+  background-color: transparent;
+  border: none;
+  color: rgb(0, 0, 0);
+  /* 처음에 숨기기 */
+  display: none;
+}
+
+#gnb.on{
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 999;
+  background-color: var(--main);
+}
+
+.nav-L__list.on{
+  display: flex;
+}
+
+
+
+/*---------- _____footer_____ ----------*/
+#footer{
+  height: 80vh;
+  box-sizing: border-box;
+  padding: 100px 0;
+  position: relative;
+}
+
+.footer-con {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.footer-latter{
+  font-family: 'Libre Franklin', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-latter h5{
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: var(--Lblack);
+}
+
+.footer-latter>p{
+  font-size: 1.2rem;
+  color: var(--gray9e);
+  margin-bottom: 40px;
+}
+
+.footer-latter form{
+  position: relative;
+}
+
+.footer-latter input{
+  border-color: var(--gray9e);
+  padding: 10px;
+  width: 320px;
+  border-radius: 10px;
+  background-color: var(--main);
+  border-style: solid;
+}
+
+.footer-latter>form>label{
+  font-size: 1.2rem;
+  color: var(--gray9e);
+  padding: 2px;
+  background-color: var(--main);
+  position: absolute;
+  top: -6px;
+  left: 10px;
+}
+
+/*-- article --*/
+.footer-links{
+  font-family: 'Libre Franklin', sans-serif;
+  display: flex;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.footer-links__btn{
+  /* background-color: var(--main); */
+  position: relative;
+  width: 140px;
+  padding: 10px;
+}
+
+.footer-links__list{
+  width: 140px;
+  box-sizing: border-box;
+  /* text-align: center; */
+  background-color: var(--main);
+  box-shadow: 3px 3px 3px #eee;
+  border-radius: calc(var(--borderR) - 5px);
+  /* margin-top: 10px; */
+}
+
+.footer-links__list>li>a{
+  display: block;
+  padding: 10px;
+}
+
+.footer-links__btn, .footer-links ul>li>a{
+  border-radius: calc(var(--borderR) - 5px);
+  font-family: 'Libre Franklin', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.footer-text{
+  text-align: center;
+}
+
+.aaa{
+  position: absolute;
+  height: 0;
+  overflow: hidden;
+  z-index: 1;
+}

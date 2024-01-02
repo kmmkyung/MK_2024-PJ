@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏠서울벽지🏠</title>
+  <!-- css -->
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/root.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <!-- js -->
+  <script type="module" src="./js/common.js"></script>
+  <script type="module" src="./js/index.js"></script>
+  <!-- swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <!-- MOUSE -->
+
+  <header id="header">
+    <div class="pc-header">
+      <div class="logo"></div>
+      <div class="gnb-all">
+        <ul class="gnb">
+          <!-- <li class="gnb-menu">컬렉션
+            <div class="gnb-menu__area">
+              <ol>
+                <li class="gnb-menu__title">
+                  <span class="title-ko">컬렉션</span>
+                  <img src="./assets/svg/gnb-dropdown-icon.svg" alt="dropdown-icon">
+                  <div class="title-content">
+                    <img src="./assets/svg/talk-icon.svg" alt="talk-icon">
+                    <span class="title-en">COLLECTION</span>
+                  </div>
+                </li>
+                <li class="gnb-menu__item">제품군 모아보기</li>
+                <li class="gnb-menu__item">실크벽지
+                  <span>카라</span>
+                  <span>플레인</span>
+                </li>
+                <li class="gnb-menu__item">합지벽지
+                  <span>데이지</span>
+                  <span>아이비</span>
+                  <span>코지</span>
+                </li>
+                <li class="gnb-menu__item">방염벽지
+                  <span>방염</span>
+                </li>
+                <li class="gnb-menu__item">나만의 제품찾기</li>
+                <li class="gnb-menu__item">다운로드</li>
+              </ol>
+            </div>
+          </li> -->
+        </ul>
+        <ul class="etc-gnb">
+          <li class="lang-box">
+            <span><a href="#">KO</a></span> 
+            <span><a href="#">EN</a></span>
+          </li>
+          <li class="wish-box">
+            <span class="wish-number">0</span>
+          </li>
+          <li class="search-box">
+            <label id="search-box__input" class="search-box__icon"></label>
+            <input name="search-box__input" class="search-box__input" type="text" placeholder="제품번호/컬렉션">
+          </li>
+          <li class="mobile-menu">
+            <span class="mobile-menu__line"></span>
+            <span class="mobile-menu__line"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="mobile-header">
+      <div class="mobile-header__inner">
+        <div class="search-box -hidden">
+          <label id="search-box__input" class="search-box__icon"></label>
+          <input name="search-box__input" class="search-box__input" type="text" placeholder="제품번호/컬렉션">
+        </div>
+        <ul class="mobile-gnb">
+          <!-- <li class="mobileGnb-menu">
+            <span>컬렉션</span>
+            <ol>
+              <li class="mobileGnb-menu__item"><a href="#">제품군 모아보기</a></li>
+              <li class="mobileGnb-menu__item"><a href="#">실크벽지</a></li>
+              <li class="mobileGnb-menu__item"><a href="#">합지벽지</a></li>
+              <li class="mobileGnb-menu__item"><a href="#">방염벽지</a></li>
+              <li class="mobileGnb-menu__item"><a href="#">나만의 제품 찾기</a></li>
+              <li class="mobileGnb-menu__item"><a href="#">다운로드</a></li>
+            </ol>
+          </li>-->
+        </ul>
+        <div class="mobileGnb-circle">
+          <img src="./assets/svg/menu-circleTxt.svg" alt="contact us">
+          <a href="#" class="-center"></a>
+        </div>
+      </div>
+    </div>
+    <div class="pc-header__bg -hidden"></div>
+    <div class="mobile-header__bg -hidden"></div>
+  </header>
+  <main>
+    <section id="section-1">
+      <div class="section-1__swiper">
+        <div class="swiper-wrapper">
+          <div class="banner swiper-slide">
+            <img src="./assets/images/main_banner_1.jpg" alt="banner-1" class="pc-banner">
+            <img src="./assets/images/mobile_main_banner_1.jpg" class="-hidden mobile-banner" alt="banner-1">
+            <div class="banner-1-circle banner-circle">
+              <img src="./assets/svg/circleTxt.svg" alt="circleTxt">
+              <a href="#"></a>
+            </div>
+          </div>
+          <div class="banner swiper-slide">
+            <img src="./assets/images/main_banner_2.jpg" alt="banner-2" class="pc-banner">
+            <img src="./assets/images/mobile_main_banner_2.jpg" class="-hidden mobile-banner" alt="banner-2">
+            <div class="banner-2-circle banner-circle">
+              <img src="./assets/svg/circleTxt.svg" alt="circleTxt">
+              <a href="#"></a>
+            </div>
+          </div>
+          <div class="banner swiper-slide">
+            <img src="./assets/images/main_banner_3.jpg" alt="banner-3" class="pc-banner">
+            <img src="./assets/images/mobile_main_banner_3.jpg" class="-hidden mobile-banner" alt="banner-3">
+            <div class="banner-3-circle banner-circle">
+              <img src="./assets/svg/circleTxt.svg" alt="circleTxt">
+              <a href="#"></a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    <section id="section-2">
+      <div class="section-2__title">
+        <p>서울벽지</p>
+        <a href="#">벽지 살펴보기</a>
+      </div>
+      <div class="section-2__content section-2__pc">
+        <div class="content-wallPaperCard">
+          <div class="wallPaperCard card-1">
+            <div class="wallPaperCard-inner">
+              <h5>실크벽지</h5>
+              <img src="./assets/images/card_paper1.png" alt="실크벽지">
+              <p>
+                종이 위에 PVC를 코팅하여 컬러 인쇄와<br>
+                엠보싱 작업을 통해 다양한 색상과 무늬를 표현한<br>
+                벽지로 대중적으로 가장 널리 쓰이는 벽지 입니다.
+              </p>
+            </div>
+          </div>
+          <div class="wallPaperCard card-2">
+            <div class="wallPaperCard-inner">
+              <h5>합지벽지</h5>
+              <img src="./assets/images/card_paper2.png" alt="합지벽지">
+              <p>
+                원지 두장을 접착하여 만드는 종이벽지로<br>
+                엠보싱이나 인쇄, 코팅 등으로<br>
+                다양한 디자인을 표현합니다.
+              </p>
+            </div>
+          </div>
+          <div class="wallPaperCard card-3">
+            <div class="wallPaperCard-inner">
+              <h5>방염벽지</h5>
+              <img src="./assets/images/card_paper3.png" alt="방염벽지">
+              <p>
+                화재 발생시 쉽게 불에 타지 않으며,<br>
+                종이와 PVC에서 방출되는 다량의 매연과<br>
+                유독가스를 억제시키는 기능성 벽지 입니다.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="content-searchPaperCard">
+          <div class="searchPaperCard-wrap">
+            <img src="./assets/images/card_paper4.png" alt="card">
+            <h5 class="searchPaperText">나만의 벽지를<br>찾아보세요</h5>
+            <div class="searchPaperText-change">
+              <h5>나만의 벽지를 찾아보세요</h5>
+              <p>서울벽지는 감각적인 디자인과 컬러, 환경까지 생각하는 다양한 벽지를 디자인합니다.<br>
+                나만의 공간을 꾸며줄 제품을 찾아보세요.
+              </p>
+              <div class="search-box">
+                <label id="search-box__input" class="search-box__icon"></label>
+                <input name="search-box__input" class="search-box__input" type="text" placeholder="제품번호/컬렉션">
+              </div>
+              <a href="#" class="circle-button__W">서울벽지에 물어보세요</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-2__content section-2__mobile section-2__swiper -hidden">
+        <div class="content-wallPaperCard swiper-wrapper">
+          <div class="wallPaperCard card-1 swiper-slide">
+            <div class="wallPaperCard-inner">
+              <h5>실크벽지</h5>
+              <img src="./assets/images/card_paper1.png" alt="실크벽지">
+              <p>
+                종이 위에 PVC를 코팅하여 컬러 인쇄와<br>
+                엠보싱 작업을 통해 다양한 색상과 무늬를 표현한<br>
+                벽지로 대중적으로 가장 널리 쓰이는 벽지 입니다.
+              </p>
+            </div>
+          </div>
+          <div class="wallPaperCard card-2 swiper-slide">
+            <div class="wallPaperCard-inner">
+              <h5>합지벽지</h5>
+              <img src="./assets/images/card_paper2.png" alt="합지벽지">
+              <p>
+                원지 두장을 접착하여 만드는 종이벽지로<br>
+                엠보싱이나 인쇄, 코팅 등으로<br>
+                다양한 디자인을 표현합니다.
+              </p>
+            </div>
+          </div>
+          <div class="wallPaperCard card-3 swiper-slide">
+            <div class="wallPaperCard-inner">
+              <h5>방염벽지</h5>
+              <img src="./assets/images/card_paper3.png" alt="방염벽지">
+              <p>
+                화재 발생시 쉽게 불에 타지 않으며,<br>
+                종이와 PVC에서 방출되는 다량의 매연과<br>
+                유독가스를 억제시키는 기능성 벽지 입니다.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination__2"></div>
+        <div class="content-searchPaperCard">
+          <div class="searchPaperCard-wrap">
+            <img src="./assets/images/card_paper4.png" alt="card">
+            <div class="searchPaperText">
+              <h5>나만의 벽지를 찾아보세요</h5>
+              <p>서울벽지는 감각적인 디자인과 컬러, 환경까지 생각하는 다양한 벽지를 디자인합니다.<br>
+                나만의 공간을 꾸며줄 제품을 찾아보세요.
+              </p>
+              <div class="search-box">
+                <label id="search-box__input" class="search-box__icon"></label>
+                <input name="search-box__input" class="search-box__input" type="text" placeholder="제품번호/컬렉션">
+              </div>
+              <a href="#" class="circle-button__W">서울벽지에 물어보세요</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="section-3"></section>
+    <section id="section-4"></section>
+    <section id="section-5"></section>
+  </main>
+  <footer id="footer">
+    <div class="footer-menu">
+      <ul class="footer-menu__list">
+        <li class="footer-menu__item">
+          <a href="#">
+            <h5>Contact us</h5>
+            <span>상담하고 샘플 신청하세요!</span>
+          </a>
+        </li>
+        <li class="footer-menu__item">
+          <a href="#">
+            <h5>Find us</h5>
+            <span>서울벽지의 위치를 확인하세요</span>
+          </a>
+        </li>
+        <li class="footer-menu__item">
+          <a href="#">
+            <h5>Promotion</h5>
+            <span>서울벽지의 미디어 소식을 전합니다</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer-info">
+      <div class="footer-wrap">
+        <div class="footer-inner">
+          <div class="logo"></div>
+          <a class="top-button circle-button__W">TOP</a>
+          <div class="footer-content">
+            <div class="footer-content__address"></div>
+            <ol class="footer-content__menu"></ol>
+          </div>
+          <div class="footer-copyright">
+            <p>Copyright ⓒ SEOUL WALLPAPER. All rights reserved</p>
+            <p>개인정보취급방침</p>
+          </div>
+        </div>
+        <div class="footer-text">
+          <p>BEAUTIFUL LIFE WITH SEOUL WALLPAPER</p>
+          <p>BEAUTIFUL LIFE WITH SEOUL WALLPAPER</p>
+          <p>BEAUTIFUL LIFE WITH SEOUL WALLPAPER</p>
+          <p>BEAUTIFUL LIFE WITH SEOUL WALLPAPER</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
