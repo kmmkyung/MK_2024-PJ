@@ -112,26 +112,26 @@
   cursor: pointer;
 }
 
-.header-menu .menu-list a{
+.header-menu .menu-list{
   display: block;
   font-size: var(--font-size-Menu);
   margin: 40px 0;
   opacity: 0.85;
 }
 
-.header-menu.blackOn .menu-list a{
+.header-menu.blackOn .menu-list{
   color: var(--white);
 }
 
-.header-menu.whiteOn .menu-list a{
+.header-menu.whiteOn .menu-list{
   color: var(--black);
 }
 
-.header-menu .menu-list:first-child a{
-  margin-top: 200px;
+.header-menu .menu-list:first-child{
+  margin-top: 100px;
 }
 
-.header-menu .menu-list:last-child a{
+.header-menu .menu-list:last-child{
   color: var(--main);
 }
 
@@ -140,24 +140,24 @@
   overflow: hidden;
 }
 
-.header-menu.blackOn .menu-item{
-  color: var(--white);
+.header-menu .menu-item a{
   font-size: var(--font-size-S);
-  margin: 20px 0;
   opacity: 0.8;
   cursor: pointer;
+  margin: 20px 0;
+  display: block;
 }
 
-.header-menu.whiteOn .menu-item{
+.header-menu.blackOn .menu-item a{
+  color: var(--white);
+}
+
+.header-menu.whiteOn .menu-item a{
   color: var(--black);
-  font-size: var(--font-size-S);
-  margin: 20px 0;
-  opacity: 0.8;
-  cursor: pointer;
 }
 
 .header-menu .menu-list a:hover,
-.header-menu .menu-item:hover{
+.header-menu .menu-item a:hover{
   opacity: 1;
 }
 

@@ -13,15 +13,12 @@ window.addEventListener('DOMContentLoaded',function(){
 
   for(let title in gndData){
     headerMenuCode += /* html */`
-    <li class="menu-list">
-      <a href="#">
-        ${title}
-      </a>
-        <ol>
+    <li class="menu-list">${title}
+      <ol>
     `
     for(let menu of gndData[title]){
       headerMenuCode += /* html */` 
-      <li class="menu-item">${menu}</li>
+      <li class="menu-item"><a href="#">${menu}</a></li>
       `
     }
     headerMenuCode += /* html */`
@@ -30,6 +27,25 @@ window.addEventListener('DOMContentLoaded',function(){
     `
   }
   headerMenuUl.innerHTML = headerMenuCode;
+
+
+  // 메뉴 누르면 메뉴 닫힘
+  let click = [0,0,0];
+  const menuTitle = document.querySelectorAll('.header-menu .menu-list')
+  const menuItemBox = document.querySelectorAll('.header-menu .menu-list ol')
+  
+  menuTitle.forEach(function(ele,idx){
+    menuItemBox[idx].style.height=menuItemBox[idx].scrollHeight+'px'
+    ele.addEventListener('click',function(){
+      click[idx]++;
+      if(click[idx]%2==1){
+        menuItemBox[idx].style.height = 0 
+      }
+      if(click[idx]%2==0){
+        menuItemBox[idx].style.height=menuItemBox[idx].scrollHeight+'px'
+      }
+    })
+  })
 
   // menu
   // 메뉴 버튼을 누르면 메뉴창 열림 / 메뉴 다른곳 누르면 메뉴창 닫힘
@@ -78,24 +94,6 @@ window.addEventListener('DOMContentLoaded',function(){
     }
   })
 
-
-  // 메뉴 누르면 메뉴 닫힘
-  let click = [0,0,0];
-  const menuTitle = document.querySelectorAll('.header-menu .menu-list a')
-  const menuItem = document.querySelectorAll('.header-menu .menu-list ol')
-  
-  menuTitle.forEach(function(ele,idx){
-    menuItem[idx].style.height = menuItem[idx].scrollHeight+'px';
-    ele.addEventListener('click',function(){
-      click[idx]++;
-      if(click[idx]%2==1){
-        menuItem[idx].style.height = 0 
-      }
-      if(click[idx]%2==0){
-        menuItem[idx].style.height=menuItem[idx].scrollHeight+'px'
-      }
-    })
-  })
 
   // search 버튼
   const headerEtcSearchButton = document.querySelector('.header-etc__searchButton');
