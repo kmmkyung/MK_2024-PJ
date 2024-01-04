@@ -40,6 +40,7 @@ window.addEventListener('DOMContentLoaded',function(){
   const headerLeftMenu = document.querySelector('.header-left__menu');
   const headerMenu = document.querySelector('.header-menu');
   const headerMenuBg = document.querySelector('.header-menu__bg');
+  
   menuButton.addEventListener('click',function(){
     if(body.classList.contains('black')){
       menuButton.classList.add('-hidden')
@@ -84,8 +85,6 @@ window.addEventListener('DOMContentLoaded',function(){
   const menuItem = document.querySelectorAll('.header-menu .menu-list ol')
   
   menuTitle.forEach(function(ele,idx){
-    console.log(menuItem[idx].style.height = menuItem[idx].scrollHeight+'px');
-    
     menuItem[idx].style.height = menuItem[idx].scrollHeight+'px';
     ele.addEventListener('click',function(){
       click[idx]++;
