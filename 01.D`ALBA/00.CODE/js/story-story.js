@@ -6,12 +6,15 @@ window.addEventListener('DOMContentLoaded',function(){
   let scrollTween = gsap.to(sections,{
     xPercent: -100 * (sections.length - 1),
     ease:'none',
-    duration: 10,
+    // duration: 10,
     scrollTrigger:{
       trigger: sectionWrap,
       pin: true,
       scrub:1,
       end:sectionWrap.scrollWidth,
+    },
+    snap:{
+      xPercent: { values: [0,-100,-200,-300,-400,-500,-600,-700], radius: 5 }
     }
   })
 
