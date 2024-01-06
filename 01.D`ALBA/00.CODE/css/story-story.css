@@ -168,20 +168,17 @@ body{
   height: 100vh;
 }
 
-.section-5 .inner{
-  padding: 10%;
-}
-
 .section-5-content{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
   height: 100%;
   justify-content: space-between;
+  align-items: center;
 }
 
 .section-5-left{
-  width: 50%;
+flex-basis: 50%;
 }
 
 .section-5-left h2{
@@ -191,9 +188,11 @@ body{
 }
 
 .section-5-right{
-  width: 22%;
+  flex-basis: 50%;
+  width: 20%;
   display: flex;
   gap: 30%;
+  justify-content: flex-end;
 }
 
 .section-5-right img{
