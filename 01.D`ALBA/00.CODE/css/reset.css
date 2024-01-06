@@ -6,9 +6,9 @@ html, body, h1, h2, h3, h4, h5, p, ul, ol, button, form, input{
     padding: 0;
 }
 
-/* body{
+body{
     overflow-x: hidden;
-} */
+}
 
 /* 리스트 초기화 */
 ul, ol{
