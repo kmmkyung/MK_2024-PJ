@@ -154,6 +154,11 @@ body{
   background-size: cover;
 }
 
+.section-4-content{
+  width: 100%;
+  height: 100%;
+}
+
 .section-4-title{
   font-size: var(--font-size-S);
   line-height: 1.5;
