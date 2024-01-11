@@ -27,55 +27,94 @@ window.addEventListener('DOMContentLoaded',function(){
     }
   })
 
+
+  let gsapMatchMedia = gsap.matchMedia();
+
   const sectionWrap = document.querySelector('.section-wrap')
   const sections = document.querySelectorAll('.section')
-  
-  let timeline = gsap.to(sections,{
-    x : ()=> -(sectionWrap.scrollWidth - document.documentElement.clientWidth) + "px",
-    ease:'none',
-    scrollTrigger:{
-      trigger: sectionWrap,
-      pin: true,
-      scrub: 1,
-      end: () => sectionWrap.scrollWidth - document.documentElement.clientWidth,
-    },
-  })
-  
-  // moveElements
   const moveElements = document.querySelectorAll('.moveElements')
-  moveElements.forEach((ele)=>{
-    gsap.from(ele,{
-      xPercent: 15,
-      duration: 2,
-      opacity: 0,
-      ease: 'none',
-      scrollTrigger:{
-        trigger: ele.parentNode.parentNode.parentNode,
-        containerAnimation:timeline,
-        scrub:1,
-        start: 'left center',
-        end: 'right bottom'
-      }
-    })
-  })
-
-  // section-5 img
   const section5Imgs = document.querySelectorAll('.section-5-right img')
-  section5Imgs.forEach((ele)=>{
-    gsap.from(ele,{
-      xPercent: 15,
-      duration: 0.5,
-      opacity: 0,
-      ease: 'none',
-      scrollTrigger:{
-        trigger: ele,
-        containerAnimation:timeline,
-        scrub: 0.5,
-        start: 'left center',
-        end: 'center bottom'
-      }
+  
+  gsapMatchMedia.add("(min-width: 900px)",function(){      
+      let timeline = gsap.to(sections,{
+        x : ()=> -(sectionWrap.scrollWidth - document.documentElement.clientWidth) + "px",
+        ease:'none',
+        scrollTrigger:{
+          trigger: sectionWrap,
+          pin: true,
+          scrub: 1,
+          end: () => sectionWrap.scrollWidth - document.documentElement.clientWidth,
+        }
+      });
+      
+      // moveElements
+      moveElements.forEach((ele)=>{
+        gsap.from(ele,{
+          xPercent: 15,
+          duration: 2,
+          opacity: 0,
+          ease: 'none',
+          scrollTrigger:{
+            trigger: ele.parentNode.parentNode.parentNode,
+            containerAnimation:timeline,
+            scrub:1,
+            start: 'left center',
+            end: 'right bottom'
+          }
+        })
+      })
+    
+      // section-5 img
+      section5Imgs.forEach((ele)=>{
+        gsap.from(ele,{
+          xPercent: 15,
+          duration: 0.5,
+          opacity: 0,
+          ease: 'none',
+          scrollTrigger:{
+            trigger: ele,
+            containerAnimation:timeline,
+            scrub: 0.5,
+            start: 'left center',
+            end: 'center bottom'
+          }
+        })
+      })
     })
-  })
+
+  gsapMatchMedia.add("(max-width: 900px)",function(){      
+      // moveElements
+      moveElements.forEach((ele)=>{
+        gsap.from(ele,{
+          duration: 2,
+          opacity: 0,
+          ease: 'none',
+          scrollTrigger:{
+            trigger: ele.parentNode.parentNode.parentNode,
+            scrub:1,
+            start: 'left center',
+            end: 'right bottom'
+          }
+        })
+      })
+    
+      // section-5 img
+      section5Imgs.forEach((ele)=>{
+        gsap.from(ele,{
+          xPercent: 15,
+          duration: 0.5,
+          opacity: 0,
+          ease: 'none',
+          scrollTrigger:{
+            trigger: ele,
+            scrub: 0.5,
+            start: 'left center',
+            end: 'center bottom'
+          }
+        })
+      })
+    })
+
 
 
 
