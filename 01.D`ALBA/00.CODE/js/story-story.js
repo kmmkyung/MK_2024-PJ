@@ -28,22 +28,35 @@ window.addEventListener('DOMContentLoaded',function(){
   })
 
 
-  let gsapMatchMedia = gsap.matchMedia();
 
+  
   const sectionWrap = document.querySelector('.section-wrap')
   const sections = document.querySelectorAll('.section')
   const moveElements = document.querySelectorAll('.moveElements')
   const section5Imgs = document.querySelectorAll('.section-5-right img')
+  let windowWidth
+  let sectionWrapWidth
+  onResize()
   
+  function onResize(){
+    windowWidth = document.documentElement.clientWidth;
+    sectionWrapWidth = sectionWrap.scrollWidth;
+    window.scrollTo(0,0)
+  }
+
+  ScrollTrigger.addEventListener("refreshInit", onResize);
+
+  let gsapMatchMedia = gsap.matchMedia();
   gsapMatchMedia.add("(min-width: 900px)",function(){      
       let timeline = gsap.to(sections,{
-        x : ()=> -(sectionWrap.scrollWidth - document.documentElement.clientWidth) + "px",
+        x : ()=> -(sectionWrapWidth - windowWidth) + "px",
         ease:'none',
         scrollTrigger:{
           trigger: sectionWrap,
+          invalidateOnRefresh: true,
           pin: true,
           scrub: 1,
-          end: () => sectionWrap.scrollWidth - document.documentElement.clientWidth,
+          end: () => sectionWrapWidth,
         }
       });
       
@@ -114,8 +127,6 @@ window.addEventListener('DOMContentLoaded',function(){
         })
       })
     })
-
-
 
 
 })
