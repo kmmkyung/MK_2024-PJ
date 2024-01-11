@@ -361,6 +361,10 @@ body{
   text-align: center;
 }
 
+  .mobile-br{
+    display: none;
+  }
+
 #footer{
   display: none;
 }
@@ -518,10 +522,10 @@ body{
   .section-8-content p{
     font-size: var(--font-size-XS);
     text-align: center;
-    word-break: keep-all;
-  }
-
-  .mobile-br{
-    
   }
 }
+  @media screen and (max-width:555px){
+    .mobile-br{
+      display: block;
+    }
+  }
