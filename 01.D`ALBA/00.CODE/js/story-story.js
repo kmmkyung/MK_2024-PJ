@@ -36,20 +36,18 @@ window.addEventListener('DOMContentLoaded',function(){
   const section5Imgs = document.querySelectorAll('.section-5-right img')
   let windowWidth
   let sectionWrapWidth
-  onResize()
   
   function onResize(){
-    windowWidth = document.documentElement.clientWidth;
+    windowWidth = window.innerWidth;
     sectionWrapWidth = sectionWrap.scrollWidth;
-    window.scrollTo(0,0)
   }
 
-  ScrollTrigger.addEventListener("refreshInit", onResize);
+  // ScrollTrigger.addEventListener("refreshInit", onResize);
 
   let gsapMatchMedia = gsap.matchMedia();
   gsapMatchMedia.add("(min-width: 900px)",function(){      
       let timeline = gsap.to(sections,{
-        x : ()=> -(sectionWrapWidth - windowWidth) + "px",
+        x : ()=> -(sectionWrapWidth - windowWidth) + "px",        
         ease:'none',
         scrollTrigger:{
           trigger: sectionWrap,
@@ -57,7 +55,8 @@ window.addEventListener('DOMContentLoaded',function(){
           pin: true,
           scrub: 1,
           end: () => sectionWrapWidth,
-        }
+        },
+        onInit:onResize
       });
       
       // moveElements
@@ -128,5 +127,5 @@ window.addEventListener('DOMContentLoaded',function(){
       })
     })
 
-
+    
 })
