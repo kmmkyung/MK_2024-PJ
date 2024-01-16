@@ -1,16 +1,16 @@
 @charset "utf-8";
-@font-face {
+/* @font-face {
   font-family: 'FreightNeo';
   src: url('../assets/font/FreightNeo.ttf');
-}
+} */
 @font-face {
   font-family: 'FreightNeo-Regular';
   src: url('../assets/font/FreightNeo-Regular.ttf');
 }
-@font-face {
+/* @font-face {
   font-family: 'FreightDisplay';
   src: url('../assets/font/FreightDisplay.otf');
-}
+} */
 @font-face {
   font-family: 'FreightDisplay-Regular';
   src: url('../assets/font/FreightDisplay-Regular.ttf');
