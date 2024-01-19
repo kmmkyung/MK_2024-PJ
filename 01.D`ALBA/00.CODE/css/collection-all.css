@@ -1,6 +1,6 @@
 #main{
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: relative;
 }
 
@@ -31,10 +31,9 @@
 
 .collection-bg img{
   width: 100%;
-  height: 100vh;
+  height: 100%;
   object-fit: cover;
   object-position: top;
-  vertical-align: middle;
 }
 
 /* collection-content */
@@ -44,7 +43,7 @@
   left: 50%;
   transform: translate(-50%,-50%);
   z-index: 2;
-  width: 100%;
+  width: 33.33%;
 }
 
 .collection-content__item{
