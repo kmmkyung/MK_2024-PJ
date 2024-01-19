@@ -38,7 +38,6 @@
 }
 
 /* collection-content */
-
 .collection-content__wrap{
   position: absolute;
   top: 50%;
@@ -117,10 +116,12 @@
   position: absolute;
   top: 50%;
   left: 5%;
+  z-index: 2;
 }
 
 .arrow-right{
   position: absolute;
   top: 50%;
   right: 5%;
+  z-index: 2;
 }

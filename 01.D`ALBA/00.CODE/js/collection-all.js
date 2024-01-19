@@ -13,6 +13,7 @@ window.addEventListener('DOMContentLoaded',function(){
     loop: true,
     effect:'fade',
     touchRatio: 0, // 드래그 막기
+    loopedSlides: 2
   })
 
   // collection-content__slide
@@ -20,8 +21,16 @@ window.addEventListener('DOMContentLoaded',function(){
     direction: 'horizontal',
     loop: true,
     slidesPerView: 3,
+    centeredSlides: true,
+    loopedSlides: 2,
+    navigation: {
+      nextEl: '.collection-content__arrow .arrow-right',
+      prevEl: '.collection-content__arrow .arrow-left',
+    },
   })
-
+  
+  collectionSwiper1.controller.control = collectionSwiper2
+  collectionSwiper2.controller.control = collectionSwiper1
 
 })
 
