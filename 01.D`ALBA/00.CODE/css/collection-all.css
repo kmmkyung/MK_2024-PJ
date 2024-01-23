@@ -122,3 +122,41 @@
   z-index: 2;
 }
 
+@media screen and (max-width:900px) {
+  .collection-content__wrap{
+    width: 100%;
+  }
+
+  .item-number{
+    font-weight: normal;
+    font-size: var(--font-size-L);
+  }
+  
+  .item-title{
+    font-size: var(--font-size-M);
+    font-weight: normal;
+    margin: 10px;
+  }
+  
+  .item-text{
+    font-size: var(--font-size-XS);
+    line-height: 1.5;
+  }
+  
+  .item-button{
+    font-size: var(--font-size-XS);
+  }
+  
+  .arrow-left {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+  }
+
+  .arrow-right {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    z-index: 2;
+  }
+}

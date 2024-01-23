@@ -7,6 +7,28 @@ window.addEventListener('DOMContentLoaded',function(){
   arrowLeft.innerHTML = svgData.arrowLeft_w
   arrowRight.innerHTML = svgData.arrowRight_w
 
+
+  // 배경화면
+  window.addEventListener('resize',function(){
+    const section1 = document.querySelector('.section-1')
+    const section2 = document.querySelector('.section-2')
+    const section3 = document.querySelector('.section-3')
+    const section4 = document.querySelector('.section-4')
+
+    if(window.innerWidth<=900){
+      section1.src='./assets/images/mobile_collection-antioxidant.jpg'
+      section2.src='./assets/images/mobile_collection-vegan.jpg'
+      section3.src='./assets/images/mobile_collection-moisture.jpg'
+      section4.src='./assets/images/mobile_collection-relax.jpg'
+    }
+    if(window.innerWidth>900){
+      section1.src='./assets/images/collection-antioxidant.jpg'
+      section2.src='./assets/images/collection-vegan.jpg'
+      section3.src='./assets/images/collection-moisture.jpg'
+      section4.src='./assets/images/collection-relax.jpg'
+    }
+  })
+
   // collection-bg__slide
   const collectionSwiper1 = new Swiper('.collection-bg__swiper',{
     centeredSlides: true,
