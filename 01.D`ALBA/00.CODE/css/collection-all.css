@@ -49,7 +49,7 @@
   opacity: 0.5;
 }
 
-.collection-content__item.on{
+.collection-content__item.swiper-slide-active{
   opacity: 1;
 }
 
@@ -93,12 +93,12 @@
   color: #fff;
 }
 
-.item-button.whiteOn{
+.collection-content__item.swiper-slide-active .item-button.white{
   background-color: #fff;
   color: #000;
 }
 
-.item-button.blackOn{
+.collection-content__item.swiper-slide-active .item-button.black{
   background-color: #000;
   color: #fff;
 }
@@ -121,3 +121,4 @@
   right: -95%;
   z-index: 2;
 }
+

@@ -90,8 +90,8 @@ const svgData = {
   arrowLeft_w:[
     `
 <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <g id="**Main" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="PC)-Main-(Layout-3)" transform="translate(-510.000000, -406.000000)" fill="#FFFFFF">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-510.000000, -406.000000)">
             <g id="Group-3" transform="translate(508.000000, 128.000000)">
                 <g id="Group-39" transform="translate(0.000000, 48.000000)">
                     <g id="Group" transform="translate(0.000000, 228.000000)">
@@ -109,9 +109,8 @@ const svgData = {
   arrowRight_w:[
     `
     <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <title>4.Icons/Etc./round arrow right</title>
-        <g id="**Main" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g id="PC)-Main-(Layout-3)" transform="translate(-911.000000, -406.000000)" fill="#FFFFFF">
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(-911.000000, -406.000000)">
                 <g id="Group-3" transform="translate(508.000000, 128.000000)">
                     <g id="Group-39" transform="translate(0.000000, 48.000000)">
                         <g id="Group" transform="translate(0.000000, 228.000000)">
