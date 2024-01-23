@@ -305,8 +305,9 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  top: 0;
-  transform: translateX(5px);
+  top: -50%;
+  transform: translate(5px,80%);
+  background-position: center;
 }
 
 
@@ -508,6 +509,11 @@ body{
     font-size: var(--font-size-XS);
   }
 
+  .section-7-left a::after{
+    transform: translate(5px,40%);
+  }
+  
+
   .section-7-right {
     position: absolute;
     top: auto;
@@ -523,6 +529,7 @@ body{
     font-size: var(--font-size-XS);
     text-align: center;
   }
+  
 }
   @media screen and (max-width:555px){
     .mobile-br{
