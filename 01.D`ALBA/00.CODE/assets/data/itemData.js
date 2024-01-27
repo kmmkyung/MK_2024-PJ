@@ -1,3 +1,17 @@
+/*
+  {
+    "name":"",
+    "class":"미스트·세럼·토너·앰플",
+    "subclass":"미스트",
+    "option":"",
+    "price":"",
+    "capacity":[],
+    "tag":[],
+    "review":"",
+    "star":"",
+    "images":"../assets/product/"
+  },
+*/
 const itemData = [
   {
     "name":"화이트 트러플 퍼스트 스프레이 세럼",
@@ -9,6 +23,7 @@ const itemData = [
     "tag":["수분보습","저자극","주름","영양탄력","윤기","페이셜"],
     "review":"102,811",
     "star":"4.9",
+    "images":"../assets/product/mist/01.png"
   },
   {
     "name":"화이트 트러플 퍼스트 아로마틱 스프레이 세럼",
@@ -16,20 +31,34 @@ const itemData = [
     "subclass":"미스트",
     "option":"",
     "price":"42,000",
-    "capacity":["비건","수분보습","저자극","주름","고기능성","영양탄력","윤기","페이셜"],
-    "tag":[],
-    "review":"",
-    "star":"",
+    "capacity":["60ml","120ml"],
+    "tag":["비건","수분보습","저자극","주름","고기능성","영양탄력","윤기","페이셜"],
+    "review":"33,716",
+    "star":"4.9",
+    "images":"../assets/product/mist/02.png"
   },
   {
-    "name":"",
+    "name":"화이트 트러플 바이탈 스프레이 세럼",
     "class":"미스트·세럼·토너·앰플",
     "subclass":"미스트",
     "option":"",
-    "price":"",
-    "capacity":[],
-    "tag":[],
-    "review":"",
-    "star":"",
+    "price":"29,000",
+    "capacity":["100ml"],
+    "tag":["비건","수분보습","진정","저자극","윤기","페이셜"],
+    "review":"19,923",
+    "star":"4.8",
+    "images":"../assets/product/mist/03.png"
+  },
+  {
+    "name":"화이트 트러플 퍼스트 스프레이 세럼 100ml+화이트 트러플 바이탈 스프레이 세럼 100ml 세트",
+    "class":"미스트·세럼·토너·앰플",
+    "subclass":"미스트",
+    "option":"",
+    "price":"39,900",
+    "capacity":["100ml+100ml"],
+    "tag":["수분보습","저자극","주름","영양탄력","윤기","페이셜"],
+    "review":"0",
+    "star":"0.0",
+    "images":"../assets/product/mist/04.png"
   },
 ];
