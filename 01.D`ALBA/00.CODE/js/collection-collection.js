@@ -53,6 +53,7 @@ window.addEventListener('DOMContentLoaded',function(){
     },
     on:{
       slideChange: function(){
+        let collectionTitle = document.querySelector('.collection-bg h1')
         let collectionItem = document.querySelectorAll('.collection-content__item')
         let collectionItemBtn = document.querySelectorAll('.item-button')
         let collectionArrowLeft = document.querySelector('.arrow-left g')
@@ -64,6 +65,7 @@ window.addEventListener('DOMContentLoaded',function(){
             collectionItemBtn[idx].classList.add('white')
             collectionItemBtn[idx].classList.remove('black')
           })
+          collectionTitle.style.color='white'
           collectionArrowLeft.style.fill='white'
           collectionArrowRight.style.fill='white'
         }
@@ -74,6 +76,7 @@ window.addEventListener('DOMContentLoaded',function(){
             collectionItemBtn[idx].classList.remove('white')
             collectionItemBtn[idx].classList.add('black')
           })
+          collectionTitle.style.color='black'
           collectionArrowLeft.style.fill='black'
           collectionArrowRight.style.fill='black'
         }
