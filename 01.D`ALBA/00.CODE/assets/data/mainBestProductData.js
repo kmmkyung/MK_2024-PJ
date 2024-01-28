@@ -1,4 +1,4 @@
-const bestProductData = [
+const mainBestProductData = [
   {
     "img":"./assets/images/section3-product-1.jpg",
     "title":"화이트 트러플 퍼스트 스프레이 세럼 1000ml",
@@ -61,4 +61,4 @@ const bestProductData = [
   }
 ]
 
-export default bestProductData;
+export default mainBestProductData;

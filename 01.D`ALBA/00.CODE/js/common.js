@@ -1,5 +1,6 @@
 import svgData from '../assets/data/svgData.js'
-import {gndData,footerData} from '../assets/data/gndData.js';
+import {gnbData,footerData} from '../assets/data/gnbData.js';
+import locationHrefData from '../assets/data/locationHrefData.js';
 
 window.addEventListener('DOMContentLoaded',function(){
   //// header
@@ -14,14 +15,14 @@ window.addEventListener('DOMContentLoaded',function(){
   const headerMenuUl = document.querySelector('.header-menu ul')
   let headerMenuCode = '';
 
-  for(let title in gndData){
+  for(let title in gnbData){
     headerMenuCode += /* html */`
     <li class="menu-list">${title}
       <ol>
     `
-    for(let menu of gndData[title]){
+    for(let menu of gnbData[title]){
       headerMenuCode += /* html */` 
-      <li class="menu-item"><a href="#">${menu}</a></li>
+      <li class="menu-item"><a class="gnbSubMenu">${menu}</a></li>
       `
     }
     headerMenuCode += /* html */`
@@ -30,7 +31,13 @@ window.addEventListener('DOMContentLoaded',function(){
     `
   }
   headerMenuUl.innerHTML = headerMenuCode;
-
+  const gnbSubMenu = document.querySelectorAll('.gnbSubMenu')
+  gnbSubMenu.forEach(function(ele,idx){
+    ele.addEventListener('click',function(){
+      location.href=locationHrefData[idx]
+    })
+  })
+  
 
   // 메뉴 누르면 메뉴 닫힘
   let click = [0,0,0];

@@ -1,4 +1,4 @@
-import bestProductData from '../assets/data/bestProductData.js'
+import mainBestProductData from '../assets/data/mainBestProductData.js'
 
 window.addEventListener('DOMContentLoaded',function(){
   // section1
@@ -80,7 +80,7 @@ window.addEventListener('DOMContentLoaded',function(){
   //// 데이터 넣기
   const slide = document.querySelector('.section-3__swiper .slide');
   let slideCode = ``;
-  bestProductData.forEach(function(ele){
+  mainBestProductData.forEach(function(ele){
     slideCode+= /* html */`
     <li class="slide-item swiper-slide">
       <img class="slide-item__img" src="${ele.img}">
