@@ -6,6 +6,9 @@ window.addEventListener('DOMContentLoaded',function(){
   // logo
   const headerLogo = document.querySelector('.header-logo');
   headerLogo.innerHTML = svgData.logo_W;
+  headerLogo.addEventListener('click',function(){
+    location.href='index.html'
+  })
   
   // 메뉴 적용
   const headerMenuUl = document.querySelector('.header-menu ul')
