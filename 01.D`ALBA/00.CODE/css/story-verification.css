@@ -1,3 +1,7 @@
+#header .header-logo svg g{
+  fill: black;
+}
+
 #section{
   width: 100%;
   height: 120vh;
@@ -9,10 +13,12 @@
 }
 
 .verification-wrap{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .verification-title{
@@ -32,12 +38,12 @@
   position: relative;
 }
 
-.contents-wrap{
+.contents-wrap {
   width: 60vw;
-  margin-top: 60px;
   background-color: rgba(253,249,239,0.9);
   padding: 20px 0px 100px 20px;
-  transform: translateX(-20px);
+  position: relative;
+  margin: 60px auto 0;
 }
 
 .content{
@@ -67,10 +73,15 @@
   position: absolute;
   bottom: 20px;
   right: 20px;
+  width: min(10vw,150px);
 }
 
 .content-img__pc{
   width: min(30vw,430px);
+}
+
+.content-img__mobile{
+  display: none;
 }
 
 .content-text{
@@ -88,12 +99,13 @@
   margin-top: 20px;
   font-size: 1.4rem;
   word-break: keep-all;
+  line-height: 1.6;
 }
 
 .content-menu{
   position: absolute;
   top: 0px;
-  right: 20px;
+  right: 0px;
   display: flex;
   flex-direction: row-reverse;
   transform: rotate(-90deg);
@@ -118,4 +130,54 @@
 
 .content-menu li.active{
   opacity: 1;
+}
+
+/* 미디어쿼리 */
+@media screen and (max-width:900px) {
+
+  #section{
+    padding: 150px 0;
+    height: auto;
+  }
+
+  .verification-title h1 {
+    font-size: var(--font-size-XL);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contents-wrap {
+    padding: 20px 20px 100px 20px;
+  }
+
+  .content-img__pc{
+    display: none;
+  }
+  
+  .content-img__mobile{
+    display: block;
+    width: 100%;
+  }
+
+  .content-img__logo {
+    width: 50px;
+  }
+
+  .content-text {
+    margin-top: 20px;
+    margin-left: 0;
+    width: 80%;
+  }
+
+  .content-text h5{
+    font-size: var(--font-size-XS);
+  }
+  
+  .content-text p{
+    font-size: var(--font-size-XS);
+  }
+
 }
