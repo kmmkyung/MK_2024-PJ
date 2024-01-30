@@ -1,0 +1,127 @@
+html::-webkit-scrollbar,
+body::-webkit-scrollbar{
+  display: none;
+}
+
+body{
+  -webkit-font-smoothing: antialiased
+}
+
+.inner{
+  position: relative;
+  padding: 0 10%;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.title{
+  font-size: var(--font-size-Title);
+  font-weight: normal;
+  color: var(--white);
+}
+
+.subTitle{
+  color:var(--main);
+  font-size: var(--font-size-XS);
+}
+
+.caption span{
+  color: var(--white);
+  font-size: var(--font-size-XS);
+  display: block;
+  margin-top: 20px;
+}
+
+.caption span:not(span:first-child){
+  margin-top: 10px;
+}
+
+.mainColor{
+  color:var(--main);
+}
+
+.section{
+  color: var(--white);
+}
+
+#section-1{
+  width: 100%;
+  height: 100vh;
+  background-image: url(../assets/images/story-whiteTruffle-1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section-1-content{
+  width: 100%;
+  /* height: auto; */
+  margin: auto 0;
+}
+
+.section-1-content p{
+  margin-top: 20px;
+  font-size: var(--font-size-L);
+}
+
+
+#section-2{
+  width: 100%;
+  height: 100vh;
+  background-image: url(../assets/images/story-whiteTruffle-2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#section-3{
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(22, 35, 29);
+}
+
+#section-4{
+  width: 100%;
+  height: 100vh;
+  background-image: url(../assets/images/story-whiteTruffle-4.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#section-5{
+  width: 100%;
+  height: 100vh;
+  background-image: url(../assets/images/story-whiteTruffle-5.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#section-6{
+  width: 100%;
+  height: 100vh;
+  background-image: url(../assets/images/story-whiteTruffle-6.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#section-7{
+  width: 100%;
+  height: 100vh;
+  background-image: url(../assets/images/story-whiteTruffle-7.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#section-8{
+  width: 100%;
+  height: 100vh;
+  background-image: url(../assets/images/story-whiteTruffle-8.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
