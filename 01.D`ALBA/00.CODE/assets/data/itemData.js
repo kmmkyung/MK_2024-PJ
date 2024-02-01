@@ -200,7 +200,7 @@ const itemData = [
 
   // 세럼 --------------------------------------------------------
   {
-    "id":0,
+    "id":14,
     "name":"화이트 트러플 더블 레이어 리바이탈라이징 세럼",
     "class":"미스트·세럼·토너·앰플",
     "subclass":"세럼",
@@ -215,7 +215,7 @@ const itemData = [
   
   // 토너 --------------------------------------------------------
   {
-    "id":0,
+    "id":15,
     "name":"마이들 스킨 밸런싱 비건 토너",
     "class":"미스트·세럼·토너·앰플",
     "subclass":"토너",
@@ -228,7 +228,7 @@ const itemData = [
     "images":"../assets/product/toner/01.png"
   },
   {
-    "id":1,
+    "id":16,
     "name":"화이트 트러플 퍼스트 아로마틱 토너",
     "class":"미스트·세럼·토너·앰플",
     "subclass":"토너",
@@ -243,7 +243,7 @@ const itemData = [
 
   // 앰플 --------------------------------------------------------
   {
-    "id":0,
+    "id":17,
     "name":"인텐시브 보르피린 앰플",
     "class":"미스트·세럼·토너·앰플",
     "subclass":"앰플",
@@ -256,7 +256,7 @@ const itemData = [
     "images":"../assets/product/ampoule/01.png"
   },
   {
-    "id":1,
+    "id":18,
     "name":"퓨어 비타민C 37% 프리미엄 캡슐",
     "class":"미스트·세럼·토너·앰플",
     "subclass":"앰플",
@@ -269,7 +269,7 @@ const itemData = [
     "images":"../assets/product/ampoule/02.png"
   },
   {
-    "id":2,
+    "id":19,
     "name":"오가닉 어드밴스드 오일",
     "class":"미스트·세럼·토너·앰플",
     "subclass":"앰플",
@@ -282,7 +282,7 @@ const itemData = [
     "images":"../assets/product/ampoule/03.png"
   },
   {
-    "id":3,
+    "id":20,
     "name":"화이트 트러플 92 어드밴스드 앰플",
     "class":"미스트·세럼·토너·앰플",
     "subclass":"앰플",
@@ -295,7 +295,7 @@ const itemData = [
     "images":"../assets/product/ampoule/04.png"
   },
   {
-    "id":4,
+    "id":21,
     "name":"화이트 트러플 프레스티지 워터리 오일",
     "class":"미스트·세럼·토너·앰플",
     "subclass":"앰플",
@@ -310,7 +310,7 @@ const itemData = [
 
   // 선크림 --------------------------------------------------------
   {
-    "id":0,
+    "id":22,
     "name":"워터풀 톤업 선크림",
     "class":"선크림",
     "subclass":"",
@@ -323,7 +323,7 @@ const itemData = [
     "images":"../assets/product/suncream/01.png"
   },
   {
-    "id":1,
+    "id":23,
     "name":"워터풀 에센스 선크림",
     "class":"선크림",
     "subclass":"",
@@ -336,7 +336,7 @@ const itemData = [
     "images":"../assets/product/suncream/02.png"
   },
   {
-    "id":2,
+    "id":24,
     "name":"워터풀 마일드 선크림",
     "class":"선크림",
     "subclass":"",
@@ -349,7 +349,7 @@ const itemData = [
     "images":"../assets/product/suncream/03.png"
   },
   {
-    "id":3,
+    "id":25,
     "name":"워터풀 톤업 선쿠션",
     "class":"선크림",
     "subclass":"",
@@ -362,7 +362,7 @@ const itemData = [
     "images":"../assets/product/suncream/04.png"
   },
   {
-    "id":4,
+    "id":26,
     "name":"워터풀 프레쉬 선쿠션",
     "class":"선크림",
     "subclass":"",
@@ -375,7 +375,7 @@ const itemData = [
     "images":"../assets/product/suncream/05.png"
   },
   {
-    "id":5,
+    "id":27,
     "name":"에어 핏 프레쉬 선 스틱",
     "class":"선크림",
     "subclass":"",
@@ -388,7 +388,7 @@ const itemData = [
     "images":"../assets/product/suncream/06.png"
   },
   {
-    "id":6,
+    "id":28,
     "name":"화이트 트러플 리페어 선세럼",
     "class":"선크림",
     "subclass":"",
@@ -401,7 +401,7 @@ const itemData = [
     "images":"../assets/product/suncream/07.png"
   },
   {
-    "id":7,
+    "id":29,
     "name":"모이스트 프레쉬 선 미스트",
     "class":"선크림",
     "subclass":"",
@@ -416,7 +416,7 @@ const itemData = [
 
   // 크림 --------------------------------------------------------
   {
-    "id":0,
+    "id":30,
     "name":"화이트 트러플 더블 모이스처 크림",
     "class":"로션·크림·밤",
     "subclass":"크림",
@@ -429,7 +429,7 @@ const itemData = [
     "images":"../assets/product/cream/01.png"
   },
   {
-    "id":1,
+    "id":31,
     "name":"화이트 트러플 바이탈 모이스처라이징 크림",
     "class":"로션·크림·밤",
     "subclass":"크림",
@@ -442,7 +442,7 @@ const itemData = [
     "images":"../assets/product/cream/02.png"
   },
   {
-    "id":2,
+    "id":32,
     "name":"달바 화이트 트러플 모이스처라이징 크림",
     "class":"로션·크림·밤",
     "subclass":"크림",
@@ -455,7 +455,7 @@ const itemData = [
     "images":"../assets/product/cream/03.png"
   },
   {
-    "id":3,
+    "id":33,
     "name":"화이트 트러플 엑스트라 퍼밍크림",
     "class":"로션·크림·밤",
     "subclass":"크림",
@@ -468,7 +468,7 @@ const itemData = [
     "images":"../assets/product/cream/04.png"
   },
   {
-    "id":4,
+    "id":34,
     "name":"엑스트라 인텐시브 아이크림",
     "class":"로션·크림·밤",
     "subclass":"크림",
@@ -481,7 +481,7 @@ const itemData = [
     "images":"../assets/product/cream/05.png"
   },
   {
-    "id":5,
+    "id":35,
     "name":"화이트 트러플 엑스트라 너리싱 크림",
     "class":"로션·크림·밤",
     "subclass":"크림",
@@ -494,7 +494,7 @@ const itemData = [
     "images":"../assets/product/cream/06.png"
   },
   {
-    "id":6,
+    "id":36,
     "name":"화이트 트러플 로얄 누트리티브 크림",
     "class":"로션·크림·밤",
     "subclass":"크림",
@@ -507,7 +507,7 @@ const itemData = [
     "images":"../assets/product/cream/07.png"
   },
   {
-    "id":7,
+    "id":37,
     "name":"화이트 트러플 인텐시브 너리싱 크림",
     "class":"로션·크림·밤",
     "subclass":"크림",
@@ -520,7 +520,7 @@ const itemData = [
     "images":"../assets/product/cream/08.png"
   },
   {
-    "id":8,
+    "id":38,
     "name":"앰플 밤 화이트 트러플 안티 링클 크림",
     "class":"로션·크림·밤",
     "subclass":"크림",
@@ -533,7 +533,7 @@ const itemData = [
     "images":"../assets/product/cream/09.png"
   },
   {
-    "id":9,
+    "id":39,
     "name":"화이트 트러플 올인원 더블 크림",
     "class":"로션·크림·밤",
     "subclass":"크림",
@@ -546,7 +546,7 @@ const itemData = [
     "images":"../assets/product/cream/10.png"
   },
   {
-    "id":10,
+    "id":40,
     "name":"인텐시브 보르피린 그라인딩 크림",
     "class":"로션·크림·밤",
     "subclass":"크림",
@@ -559,7 +559,7 @@ const itemData = [
     "images":"../assets/product/cream/11.png"
   },
   {
-    "id":11,
+    "id":41,
     "name":"화이트 트러플 더블 세럼 앤 크림 1제(아쿠아세럼)",
     "class":"로션·크림·밤",
     "subclass":"크림",
@@ -572,7 +572,7 @@ const itemData = [
     "images":"../assets/product/cream/12.png"
   },
   {
-    "id":12,
+    "id":42,
     "name":"화이트 트러플 더블 세럼 앤 크림",
     "class":"로션·크림·밤",
     "subclass":"크림",
@@ -585,7 +585,7 @@ const itemData = [
     "images":"../assets/product/cream/13.png"
   },
   {
-    "id":13,
+    "id":43,
     "name":"마일드 스킨 밸런싱 비건 크림",
     "class":"로션·크림·밤",
     "subclass":"크림",
@@ -600,7 +600,7 @@ const itemData = [
 
   // 밤 --------------------------------------------------------
   {
-    "id":0,
+    "id":44,
     "name":"에이지리스 링클 코렉팅 멀티밤",
     "class":"로션·크림·밤",
     "subclass":"밤",
@@ -613,7 +613,7 @@ const itemData = [
     "images":"../assets/product/balm/01.png"
   },
   {
-    "id":1,
+    "id":45,
     "name":"더블 세럼 올인원 멀티밤",
     "class":"로션·크림·밤",
     "subclass":"밤",
@@ -625,4 +625,203 @@ const itemData = [
     "star":"4.9",
     "images":"../assets/product/balm/02.png"
   },
+
+  // 마스크 --------------------------------------------------------
+  {
+    "id":46,
+    "name":"워터풀 비건 슬리핑팩 스틱 타입",
+    "class":"마스크",
+    "subclass":"",
+    "option":"",
+    "price":24000,
+    "capacity":["4ml*12ea"],
+    "tag":["비건","수분보습","진정","저자극","주름","윤기","페이셜"],
+    "review":11937,
+    "star":"4.9",
+    "images":"../assets/product/mask/01.png"
+  },
+  {
+    "id":47,
+    "name":"화이트 트러플 너리싱 트리트먼트 마스크",
+    "class":"마스크",
+    "subclass":"",
+    "option":"",
+    "price":25000,
+    "capacity":["25ml"],
+    "tag":["고영양","수분보습","스킨핏"],
+    "review":19652,
+    "star":"4.9",
+    "images":"../assets/product/mask/02.png"
+  },
+  {
+    "id":48,
+    "name":"워터풀 트러플 더블 마스크팩(진정/보습)",
+    "class":"마스크",
+    "subclass":"",
+    "option":"",
+    "price":30000,
+    "capacity":["34.5g"],
+    "tag":["비건","수분보습","진정","저자극","페이셜"],
+    "review":4401,
+    "star":4.9,
+    "images":"../assets/product/mask/03.png"
+  },
+  {
+    "id":49,
+    "name":"인센시브 리프텐션 마스크",
+    "class":"마스크",
+    "subclass":"",
+    "option":"",
+    "price":32000,
+    "capacity":["35g*4ea"],
+    "tag":["비건","수분보습","저자극","영양탄력","페이셜"],
+    "review":0,
+    "star":"0.0",
+    "images":"../assets/product/mask/04.png"
+  },
+  {
+    "id":50,
+    "name":"워터풀 비건 슬리핑팩 스파우트 타입",
+    "class":"마스크",
+    "subclass":"",
+    "option":"",
+    "price":28000,
+    "capacity":["60ml"],
+    "tag":["비건","수분보습","진정","저자극","주름","윤기","페이셜"],
+    "review":1560,
+    "star":"4.9",
+    "images":"../assets/product/mask/05.png"
+  },
+  {
+    "id":51,
+    "name":"화이트 트러플 인텐시브 더 리얼 아이패치",
+    "class":"마스크",
+    "subclass":"",
+    "option":"",
+    "price":78000,
+    "capacity":["90g(68ea)"],
+    "tag":["비건","수분","주름","저자극","페이셜","아이갤패치","눈가주름"],
+    "review":1,
+    "star":"5.0",
+    "images":"../assets/product/mask/06.png"
+  },
+  {
+    "id":52,
+    "name":"화이트 트러플 슬리핑 마스크",
+    "class":"마스크",
+    "subclass":"",
+    "option":"",
+    "price":28000,
+    "capacity":["60ml"],
+    "tag":["비건","수분보습","진정","저자극","주름","윤기","페이셜"],
+    "review":0,
+    "star":"0.0",
+    "images":"../assets/product/mask/07.png"
+  },
+  {
+    "id":53,
+    "name":"화이트 트러플 더블 마스크팩(영양/보습)",
+    "class":"마스크",
+    "subclass":"",
+    "option":"",
+    "price":30000,
+    "capacity":["34.5g"],
+    "tag":["비건","수분보습","저자극","영양탄력","페이셜"],
+    "review":1277,
+    "star":"4.9",
+    "images":"../assets/product/mask/08.png"
+  },
+
+    // 클렌징 --------------------------------------------------------
+    {
+      "id":54,
+      "name":"화이트 트러플 리턴 오일 크림 클렌저",
+      "class":"클렌징",
+      "subclass":"",
+      "option":"",
+      "price":38000,
+      "capacity":["150ml","60ml"],
+      "tag":["수분보습","저자극","영양탄력","모공각질","페이셜"],
+      "review":9363,
+      "star":"4.9",
+      "images":"../assets/product/cleanser/01.png"
+    },
+    {
+      "id":55,
+      "name":"화이트 트러플 딥 클린 폼 클렌저",
+      "class":"클렌징",
+      "subclass":"",
+      "option":"",
+      "price":28000,
+      "capacity":["80ml"],
+      "tag":["비건","수분보습","저자극","모공각질","페이셜"],
+      "review":3509,
+      "star":"4.9",
+      "images":"../assets/product/cleanser/02.png"
+    },
+    {
+      "id":56,
+      "name":"마일드 스킨 밸런싱 비건 클렌저",
+      "class":"클렌징",
+      "subclass":"",
+      "option":"",
+      "price":39000,
+      "capacity":["200ml"],
+      "tag":["비건","민감성","산뜻세안","미산성"],
+      "review":211,
+      "star":"4.9",
+      "images":"../assets/product/cleanser/03.png"
+    },
+    {
+      "id":57,
+      "name":"백투데이즈 클린 밤",
+      "class":"클렌징",
+      "subclass":"",
+      "option":"",
+      "price":22000,
+      "capacity":["30ml"],
+      "tag":["저자극","모공각질","페이셜"],
+      "review":0,
+      "star":"0.0",
+      "images":"../assets/product/cleanser/04.png"
+    },
+    {
+      "id":58,
+      "name":"화이트 트러플 퓨리파잉 젤 클렌저",
+      "class":"클렌징",
+      "subclass":"",
+      "option":"",
+      "price":42000,
+      "capacity":["80ml"],
+      "tag":["비건","수분보습","저자극","모공각질","페이셜"],
+      "review":0,
+      "star":"0.0",
+      "images":"../assets/product/cleanser/05.png"
+    },
+    {
+      "id":59,
+      "name":"데일리 마일드 시카 카밍 패드",
+      "class":"클렌징",
+      "subclass":"",
+      "option":"",
+      "price":32000,
+      "capacity":["50pad"],
+      "tag":["수분보습","진정","저자극","모공각질","페이셜"],
+      "review":1,
+      "star":"4.0",
+      "images":"../assets/product/cleanser/06.png"
+    },
+    {
+      "id":60,
+      "name":"데일리 마일드 클린 앤 필링 패드",
+      "class":"클렌징",
+      "subclass":"",
+      "option":"",
+      "price":32000,
+      "capacity":["50pad"],
+      "tag":["수분보습","진정","저자극","모공각질","페이셜"],
+      "review":0,
+      "star":"0.0",
+      "images":"../assets/product/cleanser/07.png"
+    },
 ];
