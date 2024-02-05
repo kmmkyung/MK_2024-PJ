@@ -36,20 +36,20 @@ window.addEventListener('DOMContentLoaded',function(){
     const sectionBg5 = document.querySelector('.section-5')
     let link = './assets/images/'
     if(window.innerWidth<=900){
-      bannerBg1.setAttribute('style', `background-image: url(${link}mobile_section-1-1.jpg)`)
-      bannerBg2.setAttribute('style', `background-image: url(${link}mobile_section-1-2.jpg)`)
-      bannerBg3.setAttribute('style', `background-image: url(${link}mobile_section-1-3.jpg)`)
-      bannerBg4.setAttribute('style', `background-image: url(${link}mobile_section-1-4.jpg)`)
-      sectionBg4.setAttribute('style', `background-image: url(${link}mobile_section-4.jpg)`)
-      sectionBg5.setAttribute('style', `background-image: url(${link}mobile_section-5.jpg)`)
+      // bannerBg1.setAttribute('style', `background-image: url(${link}mobile_section-1-1.jpg)`)
+      bannerBg2.style.backgroundImage='url(./assets/images/mobile_section-1-2.jpg)'
+      bannerBg3.style.backgroundImage='url(./assets/images/mobile_section-1-3.jpg)'
+      // bannerBg4.style.backgroundImage='url(./assets/images/mobile_section-1-4.jpg)'
+      // sectionBg4.style.backgroundImage='url(./assets/images/mobile_section-4.jpg)'
+      // sectionBg5.style.backgroundImage='url(./assets/images/mobile_section-5.jpg)'
     }
     if(window.innerWidth>900){
-      bannerBg1.setAttribute('style', `background-image: url(${link}section-1-1.jpg)`)
-      bannerBg2.setAttribute('style', `background-image: url(${link}section-1-2.jpg)`)
-      bannerBg3.setAttribute('style', `background-image: url(${link}section-1-3.jpg)`)
-      bannerBg4.setAttribute('style', `background-image: url(${link}section-1-4.jpg)`)
-      sectionBg4.setAttribute('style', `background-image: url(${link}section-4.jpg)`)
-      sectionBg5.setAttribute('style', `background-image: url(${link}section-5.jpg)`)
+      // bannerBg1.setAttribute('style', `background-image: url(${link}section-1-1.jpg)`)
+      bannerBg2.style.backgroundImage='url(./assets/images/section-1-2.jpg)'
+      bannerBg3.style.backgroundImage='url(./assets/images/section-1-3.jpg)'
+      // bannerBg4.style.backgroundImage='url(./assets/images/section-1-4.jpg)'
+      // sectionBg4.style.backgroundImage='url(./assets/images/section-4.jpg)'
+      // sectionBg5.style.backgroundImage='url(./assets/images/section-5.jpg)'
     }
   }
 
