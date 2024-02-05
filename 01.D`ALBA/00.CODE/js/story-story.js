@@ -1,7 +1,8 @@
 window.addEventListener('DOMContentLoaded',function(){
 
   // 배경화면
-  window.addEventListener('resize',function(){
+
+  function sizeBg(){
     const section1 = document.querySelector('.section-1')
     const section2 = document.querySelector('.section-2')
     const section3 = document.querySelector('.section-3')
@@ -25,6 +26,13 @@ window.addEventListener('DOMContentLoaded',function(){
       section7.style.backgroundImage='url(./assets/images/story-7.jpg)'
       section8.style.backgroundImage='url(./assets/images/story-8.jpg)'
     }
+  }
+
+  window.addEventListener('load',function(){
+    sizeBg()
+  })
+  window.addEventListener('resize',function(){
+    sizeBg()
   })
 
 

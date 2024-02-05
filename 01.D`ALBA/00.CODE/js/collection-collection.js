@@ -7,9 +7,8 @@ window.addEventListener('DOMContentLoaded',function(){
   arrowLeft.innerHTML = svgData.arrowLeft_w
   arrowRight.innerHTML = svgData.arrowRight_w
 
-
   // 배경화면
-  window.addEventListener('resize',function(){
+  function sizeBg(){
     const section1 = document.querySelector('.section-1')
     const section2 = document.querySelector('.section-2')
     const section3 = document.querySelector('.section-3')
@@ -27,6 +26,12 @@ window.addEventListener('DOMContentLoaded',function(){
       section3.src='./assets/images/collection-moisture.jpg'
       section4.src='./assets/images/collection-relax.jpg'
     }
+  }
+  window.addEventListener('load',function(){
+    sizeBg()
+  })
+  window.addEventListener('resize',function(){
+    sizeBg()
   })
 
   // collection-bg__slide
