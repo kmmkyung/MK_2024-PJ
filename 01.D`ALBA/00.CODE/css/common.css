@@ -128,7 +128,7 @@
 }
 
 .header-menu .menu-list:first-child{
-  margin-top: 100px;
+  /* margin-top: 100px; */
 }
 
 .header-menu .menu-list:last-child{
@@ -141,10 +141,10 @@
 }
 
 .header-menu .menu-item a{
-  font-size: var(--font-size-S);
+  font-size: var(--font-size-SubMenu);
   opacity: 0.8;
   cursor: pointer;
-  margin: 20px 0;
+  padding: 10px 0;
   display: block;
 }
 
@@ -165,7 +165,8 @@
   display: block;
   color: var(--white);
   font-size: var(--font-size-XL);
-  margin: 20px 0;
+  padding: 10px 0;
+  cursor: pointer;
 }
 
 .header-menu.whiteOn .menu-etc a{

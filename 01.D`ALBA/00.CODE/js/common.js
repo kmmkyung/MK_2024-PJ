@@ -42,14 +42,18 @@ window.addEventListener('DOMContentLoaded',function(){
   // 메뉴 누르면 메뉴 닫힘
   let click = [0,0,0];
   const menuTitle = document.querySelectorAll('.header-menu .menu-list')
-  const menuItemBox = document.querySelectorAll('.header-menu .menu-list ol')
-  
+  const menuItemBox = document.querySelectorAll('.header-menu .menu-list>ol')
+
+  menuItemBox.forEach(function(ele,idx){
+    let eleH = ele.scrollHeight
+    ele.style.height = eleH+'px'
+  })
+
   menuTitle.forEach(function(ele,idx){
-    menuItemBox[idx].style.height=menuItemBox[idx].scrollHeight+'px'
     ele.addEventListener('click',function(){
       click[idx]++;
       if(click[idx]%2==1){
-        menuItemBox[idx].style.height = 0 
+        menuItemBox[idx].style.height = 0
       }
       if(click[idx]%2==0){
         menuItemBox[idx].style.height=menuItemBox[idx].scrollHeight+'px'

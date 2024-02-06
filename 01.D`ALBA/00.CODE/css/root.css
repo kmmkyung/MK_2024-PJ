@@ -21,7 +21,7 @@ body{
 }
 
 * {
-  /* outline: 1px dotted turquoise; */
+  outline: 1px dotted turquoise;
   /* outline: 1px dotted tomato; */
 }
 
@@ -41,6 +41,7 @@ body{
   --font-size-L: 2.8rem;
   --font-size-XL: 3.6rem;
   --font-size-Menu: 6rem;
+  --font-size-SubMenu: 1.5rem;
   --font-size-Title: 6.5rem;
   --font-size-Content: 5.2rem;
 }
