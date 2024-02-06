@@ -44,7 +44,7 @@ window.addEventListener('DOMContentLoaded',function(){
   const menuTitle = document.querySelectorAll('.header-menu .menu-list')
   const menuItemBox = document.querySelectorAll('.header-menu .menu-list>ol')
 
-  menuItemBox.forEach(function(ele,idx){
+  menuItemBox.forEach(function(ele){
     let eleH = ele.scrollHeight
     ele.style.height = eleH+'px'
   })
