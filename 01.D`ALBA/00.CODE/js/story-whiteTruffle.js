@@ -37,7 +37,8 @@ window.addEventListener('DOMContentLoaded',function(){
 
   const sectionWrap = document.querySelector('.section-wrap')
   const sections = document.querySelectorAll('.section')
-  // const moveElements = document.querySelectorAll('.moveElements')
+  const moveElements = document.querySelectorAll('.moveElements')
+  const moveBar = document.querySelectorAll('.moveBar')
   let windowWidth 
   let sectionWrapWidth
 
@@ -60,21 +61,67 @@ window.addEventListener('DOMContentLoaded',function(){
       },
       onInit:onResize
     });
-  })
-
-  moveElements.forEach((ele)=>{
-    gsap.from(ele,{
-      xPercent: 15,
-      duration: 2,
-      opacity: 0,
-      ease: 'none',
-      scrollTrigger:{
-        trigger: ele.parentNode.parentNode.parentNode,
-        containerAnimation:timeline,
-        scrub:1,
-        start: 'left center',
-        end: 'right bottom'
-      }
+    moveElements.forEach((ele)=>{
+      gsap.from(ele,{
+        xPercent: 15,
+        duration: 2,
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger:{
+          trigger: ele.parentNode.parentNode.parentNode,
+          containerAnimation:timeline,
+          scrub:1,
+          start: 'left center',
+          end: 'right bottom'
+        }
+      })
     })
-  })
+    moveBar.forEach((ele)=>{
+      gsap.from(ele,{
+        duration: 5,
+        opacity: 0,
+        height: 1,
+        ease: 'none',
+        scrollTrigger:{
+          trigger: ele.parentNode.parentNode.parentNode,
+          containerAnimation:timeline,
+          scrub:1,
+          start: 'left center',
+          end: 'right bottom'
+        }
+      })
+    })
+  });
+
+  gsapMatchMedia.add("(max-width: 900px)",function(){      
+    // moveElements
+    moveElements.forEach((ele)=>{
+      gsap.from(ele,{
+        duration: 2,
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger:{
+          trigger: ele.parentNode.parentNode.parentNode,
+          scrub:1,
+          start: 'left center',
+          end: 'right bottom'
+        }
+      })
+    })
+    moveBar.forEach((ele)=>{
+      gsap.from(ele,{
+        duration: 5,
+        autoAlpha: 0,
+        height: 1,
+        ease: 'none',
+        scrollTrigger:{
+          trigger: ele.parentNode.parentNode.parentNode.parentNode,
+          scrub:1,
+          start: 'left center',
+          end: 'right bottom'
+        }
+      })
+    })
+  });
+
 })

@@ -214,19 +214,30 @@ body{
 #section-6{
   width: 100%;
   height: 100vh;
-  /* background-image: url(../assets/images/story-whiteTruffle-6.jpg); */
+  background-image: url(../assets/images/story-whiteTruffle-6.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.section-6-content{
+.section-6-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 100%;
   position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-bottom: 20px;
+}
+
+.section-6-content::after{
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: var(--main);
+  position: absolute;
+  bottom: 0;
 }
 
 .section-6-left{
@@ -256,21 +267,14 @@ body{
   margin-right: 20px;
 }
 
-.section-6-right::after{
-  content: '';
-  width: 100%;
-  height: 1px;
-  background-color: var(--main);
-  position: absolute;
-  right: 0;
-}
-
 .section-6-right ul{
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
   gap: 5vw;
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  right: 20px;
 }
 
 .section-6-right ul li{
@@ -282,15 +286,6 @@ body{
   position: relative;
 }
 
-.section-6-right .firstBar::before{
-  content: "340%";
-  width: 100%;
-  font-size: var(--font-size-XL);
-  text-align: center;
-  display: block;
-  margin-bottom: 10px;
-}
-
 .section-6-right .firstBar::after{
   content: "피부 탄력 개선";
   width: 100%;
@@ -298,15 +293,6 @@ body{
   text-align: center;
   position: absolute;
   margin-top: 10px;
-}
-
-.section-6-right .secondBar::before{
-  content: "569%";
-  width: 100%;
-  font-size: var(--font-size-XL);
-  text-align: center;
-  display: block;
-  margin-bottom: 10px;
 }
 
 .section-6-right .secondBar::after{
@@ -327,6 +313,17 @@ body{
   position: relative;
 }
 
+
+.section-6-right .firstBar span::before{
+  content: "340%";
+  width: 100%;
+  font-size: var(--font-size-XL);
+  text-align: center;
+  position: absolute;
+  top: 0;
+  transform: translateY(-100%);
+}
+
 .section-6-right .secondBar span{
   height: 400px;
   display: block;
@@ -334,6 +331,17 @@ body{
   background-color: var(--main);
   margin: 0 auto;
 }
+
+.section-6-right .secondBar span::before{
+  content: "569%";
+  width: 100%;
+  font-size: var(--font-size-XL);
+  text-align: center;
+  position: absolute;
+  top: 0;
+  transform: translateY(-100%);
+}
+
 
 .section-6-right ul li p{
   font-size: var(--font-size-XS);
@@ -441,13 +449,22 @@ body{
     font-size: var(--font-size-XS);
   }
 }
+
 @media screen and (max-width:900px){
+  .section-wrap{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+  
   .title{
     font-size: var(--font-size-XL);
   }
 
   /* section-1 */
   .section-1-content{
+    width: 100%;
     left: 50%;
     transform: translate(-50%,-50%);
   }
@@ -525,14 +542,23 @@ body{
 
 /* section-6 */
   .section-6-content {
-    flex-direction: column;
-    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 0;
+  }
+
+  .section-6-content::after{
+    display: none;
   }
 
   .section-6-left {
+    margin-top: 60px;
+    display: inline-block;
     margin-left: 0;
     width: 100%;
     text-align: center;
+    position: absolute;
+    top: 0;
   }
 
   .section-6-left .subTitle,
@@ -540,22 +566,41 @@ body{
     display: none;
   }
 
+  .section-6-left p {
+    margin-top: 0px;
+  }
+
+  .section-6-left p>span:first-child {
+    margin-top: 0;
+  }
 
   .section-6-right {
     width: 100%;
     margin-right: 0;
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 60px;
+  }
+
+  .section-6-right::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--main);
   }
 
   .section-6-right .firstBar span {
-    height: min(10vw,100px);
+    height: min(25vw,150px);
   }
 
   .section-6-right .secondBar span {
-    height: min(20vw,200px);
+    height: min(35vw,250px);
   }
 
   .section-6-right ul {
     justify-content: space-around;
+    position: static;
   }
 
 /* section-7 */
@@ -571,6 +616,6 @@ body{
 
 /* section-8 */
   .section-8-content {
-    width: 100%;
+    width: 80%;
   }
 }
