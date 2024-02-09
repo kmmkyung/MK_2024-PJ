@@ -37,6 +37,7 @@ window.addEventListener('DOMContentLoaded',function(){
 
   const sectionWrap = document.querySelector('.section-wrap')
   const sections = document.querySelectorAll('.section')
+  const section3 = document.querySelector('.section-3')
   const moveElements = document.querySelectorAll('.moveElements')
   const moveBar = document.querySelectorAll('.moveBar')
   let windowWidth 
@@ -61,6 +62,14 @@ window.addEventListener('DOMContentLoaded',function(){
       },
       onInit:onResize
     });
+    gsap.to(section3,{
+      backgroundColor:"#323927",
+      scrollTrigger:{
+        trigger: section3,
+        containerAnimation:timeline,
+        scrub:1,
+      }
+    })
     moveElements.forEach((ele)=>{
       gsap.from(ele,{
         xPercent: 15,
@@ -107,6 +116,13 @@ window.addEventListener('DOMContentLoaded',function(){
           end: 'right bottom'
         }
       })
+    })
+    gsap.to(section3,{
+      backgroundColor:"#323927",
+      scrollTrigger:{
+        trigger: section3,
+        scrub:1,
+      }
     })
     moveBar.forEach((ele)=>{
       gsap.from(ele,{
