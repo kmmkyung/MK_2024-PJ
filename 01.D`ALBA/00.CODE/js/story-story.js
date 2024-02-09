@@ -35,9 +35,6 @@ window.addEventListener('DOMContentLoaded',function(){
     sizeBg()
   })
 
-
-
-  
   const sectionWrap = document.querySelector('.section-wrap')
   const sections = document.querySelectorAll('.section')
   const moveElements = document.querySelectorAll('.moveElements')
@@ -54,86 +51,86 @@ window.addEventListener('DOMContentLoaded',function(){
 
   let gsapMatchMedia = gsap.matchMedia();
   gsapMatchMedia.add("(min-width: 900px)",function(){      
-      let timeline = gsap.to(sections,{
-        x : ()=> -(sectionWrapWidth - windowWidth) + "px",        
-        ease:'none',
-        scrollTrigger:{
-          trigger: sectionWrap,
-          invalidateOnRefresh: true,
-          pin: true,
-          scrub: 1,
-          end: () => sectionWrapWidth,
-        },
-        onInit:onResize
-      });
-      
-      // moveElements
-      moveElements.forEach((ele)=>{
-        gsap.from(ele,{
-          xPercent: 15,
-          duration: 2,
-          opacity: 0,
-          ease: 'none',
-          scrollTrigger:{
-            trigger: ele.parentNode.parentNode.parentNode,
-            containerAnimation:timeline,
-            scrub:1,
-            start: 'left center',
-            end: 'right bottom'
-          }
-        })
-      })
+    let timeline = gsap.to(sections,{
+      x : ()=> -(sectionWrapWidth - windowWidth) + "px",        
+      ease:'none',
+      scrollTrigger:{
+        trigger: sectionWrap,
+        invalidateOnRefresh: true,
+        pin: true,
+        scrub: 1,
+        end: () => sectionWrapWidth,
+      },
+      onInit:onResize
+    });
     
-      // section-5 img
-      section5Imgs.forEach((ele)=>{
-        gsap.from(ele,{
-          xPercent: 15,
-          duration: 0.5,
-          opacity: 0,
-          ease: 'none',
-          scrollTrigger:{
-            trigger: ele,
-            containerAnimation:timeline,
-            scrub: 0.5,
-            start: 'left center',
-            end: 'center bottom'
-          }
-        })
+    // moveElements
+    moveElements.forEach((ele)=>{
+      gsap.from(ele,{
+        xPercent: 15,
+        duration: 2,
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger:{
+          trigger: ele.parentNode.parentNode.parentNode,
+          containerAnimation:timeline,
+          scrub:1,
+          start: 'left center',
+          end: 'right bottom'
+        }
       })
     })
+    
+    // section-5 img
+    section5Imgs.forEach((ele)=>{
+      gsap.from(ele,{
+        xPercent: 15,
+        duration: 0.5,
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger:{
+          trigger: ele,
+          containerAnimation:timeline,
+          scrub: 0.5,
+          start: 'left center',
+          end: 'center bottom'
+        }
+      })
+    })
+  })
 
   gsapMatchMedia.add("(max-width: 900px)",function(){      
-      // moveElements
-      moveElements.forEach((ele)=>{
-        gsap.from(ele,{
-          duration: 2,
-          opacity: 0,
-          ease: 'none',
-          scrollTrigger:{
-            trigger: ele.parentNode.parentNode.parentNode,
-            scrub:1,
-            start: 'left center',
-            end: 'right bottom'
-          }
-        })
-      })
-    
-      // section-5 img
-      section5Imgs.forEach((ele)=>{
-        gsap.from(ele,{
-          xPercent: 15,
-          duration: 0.5,
-          opacity: 0,
-          ease: 'none',
-          scrollTrigger:{
-            trigger: ele,
-            scrub: 0.5,
-            start: 'left center',
-            end: 'center bottom'
-          }
-        })
+    // moveElements
+    moveElements.forEach((ele)=>{
+      gsap.from(ele,{
+        duration: 2,
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger:{
+          trigger: ele.parentNode.parentNode.parentNode,
+          scrub:1,
+          start: 'left center',
+          end: 'right bottom'
+        }
       })
     })
+    
+    // section-5 img
+    section5Imgs.forEach((ele)=>{
+      gsap.from(ele,{
+        xPercent: 15,
+        duration: 0.5,
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger:{
+          trigger: ele,
+          scrub: 0.5,
+          start: 'left center',
+          end: 'center bottom'
+        }
+      })
+    })
+  })
 
     
 })
