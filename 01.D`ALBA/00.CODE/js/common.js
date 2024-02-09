@@ -37,7 +37,6 @@ window.addEventListener('DOMContentLoaded',function(){
       location.href=locationHrefData[idx]
     })
   })
-  
 
   // 메뉴 누르면 메뉴 닫힘
   let click = [0,0,0];
@@ -110,12 +109,15 @@ window.addEventListener('DOMContentLoaded',function(){
 
 
   // search 버튼
-  const headerEtcSearchButton = document.querySelector('.header-etc__searchButton');
+  const headerEtcSearchButton = document.querySelectorAll('.header-etc__searchButton');
   const headerSearch = document.querySelector('.header-search');
   const searchContentCloseButton = document.querySelector('.search-content__closeButton');
-  headerEtcSearchButton.addEventListener('click',function(){
-    headerSearch.classList.add('on');
+  headerEtcSearchButton.forEach(function(ele){
+    ele.addEventListener('click',function(){
+      headerSearch.classList.add('on');
+    })
   })
+
   searchContentCloseButton.addEventListener('click',function(){
     headerSearch.classList.remove('on');
   })
