@@ -85,26 +85,26 @@ const svgData = {
     `,
   ],
   arrowLeft_w: [
-    `
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g transform="translate(-510.000000, -406.000000)">
-            <g id="Group-3" transform="translate(508.000000, 128.000000)">
-                <g id="Group-39" transform="translate(0.000000, 48.000000)">
-                    <g id="Group" transform="translate(0.000000, 228.000000)">
-                        <g id="Combined-Shape-2" transform="translate(12.000000, 12.000000) scale(-1, 1) translate(-12.000000, -12.000000) translate(2.000000, 2.000000)">
-                            <path d="M10,0 C15.5228475,0 20,4.4771525 20,10 C20,15.5228475 15.5228475,20 10,20 C4.4771525,20 0,15.5228475 0,10 C0,4.4771525 4.4771525,0 10,0 Z M8.69863097,6 L8,6.64968243 L11.6028436,10 L8,13.3503176 L8.69863097,14 L13,10 L8.69863097,6 Z" id="Combined-Shape"></path>
-                        </g>
-                    </g>
-                </g>
-            </g>
-        </g>
-    </g>
-</svg>
+  `
+  <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g transform="translate(-510.000000, -406.000000)">
+              <g id="Group-3" transform="translate(508.000000, 128.000000)">
+                  <g id="Group-39" transform="translate(0.000000, 48.000000)">
+                      <g id="Group" transform="translate(0.000000, 228.000000)">
+                          <g id="Combined-Shape-2" transform="translate(12.000000, 12.000000) scale(-1, 1) translate(-12.000000, -12.000000) translate(2.000000, 2.000000)">
+                              <path d="M10,0 C15.5228475,0 20,4.4771525 20,10 C20,15.5228475 15.5228475,20 10,20 C4.4771525,20 0,15.5228475 0,10 C0,4.4771525 4.4771525,0 10,0 Z M8.69863097,6 L8,6.64968243 L11.6028436,10 L8,13.3503176 L8.69863097,14 L13,10 L8.69863097,6 Z" id="Combined-Shape"></path>
+                          </g>
+                      </g>
+                  </g>
+              </g>
+          </g>
+      </g>
+  </svg>
     `,
   ],
   arrowRight_w: [
-    `
+  `
     <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g transform="translate(-911.000000, -406.000000)">
@@ -124,6 +124,80 @@ const svgData = {
     </svg>
     `,
   ],
+  icon_menu:[
+    `
+    <?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="4.Icons/Etc./menu" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Group-6" transform="translate(5.000000, 7.000000)" stroke="#ffffff" stroke-width="1.2">
+            <line x1="-2.84147705e-14" y1="0.5" x2="15" y2="0.5" id="Line"></line>
+            <line x1="-2.84147705e-14" y1="5.5" x2="15" y2="5.5" id="Line-Copy"></line>
+            <line x1="3.97910871e-13" y1="10.5" x2="15" y2="10.5" id="Line-Copy-2"></line>
+        </g>
+    </g>
+</svg>
+    `
+  ],
+  icon_wish:[
+    `
+    <?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="4.Icons/Etc./wish" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <polygon id="Stroke-1" stroke="#ffffff" points="12 3 14.4932967 9.03142151 21 9.53894172 16.0343332 13.7739641 17.5623612 20.119098 12 16.7051196 6.43763878 20.119098 7.96566676 13.7739641 3 9.53894172 9.50670326 9.03142151"></polygon>
+    </g>
+</svg>
+    `
+  ],
+  icon_myPage:[
+    `
+    <?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="4.Icons/mypage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Group" transform="translate(4.000000, 4.000000)" stroke="#ffffff">
+            <path d="M11,3 C11,4.6572 9.65699726,6 8,6 C6.34339475,6 5,4.6572 5,3 C5,1.3428 6.34339475,0 8,0 C9.65699726,0 11,1.3428 11,3 Z" id="Stroke-1"></path>
+            <path d="M8,8 C3.58177778,8 0,11.5815 0,16 L16,16 C16,11.5815 12.4182222,8 8,8 Z" id="Stroke-3"></path>
+        </g>
+    </g>
+</svg>
+    `
+  ],
+  icon_search:[
+    `
+    <?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="4.Icons/search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Group-5" transform="translate(4.000000, 4.000000)" stroke="#ffffff">
+            <path d="M13.7913601,6.89568007 C13.7913601,10.704169 10.704169,13.790899 6.89568007,13.790899 C3.08765236,13.790899 0,10.704169 0,6.89568007 C0,3.08719117 3.08765236,0 6.89568007,0 C10.704169,0 13.7913601,3.08719117 13.7913601,6.89568007 Z" id="Stroke-1"></path>
+            <line x1="11.7566465" y1="11.7562471" x2="15.3821565" y2="15.3821565" id="Stroke-3"></line>
+        </g>
+    </g>
+</svg>
+    `
+  ],
+  icon_cart:[
+    `
+    <?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="4.Icons/cart" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <g id="Group" transform="translate(3.000000, 3.000000)" stroke="#ffffff">
+            <path d="M13,8 L13,3.35076923 C13,1.50030769 11.4330721,0 9.49971726,0 C7.56692786,0 6,1.50030769 6,3.35076923 L6,8" id="Stroke-5" stroke-linecap="round"></path>
+            <polygon id="Rectangle" points="0 6.12639606 19 6.12639606 17.0844755 16.6819516 1.91552449 16.6819516"></polygon>
+        </g>
+    </g>
+</svg>
+    `
+  ],
+  icon_close:[
+    `
+    <?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="4.Icons/Etc./close" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="6" y1="6" x2="18" y2="18" id="Path-5" stroke="#ffffff"></line>
+        <line x1="6" y1="18" x2="18" y2="6" id="Path-6" stroke="#ffffff"></line>
+    </g>
+</svg>
+    `
+  ]
 };
 
 export default svgData;

@@ -1,11 +1,3 @@
-#header .header-logo svg g{
-  fill: black;
-}
-
-.header-left__menu li a{
-  color: var(--black);
-}
-
 /* section-1 */
 .section-1{
   width: 100%;

@@ -1,6 +1,6 @@
 /* header */
 /* icon size = 40px */
-.header-left img,
+/* .header-left img,
 .header-etc img,
 .menu-inner img,
 .search-inner img{
@@ -8,6 +8,15 @@
   height: 24px;
   padding: 8px;
   vertical-align: middle;
+} */
+
+
+body.white #header .header-logo svg g{
+  fill: var(--black);
+}
+
+body.black #header .header-logo svg g{
+  fill: var(--white);
 }
 
 .header-wrap{
@@ -25,10 +34,10 @@
 }
 
 .header-left{
-  flex-basis: 50%;
   display: flex;
   align-items: center;
   gap: 40px;
+  flex-basis: 50%;
 }
 
 .header-left__menu.off{
@@ -60,6 +69,7 @@
   flex-basis: 50%;
   justify-content: flex-end;
   cursor: pointer;
+  gap: 20px;
 }
 
 /* 사이드메뉴 */
@@ -108,7 +118,7 @@
   display: none;
 }
 
-.header-menu .header-menu__button img{
+.header-menu .header-menu__close{
   cursor: pointer;
 }
 
@@ -125,10 +135,6 @@
 
 .header-menu.whiteOn .menu-list{
   color: var(--black);
-}
-
-.header-menu .menu-list:first-child{
-  /* margin-top: 100px; */
 }
 
 .header-menu .menu-list:last-child{
