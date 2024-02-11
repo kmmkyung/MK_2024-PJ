@@ -56,7 +56,7 @@ window.addEventListener('DOMContentLoaded',function(){
   // 메뉴 누르면 메뉴 닫힘
   let click = [0,0,0];
   const menuTitle = document.querySelectorAll('.header-menu .menu-list')
-  const menuItemBox = document.querySelectorAll('.header-menu .menu-list>ol')
+  const menuItemBox = document.querySelectorAll('.header-menu .menu-list ol')
 
   menuItemBox.forEach(function(ele){
     let eleH = ele.scrollHeight

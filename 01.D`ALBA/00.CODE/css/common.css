@@ -8,11 +8,11 @@ body.black #header .header-logo svg g{
 }
 
 /* 헤더메뉴 */
-body.black .header-left__menu li a{
+body.black .header-left__menu li:not(:last-child) a{
   color: var(--white);
 }
 
-body.white .header-left__menu li a{
+body.white .header-left__menu li:not(:last-child) a{
   color: var(--black);
 }
 
