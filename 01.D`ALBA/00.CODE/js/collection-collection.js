@@ -15,16 +15,16 @@ window.addEventListener('DOMContentLoaded',function(){
     const section4 = document.querySelector('.section-4')
 
     if(window.innerWidth<=900){
-      section1.src='./assets/images/mobile_collection-antioxidant.jpg'
-      section2.src='./assets/images/mobile_collection-vegan.jpg'
-      section3.src='./assets/images/mobile_collection-moisture.jpg'
-      section4.src='./assets/images/mobile_collection-relax.jpg'
+      section1.src='./assets/images/collection/mobile_antioxidant.jpg'
+      section2.src='./assets/images/collection/mobile_vegan.jpg'
+      section3.src='./assets/images/collection/mobile_moisture.jpg'
+      section4.src='./assets/images/collection/mobile_relax.jpg'
     }
     if(window.innerWidth>900){
-      section1.src='./assets/images/collection-antioxidant.jpg'
-      section2.src='./assets/images/collection-vegan.jpg'
-      section3.src='./assets/images/collection-moisture.jpg'
-      section4.src='./assets/images/collection-relax.jpg'
+      section1.src='./assets/images/collection/antioxidant.jpg'
+      section2.src='./assets/images/collection/vegan.jpg'
+      section3.src='./assets/images/collection/moisture.jpg'
+      section4.src='./assets/images/collection/relax.jpg'
     }
   }
   window.addEventListener('load',function(){

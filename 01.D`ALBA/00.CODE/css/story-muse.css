@@ -27,26 +27,6 @@
   transition: all .8s;
 }
 
-/* .section-2 .list-1{
-  background-image: url(../assets/images/story-muse-01.jpg);
-}
-
-.section-2 .list-2{
-  background-image: url(../assets/images/story-muse-02.jpg);
-}
-
-.section-2 .list-3{
-  background-image: url(../assets/images/story-muse-03.jpg);
-}
-
-.section-2 .list-4{
-  background-image: url(../assets/images/story-muse-04.jpg);
-}
-
-.section-2 .list-5{
-  background-image: url(../assets/images/story-muse-05.jpg);
-} */
-
 .list-content{
   width: 100%;
   text-align: center;

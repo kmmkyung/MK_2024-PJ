@@ -9,18 +9,18 @@ window.addEventListener('DOMContentLoaded',function(){
     let link = './assets/images/'
     
     if(window.innerWidth<=900){
-      listBg1.style.backgroundImage = `url(${link}mobile_story-muse-01.jpg)`
-      listBg2.style.backgroundImage = `url(${link}mobile_story-muse-02.jpg)`
-      listBg3.style.backgroundImage = `url(${link}mobile_story-muse-03.jpg)`
-      listBg4.style.backgroundImage = `url(${link}mobile_story-muse-04.jpg)`
-      listBg5.style.backgroundImage = `url(${link}mobile_story-muse-05.jpg)`
+      listBg1.style.backgroundImage = `url(${link}story/mobile_story-muse-01.jpg)`
+      listBg2.style.backgroundImage = `url(${link}story/mobile_story-muse-02.jpg)`
+      listBg3.style.backgroundImage = `url(${link}story/mobile_story-muse-03.jpg)`
+      listBg4.style.backgroundImage = `url(${link}story/mobile_story-muse-04.jpg)`
+      listBg5.style.backgroundImage = `url(${link}story/mobile_story-muse-05.jpg)`
     }
     if(window.innerWidth>900){
-      listBg1.style.backgroundImage = `url(${link}story-muse-01.jpg)`
-      listBg2.style.backgroundImage = `url(${link}story-muse-02.jpg)`
-      listBg3.style.backgroundImage = `url(${link}story-muse-03.jpg)`
-      listBg4.style.backgroundImage = `url(${link}story-muse-04.jpg)`
-      listBg5.style.backgroundImage = `url(${link}story-muse-05.jpg)`
+      listBg1.style.backgroundImage = `url(${link}story/story-muse-01.jpg)`
+      listBg2.style.backgroundImage = `url(${link}story/story-muse-02.jpg)`
+      listBg3.style.backgroundImage = `url(${link}story/story-muse-03.jpg)`
+      listBg4.style.backgroundImage = `url(${link}story/story-muse-04.jpg)`
+      listBg5.style.backgroundImage = `url(${link}story/story-muse-05.jpg)`
     }
   }
 

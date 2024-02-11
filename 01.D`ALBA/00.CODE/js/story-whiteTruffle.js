@@ -9,22 +9,22 @@ window.addEventListener('DOMContentLoaded',function(){
     const section8 = document.querySelector('.section-8')
 
     if(window.innerWidth<=900){
-      section1.style.backgroundImage='url(./assets/images/mobile_story-whiteTruffle-1.jpg)'
-      section2.style.backgroundImage='url(./assets/images/mobile_story-whiteTruffle-2.jpg)'
-      section4.style.backgroundImage='url(./assets/images/mobile_story-whiteTruffle-4.jpg)'
-      section5.style.backgroundImage='url(./assets/images/mobile_story-whiteTruffle-5.jpg)'
-      section6.style.backgroundImage='url(./assets/images/mobile_story-whiteTruffle-6.jpg)'
-      section7.style.backgroundImage='url(./assets/images/mobile_story-whiteTruffle-7.jpg)'
-      section8.style.backgroundImage='url(./assets/images/mobile_story-whiteTruffle-8.jpg)'
+      section1.style.backgroundImage='url(./assets/images/story/mobile_story-whiteTruffle-1.jpg)'
+      section2.style.backgroundImage='url(./assets/images/story/mobile_story-whiteTruffle-2.jpg)'
+      section4.style.backgroundImage='url(./assets/images/story/mobile_story-whiteTruffle-4.jpg)'
+      section5.style.backgroundImage='url(./assets/images/story/mobile_story-whiteTruffle-5.jpg)'
+      section6.style.backgroundImage='url(./assets/images/story/mobile_story-whiteTruffle-6.jpg)'
+      section7.style.backgroundImage='url(./assets/images/story/mobile_story-whiteTruffle-7.jpg)'
+      section8.style.backgroundImage='url(./assets/images/story/mobile_story-whiteTruffle-8.jpg)'
     }
     if(window.innerWidth>900){
-      section1.style.backgroundImage='url(./assets/images/story-whiteTruffle-1.jpg)'
-      section2.style.backgroundImage='url(./assets/images/story-whiteTruffle-2.jpg)'
-      section4.style.backgroundImage='url(./assets/images/story-whiteTruffle-4.jpg)'
-      section5.style.backgroundImage='url(./assets/images/story-whiteTruffle-5.jpg)'
-      section6.style.backgroundImage='url(./assets/images/story-whiteTruffle-6.jpg)'
-      section7.style.backgroundImage='url(./assets/images/story-whiteTruffle-7.jpg)'
-      section8.style.backgroundImage='url(./assets/images/story-whiteTruffle-8.jpg)'
+      section1.style.backgroundImage='url(./assets/images/story/story-whiteTruffle-1.jpg)'
+      section2.style.backgroundImage='url(./assets/images/story/story-whiteTruffle-2.jpg)'
+      section4.style.backgroundImage='url(./assets/images/story/story-whiteTruffle-4.jpg)'
+      section5.style.backgroundImage='url(./assets/images/story/story-whiteTruffle-5.jpg)'
+      section6.style.backgroundImage='url(./assets/images/story/story-whiteTruffle-6.jpg)'
+      section7.style.backgroundImage='url(./assets/images/story/story-whiteTruffle-7.jpg)'
+      section8.style.backgroundImage='url(./assets/images/story/story-whiteTruffle-8.jpg)'
     }
   }
 

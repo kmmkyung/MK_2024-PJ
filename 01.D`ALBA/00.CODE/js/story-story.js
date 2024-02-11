@@ -10,20 +10,20 @@ window.addEventListener('DOMContentLoaded',function(){
     const section8 = document.querySelector('.section-8')
 
     if(window.innerWidth<=900){
-      section1.style.backgroundImage='url(./assets/images/mobile_story-1.jpg)'
-      section2.style.backgroundImage='url(./assets/images/mobile_story-2.jpg)'
-      section3.style.backgroundImage='url(./assets/images/mobile_story-3.jpg)'
-      section4.style.backgroundImage='url(./assets/images/mobile_story-4.jpg)'
-      section7.style.backgroundImage='url(./assets/images/mobile_story-7.jpg)'
-      section8.style.backgroundImage='url(./assets/images/mobile_story-8.jpg)'
+      section1.style.backgroundImage='url(./assets/images/story/mobile_story-1.jpg)'
+      section2.style.backgroundImage='url(./assets/images/story/mobile_story-2.jpg)'
+      section3.style.backgroundImage='url(./assets/images/story/mobile_story-3.jpg)'
+      section4.style.backgroundImage='url(./assets/images/story/mobile_story-4.jpg)'
+      section7.style.backgroundImage='url(./assets/images/story/mobile_story-7.jpg)'
+      section8.style.backgroundImage='url(./assets/images/story/mobile_story-8.jpg)'
     }
     if(window.innerWidth>900){
-      section1.style.backgroundImage='url(./assets/images/story-1.jpg)'
-      section2.style.backgroundImage='url(./assets/images/story-2.jpg)'
-      section3.style.backgroundImage='url(./assets/images/story-3.jpg)'
-      section4.style.backgroundImage='url(./assets/images/story-4.jpg)'
-      section7.style.backgroundImage='url(./assets/images/story-7.jpg)'
-      section8.style.backgroundImage='url(./assets/images/story-8.jpg)'
+      section1.style.backgroundImage='url(./assets/images/story/story-1.jpg)'
+      section2.style.backgroundImage='url(./assets/images/story/story-2.jpg)'
+      section3.style.backgroundImage='url(./assets/images/story/story-3.jpg)'
+      section4.style.backgroundImage='url(./assets/images/story/story-4.jpg)'
+      section7.style.backgroundImage='url(./assets/images/story/story-7.jpg)'
+      section8.style.backgroundImage='url(./assets/images/story/story-8.jpg)'
     }
   }
 
