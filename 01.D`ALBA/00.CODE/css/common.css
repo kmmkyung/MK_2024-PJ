@@ -29,38 +29,38 @@ body.white .header-menu__close svg *{
 }
 
 /* 배경 */
-body.black .header-menu.active{
+body.blackMenu .header-menu.active{
   background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 100%);
   visibility: visible;
   opacity: 1;
 }
 
-body.white .header-menu.active{
+body.whiteMenu .header-menu.active{
   background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.3) 100%);
   visibility: visible;
   opacity: 1;
 }
 
 /* 타이틀 */
-body.black .menu-list{
+body.blackMenu .menu-list{
   color: var(--white);
 }
 
-body.white .menu-list{
+body.whiteMenu .menu-list{
   color: var(--black);
 }
 
 /* 메뉴 */
-body.black .menu-item a{
+body.blackMenu .menu-item a{
   color: var(--white);
 }
 
-body.white .menu-item a{
+body.whiteMenu .menu-item a{
   color: var(--black);
 }
 
 /* 사이드하단메뉴 */
-body.black .menu-etc a{
+body.blackMenu .menu-etc a{
   display: block;
   color: var(--white);
   font-size: var(--font-size-XL);
@@ -68,7 +68,7 @@ body.black .menu-etc a{
   cursor: pointer;
 }
 
-body.white .menu-etc a{
+body.whiteMenu .menu-etc a{
   display: block;
   color: var(--black);
   font-size: var(--font-size-XL);
