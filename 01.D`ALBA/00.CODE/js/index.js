@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded',function(){
     }
   })
 
-  //// 배경이미지
+  // 배경이미지
   function sizeBg(){
     const bannerBg1 = document.querySelector('.banner-1')
     const bannerBg2 = document.querySelector('.banner-2')

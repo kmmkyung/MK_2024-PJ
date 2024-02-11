@@ -1,7 +1,6 @@
 window.addEventListener('DOMContentLoaded',function(){
 
   // 배경화면
-
   function sizeBg(){
     const section1 = document.querySelector('.section-1')
     const section2 = document.querySelector('.section-2')
