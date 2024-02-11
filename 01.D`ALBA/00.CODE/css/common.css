@@ -1,9 +1,9 @@
 /* 로고 */
-body.white #header .header-logo svg g{
+body.white .header-logo svg g{
   fill: var(--black);
 }
 
-body.black #header .header-logo svg g{
+body.black .header-logo svg g{
   fill: var(--white);
 }
 
@@ -29,13 +29,13 @@ body.white .header-menu__close svg *{
 }
 
 /* 배경 */
-body.black #header .header-menu.active{
+body.black .header-menu.active{
   background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 100%);
   visibility: visible;
   opacity: 1;
 }
 
-body.white #header .header-menu.active{
+body.white .header-menu.active{
   background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.3) 100%);
   visibility: visible;
   opacity: 1;
@@ -126,7 +126,7 @@ body.white .menu-etc a{
 }
 
 /* 사이드메뉴 */
-#header .header-menu{
+.header-menu{
   width: 100%;
   height: 100%;
   position: fixed;
