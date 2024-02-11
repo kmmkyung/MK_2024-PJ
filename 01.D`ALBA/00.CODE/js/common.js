@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded',function(){
   })
 
   // icon
-  let iconMenu = document.querySelector('.header-left__menu')
+  let iconMenu = document.querySelector('.header-left__menuIcon')
   let iconWish = document.querySelector('.header-etc__wish')
   let iconMyPage = document.querySelector('.header-etc__myPage')
   let iconSearch = document.querySelector('.header-etc__search')
@@ -77,69 +77,44 @@ window.addEventListener('DOMContentLoaded',function(){
 
   // menu
   // 메뉴 버튼을 누르면 메뉴창 열림 / 메뉴 다른곳 누르면 메뉴창 닫힘
-  const body = document.querySelector('body')
-  const menuButton = document.querySelector('.header-left__menu');
+  const menuButton = document.querySelector('.header-left__menuIcon');
   const closeButton = document.querySelector('.header-menu__close');
   const headerLeftMenu = document.querySelector('.header-left__menu');
   const headerMenu = document.querySelector('.header-menu');
   const headerMenuBg = document.querySelector('.header-menu__bg');
   
   menuButton.addEventListener('click',function(){
-    if(body.classList.contains('black')){
-      menuButton.classList.add('-hidden')
-      headerLeftMenu.classList.add('off')
-      headerMenu.classList.add('blackOn')
-      closeButton.style.display='none'
-    }
-    if(body.classList.contains('white')){
-      menuButton.classList.add('-hidden')
-      headerLeftMenu.classList.add('off')
-      headerMenu.classList.add('whiteOn')
-      closeButton.style.display='none'
-    }
+    menuButton.classList.add('-hidden')
+    headerLeftMenu.classList.add('off')
+    headerMenu.classList.add('active')
   });
-  closeButtonB.addEventListener('click',function(){
+  closeButton.addEventListener('click',function(){
     menuButton.classList.remove('-hidden')
     headerLeftMenu.classList.remove('off')
-    headerMenu.classList.remove('whiteOn')
-  });
-  closeButtonW.addEventListener('click',function(){
-    menuButton.classList.remove('-hidden')
-    headerLeftMenu.classList.remove('off')
-    headerMenu.classList.remove('blackOn')
+    headerMenu.classList.remove('active')
   });
   headerMenuBg.addEventListener('click',function(){
-    if(body.classList.contains('black')){
-      menuButton.classList.remove('-hidden')
-      headerLeftMenu.classList.remove('off')
-      headerMenu.classList.remove('blackOn')
-    }
-    if(body.classList.contains('white')){
-      menuButton.classList.remove('-hidden')
-      headerLeftMenu.classList.remove('off')
-      headerMenu.classList.remove('whiteOn')
-    }
+    menuButton.classList.remove('-hidden')
+    headerLeftMenu.classList.remove('off')
+    headerMenu.classList.remove('active')
   })
 
-
   // search 버튼
-  const headerEtcSearchButton = document.querySelectorAll('.header-etc__searchButton');
+  const headerEtcSearchButton = document.querySelector('.header-etc__search');
   const headerSearch = document.querySelector('.header-search');
   const searchContentCloseButton = document.querySelector('.search-content__closeButton');
-  headerEtcSearchButton.forEach(function(ele){
-    ele.addEventListener('click',function(){
-      headerSearch.classList.add('on');
-    })
+  headerEtcSearchButton.addEventListener('click',function(){
+    headerSearch.classList.add('active');
   })
 
   searchContentCloseButton.addEventListener('click',function(){
-    headerSearch.classList.remove('on');
+  headerSearch.classList.remove('active');
   })
 
   // search 버튼 다른곳 누르면 닫힘
   const main = document.querySelector('main');
   main.addEventListener('click',function(){
-    headerSearch.classList.remove('on');
+    headerSearch.classList.remove('active');
   })
 
   //// footer
