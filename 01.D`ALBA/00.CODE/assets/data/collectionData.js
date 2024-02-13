@@ -138,7 +138,6 @@ const collectionData = {
     "section-4_h2":"내 피부에 가장 효과적인 선택<br>프리미엄 고기능성 케어 d’Alba",
     "section-4_p":"전문기관에서 인체적용시험으로 검증된<br>속부터 채워지는 탄력 에너지를 경험해보세요.",
     "section-4_span":"",
-
     "section-5_bg":"./assets/images/collection/clinic-5.jpg",
     "section-5_title":["Intensive Volufiline Grinding Cream,","Intensive Volufiline Ampoule,","Intensive Volufiline Spray Ampoule,","White Truffle 92 Advanced Ampoule,","White Truffle Double Layer Revitalizing Serum,","Pure Vitamin C 37% Premium capsule"],
     "section-5_img":["clinic-5-1.png","clinic-5-2.png","clinic-5-3.png","clinic-5-4.png","clinic-5-5.png","clinic-5-6.png"],
