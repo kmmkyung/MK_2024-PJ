@@ -87,8 +87,8 @@ window.addEventListener('DOMContentLoaded',function(){
     effect:'fade',
     fadeEffect: { crossFade: true },
     navigation:{
-      nextEl: '.section-3__navigation-button-next',
       prevEl: '.section-3__navigation-button-prev',
+      nextEl: '.section-3__navigation-button-next',
     }
   })
   

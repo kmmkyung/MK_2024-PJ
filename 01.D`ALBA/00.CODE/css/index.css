@@ -245,14 +245,14 @@
   aspect-ratio:	5/6;
 }
 
-.section-3__navigation .section-3__navigation-button-next{
+.section-3__navigation .section-3__navigation-button-prev{
   position: absolute;
   left: -20%;
   top: 50%;
   transform: translateY(-50%);
 } 
 
-.section-3__navigation .section-3__navigation-button-prev{
+.section-3__navigation .section-3__navigation-button-next{
   position: absolute;
   right: -20%;
   top: 50%;

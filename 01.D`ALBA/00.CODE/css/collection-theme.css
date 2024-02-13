@@ -37,7 +37,6 @@
   padding: 10%;
   width: 100%;
   box-sizing: border-box;
-  transition: background-color 2s;
 }
 
 .section-2__wrap{
@@ -67,12 +66,12 @@
   z-index: 10;
 }
 
-.section-2__swiper .section-2__navigation-button-next{
+.section-2__swiper .section-2__navigation-button-prev{
   position: absolute;
   left: 10px;
 }
 
-.section-2__swiper .section-2__navigation-button-prev{
+.section-2__swiper .section-2__navigation-button-next{
   position: absolute;
   right: 10px;
 }
@@ -106,7 +105,6 @@
 .section-3{
   width: 100%;
   height: 100vh;
-  background-image: url(../assets/images/collection/clinic-3.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -115,7 +113,6 @@
 .section-4{
   width: 100%;
   height: 100vh;
-  background-image: url(../assets/images/collection/clinic-4.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -125,7 +122,6 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 10%;
   text-align: center;
 }
 
@@ -145,7 +141,7 @@
 
 .section-5{
   width: 100%;
-  background-image: url(../assets/images/collection/clinic-5.jpg);
+  min-height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -232,7 +228,6 @@
   width: 100%;
 }
 .theme-list{
-  background-image: url(../assets/images/collection/antioxidant.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
