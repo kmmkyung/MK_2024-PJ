@@ -50,11 +50,15 @@ window.addEventListener('DOMContentLoaded',function(){
 
   headerMenuUl.innerHTML = headerMenuCode;
   const gnbSubMenu = document.querySelectorAll('.gnbSubMenu')
-  gnbSubMenu.forEach(function(ele){
+  gnbSubMenu.forEach(function(ele,idx){
     ele.addEventListener('click',function(){
-      console.log(ele.dataset.link);
       let dataLink = ele.dataset.link
-      location.href= dataLink+`.html`
+      if(idx<4){
+        location.href= 'story-'+dataLink+'.html'
+      }
+      else if(3<idx<10){
+        location.href="collection-theme.html?collection="+dataLink
+      }
     })
   })
 

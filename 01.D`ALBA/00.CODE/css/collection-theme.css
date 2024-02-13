@@ -5,7 +5,6 @@
 .section-1{
   width: 100%;
   height: 100vh;
-  background-image: url(../assets/images/collection/clinic.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -31,13 +30,14 @@
 
 .section-1 .section-1__wrap p{
   font-size: var(--font-size-S);
+  line-height: 1.8;
 }
 
 .section-2{
   padding: 10%;
   width: 100%;
-  background-color: antiquewhite;
   box-sizing: border-box;
+  transition: background-color 2s;
 }
 
 .section-2__wrap{

@@ -1,31 +1,31 @@
 /* 로고 */
 body.white .header-logo svg g{
-  fill: var(--black);
+  fill: var(--white);
 }
 
 body.black .header-logo svg g{
-  fill: var(--white);
+  fill: var(--black);
 }
 
 /* 헤더메뉴 */
 body.black .header-left__menu li:not(:last-child) a{
-  color: var(--white);
+  color: var(--black);
 }
 
 body.white .header-left__menu li:not(:last-child) a{
-  color: var(--black);
+  color: var(--white);
 }
 
 body.black .header-left__menuIcon svg *,
 body.black .header-etc li svg *,
 body.black .header-menu__close svg *{
-  stroke: var(--white);
+  stroke: var(--black);
 }
 
 body.white .header-left__menuIcon svg *,
 body.white .header-etc li svg *,
 body.white .header-menu__close svg *{
-  stroke: var(--black);
+  stroke: var(--white);
 }
 
 /* 배경 */
