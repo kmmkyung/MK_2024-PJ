@@ -1,5 +1,10 @@
 window.addEventListener('DOMContentLoaded',function(){
 
+   
+  // img = document.querySelector('.aa')
+  // img.addEventListener('error',()=>{
+  //   img.style.display='none'
+  // })
   
   const swiper1 = new Swiper('.section-2__swiper',{
     direction: 'horizontal',

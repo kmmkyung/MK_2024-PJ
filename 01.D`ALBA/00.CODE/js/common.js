@@ -37,7 +37,7 @@ window.addEventListener('DOMContentLoaded',function(){
     `
     for(let menu of gnbData[title]){
       headerMenuCode += /* html */` 
-      <li class="menu-item"><a class="gnbSubMenu">${menu}</a></li>
+      <li class="menu-item"><a class="gnbSubMenu" data-title="" >${menu}</a></li>
       `
     }
     headerMenuCode += /* html */`
@@ -45,6 +45,7 @@ window.addEventListener('DOMContentLoaded',function(){
     </li>
     `
   }
+
   headerMenuUl.innerHTML = headerMenuCode;
   const gnbSubMenu = document.querySelectorAll('.gnbSubMenu')
   gnbSubMenu.forEach(function(ele,idx){

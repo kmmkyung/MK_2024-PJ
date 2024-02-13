@@ -225,3 +225,36 @@
   position: absolute;
   right: 0;
 }
+
+/* section-6 */
+.theme-wrap{
+  display: flex;
+  width: 100%;
+}
+.theme-list{
+  background-image: url(../assets/images/collection/antioxidant.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 350px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.theme-list h2{
+  font-size: var(--font-size-XL);
+  font-weight: normal;
+}
+
+.theme-list h5{
+  font-size: var(--font-size-M);
+  font-weight: normal;
+  margin-top: 10px;
+}
+
+.theme-list p{
+  font-size: var(--font-size-S);
+  margin-top: 20px;
+  line-height: 1.8;
+}
