@@ -38,7 +38,7 @@ window.addEventListener('DOMContentLoaded',function(){
     for(let menu of gnbData[title]){
       headerMenuCode += /* html */` 
       <li class="menu-item">
-        <a class="gnbSubMenu" data-link='${locationHrefData[menu]}' >${menu}</a>
+        <a class="gnbSubMenu" data-link='${locationHrefData[menu]}'>${menu}</a>
       </li>
       `
     }
@@ -53,8 +53,8 @@ window.addEventListener('DOMContentLoaded',function(){
   gnbSubMenu.forEach(function(ele){
     ele.addEventListener('click',function(){
       console.log(ele.dataset.link);
-      
-      // location.href=locationHrefData[idx]
+      let dataLink = ele.dataset.link
+      location.href= dataLink+`.html`
     })
   })
 
