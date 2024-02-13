@@ -37,7 +37,9 @@ window.addEventListener('DOMContentLoaded',function(){
     `
     for(let menu of gnbData[title]){
       headerMenuCode += /* html */` 
-      <li class="menu-item"><a class="gnbSubMenu" data-title="" >${menu}</a></li>
+      <li class="menu-item">
+        <a class="gnbSubMenu" data-link='${locationHrefData[menu]}' >${menu}</a>
+      </li>
       `
     }
     headerMenuCode += /* html */`
@@ -48,9 +50,11 @@ window.addEventListener('DOMContentLoaded',function(){
 
   headerMenuUl.innerHTML = headerMenuCode;
   const gnbSubMenu = document.querySelectorAll('.gnbSubMenu')
-  gnbSubMenu.forEach(function(ele,idx){
+  gnbSubMenu.forEach(function(ele){
     ele.addEventListener('click',function(){
-      location.href=locationHrefData[idx]
+      console.log(ele.dataset.link);
+      
+      // location.href=locationHrefData[idx]
     })
   })
 
