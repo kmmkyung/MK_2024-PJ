@@ -93,9 +93,8 @@ window.addEventListener('DOMContentLoaded',function(){
   })
   
   // section4, section5
-  function itemSHow(arr,item){
+  function itemShow(arr,item){
     let eleHover = 0
-    let eleClick = 0
     arr.forEach(function(ele,idx){
       ele.addEventListener('mouseenter',function(){
         if(eleHover == 0){
@@ -126,5 +125,5 @@ window.addEventListener('DOMContentLoaded',function(){
 
   const contentTextAll = document.querySelectorAll('.content-text__all')
   const contentText = document.querySelectorAll('.content-text')
-  itemSHow(contentText,contentTextAll)
+  itemShow(contentText,contentTextAll)
 })

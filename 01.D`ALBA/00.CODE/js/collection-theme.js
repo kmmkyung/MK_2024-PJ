@@ -60,6 +60,20 @@ window.addEventListener('DOMContentLoaded',function(){
   section2p1.innerHTML = collectionData[locationLinkValue]["section-2_text1"]
   section2p2.innerHTML = collectionData[locationLinkValue]["section-2_text2"]
   section2caption.innerHTML = collectionData[locationLinkValue]["section-2_caption"]
+  const swiper1 = new Swiper('.section-2__swiper',{
+    direction: 'horizontal',
+    loop: true,
+      effect:'fade',
+      fadeEffect: { crossFade: true },
+      navigation:{
+        prevEl: '.section-2__navigation-button-prev',
+        nextEl: '.section-2__navigation-button-next',
+      },
+      pagination: {
+        el: '.section-2__swiper .swiper-pagination',
+        clickable: true
+      },
+    })
 
   const section3 = document.querySelector('.section-3')
   section3.style.backgroundImage = `url(${collectionData[locationLinkValue]["section-3_bg"]})`
@@ -77,7 +91,7 @@ window.addEventListener('DOMContentLoaded',function(){
   section4caption.innerHTML = collectionData[locationLinkValue]["section-4_span"]
 
   const section5 = document.querySelector('.section-5')
-  const section5Content = document.querySelector('.section-5 .content-all')
+  const section5ContentAll = document.querySelector('.section-5 .content-all')
   let section5Title = collectionData[locationLinkValue]["section-5_title"]
   let section5Img = collectionData[locationLinkValue]["section-5_img"]
   let section5List
@@ -95,7 +109,19 @@ window.addEventListener('DOMContentLoaded',function(){
       </span>
     </span>
     `
-    section5Content.innerHTML += section5List;
+    section5ContentAll.innerHTML += section5List;
+  })
+  const section5TextAll = document.querySelectorAll('.content-all .content')
+  const section5Text = document.querySelectorAll('.content-all .content-title')
+  section5TextAll[0].classList.add('active')
+  section5Text.forEach(function(ele,idx){
+    ele.addEventListener('click',function(){
+      let findActiveAll = document.querySelector('.content-all .content.active')
+      section5TextAll[idx].classList.add('active')
+      if(section5TextAll[idx].classList.contains('active')){
+        findActiveAll.classList.remove('active')
+      }
+    })
   })
   section5h6.forEach(function(ele,idx){
     section5Li = `
@@ -107,39 +133,23 @@ window.addEventListener('DOMContentLoaded',function(){
     `
     section5Ul.innerHTML += section5Li;
   })
-  
-  
-  const swiper1 = new Swiper('.section-2__swiper',{
+
+  const swiper2 = new Swiper('.section-5__swiper',{
     direction: 'horizontal',
     loop: true,
-    // autoplay: {
-      //   delay: 3000,
-      // },
-      effect:'fade',
-      fadeEffect: { crossFade: true },
-      navigation:{
-        prevEl: '.section-2__navigation-button-prev',
-        nextEl: '.section-2__navigation-button-next',
-      },
-      pagination: {
-        el: '.section-2__swiper .swiper-pagination',
-        clickable: true
-      },
-    })
-
-    const swiper2 = new Swiper('.section-5__swiper',{
-    direction: 'horizontal',
-    loop: true,
-    // autoplay: {
-      //   delay: 3000,
-      // },
-      effect:'fade',
-      fadeEffect: { crossFade: true },
-      navigation:{
-        nextEl: '.section-5__navigation-button-next',
-        prevEl: '.section-5__navigation-button-prev',
-      }
-    })
-
+    effect:'fade',
+    fadeEffect: { crossFade: true },
+    navigation:{
+      nextEl: '.section-5__navigation-button-next',
+      prevEl: '.section-5__navigation-button-prev',
+    }
+  })
+  swiper2.on('realIndexChange', function () {
+    console.log(this.realIndex);
+  
+    let section5LiAll = document.querySelectorAll('.section-5__swiper .swiper-slide')
+    // let section5LiActive = document.querySelector('.section-5__swiper ')
+  
+});
 
 })

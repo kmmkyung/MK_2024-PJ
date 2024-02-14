@@ -163,6 +163,12 @@
 .content-all .content-title{
   font-size: var(--font-size-Title);
   opacity: 0.5;
+  transition: all 0.4s;
+}
+
+.content-all .content.active .content-title,
+.content-all .content-title:hover{
+  opacity: 1;
 }
 
 .content-all .content-img{
@@ -171,10 +177,21 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+  z-index: 1;
+  visibility: hidden;
+  transition: all 0.4s;
 }
 
 .content-all .content-img img{
   width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all .4s;
+}
+
+.content-all .content.active .content-img img{
+  visibility: visible;
+  opacity: 1;
 }
 
 .content-text{
@@ -214,12 +231,12 @@
 
 .section-5__navigation-button-next{
   position: absolute;
-  left: 0;
+  right: 0;
 }
 
 .section-5__navigation-button-prev{
   position: absolute;
-  right: 0;
+  left: 0;
 }
 
 /* section-6 */

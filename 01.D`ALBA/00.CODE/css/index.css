@@ -43,7 +43,7 @@
 .banner-4{
   width: 100%;
   height: 100%;
-  background-image: url(../assets/images/section-1-4.jpg);
+  /* background-image: url(../assets/images/section-1-4.jpg); */
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
