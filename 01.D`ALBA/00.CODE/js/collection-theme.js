@@ -111,18 +111,6 @@ window.addEventListener('DOMContentLoaded',function(){
     `
     section5ContentAll.innerHTML += section5List;
   })
-  const section5TextAll = document.querySelectorAll('.content-all .content')
-  const section5Text = document.querySelectorAll('.content-all .content-title')
-  section5TextAll[0].classList.add('active')
-  section5Text.forEach(function(ele,idx){
-    ele.addEventListener('click',function(){
-      let findActiveAll = document.querySelector('.content-all .content.active')
-      section5TextAll[idx].classList.add('active')
-      if(section5TextAll[idx].classList.contains('active')){
-        findActiveAll.classList.remove('active')
-      }
-    })
-  })
   section5h6.forEach(function(ele,idx){
     section5Li = `
       <li class="swiper-slide">
@@ -133,7 +121,8 @@ window.addEventListener('DOMContentLoaded',function(){
     `
     section5Ul.innerHTML += section5Li;
   })
-
+  const section5TextAll = document.querySelectorAll('.content-all .content')
+  const section5Text = document.querySelectorAll('.content-all .content-title')
   const swiper2 = new Swiper('.section-5__swiper',{
     direction: 'horizontal',
     loop: true,
@@ -144,12 +133,22 @@ window.addEventListener('DOMContentLoaded',function(){
       prevEl: '.section-5__navigation-button-prev',
     }
   })
-  swiper2.on('realIndexChange', function () {
-    console.log(this.realIndex);
-  
-    let section5LiAll = document.querySelectorAll('.section-5__swiper .swiper-slide')
-    // let section5LiActive = document.querySelector('.section-5__swiper ')
-  
-});
+  section5TextAll[0].classList.add('active')
+  swiper2.on('realIndexChange', function(){
+    let findActiveAll = document.querySelector('.content-all .content.active')
+    section5TextAll[this.realIndex].classList.add('active')
+    if(section5TextAll[this.realIndex].classList.contains('active')){
+      findActiveAll.classList.remove('active')
+    }
+  });
+  section5Text.forEach(function(ele,idx){
+    ele.addEventListener('click',function(){
+      swiper2.slideTo(idx)
+    })
+  })
+
+
+
+
 
 })

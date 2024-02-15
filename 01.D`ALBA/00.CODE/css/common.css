@@ -265,7 +265,7 @@ body.whiteMenu .menu-etc a{
   height: auto;
   background-color: var(--grayf5);
   position: relative;
-  z-index: 999;
+  z-index: 888;
 }
 
 .footer-inner{
