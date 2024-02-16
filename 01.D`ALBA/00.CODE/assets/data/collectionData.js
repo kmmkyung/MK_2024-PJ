@@ -28,6 +28,12 @@ const collectionData = {
       "건조함부터 탄력까지 고영양 고보습 저자극 케어<br>더블 레이어링 세럼",
       "주름 집중 케어 + 미백 관리,<br>한 번에 더블 블랜딩<br>고기능성 올인원 멀티밤"
     ],
+    "section-6_next1":{
+      "section-6_h2":"Clean & Safe Beauty",
+      "section-6_h5":"비건 컬렉션",
+      "section-6_p":"엄격하고 까다로운 이탈리아 브이라벨 인증<br>엄선된 성분으로 걱정없이",
+    },
+    
   },
   "vegan":{
     "section-1_bg":"./assets/images/collection/vegan.jpg",

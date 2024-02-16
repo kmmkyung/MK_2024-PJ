@@ -147,7 +147,9 @@ window.addEventListener('DOMContentLoaded',function(){
     })
   })
 
-
+  const section6 = document.querySelector('.section-6')
+  const section6themeList = document.querySelector('.section-6 .theme-list')
+  
 
 
 
