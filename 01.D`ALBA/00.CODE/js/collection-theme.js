@@ -23,7 +23,16 @@ window.addEventListener('DOMContentLoaded',function(){
   const section1h1 = document.querySelector('.section-1 h1')
   const section1p = document.querySelector('.section-1 p')
   const section1img = document.querySelector('.section-1 img')
-  section1.style.backgroundImage = `url(${collectionData[locationLinkValue]["section-1_bg"]})`
+  window.addEventListener("resize",bgChange)
+  window.addEventListener("load",bgChange)
+  function bgChange(){
+    if(window.innerWidth<=900){
+      section1.style.backgroundImage = `url(./assets/images/collection/mobile_${collectionData[locationLinkValue]["section-1_bg"]})`
+    }
+    if(window.innerWidth>900){
+      section1.style.backgroundImage = `url(./assets/images/collection/${collectionData[locationLinkValue]["section-1_bg"]})`
+    }
+  }
   section1.style.color = collectionData[locationLinkValue]["section-1_color"]
   section1h6.innerHTML = collectionData[locationLinkValue]["section-1_h6"]
   section1h1.innerHTML = collectionData[locationLinkValue]["section-1_h1"]
@@ -159,7 +168,7 @@ window.addEventListener('DOMContentLoaded',function(){
     `
     ele.innerHTML = section6themeList;
     ele.addEventListener('click',function(){
-      location.href=collection-theme.html?collection=collectionData[locationLinkValue]["section-6_page"+idx].link
+      location.href="collection-theme.html?collection="+collectionData[locationLinkValue]["section-6_page"+idx].link
     })
   })
 })

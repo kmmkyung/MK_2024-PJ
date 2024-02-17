@@ -1,6 +1,6 @@
 const collectionData = {
   "antioxidant":{
-    "section-1_bg":"./assets/images/collection/antioxidant.jpg",
+    "section-1_bg":"antioxidant.jpg",
     "section-1_h6":"Natural, but Powerful",
     "section-1_h1":"항산화 컬렉션",
     "section-1_p":"화이트 트러플이 전하는 항산화 에너지<br>더욱 탄탄해지는 피부",
@@ -54,7 +54,7 @@ const collectionData = {
     },
   },
   "vegan":{
-    "section-1_bg":"./assets/images/collection/vegan.jpg",
+    "section-1_bg":"vegan.jpg",
     "section-1_h6":"Natural, but Powerful",
     "section-1_h1":"비건 컬렉션",
     "section-1_p":"엄격하고 까다로운 이탈리아 브이라벨 인증<br>엄선된 성분으로 피부에 편안하게",
@@ -108,7 +108,7 @@ const collectionData = {
     },
   },
   "moisture":{
-    "section-1_bg":"./assets/images/collection/moisture.jpg",
+    "section-1_bg":"moisture.jpg",
     "section-1_h6":"Natural, but Powerful",
     "section-1_h1":"수분·보습 컬렉션",
     "section-1_p":"수분 공급과 보습 유지를 도와 건조한 피부를 촉촉하게 만들어주는<br>수분 보습 라인 컬렉션",
@@ -162,7 +162,7 @@ const collectionData = {
     },
   },
   "relax":{
-    "section-1_bg":"./assets/images/collection/relax.jpg",
+    "section-1_bg":"relax.jpg",
     "section-1_h6":"Natural, but Powerful",
     "section-1_h1":"저자극·진정 컬렉션",
     "section-1_p":"민감성 피부대상 저자극 테스트 완료 또는<br>피부 진정 인체적용테스트 완료 제품",
@@ -216,7 +216,7 @@ const collectionData = {
     },
   },
   "clinic":{
-    "section-1_bg":"./assets/images/collection/clinic.jpg",
+    "section-1_bg":"clinic.jpg",
     "section-1_h6":"Natural, but Powerful",
     "section-1_h1":"피부과 컬렉션",
     "section-1_p":"럭셔리 PS와 피부과 입점되어<br>피부 전문가 사용의 추천제품",
