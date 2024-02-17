@@ -28,12 +28,30 @@ const collectionData = {
       "건조함부터 탄력까지 고영양 고보습 저자극 케어<br>더블 레이어링 세럼",
       "주름 집중 케어 + 미백 관리,<br>한 번에 더블 블랜딩<br>고기능성 올인원 멀티밤"
     ],
-    "section-6_next1":{
-      "section-6_h2":"Clean & Safe Beauty",
-      "section-6_h5":"비건 컬렉션",
-      "section-6_p":"엄격하고 까다로운 이탈리아 브이라벨 인증<br>엄선된 성분으로 걱정없이",
+    "section-6_page0":{
+      "h2":"Clean & Safe Beauty",
+      "h5":"비건 컬렉션",
+      "p":"엄격하고 까다로운 이탈리아 브이라벨 인증<br>엄선된 성분으로 걱정없이",
+      "link":"vegan",
+      "bg":"./assets/images/collection/vegan.jpg",
+      "color":"#ffffff"
     },
-    
+    "section-6_page1":{
+      "h2":"Moist & Watery",
+      "h5":"수분 보습 컬렉션",
+      "p":"수분 공급과 보습 유지를 도와<br>건조한 피부를 촉촉하게",
+      "link":"moisture",
+      "bg":"./assets/images/collection/moisture.jpg",
+      "color":"#000000"
+    },
+    "section-6_page2":{
+      "h2":"Mild Calming",
+      "h5":"저자극·진정 컬렉션",
+      "p":"민감성 피부대상 저자극 완료 또는<br>피부 진정 인체적용 테스트 완료 제품",
+      "link":"relax",
+      "bg":"./assets/images/collection/relax.jpg",
+      "color":"#000000"
+    },
   },
   "vegan":{
     "section-1_bg":"./assets/images/collection/vegan.jpg",
@@ -64,6 +82,30 @@ const collectionData = {
       "주름 집중 케어 + 미백 관리, 한 번에 더블 블랜딩<br>고기능성 올인원 멀티밤",
       "매일 달라지는 피부 컨디션<br>나만의 피부 상태를 위한 프리미엄 맞춤케어<br>더블 블렌딩"
     ],
+    "section-6_page0":{
+      "h2":"Natural, but Powerful",
+      "h5":"항산화 컬렉션",
+      "p":"화이트 트러플이 전하는 항산화<br>더 탄탄해진 본연의 피부",
+      "link":"antioxidant",
+      "bg":"./assets/images/collection/antioxidant.jpg",
+      "color":"#ffffff"
+    },
+    "section-6_page1":{
+      "h2":"Moist & Watery",
+      "h5":"수분 보습 컬렉션",
+      "p":"수분 공급과 보습 유지를 도와<br>건조한 피부를 촉촉하게",
+      "link":"moisture",
+      "bg":"./assets/images/collection/moisture.jpg",
+      "color":"#000000"
+    },
+    "section-6_page2":{
+      "h2":"Mild Calming",
+      "h5":"저자극·진정 컬렉션",
+      "p":"민감성 피부대상 저자극 완료 또는<br>피부 진정 인체적용 테스트 완료 제품",
+      "link":"relax",
+      "bg":"./assets/images/collection/relax.jpg",
+      "color":"#000000"
+    },
   },
   "moisture":{
     "section-1_bg":"./assets/images/collection/moisture.jpg",
@@ -94,6 +136,30 @@ const collectionData = {
       "끈적임 없이 가볍고 산뜻한<br>워터리 수분광 에센스 선크림",
       "풍부한 보습과 함께 느껴지는<br>눈부신 피부 결광"
     ],
+    "section-6_page0":{
+      "h2":"Natural, but Powerful",
+      "h5":"항산화 컬렉션",
+      "p":"화이트 트러플이 전하는 항산화<br>더 탄탄해진 본연의 피부",
+      "link":"antioxidant",
+      "bg":"./assets/images/collection/antioxidant.jpg",
+      "color":"#ffffff"
+    },
+    "section-6_page1":{
+      "h2":"Clean & Safe Beauty",
+      "h5":"비건 컬렉션",
+      "p":"엄격하고 까다로운 이탈리아 브이라벨 인증<br>엄선된 성분으로 걱정없이",
+      "link":"vegan",
+      "bg":"./assets/images/collection/vegan.jpg",
+      "color":"#ffffff"
+    },
+    "section-6_page2":{
+      "h2":"Mild Calming",
+      "h5":"저자극·진정 컬렉션",
+      "p":"민감성 피부대상 저자극 완료 또는<br>피부 진정 인체적용 테스트 완료 제품",
+      "link":"relax",
+      "bg":"./assets/images/collection/relax.jpg",
+      "color":"#000000"
+    },
   },
   "relax":{
     "section-1_bg":"./assets/images/collection/relax.jpg",
@@ -124,6 +190,30 @@ const collectionData = {
       "붉어진 민감성 피부<br>저자극 진정 케어",
       "연약해진 피부를 위한<br>장벽 개선 진정 세럼"
     ],
+    "section-6_page0":{
+      "h2":"Natural, but Powerful",
+      "h5":"항산화 컬렉션",
+      "p":"화이트 트러플이 전하는 항산화<br>더 탄탄해진 본연의 피부",
+      "link":"antioxidant",
+      "bg":"./assets/images/collection/antioxidant.jpg",
+      "color":"#ffffff"
+    },
+    "section-6_page1":{
+      "h2":"Clean & Safe Beauty",
+      "h5":"비건 컬렉션",
+      "p":"엄격하고 까다로운 이탈리아 브이라벨 인증<br>엄선된 성분으로 걱정없이",
+      "link":"vegan",
+      "bg":"./assets/images/collection/vegan.jpg",
+      "color":"#ffffff"
+    },
+    "section-6_page2":{
+      "h2":"Moist & Watery",
+      "h5":"수분 보습 컬렉션",
+      "p":"수분 공급과 보습 유지를 도와<br>건조한 피부를 촉촉하게",
+      "link":"moisture",
+      "bg":"./assets/images/collection/moisture.jpg",
+      "color":"#000000"
+    },
   },
   "clinic":{
     "section-1_bg":"./assets/images/collection/clinic.jpg",
@@ -156,6 +246,30 @@ const collectionData = {
       "100시간 보습과 함께<br>깊은 속부터 탄력케어",
       "영국산 고순도 비타민C 100%<br>생기 넘치는 활력 에너지"
     ],
+    "section-6_page0":{
+      "h2":"Clean & Safe Beauty",
+      "h5":"비건 컬렉션",
+      "p":"엄격하고 까다로운 이탈리아 브이라벨 인증<br>엄선된 성분으로 걱정없이",
+      "link":"vegan",
+      "bg":"./assets/images/collection/vegan.jpg",
+      "color":"#ffffff"
+    },
+    "section-6_page1":{
+      "h2":"Moist & Watery",
+      "h5":"수분 보습 컬렉션",
+      "p":"수분 공급과 보습 유지를 도와<br>건조한 피부를 촉촉하게",
+      "link":"moisture",
+      "bg":"./assets/images/collection/moisture.jpg",
+      "color":"#000000"
+    },
+    "section-6_page2":{
+      "h2":"Mild Calming",
+      "h5":"저자극·진정 컬렉션",
+      "p":"민감성 피부대상 저자극 완료 또는<br>피부 진정 인체적용 테스트 완료 제품",
+      "link":"relax",
+      "bg":"./assets/images/collection/relax.jpg",
+      "color":"#000000"
+    },
   },
 }
 

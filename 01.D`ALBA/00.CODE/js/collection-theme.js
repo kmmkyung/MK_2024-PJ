@@ -148,6 +148,18 @@ window.addEventListener('DOMContentLoaded',function(){
   })
 
   const section6 = document.querySelector('.section-6')
-  const section6themeList = document.querySelector('.section-6 .theme-list')
-
+  const section6theme = document.querySelectorAll('.section-6 .theme-list')
+  section6theme.forEach(function(ele,idx){
+    ele.style.backgroundImage=`url(${collectionData[locationLinkValue]["section-6_page"+idx].bg})`
+    ele.style.color=collectionData[locationLinkValue]["section-6_page"+idx].color
+    let section6themeList = `
+      <h2>${collectionData[locationLinkValue]["section-6_page"+idx].h2}</h2>
+      <h5>${collectionData[locationLinkValue]["section-6_page"+idx].h5}</h5>
+      <p>${collectionData[locationLinkValue]["section-6_page"+idx].p}</p>
+    `
+    ele.innerHTML = section6themeList;
+    ele.addEventListener('click',function(){
+      location.href=collection-theme.html?collection=collectionData[locationLinkValue]["section-6_page"+idx].link
+    })
+  })
 })
