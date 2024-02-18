@@ -3,10 +3,6 @@ body::-webkit-scrollbar{
   display: none;
 }
 
-body{
-  -webkit-font-smoothing: antialiased
-}
-
 .section-wrap{
   display: flex;
   width: 800%;

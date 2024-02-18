@@ -85,7 +85,16 @@ window.addEventListener('DOMContentLoaded',function(){
     })
 
   const section3 = document.querySelector('.section-3')
-  section3.style.backgroundImage = `url(${collectionData[locationLinkValue]["section-3_bg"]})`
+  function bgChange2(){
+    if(window.innerWidth<=900){
+      section3.style.backgroundImage = `url(./assets/images/collection/mobile_${collectionData[locationLinkValue]["section-3_bg"]})`
+    }
+    if(window.innerWidth>900){
+      section3.style.backgroundImage = `url(./assets/images/collection/${collectionData[locationLinkValue]["section-3_bg"]})`
+    }
+  }
+  window.addEventListener("resize",bgChange2)
+  window.addEventListener("load",bgChange2)
 
   const section4 = document.querySelector('.section-4')
   const section4Content = document.querySelector('.section-4 .content-all')
@@ -98,6 +107,21 @@ window.addEventListener('DOMContentLoaded',function(){
   section4h2.innerHTML = collectionData[locationLinkValue]["section-4_h2"]
   section4p.innerHTML = collectionData[locationLinkValue]["section-4_p"]
   section4caption.innerHTML = collectionData[locationLinkValue]["section-4_span"]
+  function bgChange3(){
+  if(locationLinkValue=='moisture' || locationLinkValue=='relax' || locationLinkValue=='clinic'){
+      if(window.innerWidth<=900){
+        section4.style.backgroundImage = `url(./assets/images/collection/mobile_${collectionData[locationLinkValue]["section-4_bg"]})`
+      }
+      if(window.innerWidth>900){
+        section4.style.backgroundImage = `url(./assets/images/collection/${collectionData[locationLinkValue]["section-4_bg"]})`
+      }
+    }
+    else{
+      section4.style.backgroundImage = `url(./assets/images/collection/${collectionData[locationLinkValue]["section-4_bg"]})`
+    }
+  }
+  window.addEventListener("resize",bgChange3)
+  window.addEventListener("load",bgChange3)
 
   const section5 = document.querySelector('.section-5')
   const section5ContentAll = document.querySelector('.section-5 .content-all')

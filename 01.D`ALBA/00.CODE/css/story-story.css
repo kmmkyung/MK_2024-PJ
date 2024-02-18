@@ -4,10 +4,6 @@ body::-webkit-scrollbar{
   display: none;
 }
 
-body{
-  -webkit-font-smoothing: antialiased
-}
-
 .inner{
   position: relative;
   padding: 0 10%;

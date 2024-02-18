@@ -18,6 +18,7 @@
 
 body{
   font-family: 'FreightNeo-Regular','FreightDisplay-Regular', Noto Sans KR;
+  -webkit-font-smoothing: antialiased;
 }
 
 * {
