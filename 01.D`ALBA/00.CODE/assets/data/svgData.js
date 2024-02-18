@@ -85,26 +85,24 @@ const svgData = {
     `,
   ],
   arrowLeft_w: [
-  `
-  <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-          <g transform="translate(-510.000000, -406.000000)">
-              <g id="Group-3" transform="translate(508.000000, 128.000000)">
-                  <g id="Group-39" transform="translate(0.000000, 48.000000)">
-                      <g id="Group" transform="translate(0.000000, 228.000000)">
-                          <g id="Combined-Shape-2" transform="translate(12.000000, 12.000000) scale(-1, 1) translate(-12.000000, -12.000000) translate(2.000000, 2.000000)">
-                              <path d="M10,0 C15.5228475,0 20,4.4771525 20,10 C20,15.5228475 15.5228475,20 10,20 C4.4771525,20 0,15.5228475 0,10 C0,4.4771525 4.4771525,0 10,0 Z M8.69863097,6 L8,6.64968243 L11.6028436,10 L8,13.3503176 L8.69863097,14 L13,10 L8.69863097,6 Z" id="Combined-Shape"></path>
-                          </g>
-                      </g>
-                  </g>
-              </g>
-          </g>
+    `
+  <svg version="1.1" id="레이어_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+       y="0px" width="24px" height="24px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+  <style type="text/css">
+      .st0{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+  </style>
+  <g>
+      <g id="Combined-Shape-2" transform="translate(2,2)">
+          <path id="Combined-Shape" class="st0" d="M10,20C4.5,20,0,15.5,0,10S4.5,0,10,0s10,4.5,10,10S15.5,20,10,20z M11.3,14l0.7-0.6
+              L8.4,10L12,6.6L11.3,6L7,10L11.3,14z"/>
       </g>
+  </g>
   </svg>
+  
     `,
   ],
   arrowRight_w: [
-  `
+    `
     <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g transform="translate(-911.000000, -406.000000)">
@@ -124,7 +122,7 @@ const svgData = {
     </svg>
     `,
   ],
-  icon_menu:[
+  icon_menu: [
     `
     <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -136,9 +134,9 @@ const svgData = {
         </g>
     </g>
 </svg>
-    `
+    `,
   ],
-  icon_wish:[
+  icon_wish: [
     `
     <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -146,9 +144,9 @@ const svgData = {
         <polygon id="Stroke-1" stroke="#ffffff" points="12 3 14.4932967 9.03142151 21 9.53894172 16.0343332 13.7739641 17.5623612 20.119098 12 16.7051196 6.43763878 20.119098 7.96566676 13.7739641 3 9.53894172 9.50670326 9.03142151"></polygon>
     </g>
 </svg>
-    `
+    `,
   ],
-  icon_myPage:[
+  icon_myPage: [
     `
     <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -159,9 +157,9 @@ const svgData = {
         </g>
     </g>
 </svg>
-    `
+    `,
   ],
-  icon_search:[
+  icon_search: [
     `
     <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -172,9 +170,9 @@ const svgData = {
         </g>
     </g>
 </svg>
-    `
+    `,
   ],
-  icon_cart:[
+  icon_cart: [
     `
     <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -185,9 +183,9 @@ const svgData = {
         </g>
     </g>
 </svg>
-    `
+    `,
   ],
-  icon_close:[
+  icon_close: [
     `
     <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -196,8 +194,33 @@ const svgData = {
         <line x1="6" y1="18" x2="18" y2="6" id="Path-6" stroke="#ffffff"></line>
     </g>
 </svg>
+    `,
+  ],
+  icon_filter: [
     `
-  ]
+    <?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="10px" viewBox="0 0 19 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Product" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="PC)-Shop-(List---Best)" transform="translate(-1389.000000, -208.000000)">
+            <g id="Group" transform="translate(357.500000, 190.000000)">
+                <g transform="translate(1029.000000, 11.000000)" id="Group-10">
+                    <g transform="translate(3.000000, 7.000000)">
+                        <g id="Group-12">
+                            <line x1="-1.11022302e-16" y1="2" x2="18" y2="2" id="Line-2" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"></line>
+                            <circle id="Oval" fill="#000000" cx="13" cy="2" r="2"></circle>
+                        </g>
+                        <g id="Group-11" transform="translate(0.000000, 6.000000)">
+                            <line x1="-1.11022302e-16" y1="2" x2="18" y2="2" id="Line-2-Copy" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"></line>
+                            <circle id="Oval-Copy" fill="#000000" cx="5" cy="2" r="2"></circle>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
+`,
+  ],
 };
 
 export default svgData;

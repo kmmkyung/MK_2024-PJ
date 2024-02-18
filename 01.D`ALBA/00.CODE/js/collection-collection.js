@@ -63,6 +63,7 @@ window.addEventListener('DOMContentLoaded',function(){
         let collectionItemBtn = document.querySelectorAll('.item-button')
         let collectionArrowLeft = document.querySelector('.arrow-left g')
         let collectionArrowRight = document.querySelector('.arrow-right g')
+        const body = document.querySelector('body')
         if(this.realIndex == 0 || this.realIndex == 1){
           collectionItem.forEach((ele,idx)=>{
             ele.classList.add('white')
@@ -70,6 +71,10 @@ window.addEventListener('DOMContentLoaded',function(){
             collectionItemBtn[idx].classList.add('white')
             collectionItemBtn[idx].classList.remove('black')
           })
+          body.classList.add('white')
+          body.classList.add('blackMenu')
+          body.classList.remove('black')
+          body.classList.remove('whiteMenu')
           collectionTitle.style.color='white'
           collectionArrowLeft.style.fill='white'
           collectionArrowRight.style.fill='white'
@@ -81,6 +86,10 @@ window.addEventListener('DOMContentLoaded',function(){
             collectionItemBtn[idx].classList.remove('white')
             collectionItemBtn[idx].classList.add('black')
           })
+          body.classList.add('black')
+          body.classList.add('whiteMenu')
+          body.classList.remove('white')
+          body.classList.remove('blackMenu')
           collectionTitle.style.color='black'
           collectionArrowLeft.style.fill='black'
           collectionArrowRight.style.fill='black'
