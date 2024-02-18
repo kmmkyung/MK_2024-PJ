@@ -16,6 +16,7 @@
   left: 50%;
   transform: translate(-50%,-50%);
   text-align: center;
+  width: 100%;
 }
 
 .section-1 .section-1__wrap h6{
@@ -76,7 +77,7 @@
   right: 10px;
 }
 
-.section-2__swiper .swiper-pagination-bullet {
+.section-2__swiper .swiper-pagination-bullet{
   background: transparent;
   border: 1px solid white;
   opacity: 1;
@@ -92,6 +93,7 @@
   margin-top: 20px;
   text-align: center;
   font-size: var(--font-size-S);
+  width: 100%;
 }
 
 .section-2__wrap .content-text__2{
@@ -275,4 +277,10 @@
   font-size: var(--font-size-S);
   margin-top: 20px;
   line-height: 1.8;
+}
+
+@media screen and (max-width:900px) {
+  .section-1 .section-1__wrap h1{
+    font-size: var(--font-size-L);
+  }
 }

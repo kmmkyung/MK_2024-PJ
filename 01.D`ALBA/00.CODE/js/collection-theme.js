@@ -23,9 +23,9 @@ window.addEventListener('DOMContentLoaded',function(){
   const section1h1 = document.querySelector('.section-1 h1')
   const section1p = document.querySelector('.section-1 p')
   const section1img = document.querySelector('.section-1 img')
-  window.addEventListener("resize",bgChange)
-  window.addEventListener("load",bgChange)
-  function bgChange(){
+  window.addEventListener("resize",bgChange1)
+  window.addEventListener("load",bgChange1)
+  function bgChange1(){
     if(window.innerWidth<=900){
       section1.style.backgroundImage = `url(./assets/images/collection/mobile_${collectionData[locationLinkValue]["section-1_bg"]})`
     }
