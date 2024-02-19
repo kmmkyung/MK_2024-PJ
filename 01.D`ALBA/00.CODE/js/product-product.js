@@ -20,7 +20,10 @@ window.addEventListener('DOMContentLoaded',function(){
     menu1Title.classList.toggle('active')
     tapMenu.classList.toggle('active')
     if(tapMenu.classList.contains('active')){
-      tapMenu.style.height = auto
+      tapMenu.style.height = tapMenu.scrollHeight+'px'
+    }
+    else{
+      tapMenu.style.height = 0
     }
   })
 })
