@@ -686,7 +686,7 @@ const itemData = [
     "review":11937,
     "star":"4.9",
     "images":"../assets/images/product/mask/01.png",
-    "sort":{"추천":,"인기":,"최신등록":}
+    "sort":{"추천":49,"인기":13,"최신등록":48}
   },
   {
     "id":47,
@@ -699,11 +699,12 @@ const itemData = [
     "tag":["고영양","수분보습","스킨핏"],
     "review":19652,
     "star":"4.9",
-    "images":"../assets/images/product/mask/02.png"
+    "images":"../assets/images/product/mask/02.png",
+    "sort":{"추천":10,"인기":26,"최신등록":89}
   },
   {
     "id":48,
-    "name":"워터풀 트러플 더블 마스크팩(진정/보습)",
+    "name":"화이트 트러플 더블 마스크팩(진정/보습)",
     "class":"마스크",
     "subclass":"",
     "option":"",
@@ -712,7 +713,8 @@ const itemData = [
     "tag":["비건","수분보습","진정","저자극","페이셜"],
     "review":4401,
     "star":4.9,
-    "images":"../assets/images/product/mask/03.png"
+    "images":"../assets/images/product/mask/03.png",
+    "sort":{"추천":37,"인기":19,"최신등록":69}
   },
   {
     "id":49,
@@ -725,7 +727,8 @@ const itemData = [
     "tag":["비건","수분보습","저자극","영양탄력","페이셜"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/mask/04.png"
+    "images":"../assets/images/product/mask/04.png",
+    "sort":{"추천":,"인기":,"최신등록":}
   },
   {
     "id":50,
@@ -738,7 +741,8 @@ const itemData = [
     "tag":["비건","수분보습","진정","저자극","주름","윤기","페이셜"],
     "review":1560,
     "star":"4.9",
-    "images":"../assets/images/product/mask/05.png"
+    "images":"../assets/images/product/mask/05.png",
+    "sort":{"추천":,"인기":,"최신등록":}
   },
   {
     "id":51,
@@ -751,7 +755,8 @@ const itemData = [
     "tag":["비건","수분","주름","저자극","페이셜","아이갤패치","눈가주름"],
     "review":1,
     "star":"5.0",
-    "images":"../assets/images/product/mask/06.png"
+    "images":"../assets/images/product/mask/06.png",
+    "sort":{"추천":,"인기":,"최신등록":}
   },
   {
     "id":52,
@@ -764,7 +769,8 @@ const itemData = [
     "tag":["비건","수분보습","진정","저자극","주름","윤기","페이셜"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/mask/07.png"
+    "images":"../assets/images/product/mask/07.png",
+    "sort":{"추천":,"인기":,"최신등록":}
   },
   {
     "id":53,
@@ -777,7 +783,8 @@ const itemData = [
     "tag":["비건","수분보습","저자극","영양탄력","페이셜"],
     "review":1277,
     "star":"4.9",
-    "images":"../assets/images/product/mask/08.png"
+    "images":"../assets/images/product/mask/08.png",
+    "sort":{"추천":,"인기":,"최신등록":}
   },
 
   // 클렌징 --------------------------------------------------------
