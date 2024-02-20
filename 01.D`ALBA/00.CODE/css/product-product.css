@@ -90,3 +90,22 @@
   cursor: pointer;
 }
 
+.menu-2__menu{
+  display: flex;
+  gap: 2%;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.menu-2__menu .menu-list{
+  margin: 10px 0;
+  font-size: var(--font-size-S);
+}
+
+.menu-2__menu .menu-list a{
+  opacity: 0.5;
+}
+
+
+

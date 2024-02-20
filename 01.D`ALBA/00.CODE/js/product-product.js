@@ -31,18 +31,29 @@ window.addEventListener('DOMContentLoaded',function(){
   const menu2 = document.querySelector('.menu-2__menu')
   let menu2Li = ``;
   let menu2NumArr = []
+  let optionBest = []
   itemData.forEach(function(ele){
     menu2NumArr.push(ele.class)
   })
-  const menu2Num = menu2NumArr.reduce(function(accu,curr){
-    accu[curr] = (accu[curr] || 0) +1; 
-    return accu;
+  const menu2Num = menu2NumArr.reduce(function(acc,cur){
+    acc[cur] = (acc[cur] || 0) +1;
+    return acc;
   },{})
-  console.log(menu2Num);
-  
-  
+
+  const menu2NumTotal = Object.values(menu2Num).reduce(function(acc,cur){
+    return acc+cur
+  },0)  
+
+  itemData.forEach(function(ele){
+    if(ele.option == 'best'){
+      optionBest.push(ele)
+    }
+  })
+  menu2Num['전체보기'] = menu2NumTotal
+  menu2Num['베스트'] = optionBest.length
+
   for (let menuList of gnbData.Product){
-    menu2Li +=`<li class=""><a href="#">${menuList}()</a></li>` 
+    menu2Li +=`<li class="menu-list"><a href="#">${menuList}(${menu2Num[menuList]})</a></li>` 
   }
   menu2.innerHTML = menu2Li
 
