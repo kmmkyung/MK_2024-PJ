@@ -4,7 +4,7 @@
 
 .topMenu{
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   padding: 190px 20px 0 20px;
   box-sizing: border-box;
 }
@@ -95,7 +95,7 @@
   gap: 2%;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 20px;
+  margin: 20px 0;
 }
 
 .menu-2__menu .menu-list{
@@ -107,5 +107,64 @@
   opacity: 0.5;
 }
 
+.selectBox{
+  margin-left: auto;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 999;
+}
 
+.selectBox::after {
+  content: '▼';
+  position: absolute;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: var(--font-size-XS);
+  color: var(--graya);
+}
+
+.selectBox .select{
+  height: 50px;
+  width: 100%;
+  font-size: var(--font-size-XS);
+  cursor: pointer;
+  text-align: left;
+  padding-left: 10px;
+  border: 1px solid var(--graya);
+  border-bottom: none;
+}
+
+.selectBox .select-list{
+  box-shadow: 0 10px 13px rgb(164 167 172 / 20%);
+  border: 1px solid var(--graya);
+  border-top: none;
+}
+
+.selectBox .select-option{
+  height: 35px;
+  font-size: var(--font-size-XS);
+  color: var(--graya);
+  padding-left: 10px;
+  text-align: left;
+  line-height: 35px;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--grayf5);
+  border-top: none 0;
+  display: none;
+}
+
+.selectBox .select-option:last-child{
+  border-bottom: none
+}
+
+.selectBox .select-option:hover{
+  background-color: var(--graya);
+  color: var(--white);
+}
 
