@@ -718,7 +718,7 @@ const itemData = [
   },
   {
     "id":49,
-    "name":"인센시브 리프텐션 마스크",
+    "name":"인텐시브 리프텐션 마스크",
     "class":"마스크",
     "subclass":"",
     "option":"",
@@ -728,7 +728,7 @@ const itemData = [
     "review":0,
     "star":"0.0",
     "images":"../assets/images/product/mask/04.png",
-    "sort":{"추천":,"인기":,"최신등록":}
+    "sort":{"추천":46,"인기":78,"최신등록":8}
   },
   {
     "id":50,
@@ -742,7 +742,7 @@ const itemData = [
     "review":1560,
     "star":"4.9",
     "images":"../assets/images/product/mask/05.png",
-    "sort":{"추천":,"인기":,"최신등록":}
+    "sort":{"추천":48,"인기":55,"최신등록":47}
   },
   {
     "id":51,
@@ -756,7 +756,7 @@ const itemData = [
     "review":1,
     "star":"5.0",
     "images":"../assets/images/product/mask/06.png",
-    "sort":{"추천":,"인기":,"최신등록":}
+    "sort":{"추천":22,"인기":52,"최신등록":38}
   },
   {
     "id":52,
@@ -770,7 +770,7 @@ const itemData = [
     "review":0,
     "star":"0.0",
     "images":"../assets/images/product/mask/07.png",
-    "sort":{"추천":,"인기":,"최신등록":}
+    "sort":{"추천":50,"인기":92,"최신등록":20}
   },
   {
     "id":53,
@@ -784,7 +784,7 @@ const itemData = [
     "review":1277,
     "star":"4.9",
     "images":"../assets/images/product/mask/08.png",
-    "sort":{"추천":,"인기":,"최신등록":}
+    "sort":{"추천":47,"인기":34,"최신등록":46}
   },
 
   // 클렌징 --------------------------------------------------------
@@ -1381,3 +1381,5 @@ const itemData = [
     "sort":{"프래그런스인기":1,"프래그런스최신등록":3}
   },
 ];
+
+export default itemData;
