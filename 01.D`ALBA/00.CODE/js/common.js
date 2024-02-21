@@ -56,8 +56,11 @@ window.addEventListener('DOMContentLoaded',function(){
       if(idx<4){
         location.href= 'story-'+dataLink+'.html'
       }
-      else if(3<idx<10){
+      if(3<idx<9){
         location.href="collection-theme.html?collection="+dataLink
+      }
+      if(8<idx){
+        location.href="product-product.html?product="+dataLink
       }
     })
   })

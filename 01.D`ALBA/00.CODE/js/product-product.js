@@ -26,6 +26,12 @@ window.addEventListener('DOMContentLoaded',function(){
       tapMenu.style.height = 0
     }
   })
+  window.addEventListener('click',function(event){    
+    if(!menu1Title.contains(event.target)){
+      menu1Title.classList.remove('active')
+      tapMenu.style.height = 0
+    }
+  })
 
   //// menu-2
   const menu2 = document.querySelector('.menu-2__menu')
@@ -57,6 +63,25 @@ window.addEventListener('DOMContentLoaded',function(){
   }
   menu2.innerHTML = menu2Li
 
+  //// select
+  const selectBox = document.querySelector('.selectBox')
+  const select = document.querySelector('.select')
+  const selectList = document.querySelector('.select-list')
+  const selectOption = document.querySelectorAll('.select-option')
+  select.addEventListener('click',function(){
+    selectList.classList.add('active')
+  })
+  selectOption.forEach(function(ele){
+    ele.addEventListener('click',function(){
+      select.textContent = ele.textContent
+      selectList.classList.remove('active')
+    })
+  })
+  window.addEventListener('click',function(event){    
+    if(!selectBox.contains(event.target)){
+      selectList.classList.remove('active')
+    }
+  })
 
-
+  
 })
