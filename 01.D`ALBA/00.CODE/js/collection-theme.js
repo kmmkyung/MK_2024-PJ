@@ -1,6 +1,5 @@
 import collectionData from '../assets/data/collectionData.js'
 
-
 let locationLink = location.href;
 let locationLinkKey = locationLink.split("?")[1]
 let locationLinkValue = locationLinkKey.split("=")[1]

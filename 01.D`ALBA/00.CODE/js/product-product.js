@@ -1,6 +1,7 @@
 import svgData from '../assets/data/svgData.js'
 import {gnbData} from '../assets/data/gnbData.js';
 import itemData from '../assets/data/itemData.js'
+import locationHref from '../assets/data/locationHrefData.js'
 
 window.addEventListener('DOMContentLoaded',function(){
   // topMenu
@@ -12,7 +13,7 @@ window.addEventListener('DOMContentLoaded',function(){
   const tapMenu = document.querySelector('.menu-1__tapMenu')
   let tapMenuLi = ``;
   for (let menuList of gnbData.Product){
-    tapMenuLi +=`<li class="tapMenuList"><a href="#">${menuList}</a></li>` 
+    tapMenuLi +=`<li class="tapMenuList"><a href="product-product.html?product=${locationHref[menuList]}">${menuList}</a></li>` 
   }
   tapMenu.innerHTML = tapMenuLi
   
