@@ -10,7 +10,7 @@
     "tag":[],
     "review":,
     "star":"",
-    "images":"../assets/images/product/",
+    "images":"./assets/images/product/",
     "sort":{"추천":,"인기":,"최신등록":}
   },
 */
@@ -27,7 +27,7 @@ const itemData = [
     "tag":["수분보습","저자극","주름","영양탄력","윤기","페이셜"],
     "review":102811,
     "star":"4.9",
-    "images":"../assets/images/product/mist/01.png",
+    "images":"./assets/images/product/mist/01.png",
     "sort":{"추천":3,"인기":3,"최신등록":91}
   },
   {
@@ -41,7 +41,7 @@ const itemData = [
     "tag":["비건","수분보습","저자극","주름","고기능성","영양탄력","윤기","페이셜"],
     "review":33716,
     "star":"4.9",
-    "images":"../assets/images/product/mist/02.png",
+    "images":"./assets/images/product/mist/02.png",
     "sort":{"추천":13,"인기":1,"최신등록":59}
   },
   {
@@ -55,7 +55,7 @@ const itemData = [
     "tag":["비건","수분보습","진정","저자극","윤기","페이셜"],
     "review":19923,
     "star":"4.8",
-    "images":"../assets/images/product/mist/03.png",
+    "images":"./assets/images/product/mist/03.png",
     "sort":{"추천":53,"인기":24,"최신등록":85}
   },
   {
@@ -69,7 +69,7 @@ const itemData = [
     "tag":["수분보습","저자극","주름","영양탄력","윤기","페이셜"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/mist/04.png",
+    "images":"./assets/images/product/mist/04.png",
     "sort":{"추천":2,"인기":83,"최신등록":2}
   },
   {
@@ -83,7 +83,7 @@ const itemData = [
     "tag":["미스트","미스트세럼","시즌5"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/mist/05.png",
+    "images":"./assets/images/product/mist/05.png",
     "sort":{"추천":81,"인기":66,"최신등록":4}
   },
   {
@@ -97,7 +97,7 @@ const itemData = [
     "tag":["미스트","미스트세럼","고보습","고함유"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/mist/06.png",
+    "images":"./assets/images/product/mist/06.png",
     "sort":{"추천":80,"인기":69,"최신등록":3}
   },
   {
@@ -111,7 +111,7 @@ const itemData = [
     "tag":["안티에이징","보습144시간","비건콜라겐세럼"],
     "review":213,
     "star":"4.9",
-    "images":"../assets/images/product/mist/07.png",
+    "images":"./assets/images/product/mist/07.png",
     "sort":{"추천":0,"인기":14,"최신등록":24}
   },
   {
@@ -125,7 +125,7 @@ const itemData = [
     "tag":["안티에이징","보습144시간","비건콜라겐세럼"],
     "review":240,
     "star":"4.9",
-    "images":"../assets/images/product/mist/08.png",
+    "images":"./assets/images/product/mist/08.png",
     "sort":{"추천":1,"인기":10,"최신등록":26}
   },
   {
@@ -139,7 +139,7 @@ const itemData = [
     "tag":["비건","항산화","수분보습","저자극","영양탄력","윤기","페이셜"],
     "review":8,
     "star":"5.0",
-    "images":"../assets/images/product/mist/09.png",
+    "images":"./assets/images/product/mist/09.png",
     "sort":{"추천":40,"인기":11,"최신등록":62}
   },
   {
@@ -153,7 +153,7 @@ const itemData = [
     "tag":["수분보습","저자극","주름","미백","모공각질","페이셜"],
     "review":128,
     "star":"4.9",
-    "images":"../assets/images/product/mist/10.png",
+    "images":"./assets/images/product/mist/10.png",
     "sort":{"추천":67,"인기":29,"최신등록":44}
   },
   {
@@ -167,7 +167,7 @@ const itemData = [
     "tag":["수분보습","저자극","주름","미백","모공각질","페이셜"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/mist/11.png",
+    "images":"./assets/images/product/mist/11.png",
     "sort":{"추천":59,"인기":90,"최신등록":10}
   },
   {
@@ -181,7 +181,7 @@ const itemData = [
     "tag":["비건","수분보습","진정","저자극","윤기","페이셜"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/mist/12.png",
+    "images":"./assets/images/product/mist/12.png",
     "sort":{"추천":54,"인기":85,"최신등록":27}
   },
   {
@@ -195,7 +195,7 @@ const itemData = [
     "tag":["비건","항산화","수분보습","저자극","고기능성","영양탄력","윤기","페이셜"],
     "review":3,
     "star":"4.7",
-    "images":"../assets/images/product/mist/13.png",
+    "images":"./assets/images/product/mist/13.png",
     "sort":{"추천":5,"인기":12,"최신등록":83}
   },
   {
@@ -209,7 +209,7 @@ const itemData = [
     "tag":["수분보습","저자극","주름","미백","모공각질","페이셜"],
     "review":1436,
     "star":"4.9",
-    "images":"../assets/images/product/mist/14.png",
+    "images":"./assets/images/product/mist/14.png",
     "sort":{"추천":60,"인기":36,"최신등록":77}
   },
 
@@ -225,7 +225,7 @@ const itemData = [
     "tag":["비건","수분보습","저자극","주름","고기능성","영양탄력","페이셜"],
     "review":21072,
     "star":"4.9",
-    "images":"../assets/images/product/serum/01.png",
+    "images":"./assets/images/product/serum/01.png",
     "sort":{"추천":7,"인기":7,"최신등록":80}
   },
   
@@ -241,7 +241,7 @@ const itemData = [
     "tag":["비건","민감성","진정","수분보습"],
     "review":221,
     "star":"4.9",
-    "images":"../assets/images/product/toner/01.png",
+    "images":"./assets/images/product/toner/01.png",
     "sort":{"추천":29,"인기":49,"최신등록":28}
   },
   {
@@ -255,7 +255,7 @@ const itemData = [
     "tag":["수분광채","영양보습","결케어"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/toner/02.png",
+    "images":"./assets/images/product/toner/02.png",
     "sort":{"추천":26,"인기":81,"최신등록":54}
   },
 
@@ -271,7 +271,7 @@ const itemData = [
     "tag":["비건","저자극","주름","고기능성","영양탄력","페이셜"],
     "review":289,
     "star":"4.9",
-    "images":"../assets/images/product/ampoule/01.png",
+    "images":"./assets/images/product/ampoule/01.png",
     "sort":{"추천":43,"인기":18,"최신등록":50}
   },
   {
@@ -285,7 +285,7 @@ const itemData = [
     "tag":["수분보습","저자극","미백","윤기"],
     "review":1830,
     "star":"4.9",
-    "images":"../assets/images/product/ampoule/02.png",
+    "images":"./assets/images/product/ampoule/02.png",
     "sort":{"추천":34,"인기":29,"최신등록":66}
   },
   {
@@ -299,7 +299,7 @@ const itemData = [
     "tag":["수분보습","저자극","주름","영양탄력","페이셜"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/ampoule/03.png",
+    "images":"./assets/images/product/ampoule/03.png",
     "sort":{"추천":32,"인기":82,"최신등록":5}
   },
   {
@@ -313,7 +313,7 @@ const itemData = [
     "tag":["비건","항산화","저자극","주름","고기능성","영양탄력","페이셜"],
     "review":1548,
     "star":"4.9",
-    "images":"../assets/images/product/ampoule/04.png",
+    "images":"./assets/images/product/ampoule/04.png",
     "sort":{"추천":27,"인기":21,"최신등록":75}
   },
   {
@@ -327,7 +327,7 @@ const itemData = [
     "tag":["수분보습","저자극","주름","영양탄력","페이셜"],
     "review":1728,
     "star":"4.8",
-    "images":"../assets/images/product/ampoule/05.png",
+    "images":"./assets/images/product/ampoule/05.png",
     "sort":{"추천":33,"인기":58,"최신등록":86}
   },
 
@@ -343,7 +343,7 @@ const itemData = [
     "tag":["비건","수분보습","진정","저자극","주름","미백","자외선 차단","페이셜"],
     "review":63493,
     "star":"4.8",
-    "images":"../assets/images/product/suncream/01.png",
+    "images":"./assets/images/product/suncream/01.png",
     "sort":{"추천":4,"인기":5,"최신등록":66}
   },
   {
@@ -357,7 +357,7 @@ const itemData = [
     "tag":["비건","수분보습","저자극","주름","미백","자외선 차단","페이셜"],
     "review":69890,
     "star":"4.9",
-    "images":"../assets/images/product/suncream/02.png",
+    "images":"./assets/images/product/suncream/02.png",
     "sort":{"추천":6,"인기":6,"최신등록":91}
   },
   {
@@ -371,7 +371,7 @@ const itemData = [
     "tag":["비건","저자극","민감성","자외선 차단","페이셜"],
     "review":20726,
     "star":"4.9",
-    "images":"../assets/images/product/suncream/03.png",
+    "images":"./assets/images/product/suncream/03.png",
     "sort":{"추천":58,"인기":4,"최신등록":80}
   },
   {
@@ -385,7 +385,7 @@ const itemData = [
     "tag":["비건","수분보습","진정","저자극","주름","미백","자외선 차단","페이셜"],
     "review":790,
     "star":"4.8",
-    "images":"../assets/images/product/suncream/04.png",
+    "images":"./assets/images/product/suncream/04.png",
     "sort":{"추천":65,"인기":46,"최신등록":24}
   },
   {
@@ -399,7 +399,7 @@ const itemData = [
     "tag":["비건","수분보습","저자극","주름","미백","자외선 차단","페이셜"],
     "review":10119,
     "star":"4.9",
-    "images":"../assets/images/product/suncream/05.png",
+    "images":"./assets/images/product/suncream/05.png",
     "sort":{"추천":18,"인기":17,"최신등록":39}
   },
   {
@@ -413,7 +413,7 @@ const itemData = [
     "tag":["비건","수분보습","저자극","주름","미백","자외선 차단","페이셜"],
     "review":10753,
     "star":"4.9",
-    "images":"../assets/images/product/suncream/06.png",
+    "images":"./assets/images/product/suncream/06.png",
     "sort":{"추천":92,"인기":23,"최신등록":35}
   },
   {
@@ -427,7 +427,7 @@ const itemData = [
     "tag":["항산화","저자극","주름","미백","자외선 차단","고기능성","영양탄력","페이셜"],
     "review":968,
     "star":"4.9",
-    "images":"../assets/images/product/suncream/07.png",
+    "images":"./assets/images/product/suncream/07.png",
     "sort":{"추천":51,"인기":56,"최신등록":32}
   },
   {
@@ -441,7 +441,7 @@ const itemData = [
     "tag":["비건","수분보습","저자극","주름","미백","자외선 차단","바디"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/suncream/08.png",
+    "images":"./assets/images/product/suncream/08.png",
     "sort":{"추천":5,"인기":25,"최신등록":43}
   },
 
@@ -457,7 +457,7 @@ const itemData = [
     "tag":["페이셜크림","듀얼텍스쳐","탄력보습케어","저자극","아로마틱"],
     "review":1907,
     "star":"4.9",
-    "images":"../assets/images/product/cream/01.png",
+    "images":"./assets/images/product/cream/01.png",
     "sort":{"추천":34,"인기":30,"최신등록":21}
   },
   {
@@ -471,7 +471,7 @@ const itemData = [
     "tag":["풍부한 수분","생기광채","저자극"],
     "review":1,
     "star":"5.0",
-    "images":"../assets/images/product/cream/02.png",
+    "images":"./assets/images/product/cream/02.png",
     "sort":{"추천":87,"인기":77,"최신등록":13}
   },
   {
@@ -485,7 +485,7 @@ const itemData = [
     "tag":["저자극","주름","영양탄력","윤기","페이셜"],
     "review":555,
     "star":"4.9",
-    "images":"../assets/images/product/cream/03.png",
+    "images":"./assets/images/product/cream/03.png",
     "sort":{"추천":88,"인기":47,"최신등록":50}
   },
   {
@@ -499,7 +499,7 @@ const itemData = [
     "tag":["저자극","주름","미백","고기능성","영양탄력","페이셜"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/cream/04.png",
+    "images":"./assets/images/product/cream/04.png",
     "sort":{"추천":85,"인기":43,"최신등록":53}
   },
   {
@@ -513,7 +513,7 @@ const itemData = [
     "tag":["저자극","주름","미백","고기능성","영양탄력","페이셜"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/cream/05.png",
+    "images":"./assets/images/product/cream/05.png",
     "sort":{"추천":77,"인기":88,"최신등록":14}
   },
   {
@@ -527,7 +527,7 @@ const itemData = [
     "tag":["영양탄력","고기능성","고보습크림","프리미엄케어"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/cream/06.png",
+    "images":"./assets/images/product/cream/06.png",
     "sort":{"추천":76,"인기":67,"최신등록":26}
   },
   {
@@ -541,7 +541,7 @@ const itemData = [
     "tag":["수분보습","저자극","주름","영양탄력","윤기","페이셜"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/cream/07.png",
+    "images":"./assets/images/product/cream/07.png",
     "sort":{"추천":57,"인기":57,"최신등록":82}
   },
   {
@@ -555,7 +555,7 @@ const itemData = [
     "tag":["저자극","주름","미백","고기능성","영양탄력","페이셜"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/cream/08.png",
+    "images":"./assets/images/product/cream/08.png",
     "sort":{"추천":56,"인기":53,"최신등록":83}
   },
   {
@@ -569,7 +569,7 @@ const itemData = [
     "tag":["수분보습","저자극","주름","미백","영양탄력","페이셜"],
     "review":2338,
     "star":"4.9",
-    "images":"../assets/images/product/cream/09.png",
+    "images":"./assets/images/product/cream/09.png",
     "sort":{"추천":91,"인기":66,"최신등록":93}
   },
   {
@@ -583,7 +583,7 @@ const itemData = [
     "tag":["더블크림","반반크림","레오제이","비건더블크림","짬짜면크림"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/cream/10.png",
+    "images":"./assets/images/product/cream/10.png",
     "sort":{"추천":14,"인기":79,"최신등록":2}
   },
   {
@@ -597,7 +597,7 @@ const itemData = [
     "tag":["비건콜라겐","보르피린","그라인딩크림","영양탄력"],
     "review":72,
     "star":"4.8",
-    "images":"../assets/images/product/cream/11.png",
+    "images":"./assets/images/product/cream/11.png",
     "sort":{"추천":11,"인기":36,"최신등록":22}
   },
   {
@@ -611,7 +611,7 @@ const itemData = [
     "tag":["비건","수분보습","진정","저자극","영양탄력","페이셜"],
     "review":4,
     "star":"5.0",
-    "images":"../assets/images/product/cream/12.png",
+    "images":"./assets/images/product/cream/12.png",
     "sort":{"추천":17,"인기":27,"최신등록":52}
   },
   {
@@ -625,7 +625,7 @@ const itemData = [
     "tag":["더블크림","반반크림","레오제이","비건더블크림","짬짜면크림"],
     "review":31813,
     "star":"4.9",
-    "images":"../assets/images/product/cream/13.png",
+    "images":"./assets/images/product/cream/13.png",
     "sort":{"추천":15,"인기":0,"최신등록":62}
   },
   {
@@ -639,7 +639,7 @@ const itemData = [
     "tag":["비건","민감성","진정","수분보습"],
     "review":121,
     "star":"4.8",
-    "images":"../assets/images/product/cream/14.png",
+    "images":"./assets/images/product/cream/14.png",
     "sort":{"추천":90,"인기":70,"최신등록":33}
   },
 
@@ -655,7 +655,7 @@ const itemData = [
     "tag":["수분보습","저자극","주름","미백","영양탄력","윤기","페이셜"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/balm/01.png",
+    "images":"./assets/images/product/balm/01.png",
     "sort":{"추천":42,"인기":45,"최신등록":55}
   },
   {
@@ -669,7 +669,7 @@ const itemData = [
     "tag":["비건","저자극","주름","미백","고기능성","영양탄력","윤기","페이셜"],
     "review":21606,
     "star":"4.9",
-    "images":"../assets/images/product/balm/02.png",
+    "images":"./assets/images/product/balm/02.png",
     "sort":{"추천":9,"인기":8,"최신등록":61}
   },
 
@@ -685,7 +685,7 @@ const itemData = [
     "tag":["비건","수분보습","진정","저자극","주름","윤기","페이셜"],
     "review":11937,
     "star":"4.9",
-    "images":"../assets/images/product/mask/01.png",
+    "images":"./assets/images/product/mask/01.png",
     "sort":{"추천":49,"인기":13,"최신등록":48}
   },
   {
@@ -699,7 +699,7 @@ const itemData = [
     "tag":["고영양","수분보습","스킨핏"],
     "review":19652,
     "star":"4.9",
-    "images":"../assets/images/product/mask/02.png",
+    "images":"./assets/images/product/mask/02.png",
     "sort":{"추천":10,"인기":26,"최신등록":89}
   },
   {
@@ -713,7 +713,7 @@ const itemData = [
     "tag":["비건","수분보습","진정","저자극","페이셜"],
     "review":4401,
     "star":4.9,
-    "images":"../assets/images/product/mask/03.png",
+    "images":"./assets/images/product/mask/03.png",
     "sort":{"추천":37,"인기":19,"최신등록":69}
   },
   {
@@ -727,7 +727,7 @@ const itemData = [
     "tag":["비건","수분보습","저자극","영양탄력","페이셜"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/mask/04.png",
+    "images":"./assets/images/product/mask/04.png",
     "sort":{"추천":46,"인기":78,"최신등록":8}
   },
   {
@@ -741,7 +741,7 @@ const itemData = [
     "tag":["비건","수분보습","진정","저자극","주름","윤기","페이셜"],
     "review":1560,
     "star":"4.9",
-    "images":"../assets/images/product/mask/05.png",
+    "images":"./assets/images/product/mask/05.png",
     "sort":{"추천":48,"인기":55,"최신등록":47}
   },
   {
@@ -755,7 +755,7 @@ const itemData = [
     "tag":["비건","수분","주름","저자극","페이셜","아이갤패치","눈가주름"],
     "review":1,
     "star":"5.0",
-    "images":"../assets/images/product/mask/06.png",
+    "images":"./assets/images/product/mask/06.png",
     "sort":{"추천":22,"인기":52,"최신등록":38}
   },
   {
@@ -769,7 +769,7 @@ const itemData = [
     "tag":["비건","수분보습","진정","저자극","주름","윤기","페이셜"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/mask/07.png",
+    "images":"./assets/images/product/mask/07.png",
     "sort":{"추천":50,"인기":92,"최신등록":20}
   },
   {
@@ -783,7 +783,7 @@ const itemData = [
     "tag":["비건","수분보습","저자극","영양탄력","페이셜"],
     "review":1277,
     "star":"4.9",
-    "images":"../assets/images/product/mask/08.png",
+    "images":"./assets/images/product/mask/08.png",
     "sort":{"추천":47,"인기":34,"최신등록":46}
   },
 
@@ -799,7 +799,7 @@ const itemData = [
     "tag":["수분보습","저자극","영양탄력","모공각질","페이셜"],
     "review":9363,
     "star":"4.9",
-    "images":"../assets/images/product/cleanser/01.png"
+    "images":"./assets/images/product/cleanser/01.png"
   },
   {
     "id":55,
@@ -812,7 +812,7 @@ const itemData = [
     "tag":["비건","수분보습","저자극","모공각질","페이셜"],
     "review":3509,
     "star":"4.9",
-    "images":"../assets/images/product/cleanser/02.png"
+    "images":"./assets/images/product/cleanser/02.png"
   },
   {
     "id":56,
@@ -825,7 +825,7 @@ const itemData = [
     "tag":["비건","민감성","산뜻세안","미산성"],
     "review":211,
     "star":"4.9",
-    "images":"../assets/images/product/cleanser/03.png"
+    "images":"./assets/images/product/cleanser/03.png"
   },
   {
     "id":57,
@@ -838,7 +838,7 @@ const itemData = [
     "tag":["저자극","모공각질","페이셜"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/cleanser/04.png"
+    "images":"./assets/images/product/cleanser/04.png"
   },
   {
     "id":58,
@@ -851,7 +851,7 @@ const itemData = [
     "tag":["비건","수분보습","저자극","모공각질","페이셜"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/cleanser/05.png"
+    "images":"./assets/images/product/cleanser/05.png"
   },
   {
     "id":59,
@@ -864,7 +864,7 @@ const itemData = [
     "tag":["수분보습","진정","저자극","모공각질","페이셜"],
     "review":1,
     "star":"4.0",
-    "images":"../assets/images/product/cleanser/06.png"
+    "images":"./assets/images/product/cleanser/06.png"
   },
   {
     "id":60,
@@ -877,7 +877,7 @@ const itemData = [
     "tag":["수분보습","진정","저자극","모공각질","페이셜"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/cleanser/07.png"
+    "images":"./assets/images/product/cleanser/07.png"
   },
 
   // 메이크업 --------------------------------------------------------
@@ -892,7 +892,7 @@ const itemData = [
     "tag":["수분보습","저자극","주름","미백","모공각질","페이셜"],
     "review":8528,
     "star":"4.8",
-    "images":"../assets/images/product/makeup/01.png"
+    "images":"./assets/images/product/makeup/01.png"
   },
   {
     "id":62,
@@ -905,7 +905,7 @@ const itemData = [
     "tag":["수분보습","저자극","주름","미백","모공각질","페이셜"],
     "review":2,
     "star":"5.0",
-    "images":"../assets/images/product/makeup/02.png"
+    "images":"./assets/images/product/makeup/02.png"
   },
   {
     "id":63,
@@ -918,7 +918,7 @@ const itemData = [
     "tag":["안개분사","수분밀착","광채픽서"],
     "review":2405,
     "star":"4.8",
-    "images":"../assets/images/product/makeup/03.png"
+    "images":"./assets/images/product/makeup/03.png"
   },
   {
     "id":64,
@@ -931,7 +931,7 @@ const itemData = [
     "tag":["쿠션","커버 쿠션","세럼 쿠션","텐션 쿠션","팩트"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/makeup/04.png"
+    "images":"./assets/images/product/makeup/04.png"
   },
   {
     "id":65,
@@ -944,7 +944,7 @@ const itemData = [
     "tag":["수분세럼60%","파운데이션","스킨핏","결점커버","세럼파운데이션"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/makeup/05.png"
+    "images":"./assets/images/product/makeup/05.png"
   },
   {
     "id":66,
@@ -957,7 +957,7 @@ const itemData = [
     "tag":["수분보습","저자극","주름","미백","모공각질","페이셜"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/makeup/06.png"
+    "images":"./assets/images/product/makeup/06.png"
   },
   {
     "id":67,
@@ -970,7 +970,7 @@ const itemData = [
     "tag":["비건","글로우핏","퍼프"],
     "review":38,
     "star":"4.9",
-    "images":"../assets/images/product/makeup/07.png"
+    "images":"./assets/images/product/makeup/07.png"
   },
   {
     "id":68,
@@ -983,7 +983,7 @@ const itemData = [
     "tag":["비건","글로우핏","퍼프"],
     "review":97,
     "star":"4.9",
-    "images":"../assets/images/product/makeup/08.png"
+    "images":"./assets/images/product/makeup/08.png"
   },
   {
     "id":69,
@@ -996,7 +996,7 @@ const itemData = [
     "tag":["비건","스킨핏","아우라퍼프"],
     "review":157,
     "star":"4.9",
-    "images":"../assets/images/product/makeup/09.png"
+    "images":"./assets/images/product/makeup/09.png"
   },
   {
     "id":70,
@@ -1009,7 +1009,7 @@ const itemData = [
     "tag":["저자극","볼륨","립케어"],
     "review":2,
     "star":"5.0",
-    "images":"../assets/images/product/makeup/10.png"
+    "images":"./assets/images/product/makeup/10.png"
   },
   {
     "id":71,
@@ -1022,7 +1022,7 @@ const itemData = [
     "tag":["비건","항산화","저자극","민감성","주름","미백","자외선차단","모공각질","페이셜"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/makeup/11.png"
+    "images":"./assets/images/product/makeup/11.png"
   },
   {
     "id":72,
@@ -1035,7 +1035,7 @@ const itemData = [
     "tag":["비건","수분보습","저자극","주름","미백","자외선차단","페이셜"],
     "review":14851,
     "star":"4.8",
-    "images":"../assets/images/product/makeup/12.png"
+    "images":"./assets/images/product/makeup/12.png"
   },
   {
     "id":73,
@@ -1048,7 +1048,7 @@ const itemData = [
     "tag":["핑크빛생기","촉촉광채피부","저자극3중기능성"],
     "review":1,
     "star":"4.0",
-    "images":"../assets/images/product/makeup/13.png"
+    "images":"./assets/images/product/makeup/13.png"
   },
   {
     "id":74,
@@ -1061,7 +1061,7 @@ const itemData = [
     "tag":["저자극","주름","미백","자외선차단","윤기","페이셜"],
     "review":1,
     "star":"5.0",
-    "images":"../assets/images/product/makeup/14.png"
+    "images":"./assets/images/product/makeup/14.png"
   },
 
   // 맨즈케어 --------------------------------------------------------
@@ -1076,7 +1076,7 @@ const itemData = [
     "tag":["비건","수분보습","저자극","영양탄력","페이셜"],
     "review":2027,
     "star":"4.9",
-    "images":"../assets/images/product/man/01.png"
+    "images":"./assets/images/product/man/01.png"
   },
   {
     "id":76,
@@ -1089,7 +1089,7 @@ const itemData = [
     "tag":["비건","수분보습","저자극","윤기","페이셜"],
     "review":1766,
     "star":"4.9",
-    "images":"../assets/images/product/man/02.png"
+    "images":"./assets/images/product/man/02.png"
   },
 
 
@@ -1105,7 +1105,7 @@ const itemData = [
     "tag":["저자극","향기","윤기","바디&헤어"],
     "review":658,
     "star":"4.9",
-    "images":"../assets/images/product/hairbody/03.png"
+    "images":"./assets/images/product/hairbody/03.png"
   },
   {
     "id":78,
@@ -1118,7 +1118,7 @@ const itemData = [
     "tag":["저자극","향기","윤기","바디&헤어"],
     "review":3604,
     "star":"4.8",
-    "images":"../assets/images/product/hairbody/02.png"
+    "images":"./assets/images/product/hairbody/02.png"
   },
   {
     "id":79,
@@ -1131,7 +1131,7 @@ const itemData = [
     "tag":["저자극","윤기","바디&헤어"],
     "review":1115,
     "star":"4.8",
-    "images":"../assets/images/product/hairbody/12.png"
+    "images":"./assets/images/product/hairbody/12.png"
   },
   {
     "id":80,
@@ -1144,7 +1144,7 @@ const itemData = [
     "tag":["핸드워시","아로마틱","향기"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/hairbody/09.png"
+    "images":"./assets/images/product/hairbody/09.png"
   },
   {
     "id":81,
@@ -1157,7 +1157,7 @@ const itemData = [
     "tag":["괄사","슬림핏괄사","세라믹괄사"],
     "review":1488,
     "star":"4.9",
-    "images":"../assets/images/product/hairbody/01.png"
+    "images":"./assets/images/product/hairbody/01.png"
   },
   {
     "id":82,
@@ -1170,7 +1170,7 @@ const itemData = [
     "tag":["고기능성핸드케어","듀얼텍스처","탄력보습케어","저자극","아로마틱"],
     "review":1,
     "star":"5.0",
-    "images":"../assets/images/product/hairbody/07.png"
+    "images":"./assets/images/product/hairbody/07.png"
   },
   {
     "id":83,
@@ -1183,7 +1183,7 @@ const itemData = [
     "tag":["비건","수분보습","저자극","향기","바디&헤어"],
     "review":429,
     "star":"4.9",
-    "images":"../assets/images/product/hairbody/05.png"
+    "images":"./assets/images/product/hairbody/05.png"
   },
   {
     "id":84,
@@ -1196,7 +1196,7 @@ const itemData = [
     "tag":["비건","수분보습","저자극","윤기","바디&헤어"],
     "review":1010,
     "star":"4.9",
-    "images":"../assets/images/product/hairbody/06.png"
+    "images":"./assets/images/product/hairbody/06.png"
   },
   {
     "id":85,
@@ -1209,7 +1209,7 @@ const itemData = [
     "tag":["비건","저자극","의약외품","세니타이저겔"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/hairbody/11.png"
+    "images":"./assets/images/product/hairbody/11.png"
   },
   {
     "id":86,
@@ -1222,7 +1222,7 @@ const itemData = [
     "tag":["비건","저자극","의약외품","향기","세니타이저 미스트"],
     "review":740,
     "star":"4.8",
-    "images":"../assets/images/product/hairbody/10.png"
+    "images":"./assets/images/product/hairbody/10.png"
   },
   {
     "id":87,
@@ -1235,7 +1235,7 @@ const itemData = [
     "tag":["수분보습","저자극","향기","바디&헤어"],
     "review":1614,
     "star":"4.9",
-    "images":"../assets/images/product/hairbody/08.png"
+    "images":"./assets/images/product/hairbody/08.png"
   },
   {
     "id":88,
@@ -1248,7 +1248,7 @@ const itemData = [
     "tag":["비건","수분보습","저자극","영양탄력","향기","윤기","바디&헤어"],
     "review":5091,
     "star":"4.8",
-    "images":"../assets/images/product/hairbody/04.png"
+    "images":"./assets/images/product/hairbody/04.png"
   },
 
   // 비거너리 --------------------------------------------------------
@@ -1263,7 +1263,7 @@ const itemData = [
     "tag":["비건","식물성콜라겐","히알루론산","젤리타입"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/veganery/01.png",
+    "images":"./assets/images/product/veganery/01.png",
     "sort":{"비거너리인기":2,"비거너리최신등록":3}
   },
   {
@@ -1277,7 +1277,7 @@ const itemData = [
     "tag":["비건","식물성콜라겐","히알루론산","젤리타입"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/veganery/02.png",
+    "images":"./assets/images/product/veganery/02.png",
     "sort":{"비거너리인기":4,"비거너리최신등록":4}
   },
   {
@@ -1291,7 +1291,7 @@ const itemData = [
     "tag":["비건","식물성콜라겐","히알루론산","젤리타입"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/veganery/03.png",
+    "images":"./assets/images/product/veganery/03.png",
     "sort":{"비거너리인기":1,"비거너리최신등록":0}
   },
   {
@@ -1305,7 +1305,7 @@ const itemData = [
     "tag":["비건","식물성콜라겐","히알루론산","젤리타입"],
     "review":3,
     "star":"5.0",
-    "images":"../assets/images/product/veganery/04.png",
+    "images":"./assets/images/product/veganery/04.png",
     "sort":{"비거너리인기":0,"비거너리최신등록":2}
   },
   {
@@ -1319,7 +1319,7 @@ const itemData = [
     "tag":["비건","식물성콜라겐","히알루론산","앰플타입"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/veganery/05.png",
+    "images":"./assets/images/product/veganery/05.png",
     "sort":{"비거너리인기":3,"비거너리최신등록":1}
   },
 
@@ -1335,7 +1335,7 @@ const itemData = [
     "tag":["공간","디퓨저","아로마틱","시트러스","플로럴"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/fragrant/01.png",
+    "images":"./assets/images/product/fragrant/01.png",
     "sort":{"프래그런스인기":2,"프래그런스최신등록":0}
   },
   {
@@ -1349,7 +1349,7 @@ const itemData = [
     "tag":["퍼퓸","향수","달바향수","비건향수"],
     "review":0,
     "star":"0.0",
-    "images":"../assets/images/product/fragrant/02.png",
+    "images":"./assets/images/product/fragrant/02.png",
     "sort":{"프래그런스인기":1,"프래그런스최신등록":1}
   },
   {
@@ -1363,7 +1363,7 @@ const itemData = [
     "tag":["숙면","에센셜오일","포레스트향","시트러스향","비건필로우미스트"],
     "review":1,
     "star":"4.0",
-    "images":"../assets/images/product/fragrant/03.png",
+    "images":"./assets/images/product/fragrant/03.png",
     "sort":{"프래그런스인기":0,"프래그런스최신등록":2}    
   },
   {
@@ -1377,7 +1377,7 @@ const itemData = [
     "tag":["공간","멀티","아로마틱","스페이스퍼퓸"],
     "review":810,
     "star":"4.9",
-    "images":"../assets/images/product/fragrant/04.png",
+    "images":"./assets/images/product/fragrant/04.png",
     "sort":{"프래그런스인기":1,"프래그런스최신등록":3}
   },
 ];

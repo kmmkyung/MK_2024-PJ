@@ -140,6 +140,8 @@
 }
 
 .selectBox .select-list{
+  position: relative;
+  z-index: 1;
   box-shadow: 0 10px 13px rgb(164 167 172 / 20%);
   border: 1px solid var(--graya);
   border-top: none;

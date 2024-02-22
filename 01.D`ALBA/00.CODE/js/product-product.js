@@ -60,7 +60,7 @@ window.addEventListener('DOMContentLoaded',function(){
   menu2Num['베스트'] = optionBest.length
 
   for (let menuList of gnbData.Product){
-    menu2Li +=`<li class="menu-list"><a href="#">${menuList}(${menu2Num[menuList]})</a></li>` 
+    menu2Li +=`<li class="menu-list"><a href="product-product.html?product=${locationHref[menuList]}">${menuList}(${menu2Num[menuList]})</a></li>` 
   }
   menu2.innerHTML = menu2Li
 
@@ -84,5 +84,51 @@ window.addEventListener('DOMContentLoaded',function(){
     }
   })
 
-  
+  //// product
+  const itemList = document.querySelector('.product .item-list')
+  let itemCode = '';
+  for(let item of itemData){
+    itemCode += `
+    <li class="item">
+      <a href="#">
+        <div class="item-wrap">
+          <div class="item-text">
+            <h5 class="item-text__title">${item.name}</h5>
+            <p class="item-text__price">KRW ${item.price}</p>
+          </div>
+          <div class="item-imgBox">
+            <img class="item-imgBox__img" src="${item.images}">
+          </div>
+          <div class="item-bottom">
+          <div class="item-info">
+          <p class="item-info__caption">
+          `
+  for(let itemTag of item.tag){
+    itemCode += `
+            <span>#${itemTag}</span>  
+              `
+  }
+    itemCode +=`
+    </p>
+    <p class="item-info__size">
+    `
+    for(let itemCapacity of item.capacity){
+      itemCode += `
+      <span>${itemCapacity}</span>
+      `
+    }
+  itemCode += `
+          </p>
+        </div>
+        <div class="item-review">
+          <p class="item-review__number">리뷰: ${item.review}</p>
+          <p class="item-review__star">★${item.star}</p>
+        </div>
+      </div>
+    </div>
+    </a>
+  </li>
+  `
+  }
+  itemList.innerHTML = itemCode
 })
