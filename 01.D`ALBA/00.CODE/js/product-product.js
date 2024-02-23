@@ -42,6 +42,7 @@ window.addEventListener('DOMContentLoaded',function(){
   itemData.forEach(function(ele){
     menu2NumArr.push(ele.class)
   })
+
   const menu2Num = menu2NumArr.reduce(function(acc,cur){
     acc[cur] = (acc[cur] || 0) +1;
     return acc;
@@ -62,8 +63,9 @@ window.addEventListener('DOMContentLoaded',function(){
   for (let menuList of gnbData.Product){
     menu2Li +=`<li class="menu-list"><a href="product-product.html?product=${locationHref[menuList]}">${menuList}(${menu2Num[menuList]})</a></li>` 
   }
-  menu2.innerHTML = menu2Li
+  menu2.innerHTML = menu2Li;
 
+    
   //// select
   const selectBox = document.querySelector('.selectBox')
   const select = document.querySelector('.select')
@@ -130,5 +132,5 @@ window.addEventListener('DOMContentLoaded',function(){
   }
   itemList.innerHTML = itemCode
 
-  switch
+
 })

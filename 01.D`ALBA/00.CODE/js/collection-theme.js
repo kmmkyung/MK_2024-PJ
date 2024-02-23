@@ -107,14 +107,14 @@ window.addEventListener('DOMContentLoaded',function(){
   section4p.innerHTML = collectionData[locationLinkValue]["section-4_p"]
   section4caption.innerHTML = collectionData[locationLinkValue]["section-4_span"]
   function bgChange3(){
-  if(locationLinkValue=='moisture' || locationLinkValue=='relax' || locationLinkValue=='clinic'){
-      if(window.innerWidth<=900){
-        section4.style.backgroundImage = `url(./assets/images/collection/mobile_${collectionData[locationLinkValue]["section-4_bg"]})`
+    if(locationLinkValue=='moisture' || locationLinkValue=='relax' || locationLinkValue=='clinic'){
+        if(window.innerWidth<=900){
+          section4.style.backgroundImage = `url(./assets/images/collection/mobile_${collectionData[locationLinkValue]["section-4_bg"]})`
+        }
+        if(window.innerWidth>900){
+          section4.style.backgroundImage = `url(./assets/images/collection/${collectionData[locationLinkValue]["section-4_bg"]})`
+        }
       }
-      if(window.innerWidth>900){
-        section4.style.backgroundImage = `url(./assets/images/collection/${collectionData[locationLinkValue]["section-4_bg"]})`
-      }
-    }
     else{
       section4.style.backgroundImage = `url(./assets/images/collection/${collectionData[locationLinkValue]["section-4_bg"]})`
     }
