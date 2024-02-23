@@ -244,9 +244,14 @@
   font-size: var(--font-size-XS);
 } 
 
+.item-info__caption span{
+  display: inline-block;
+}
+
 .item .item-info__size{
   font-size: var(--font-size-XS);
   margin-left: 10px;
+  flex-shrink: 0;
 } 
 
 .item .item-review{

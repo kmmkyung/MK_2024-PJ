@@ -87,7 +87,11 @@ window.addEventListener('DOMContentLoaded',function(){
   //// product
   const itemList = document.querySelector('.product .item-list')
   let itemCode = '';
+  let capacityString = " / "
   for(let item of itemData){
+    let itemCapacity = item.capacity;
+    let itemCapacityArr = itemCapacity.join(capacityString)
+    
     itemCode += `
     <li class="item">
       <a href="#">
@@ -109,15 +113,9 @@ window.addEventListener('DOMContentLoaded',function(){
               `
   }
     itemCode +=`
-    </p>
-    <p class="item-info__size">
-    `
-    for(let itemCapacity of item.capacity){
-      itemCode += `
-      <span>${itemCapacity}</span>
-      `
-    }
-  itemCode += `
+          </p>
+            <p class="item-info__size">
+            <span>${itemCapacityArr}</span>
           </p>
         </div>
         <div class="item-review">
@@ -131,4 +129,6 @@ window.addEventListener('DOMContentLoaded',function(){
   `
   }
   itemList.innerHTML = itemCode
+
+  switch
 })
