@@ -98,13 +98,22 @@
   margin: 20px 0;
 }
 
-.menu-2__menu .menu-list{
+.menu-2__menu .menu-item{
   margin: 10px 0;
   font-size: var(--font-size-S);
 }
 
-.menu-2__menu .menu-list a{
+.menu-2__menu .menu-item a{
   opacity: 0.5;
+}
+
+.menu-2__menu .menu-item.active{
+  font-weight: bold;
+}
+
+.menu-2__menu .menu-item.active a{
+  opacity: 1;
+  text-decoration: underline;
 }
 
 .selectBox{
@@ -286,6 +295,7 @@
 .pagination-item{
   font-size: var(--font-size-XS);
   opacity: 0.5;
+  cursor: pointer;
 }
 
 .pagination-item.active{

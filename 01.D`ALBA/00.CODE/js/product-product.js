@@ -59,20 +59,35 @@ window.addEventListener('DOMContentLoaded',function(){
   })
   menu2Num['전체보기'] = menu2NumTotal
   menu2Num['베스트'] = optionBest.length
-
+  
   for (let menuList of gnbData.Product){
-    menu2Li +=`<li class="menu-list"><a href="product-product.html?product=${locationHref[menuList]}">${menuList}(${menu2Num[menuList]})</a></li>` 
+    menu2Li +=`<li data-category=${locationHref[menuList]} class="menu-item"><a href="product-product.html?product=${locationHref[menuList]}">${menuList}(${menu2Num[menuList]})</a></li>` 
   }
   menu2.innerHTML = menu2Li;
 
+  const menu2Category = document.querySelectorAll('.menu-2__menu .menu-item')
+  menu2Category.forEach((ele)=>{
+    const queryString = window.location.search
+    const urlParams = new URLSearchParams(queryString)
+    const categoryKey = urlParams.get('product')
+    if(ele.dataset.category == categoryKey){
+      ele.classList.add('active')
+    }
+  })
+  
   
   //// select
   const selectBox = document.querySelector('.selectBox')
   const select = document.querySelector('.select')
   const selectList = document.querySelector('.select-list')
   const selectOption = document.querySelectorAll('.select-option')
+  let click = 0;
   select.addEventListener('click',function(){
     selectList.classList.add('active')
+    click ++;
+    if(click%2== 0){
+      selectList.classList.remove('active')
+    }
   })
   selectOption.forEach(function(ele){
     ele.addEventListener('click',function(){
