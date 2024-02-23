@@ -65,7 +65,7 @@ window.addEventListener('DOMContentLoaded',function(){
   }
   menu2.innerHTML = menu2Li;
 
-    
+  
   //// select
   const selectBox = document.querySelector('.selectBox')
   const select = document.querySelector('.select')
@@ -86,51 +86,79 @@ window.addEventListener('DOMContentLoaded',function(){
     }
   })
 
-  //// product
-  const itemList = document.querySelector('.product .item-list')
-  let itemCode = '';
-  let capacityString = " / "
-  for(let item of itemData){
-    let itemCapacity = item.capacity;
-    let itemCapacityArr = itemCapacity.join(capacityString)
-    
-    itemCode += `
-    <li class="item">
-      <a href="#">
-        <div class="item-wrap">
-          <div class="item-text">
-            <h5 class="item-text__title">${item.name}</h5>
-            <p class="item-text__price">KRW ${item.price}</p>
-          </div>
-          <div class="item-imgBox">
-            <img class="item-imgBox__img" src="${item.images}">
-          </div>
-          <div class="item-bottom">
-          <div class="item-info">
-          <p class="item-info__caption">
-          `
-  for(let itemTag of item.tag){
-    itemCode += `
-            <span>#${itemTag}</span>  
-              `
+  //// pagination
+  let pageItemShowLength = 20 // 한 페이지당 최대 20개 보여줄것임
+  let pageItemLength = Math.ceil(itemData.length / pageItemShowLength)
+
+  ////// 버튼 생성
+  const pageButtonList = document.querySelector('.pagination-list')
+  function pageButton(){
+    for(let i=1; i<=pageItemLength; i++){
+      pageButtonList.innerHTML += `<li class="pagination-item">${i}</li>`
+    }
   }
-    itemCode +=`
-          </p>
-            <p class="item-info__size">
-            <span>${itemCapacityArr}</span>
-          </p>
-        </div>
-        <div class="item-review">
-          <p class="item-review__number">리뷰: ${item.review}</p>
-          <p class="item-review__star">★${item.star}</p>
+  pageButton()
+
+  //// product
+  function pageItemShow(pageButtonNumber){
+    const itemList = document.querySelector('.product .item-list')
+    let itemCode = '';
+    let ItemDataLengthArr = []
+    for(let i=pageItemShowLength*(pageButtonNumber-1); i<pageItemShowLength*(pageButtonNumber-1)+20 && i<itemData.length; i++){
+      ItemDataLengthArr.push(itemData[i])
+    }
+    for(let item of ItemDataLengthArr){  
+      let capacityString = " / "
+      let itemCapacity = item.capacity;
+      let itemCapacityArr = itemCapacity.join(capacityString)
+      itemCode += `
+      <li class="item">
+        <a href="#">
+          <div class="item-wrap">
+            <div class="item-text">
+              <h5 class="item-text__title">${item.name}</h5>
+              <p class="item-text__price">KRW ${item.price}</p>
+            </div>
+            <div class="item-imgBox">
+              <img class="item-imgBox__img" src="${item.images}">
+            </div>
+            <div class="item-bottom">
+            <div class="item-info">
+            <p class="item-info__caption">
+            `
+    for(let itemTag of item.tag){
+      itemCode += `
+              <span>#${itemTag}</span>  
+                `
+    }
+      itemCode +=`
+            </p>
+              <p class="item-info__size">
+              <span>${itemCapacityArr}</span>
+            </p>
+          </div>
+          <div class="item-review">
+            <p class="item-review__number">리뷰: ${item.review}</p>
+            <p class="item-review__star">★${item.star}</p>
+          </div>
         </div>
       </div>
-    </div>
-    </a>
-  </li>
-  `
+      </a>
+    </li>
+    `
+    }
+    itemList.innerHTML = itemCode
   }
-  itemList.innerHTML = itemCode
+  pageItemShow(1)
+
+  const paginationItem = document.querySelectorAll('.pagination-item')
+  paginationItem.forEach(function(ele){
+    ele.addEventListener('click',function(event){
+      pageItemShow(event.target.textContent)
+    })
+  })
+  
+
 
 
 })
