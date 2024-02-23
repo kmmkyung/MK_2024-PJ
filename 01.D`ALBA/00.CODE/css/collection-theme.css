@@ -32,6 +32,7 @@
 .section-1 .section-1__wrap p{
   font-size: var(--font-size-S);
   line-height: 1.8;
+  word-break: keep-all;
 }
 
 .section-2{
