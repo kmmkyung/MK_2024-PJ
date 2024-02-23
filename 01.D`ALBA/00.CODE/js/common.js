@@ -49,18 +49,57 @@ window.addEventListener('DOMContentLoaded',function(){
   }
 
   headerMenuUl.innerHTML = headerMenuCode;
+
   const gnbSubMenu = document.querySelectorAll('.gnbSubMenu')
-  gnbSubMenu.forEach(function(ele,idx){
+  gnbSubMenu.forEach(function(ele){
     ele.addEventListener('click',function(){
       let dataLink = ele.dataset.link
-      if(idx<4){
-        location.href= 'story-'+dataLink+'.html'
-      }
-      if(3<idx<9){
-        location.href="collection-theme.html?collection="+dataLink
-      }
-      if(8<idx){
-        location.href="product-product.html?product="+dataLink
+      switch(dataLink){
+        case "story" : location.href= 'story-'+dataLink+'.html'
+          break;
+        case "whiteTruffle": location.href= 'story-'+dataLink+'.html'
+          break; 
+        case "verification": location.href= 'story-'+dataLink+'.html'
+          break;
+        case "muse": location.href= 'story-'+dataLink+'.html'
+          break;
+
+        case "antioxidant": location.href="collection-theme.html?collection="+dataLink
+          break;
+        case "vegan" : location.href="collection-theme.html?collection="+dataLink
+          break;
+        case "moisture": location.href="collection-theme.html?collection="+dataLink
+          break; 
+        case "relax": location.href="collection-theme.html?collection="+dataLink
+          break;
+        case "clinic": location.href="collection-theme.html?collection="+dataLink
+          break;
+
+        case "all": location.href="product-product.html?product="+dataLink
+          break;
+        case "best" : location.href="product-product.html?product="+dataLink
+          break;
+        case "face" : location.href="product-product.html?product="+dataLink
+          break;
+        case "suncream": location.href="product-product.html?product="+dataLink
+          break; 
+        case "mask": location.href="product-product.html?product="+dataLink
+          break;
+        case "cream": location.href="product-product.html?product="+dataLink
+          break;
+        case "cleanser": location.href="product-product.html?product="+dataLink
+          break;
+        case "makeup": location.href="product-product.html?product="+dataLink
+          break;
+        case "man": location.href="product-product.html?product="+dataLink
+          break;
+        case "hairbody": location.href="product-product.html?product="+dataLink
+          break;
+        case "veganery": location.href="product-product.html?product="+dataLink
+          break;
+        case "fragrant": location.href="product-product.html?product="+dataLink
+          break;
+
       }
     })
   })

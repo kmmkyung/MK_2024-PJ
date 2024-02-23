@@ -100,7 +100,7 @@ window.addEventListener('DOMContentLoaded',function(){
   const section4h2 = document.querySelector('.section-4 h2')
   const section4p = document.querySelector('.section-4 p')
   const section4caption = document.querySelector('.section-4 span')
-  section4.style.backgroundImage = `url(${collectionData[locationLinkValue]["section-4_bg"]})`
+  section4.style.backgroundImage = `url(./assets/images/collection/${collectionData[locationLinkValue]["section-4_bg"]})`
   section4Content.style.color = collectionData[locationLinkValue]["section-4_textColor"]
   section4Content.style[collectionData[locationLinkValue]["section-4_position"]] = '10%'
   section4h2.innerHTML = collectionData[locationLinkValue]["section-4_h2"]
