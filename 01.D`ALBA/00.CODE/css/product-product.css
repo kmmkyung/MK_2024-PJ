@@ -290,6 +290,7 @@
 
 .pagination-item.active{
   opacity: 1;
+  font-weight: bold;
 }
 
 

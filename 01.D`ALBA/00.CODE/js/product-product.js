@@ -152,9 +152,13 @@ window.addEventListener('DOMContentLoaded',function(){
   pageItemShow(1)
 
   const paginationItem = document.querySelectorAll('.pagination-item')
+  paginationItem[0].classList.add('active')
   paginationItem.forEach(function(ele){
     ele.addEventListener('click',function(event){
       pageItemShow(event.target.textContent)
+      let activeItem = document.querySelector('.pagination-item.active')
+        activeItem.classList.remove('active')
+      ele.classList.add('active')
     })
   })
   
