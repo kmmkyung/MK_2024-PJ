@@ -58,24 +58,76 @@ window.addEventListener('DOMContentLoaded',function(){
     }
   })
   menu2Num['전체보기'] = menu2NumTotal
-  menu2Num['베스트'] = optionBest.length
+  menu2Num['베스트'] = optionBest.length  
   
   for (let menuList of gnbData.Product){
-    menu2Li +=`<li data-category=${locationHref[menuList]} class="menu-item"><a href="product-product.html?product=${locationHref[menuList]}">${menuList}(${menu2Num[menuList]})</a></li>` 
+    menu2Li +=`
+    <li data-category=${locationHref[menuList]} class="menu-item">
+      <a href="product-product.html?product=${locationHref[menuList]}">${menuList}(${menu2Num[menuList]})</a>
+    </li>
+    ` 
   }
   menu2.innerHTML = menu2Li;
 
   const menu2Category = document.querySelectorAll('.menu-2__menu .menu-item')
-  menu2Category.forEach((ele)=>{
+  let mistObj = {"미스트":[],"세럼":[],"토너":[],"앰플":[]}
+  let creamObj = {"로션":[],"크림":[],"밤":[]}
+  let hairObj =  {"헤어":[],"바디":[]}
+  function objValue(obj,num){
+    itemData.forEach((ele) => {
+      if(ele.subclass == Object.keys(obj)[num]){
+        obj[ele.subclass].push(ele)          
+        }
+      })
+    }
+  for(let i=0; i<=Object.keys(mistObj).length; i++){objValue(mistObj,i)}
+  for(let i=0; i<=Object.keys(creamObj).length; i++){objValue(creamObj,i)}
+  for(let i=0; i<=Object.keys(hairObj).length; i++){objValue(hairObj,i)}
+
+  menu2Category.forEach((ele,idx)=>{
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString)
     const categoryKey = urlParams.get('product')
     if(ele.dataset.category == categoryKey){
       ele.classList.add('active')
+      menu1Title.textContent = gnbData.Product[idx]
     }
   })
-  
-  
+
+  if(menu1Title.textContent == '미스트·세럼·토너·앰플'){
+    menu2Li = ``
+    for(let item in mistObj){
+      menu2Li += `
+      <li class="menu-item">
+        <a href="product-product.html?product=${locationHref['미스트·세럼·토너·앰플']}&${locationHref['미스트·세럼·토너·앰플']}=${locationHref[item]}">${item}(${mistObj[item].length})</a>
+      </li>
+      `
+    }
+    menu2.innerHTML = menu2Li;
+  }
+  if(menu1Title.textContent == '로션·크림·밤'){
+    menu2Li = ``
+    for(let item in creamObj){
+      menu2Li += `
+      <li class="menu-item">
+        <a href="product-product.html?product=${locationHref['로션·크림·밤']}&${locationHref['로션·크림·밤']}=${locationHref[item]}">${item}(${creamObj[item].length})</a>
+      </li>
+      `
+    }
+    menu2.innerHTML = menu2Li;
+  }
+  if(menu1Title.textContent == '헤어·바디'){
+    menu2Li = ``
+    for(let item in hairObj){
+      menu2Li += `
+      <li class="menu-item">
+        <a href="product-product.html?product=${locationHref['헤어·바디']}&${locationHref['헤어·바디']}=${locationHref[item]}">${item}(${hairObj[item].length})</a>
+      </li>
+      `
+    }
+    menu2.innerHTML = menu2Li;
+  }
+
   //// select
   const selectBox = document.querySelector('.selectBox')
   const select = document.querySelector('.select')
@@ -103,11 +155,11 @@ window.addEventListener('DOMContentLoaded',function(){
 
   //// pagination
   let pageItemShowLength = 20 // 한 페이지당 최대 20개 보여줄것임
+  function pageButton(){
   let pageItemLength = Math.ceil(itemData.length / pageItemShowLength)
 
   ////// 버튼 생성
   const pageButtonList = document.querySelector('.pagination-list')
-  function pageButton(){
     for(let i=1; i<=pageItemLength; i++){
       pageButtonList.innerHTML += `<li class="pagination-item">${i}</li>`
     }
@@ -120,7 +172,9 @@ window.addEventListener('DOMContentLoaded',function(){
     let itemCode = '';
     let ItemDataLengthArr = []
     for(let i=pageItemShowLength*(pageButtonNumber-1); i<pageItemShowLength*(pageButtonNumber-1)+20 && i<itemData.length; i++){
-      ItemDataLengthArr.push(itemData[i])
+      if(menu1Title.textContent){
+        ItemDataLengthArr.push(itemData[i])
+      }
     }
     for(let item of ItemDataLengthArr){  
       let capacityString = " / "
@@ -176,8 +230,6 @@ window.addEventListener('DOMContentLoaded',function(){
       ele.classList.add('active')
     })
   })
-  
-
 
 
 })

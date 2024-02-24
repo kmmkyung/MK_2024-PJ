@@ -318,7 +318,7 @@
 }
 
 @media screen and (max-width:900px) {
-  .menu-2__menu .menu-list{
+  .menu-2__menu .menu-item{
     font-size: var(--font-size-XS);
   }
 
