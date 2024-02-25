@@ -88,7 +88,10 @@ window.addEventListener('DOMContentLoaded',function(){
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString)
     const categoryKey = urlParams.get('product')
-    if(ele.dataset.category == categoryKey){
+    const categoryKeyFace = urlParams.get('face')
+    console.log(categoryKey);
+    
+      if(ele.dataset.category == categoryKey){
       ele.classList.add('active')
       menu1Title.textContent = gnbData.Product[idx]
     }
@@ -104,6 +107,7 @@ window.addEventListener('DOMContentLoaded',function(){
       `
     }
     menu2.innerHTML = menu2Li;
+    
   }
   if(menu1Title.textContent == '로션·크림·밤'){
     menu2Li = ``
