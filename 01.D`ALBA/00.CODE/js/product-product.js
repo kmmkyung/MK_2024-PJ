@@ -157,14 +157,24 @@ window.addEventListener('DOMContentLoaded',function(){
     }
   })
 
-
-  
-  //// product
+  //// pagination
   let pageItemShowLength = 20 // 한 페이지당 최대 20개 보여줄것임
-  const itemList = document.querySelector('.product .item-list')
-  let itemCode = '';
-  let ItemDataLengthArr = []
+  function pageButton(){
+  let pageItemLength = Math.ceil(itemData.length / pageItemShowLength)
+
+  ////// 버튼 생성
+  const pageButtonList = document.querySelector('.pagination-list')
+    for(let i=1; i<=pageItemLength; i++){
+      pageButtonList.innerHTML += `<li class="pagination-item">${i}</li>`
+    }
+  }
+  pageButton()
+
+  //// product
   function pageItemShow(pageButtonNumber){
+    const itemList = document.querySelector('.product .item-list')
+    let itemCode = '';
+    let ItemDataLengthArr = []
     for(let i=pageItemShowLength*(pageButtonNumber-1); i<pageItemShowLength*(pageButtonNumber-1)+20 && i<itemData.length; i++){
       if(menu1Title.textContent){
         ItemDataLengthArr.push(itemData[i])
@@ -214,29 +224,16 @@ window.addEventListener('DOMContentLoaded',function(){
   }
   pageItemShow(1)
 
-  console.log(ItemDataLengthArr);
-  
-  //// pagination
-  function pageButton(){
-    let pageItemLength = Math.ceil(itemData.length / pageItemShowLength)
-    
-    ////// 버튼 생성
-    const pageButtonList = document.querySelector('.pagination-list')
-    for(let i=1; i<=pageItemLength; i++){
-      pageButtonList.innerHTML += `<li class="pagination-item">${i}</li>`
-    }
-    
-    const paginationItem = document.querySelectorAll('.pagination-item')
-    paginationItem[0].classList.add('active')
-    paginationItem.forEach(function(ele){
-      ele.addEventListener('click',function(event){
-        pageItemShow(event.target.textContent)
-        let activeItem = document.querySelector('.pagination-item.active')
+  const paginationItem = document.querySelectorAll('.pagination-item')
+  paginationItem[0].classList.add('active')
+  paginationItem.forEach(function(ele){
+    ele.addEventListener('click',function(event){
+      pageItemShow(event.target.textContent)
+      let activeItem = document.querySelector('.pagination-item.active')
         activeItem.classList.remove('active')
-        ele.classList.add('active')
-      })
+      ele.classList.add('active')
     })
-  }
-  pageButton()
+  })
+
 
 })
