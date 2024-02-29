@@ -88,8 +88,6 @@ window.addEventListener('DOMContentLoaded',function(){
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString)
     const categoryKey = urlParams.get('product')
-    const categoryKeyFace = urlParams.get('face')
-    console.log(categoryKey);
     
       if(ele.dataset.category == categoryKey){
       ele.classList.add('active')
@@ -157,30 +155,38 @@ window.addEventListener('DOMContentLoaded',function(){
     }
   })
 
-  //// pagination
+  //// pagination /////////////////////////////////////////////////////////////////////////////
   let pageItemShowLength = 20 // 한 페이지당 최대 20개 보여줄것임
-  function pageButton(){
-  let pageItemLength = Math.ceil(itemData.length / pageItemShowLength)
-
-  ////// 버튼 생성
-  const pageButtonList = document.querySelector('.pagination-list')
-    for(let i=1; i<=pageItemLength; i++){
-      pageButtonList.innerHTML += `<li class="pagination-item">${i}</li>`
-    }
+  let itemDataFilterArr = []
+  function filterItem(cat){
+    let filterData = itemData.filter(function(event){
+      return event.class == cat
+    })
+    itemDataFilterArr.push(...filterData)
   }
-  pageButton()
-
+  
+    
   //// product
   function pageItemShow(pageButtonNumber){
     const itemList = document.querySelector('.product .item-list')
     let itemCode = '';
-    let ItemDataLengthArr = []
+    let itemDataLengthArr = []
     for(let i=pageItemShowLength*(pageButtonNumber-1); i<pageItemShowLength*(pageButtonNumber-1)+20 && i<itemData.length; i++){
-      if(menu1Title.textContent){
-        ItemDataLengthArr.push(itemData[i])
+      if(menu1Title.textContent == '전체보기'){
+        itemDataLengthArr.push(itemData[i])
       }
     }
-    for(let item of ItemDataLengthArr){  
+    if(menu1Title.textContent == '마스크'){
+      filterItem('마스크')
+      itemDataLengthArr.push(...itemDataFilterArr)
+    }
+
+    if(menu1Title.textContent == '선크림'){
+      filterItem('선크림')
+      itemDataLengthArr.push(...itemDataFilterArr)
+    }
+
+    for(let item of itemDataLengthArr){  
       let capacityString = " / "
       let itemCapacity = item.capacity;
       let itemCapacityArr = itemCapacity.join(capacityString)
@@ -223,6 +229,16 @@ window.addEventListener('DOMContentLoaded',function(){
     itemList.innerHTML = itemCode
   }
   pageItemShow(1)
+
+  function pageButton(){
+    let pageItemLength = Math.ceil(itemData.length / pageItemShowLength)
+    ////// 버튼 생성
+    const pageButtonList = document.querySelector('.pagination-list')
+      for(let i=1; i<=pageItemLength; i++){
+        pageButtonList.innerHTML += `<li class="pagination-item">${i}</li>`
+      }
+    }
+    pageButton()
 
   const paginationItem = document.querySelectorAll('.pagination-item')
   paginationItem[0].classList.add('active')
