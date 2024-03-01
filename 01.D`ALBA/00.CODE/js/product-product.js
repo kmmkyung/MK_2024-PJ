@@ -157,35 +157,12 @@ window.addEventListener('DOMContentLoaded',function(){
 
   //// pagination /////////////////////////////////////////////////////////////////////////////
   let pageItemShowLength = 20 // 한 페이지당 최대 20개 보여줄것임
-  let itemDataFilterArr = []
-  function filterItem(cat){
-    let filterData = itemData.filter(function(event){
-      return event.class == cat
-    })
-    itemDataFilterArr.push(...filterData)
-  }
   
-    
   //// product
-  function pageItemShow(pageButtonNumber){
-    const itemList = document.querySelector('.product .item-list')
+  ////// 아이템 코드
+  function pageItemDataCode(itemDataLengthArr){
     let itemCode = '';
-    let itemDataLengthArr = []
-    for(let i=pageItemShowLength*(pageButtonNumber-1); i<pageItemShowLength*(pageButtonNumber-1)+20 && i<itemData.length; i++){
-      if(menu1Title.textContent == '전체보기'){
-        itemDataLengthArr.push(itemData[i])
-      }
-    }
-    if(menu1Title.textContent == '마스크'){
-      filterItem('마스크')
-      itemDataLengthArr.push(...itemDataFilterArr)
-    }
-
-    if(menu1Title.textContent == '선크림'){
-      filterItem('선크림')
-      itemDataLengthArr.push(...itemDataFilterArr)
-    }
-
+    const itemList = document.querySelector('.product .item-list')
     for(let item of itemDataLengthArr){  
       let capacityString = " / "
       let itemCapacity = item.capacity;
@@ -228,28 +205,84 @@ window.addEventListener('DOMContentLoaded',function(){
     }
     itemList.innerHTML = itemCode
   }
-  pageItemShow(1)
+
+  ////// 전체보기
+  function pageItemAll(pageButtonNumber){
+    let itemDataLengthArr = []
+    if(menu1Title.textContent === '전체보기'){
+      for(let i=pageItemShowLength*(pageButtonNumber-1); i<pageItemShowLength*(pageButtonNumber-1)+20 && i<itemData.length; i++){
+        itemDataLengthArr.push(itemData[i])
+      }
+      pageItemDataCode(itemDataLengthArr)
+    }
+  }
+  pageItemAll(1)
+
+  ////// 베스트
+  function pageItemBest(pageButtonNumber){
+    let itemDataLengthArr = []
+    let itemDataFilterArr = []
+    if(menu1Title.textContent === '베스트'){
+        let filterData = itemData.filter(function(event){return event.option =='best'})
+        itemDataFilterArr.push(...filterData)
+      }
+    for(let i=pageItemShowLength*(pageButtonNumber-1); i<pageItemShowLength*(pageButtonNumber-1)+20 && i<itemDataFilterArr.length; i++){
+      itemDataLengthArr.push(itemDataFilterArr[i])
+      pageItemDataCode(itemDataLengthArr)
+    }
+  }
+  pageItemBest(1)
+
+  ////// 기타 카테고리
+  function pageItemCategory(cat,pageButtonNumber){
+    let itemDataLengthArr = []
+    let itemDataFilterArr = []
+    if(menu1Title.textContent == cat){
+    let filterData = itemData.filter(function(event){
+      return event.class == cat
+    })
+    itemDataFilterArr.push(...filterData)
+    }
+    for(let i=pageItemShowLength*(pageButtonNumber-1); i<itemDataFilterArr.length && i<pageItemShowLength*(pageButtonNumber-1)+20; i++){
+      itemDataLengthArr.push(itemDataFilterArr[i])
+      pageItemDataCode(itemDataLengthArr)
+    }
+  }
+  pageItemCategory('미스트·세럼·토너·앰플',1)
+  pageItemCategory('선크림',1)
+  pageItemCategory('마스크',1)
+  pageItemCategory('로션·크림·밤',1)
+  pageItemCategory('클렌징',1)
+  pageItemCategory('메이크업',1)
+  pageItemCategory('맨즈케어',1)
+  pageItemCategory('헤어·바디',1)
+  pageItemCategory('비거너리',1)
+  pageItemCategory('프래그런스',1)
 
   function pageButton(){
     let pageItemLength = Math.ceil(itemData.length / pageItemShowLength)
     ////// 버튼 생성
     const pageButtonList = document.querySelector('.pagination-list')
-      for(let i=1; i<=pageItemLength; i++){
-        pageButtonList.innerHTML += `<li class="pagination-item">${i}</li>`
-      }
+    for(let i=1; i<=pageItemLength; i++){
+      pageButtonList.innerHTML += `<li class="pagination-item">${i}</li>`
     }
-    pageButton()
+  }
+  pageButton()
 
   const paginationItem = document.querySelectorAll('.pagination-item')
   paginationItem[0].classList.add('active')
   paginationItem.forEach(function(ele){
     ele.addEventListener('click',function(event){
-      pageItemShow(event.target.textContent)
+      pageItemAll(event.target.textContent)
+      pageItemBest(event.target.textContent)
+      pageItemCategory(event.target.textContent)
       let activeItem = document.querySelector('.pagination-item.active')
-        activeItem.classList.remove('active')
+      activeItem.classList.remove('active')
       ele.classList.add('active')
+      setTimeout(function(){
+        scrollTo(0,0)
+      },150)
     })
   })
-
 
 })
