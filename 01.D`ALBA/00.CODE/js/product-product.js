@@ -234,20 +234,21 @@ window.addEventListener('DOMContentLoaded',function(){
   pageItemBest(1)
 
   ////// 기타 카테고리
-  function pageItemCategory(cat,pageButtonNumber){
+  function pageItemCategory(category,pageButtonNumber){
     let itemDataLengthArr = []
     let itemDataFilterArr = []
-    if(menu1Title.textContent == cat){
+    if(menu1Title.textContent === category){
     let filterData = itemData.filter(function(event){
-      return event.class == cat
+      return event.class == category
     })
-    itemDataFilterArr.push(...filterData)
+    itemDataFilterArr.push(...filterData)    
     }
-    for(let i=pageItemShowLength*(pageButtonNumber-1); i<itemDataFilterArr.length && i<pageItemShowLength*(pageButtonNumber-1)+20; i++){
-      itemDataLengthArr.push(itemDataFilterArr[i])
+    for(let i=pageItemShowLength*(pageButtonNumber-1); i<pageItemShowLength*(pageButtonNumber-1)+20 && i<itemDataFilterArr.length; i++){
+      itemDataLengthArr.push(itemDataFilterArr[i])      
       pageItemDataCode(itemDataLengthArr)
     }
   }
+
   pageItemCategory('미스트·세럼·토너·앰플',1)
   pageItemCategory('선크림',1)
   pageItemCategory('마스크',1)
@@ -258,16 +259,31 @@ window.addEventListener('DOMContentLoaded',function(){
   pageItemCategory('헤어·바디',1)
   pageItemCategory('비거너리',1)
   pageItemCategory('프래그런스',1)
-
-  function pageButton(){
-    let pageItemLength = Math.ceil(itemData.length / pageItemShowLength)
-    ////// 버튼 생성
+  
+  function pageButton(cat){
+    let pageItemLength
     const pageButtonList = document.querySelector('.pagination-list')
+    if(menu1Title.textContent == cat){
+      pageItemLength = Math.ceil(menu2Num[cat] / pageItemShowLength)
+    }
+      
     for(let i=1; i<=pageItemLength; i++){
       pageButtonList.innerHTML += `<li class="pagination-item">${i}</li>`
     }
   }
-  pageButton()
+  pageButton('전체보기')
+  pageButton('베스트')
+  pageButton('미스트·세럼·토너·앰플')
+  pageButton('선크림')
+  pageButton('마스크')
+  pageButton('로션·크림·밤')
+  pageButton('클렌징')
+  pageButton('메이크업')
+  pageButton('맨즈케어')
+  pageButton('헤어·바디')
+  pageButton('비거너리')
+  pageButton('프래그런스')
+
 
   const paginationItem = document.querySelectorAll('.pagination-item')
   paginationItem[0].classList.add('active')
@@ -275,7 +291,7 @@ window.addEventListener('DOMContentLoaded',function(){
     ele.addEventListener('click',function(event){
       pageItemAll(event.target.textContent)
       pageItemBest(event.target.textContent)
-      pageItemCategory(event.target.textContent)
+      pageItemCategory(menu1Title.textContent,event.target.textContent)
       let activeItem = document.querySelector('.pagination-item.active')
       activeItem.classList.remove('active')
       ele.classList.add('active')
