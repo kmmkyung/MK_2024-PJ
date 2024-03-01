@@ -1299,7 +1299,7 @@ const itemData = [
     "review":0,
     "star":"0.0",
     "images":"./assets/images/product/veganery/01.png",
-    "sort":{"추천":,"인기":,"최신등록":}
+    "sort":{"추천":95,"인기":95,"최신등록":95}
   },
   {
     "id":90,
@@ -1313,7 +1313,7 @@ const itemData = [
     "review":0,
     "star":"0.0",
     "images":"./assets/images/product/veganery/02.png",
-    "sort":{"추천":,"인기":,"최신등록":}
+    "sort":{"추천":96,"인기":96,"최신등록":96}
   },
   {
     "id":91,
@@ -1327,7 +1327,8 @@ const itemData = [
     "review":0,
     "star":"0.0",
     "images":"./assets/images/product/veganery/03.png",
-    "sort":{"추천":,"인기":,"최신등록":}  },
+    "sort":{"추천":97,"인기":97,"최신등록":97}
+  },
   {
     "id":92,
     "name":"비거너리 식물성 콜라겐 3270mg(샤인머스캣맛) 7매입",
@@ -1340,7 +1341,7 @@ const itemData = [
     "review":3,
     "star":"5.0",
     "images":"./assets/images/product/veganery/04.png",
-    "sort":{"추천":,"인기":,"최신등록":}
+    "sort":{"추천":98,"인기":98,"최신등록":98}
   },
   {
     "id":93,
@@ -1354,7 +1355,7 @@ const itemData = [
     "review":0,
     "star":"0.0",
     "images":"./assets/images/product/veganery/05.png",
-    "sort":{"추천":,"인기":,"최신등록":}
+    "sort":{"추천":99,"인기":99,"최신등록":99}
   },
 
   // 프래그런스 --------------------------------------------------------
@@ -1374,7 +1375,7 @@ const itemData = [
   },
   {
     "id":95,
-    "name":"리추얼 탠저린 퍼품",
+    "name":"리추얼 탠저린 퍼퓸",
     "class":"프래그런스",
     "subclass":"",
     "option":"",
@@ -1384,7 +1385,7 @@ const itemData = [
     "review":0,
     "star":"0.0",
     "images":"./assets/images/product/fragrant/02.png",
-    "sort":{"추천":,"인기":,"최신등록":}
+    "sort":{"추천":74,"인기":76,"최신등록":12}
   },
   {
     "id":96,
