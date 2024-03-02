@@ -17,7 +17,7 @@ const locationHref = {
   "앰플":"ampoule",
   "선크림":"suncream",
   "마스크":"mask",
-  "로션·크림·밤":"cream",
+  "로션·크림·밤":"creams",
   "로션":"lotion",
   "크림":"cream",
   "밤":"balm",

@@ -9,6 +9,30 @@ window.addEventListener('DOMContentLoaded',function(){
   const filterButton = document.querySelector('.menu-1__filterButton')
   filterButton.innerHTML = svgData.icon_filter
 
+  const selectBox = document.querySelector('.selectBox')
+  const select = document.querySelector('.select')
+  const selectList = document.querySelector('.select-list')
+  const selectOption = document.querySelectorAll('.select-option')
+  let click = 0;
+  select.addEventListener('click',function(){
+    selectList.classList.add('active')
+    click ++;
+    if(click%2== 0){
+      selectList.classList.remove('active')
+    }
+  })
+  selectOption.forEach(function(ele){
+    ele.addEventListener('click',function(){
+      select.textContent = ele.textContent
+      selectList.classList.remove('active')
+    })
+  })
+  window.addEventListener('click',function(event){    
+    if(!selectBox.contains(event.target)){
+      selectList.classList.remove('active')
+    }
+  })
+
   //// menu-1__tapMenu
   const tapMenu = document.querySelector('.menu-1__tapMenu')
   let tapMenuLi = ``;
@@ -69,7 +93,7 @@ window.addEventListener('DOMContentLoaded',function(){
   }
   menu2.innerHTML = menu2Li;
 
-  const menu2Category = document.querySelectorAll('.menu-2__menu .menu-item')
+  let menu2Category = document.querySelectorAll('.menu-2__menu .menu-item')
   let mistObj = {"미스트":[],"세럼":[],"토너":[],"앰플":[]}
   let creamObj = {"로션":[],"크림":[],"밤":[]}
   let hairObj =  {"헤어":[],"바디":[]}
@@ -85,77 +109,41 @@ window.addEventListener('DOMContentLoaded',function(){
   for(let i=0; i<=Object.keys(hairObj).length; i++){objValue(hairObj,i)}
 
   menu2Category.forEach((ele,idx)=>{
-    const queryString = window.location.search
-    const urlParams = new URLSearchParams(queryString)
-    const categoryKey = urlParams.get('product')
-    
-      if(ele.dataset.category == categoryKey){
-      ele.classList.add('active')
-      menu1Title.textContent = gnbData.Product[idx]
+    let queryString = window.location.search
+    let urlParams = new URLSearchParams(queryString)
+    let categoryKey = urlParams.get('product')
+    if(ele.dataset.category == categoryKey){
+    ele.classList.add('active')
+    menu1Title.textContent = gnbData.Product[idx]
+    menu2CategorySub('미스트·세럼·토너·앰플',mistObj,'face')
+    menu2CategorySub('로션·크림·밤',creamObj,'creams')
+    menu2CategorySub('헤어·바디',hairObj,'hairbody')
     }
   })
-
-  if(menu1Title.textContent == '미스트·세럼·토너·앰플'){
-    menu2Li = ``
-    for(let item in mistObj){
-      menu2Li += `
-      <li class="menu-item">
-        <a href="product-product.html?product=${locationHref['미스트·세럼·토너·앰플']}&${locationHref['미스트·세럼·토너·앰플']}=${locationHref[item]}">${item}(${mistObj[item].length})</a>
-      </li>
-      `
+  function menu2CategorySub(category,arr,categoryKey2){
+    if(menu1Title.textContent == category){
+      menu2Li = ``
+      for(let item in arr){
+        menu2Li += `
+        <li class="menu-item">
+          <a href="product-product.html?product=${locationHref[category]}&${locationHref[category]}=${locationHref[item]}">${item}(${arr[item].length})</a>
+        </li>
+        `
+      }
+      menu2.innerHTML = menu2Li;
+      let menu2Category = document.querySelectorAll('.menu-2__menu .menu-item')
+      menu2Category.forEach(function(ele,idx){
+        let queryString = window.location.search
+        let urlParams = new URLSearchParams(queryString)
+        let categoryKey = urlParams.get(categoryKey2)
+          if(categoryKey == locationHref[Object.keys(arr)[idx]]){
+            ele.classList.add('active') 
+          }
+      })
     }
-    menu2.innerHTML = menu2Li;
-    
-  }
-  if(menu1Title.textContent == '로션·크림·밤'){
-    menu2Li = ``
-    for(let item in creamObj){
-      menu2Li += `
-      <li class="menu-item">
-        <a href="product-product.html?product=${locationHref['로션·크림·밤']}&${locationHref['로션·크림·밤']}=${locationHref[item]}">${item}(${creamObj[item].length})</a>
-      </li>
-      `
-    }
-    menu2.innerHTML = menu2Li;
-  }
-  if(menu1Title.textContent == '헤어·바디'){
-    menu2Li = ``
-    for(let item in hairObj){
-      menu2Li += `
-      <li class="menu-item">
-        <a href="product-product.html?product=${locationHref['헤어·바디']}&${locationHref['헤어·바디']}=${locationHref[item]}">${item}(${hairObj[item].length})</a>
-      </li>
-      `
-    }
-    menu2.innerHTML = menu2Li;
   }
 
-  //// select
-  const selectBox = document.querySelector('.selectBox')
-  const select = document.querySelector('.select')
-  const selectList = document.querySelector('.select-list')
-  const selectOption = document.querySelectorAll('.select-option')
-  let click = 0;
-  select.addEventListener('click',function(){
-    selectList.classList.add('active')
-    click ++;
-    if(click%2== 0){
-      selectList.classList.remove('active')
-    }
-  })
-  selectOption.forEach(function(ele){
-    ele.addEventListener('click',function(){
-      select.textContent = ele.textContent
-      selectList.classList.remove('active')
-    })
-  })
-  window.addEventListener('click',function(event){    
-    if(!selectBox.contains(event.target)){
-      selectList.classList.remove('active')
-    }
-  })
-
-  //// pagination /////////////////////////////////////////////////////////////////////////////
+  //// pagination ///////////////////////////////////////////////////////////////////////
   let pageItemShowLength = 20 // 한 페이지당 최대 20개 보여줄것임
   
   //// product
@@ -260,6 +248,39 @@ window.addEventListener('DOMContentLoaded',function(){
   pageItemCategory('비거너리',1)
   pageItemCategory('프래그런스',1)
   
+  //// 기타 카테고리 상세
+  function pageItemCategorySub(category,arr,pageButtonNumber){
+    let itemDataLengthArr = []
+    let itemDataFilterArr = []
+    let menu2LiAll = document.querySelectorAll('.menu-2__menu .menu-item')
+    let queryString = window.location.search
+    let urlParams = new URLSearchParams(queryString)
+    let categoryKey = urlParams.get(category)
+    
+    menu2LiAll.forEach(function(ele,idx){
+      if(categoryKey == locationHref[Object.keys(arr)[idx]]){                
+        let filterData = itemData.filter(function(event){
+          return event.subclass == Object.keys(arr)[idx]
+        })
+        itemDataFilterArr.push(...filterData)
+        console.log(itemDataFilterArr);
+      }
+      if(categoryKey == 'lotion'){
+        document.querySelector('.item-list').style.display='block'
+        document.querySelector('.item-list').innerHTML='<p class="productNo">상품이 존재하지 않습니다.</p>'
+        document.querySelector('.pagination').style.display='none'
+
+      }
+    })
+    for(let i=pageItemShowLength*(pageButtonNumber-1); i<pageItemShowLength*(pageButtonNumber-1)+20 && i<itemDataFilterArr.length; i++){
+      itemDataLengthArr.push(itemDataFilterArr[i])      
+      pageItemDataCode(itemDataLengthArr)
+    }
+  }
+  pageItemCategorySub('face',mistObj,1)
+  pageItemCategorySub('creams',creamObj,1)
+  pageItemCategorySub('hairbody',hairObj,1)
+
   function pageButton(cat){
     let pageItemLength
     const pageButtonList = document.querySelector('.pagination-list')
