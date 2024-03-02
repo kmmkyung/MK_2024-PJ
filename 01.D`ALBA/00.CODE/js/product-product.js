@@ -263,7 +263,6 @@ window.addEventListener('DOMContentLoaded',function(){
           return event.subclass == Object.keys(arr)[idx]
         })
         itemDataFilterArr.push(...filterData)
-        console.log(itemDataFilterArr);
       }
       if(categoryKey == 'lotion'){
         document.querySelector('.item-list').style.display='block'
@@ -282,28 +281,60 @@ window.addEventListener('DOMContentLoaded',function(){
   pageItemCategorySub('hairbody',hairObj,1)
 
   function pageButton(cat){
+    let queryString = window.location.search
+    let urlParams = new URLSearchParams(queryString)
+    let categoryKey = urlParams.get('product')
+    let categoryKeyFace= urlParams.get('face')
+    let categoryKeyCream= urlParams.get('cream')
+    let categoryKeyHair= urlParams.get('hairbody')
     let pageItemLength
     const pageButtonList = document.querySelector('.pagination-list')
-    if(menu1Title.textContent == cat){
+    if(categoryKey == 'face' && cat === '미스트·세럼·토너·앰플'){
+      pageItemLength = Math.ceil(menu2Num['미스트·세럼·토너·앰플'] / pageItemShowLength);      
+    }
+    if(categoryKeyFace === 'mist' && cat === '미스트·세럼·토너·앰플'){
+      pageItemLength = Math.ceil(mistObj['미스트'].length/ pageItemShowLength)
+    }
+    if(categoryKeyFace === 'serum' && cat === '미스트·세럼·토너·앰플'){
+      pageItemLength = Math.ceil(mistObj['세럼'].length/ pageItemShowLength)
+    }
+    if(categoryKeyFace === 'toner' && cat === '미스트·세럼·토너·앰플'){
+      pageItemLength = Math.ceil(mistObj['토너'].length/ pageItemShowLength)
+    }
+    if(categoryKeyFace === 'ampoule' && cat === '미스트·세럼·토너·앰플'){
+      pageItemLength = Math.ceil(mistObj['앰플'].length/ pageItemShowLength)
+    }
+    if(categoryKey === 'creams' && cat === '로션·크림·밤'){
+      pageItemLength = Math.ceil(menu2Num['로션·크림·밤'] / pageItemShowLength)
+    }
+    if(categoryKeyCream === 'lotion' && cat === '로션·크림·밤'){
+      pageItemLength = Math.ceil(creamObj['로션'].length/ pageItemShowLength)
+    }
+    if(categoryKeyCream === 'cream' && cat === '로션·크림·밤'){
+      pageItemLength = Math.ceil(creamObj['로션'].length/ pageItemShowLength)
+    }
+    if(categoryKeyCream === 'balm' && cat === '로션·크림·밤'){
+      pageItemLength = Math.ceil(creamObj['로션'].length / pageItemShowLength)
+    }
+    if(categoryKey === 'hairbody' && cat === '헤어·바디'){
+      pageItemLength = Math.ceil(menu2Num['헤어·바디'] / pageItemShowLength)
+    }
+    if(categoryKeyHair === 'hair' && cat === '헤어·바디'){
+      pageItemLength = Math.ceil(hairObj['헤어'].length / pageItemShowLength)
+    }
+    if(categoryKeyHair === 'body' && cat === '헤어·바디'){
+      pageItemLength = Math.ceil(hairObj['바디'].length / pageItemShowLength)
+    }
+    if(menu1Title.textContent === cat && categoryKey !== 'face' && categoryKey !== 'creams' && categoryKey !== 'hairbody' ){      
       pageItemLength = Math.ceil(menu2Num[cat] / pageItemShowLength)
     }
-      
     for(let i=1; i<=pageItemLength; i++){
-      pageButtonList.innerHTML += `<li class="pagination-item">${i}</li>`
+    pageButtonList.innerHTML += `<li class="pagination-item">${i}</li>`
     }
   }
-  pageButton('전체보기')
-  pageButton('베스트')
-  pageButton('미스트·세럼·토너·앰플')
-  pageButton('선크림')
-  pageButton('마스크')
-  pageButton('로션·크림·밤')
-  pageButton('클렌징')
-  pageButton('메이크업')
-  pageButton('맨즈케어')
-  pageButton('헤어·바디')
-  pageButton('비거너리')
-  pageButton('프래그런스')
+  for(let gnd of gnbData.Product){
+    pageButton(gnd)
+  }
 
 
   const paginationItem = document.querySelectorAll('.pagination-item')
