@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded',function(){
   //// filterButton
   const filterButton = document.querySelector('.menu-1__filterButton')
   filterButton.innerHTML = svgData.icon_filter
+  itemData.sort(function(a,b){return a.sort.추천 - b.sort.추천})
 
   const selectBox = document.querySelector('.selectBox')
   const select = document.querySelector('.select')
@@ -25,6 +26,7 @@ window.addEventListener('DOMContentLoaded',function(){
     ele.addEventListener('click',function(){
       select.textContent = ele.textContent
       selectList.classList.remove('active')
+      itemSort()
     })
   })
   window.addEventListener('click',function(event){    
@@ -32,6 +34,135 @@ window.addEventListener('DOMContentLoaded',function(){
       selectList.classList.remove('active')
     }
   })
+  
+  function itemSort(){
+    if(select.textContent){
+      itemData.sort(function(a,b){return a.sort.추천 - b.sort.추천})
+      pageItemAll(1)
+      pageItemBest(1)
+      pageItemCategory('미스트·세럼·토너·앰플',1)
+      pageItemCategory('선크림',1)
+      pageItemCategory('마스크',1)
+      pageItemCategory('로션·크림·밤',1)
+      pageItemCategory('클렌징',1)
+      pageItemCategory('메이크업',1)
+      pageItemCategory('맨즈케어',1)
+      pageItemCategory('헤어·바디',1)
+      pageItemCategory('비거너리',1)
+      pageItemCategory('프래그런스',1)
+      pageItemCategorySub('face',mistObj,1)
+      pageItemCategorySub('creams',creamObj,1)
+      pageItemCategorySub('hairbody',hairObj,1)
+    }
+    if(select.textContent == '인기순'){
+      itemData.sort(function(a,b){return a.sort.인기 - b.sort.인기})
+      pageItemAll(1)
+      pageItemBest(1)
+      pageItemCategory('미스트·세럼·토너·앰플',1)
+      pageItemCategory('선크림',1)
+      pageItemCategory('마스크',1)
+      pageItemCategory('로션·크림·밤',1)
+      pageItemCategory('클렌징',1)
+      pageItemCategory('메이크업',1)
+      pageItemCategory('맨즈케어',1)
+      pageItemCategory('헤어·바디',1)
+      pageItemCategory('비거너리',1)
+      pageItemCategory('프래그런스',1)
+      pageItemCategorySub('face',mistObj,1)
+      pageItemCategorySub('creams',creamObj,1)
+      pageItemCategorySub('hairbody',hairObj,1)
+    }
+    if(select.textContent == '최신등록순'){
+      itemData.sort(function(a,b){return a.sort.최신등록 - b.sort.최신등록})
+      pageItemAll(1)
+      pageItemBest(1)
+      pageItemCategory('미스트·세럼·토너·앰플',1)
+      pageItemCategory('선크림',1)
+      pageItemCategory('마스크',1)
+      pageItemCategory('로션·크림·밤',1)
+      pageItemCategory('클렌징',1)
+      pageItemCategory('메이크업',1)
+      pageItemCategory('맨즈케어',1)
+      pageItemCategory('헤어·바디',1)
+      pageItemCategory('비거너리',1)
+      pageItemCategory('프래그런스',1)
+      pageItemCategorySub('face',mistObj,1)
+      pageItemCategorySub('creams',creamObj,1)
+      pageItemCategorySub('hairbody',hairObj,1)
+    }
+    if(select.textContent == '리뷰많은순'){
+      itemData.sort(function(a,b){return b.review - a.review})
+      pageItemAll(1)
+      pageItemBest(1)
+      pageItemCategory('미스트·세럼·토너·앰플',1)
+      pageItemCategory('선크림',1)
+      pageItemCategory('마스크',1)
+      pageItemCategory('로션·크림·밤',1)
+      pageItemCategory('클렌징',1)
+      pageItemCategory('메이크업',1)
+      pageItemCategory('맨즈케어',1)
+      pageItemCategory('헤어·바디',1)
+      pageItemCategory('비거너리',1)
+      pageItemCategory('프래그런스',1)
+      pageItemCategorySub('face',mistObj,1)
+      pageItemCategorySub('creams',creamObj,1)
+      pageItemCategorySub('hairbody',hairObj,1)
+    }
+    if(select.textContent == '평점높은순'){
+      itemData.sort(function(a,b){return b.star - a.star})
+      pageItemAll(1)
+      pageItemBest(1)
+      pageItemCategory('미스트·세럼·토너·앰플',1)
+      pageItemCategory('선크림',1)
+      pageItemCategory('마스크',1)
+      pageItemCategory('로션·크림·밤',1)
+      pageItemCategory('클렌징',1)
+      pageItemCategory('메이크업',1)
+      pageItemCategory('맨즈케어',1)
+      pageItemCategory('헤어·바디',1)
+      pageItemCategory('비거너리',1)
+      pageItemCategory('프래그런스',1)
+      pageItemCategorySub('face',mistObj,1)
+      pageItemCategorySub('creams',creamObj,1)
+      pageItemCategorySub('hairbody',hairObj,1)
+    }
+    if(select.textContent == '높은가격순'){
+      itemData.sort(function(a,b){return b.price - a.price})
+      pageItemAll(1)
+      pageItemBest(1)
+      pageItemCategory('미스트·세럼·토너·앰플',1)
+      pageItemCategory('선크림',1)
+      pageItemCategory('마스크',1)
+      pageItemCategory('로션·크림·밤',1)
+      pageItemCategory('클렌징',1)
+      pageItemCategory('메이크업',1)
+      pageItemCategory('맨즈케어',1)
+      pageItemCategory('헤어·바디',1)
+      pageItemCategory('비거너리',1)
+      pageItemCategory('프래그런스',1)
+      pageItemCategorySub('face',mistObj,1)
+      pageItemCategorySub('creams',creamObj,1)
+      pageItemCategorySub('hairbody',hairObj,1) 
+    }
+    if(select.textContent == '낮은가격순'){
+      itemData.sort(function(a,b){return a.price - b.price})
+      pageItemAll(1)
+      pageItemBest(1)
+      pageItemCategory('미스트·세럼·토너·앰플',1)
+      pageItemCategory('선크림',1)
+      pageItemCategory('마스크',1)
+      pageItemCategory('로션·크림·밤',1)
+      pageItemCategory('클렌징',1)
+      pageItemCategory('메이크업',1)
+      pageItemCategory('맨즈케어',1)
+      pageItemCategory('헤어·바디',1)
+      pageItemCategory('비거너리',1)
+      pageItemCategory('프래그런스',1)
+      pageItemCategorySub('face',mistObj,1)
+      pageItemCategorySub('creams',creamObj,1)
+      pageItemCategorySub('hairbody',hairObj,1)
+    }
+  }
 
   //// menu-1__tapMenu
   const tapMenu = document.querySelector('.menu-1__tapMenu')
@@ -347,9 +478,7 @@ window.addEventListener('DOMContentLoaded',function(){
       let activeItem = document.querySelector('.pagination-item.active')
       activeItem.classList.remove('active')
       ele.classList.add('active')
-      setTimeout(function(){
-        scrollTo(0,0)
-      },150)
+      window.scrollTo(0,0);
     })
   })
 
