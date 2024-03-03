@@ -91,6 +91,129 @@
   cursor: pointer;
 }
 
+.filter .filterBox{
+  position: fixed;
+  width: 30%;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 1001;
+  right: -30%;
+  top: 0;
+  background-color: var(--white);
+  box-sizing: border-box;
+  transition: all 0.4s;
+}
+
+.filter .filterBox.active{
+  right: 0;
+}
+
+.filterBox-inner{
+  padding: 20px;
+}
+
+.filter-back{
+  font-size: var(--font-size-S);
+  position: relative;
+  text-align: center;
+  padding-left: 20px;
+  cursor: pointer;
+  margin: 20px 0;
+}
+
+.filter-back::before{
+  content: '';
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background-image: url(../assets/svg/arrow-right_b.svg);
+  background-size: cover;
+  transform: rotate(180deg) translateX(30px);
+}
+
+.filter-content{
+  box-sizing: border-box;
+  padding: 30px 0;
+}
+
+.filter-content .filter-content__title{
+  font-size: var(--font-size-XL);
+  font-weight: normal;
+  text-align: center;
+}
+
+.filter-content p{
+  font-size: var(--font-size-S);
+  text-align: center;
+  margin: 20px 0;
+}
+
+.filter-content img{
+  width: 100%;
+}
+
+.filter-tag{
+  width: 100%;
+  text-align: center;
+}
+
+.filter-tag span{
+  display: inline-block;
+  padding: 10px;
+  border-radius: 30px;
+  color: var(--graya);
+  margin: 5px;
+  font-size: var(--font-size-XS);
+  border: 1px solid var(--grayf5);
+  cursor: pointer;
+}
+
+.filter-tag span:hover{
+  border: 1px solid var(--graya);
+}
+
+.filter-tag span.click{
+  color: var(--black);
+  border: 1px solid var(--black);
+}
+
+.filter-selectButton{
+  width: 100%;
+  padding: 20px;
+  background-color: var(--black);
+  margin-top: 20px;
+  color: var(--white);
+}
+
+.filterBox-Bg{
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.filterBox-Bg .filterBox-Bg-wrap{
+  width: 70%;
+  height: 100%;
+  position: relative;
+}
+
+.filterBox-Bg .filterBox-Bg__text{
+  font-size: var(--font-size-S);
+  text-align: center;
+  color: var(--black);
+  background-color: var(--white);
+  position: absolute;
+  padding: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  left: 50%;
+  top: 30%;
+  transform: translate(-30%,-30%);
+}
+
 .menu-2__menu{
   display: flex;
   gap: 2%;
@@ -322,6 +445,29 @@
 }
 
 @media screen and (max-width:900px) {
+  .filter .filterBox{
+    height: 70%;
+    width: 100%;
+    right: 0%;
+    top: 100%;
+  }
+
+  .filter .filterBox.active{
+    top: 30%;
+  }
+
+  .filterBox-Bg .filterBox-Bg-wrap{
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  
+  .filterBox-Bg .filterBox-Bg__text{
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%,-15%);
+  }
+
   .menu-2__menu .menu-item{
     font-size: var(--font-size-XS);
   }

@@ -50,10 +50,6 @@ body::-webkit-scrollbar{
   margin-top: 10px;
 }
 
-.mainColor{
-  color:var(--main);
-}
-
 .section{
   color: var(--white);
 }

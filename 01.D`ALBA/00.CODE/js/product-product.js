@@ -7,18 +7,60 @@ window.addEventListener('DOMContentLoaded',function(){
   // topMenu
   //// filterButton
   const filterButton = document.querySelector('.menu-1__filterButton')
+  const filterBox = document.querySelector('.filterBox')
+  const filterBoxBg = document.querySelector('.filterBox-Bg')
+  const filterBoxClose = document.querySelector('.filter-back')
+  const filterBoxSelectBotten = document.querySelector('.filter-selectButton')
   filterButton.innerHTML = svgData.icon_filter
-  itemData.sort(function(a,b){return a.sort.추천 - b.sort.추천})
+  filterButton.addEventListener('click',function(){
+    filterBox.classList.add('active')
+    filterBoxBg.classList.remove('-hidden')
+  })
+  filterBoxClose.addEventListener('click',function(){
+    filterBox.classList.remove('active')
+    filterBoxBg.classList.add('-hidden')
+  })
+  filterBoxBg.addEventListener('click',function(){
+    filterBox.classList.remove('active')
+    filterBoxBg.classList.add('-hidden')
+  })
 
+let tagArr = []
+let filterTagCode = ``
+let filterTagArr = []
+const filterTagBox = document.querySelector('.filter-tag')
+  for(let item of itemData){
+    let itemTag = item.tag
+    itemTag.forEach(function(ele){
+      tagArr.push(ele);
+    })
+  }
+  filterTagArr = tagArr.reduce(function(tag1,tag2){
+    return tag1.includes(tag2) ? tag1 : [...tag1,tag2];
+  },[])
+  filterTagArr.forEach(ele=>{
+    filterTagCode += `<span>#${ele}</span>`
+  })
+  filterTagBox.innerHTML=filterTagCode
+
+  let filterTag = document.querySelectorAll('.filter-tag span')
+  filterTag.forEach(ele=>
+    ele.addEventListener('click',function(){
+      ele.classList.toggle('click')
+    })
+  )
+
+  //// menuButton
+  itemData.sort(function(a,b){return a.sort.추천 - b.sort.추천})
   const selectBox = document.querySelector('.selectBox')
   const select = document.querySelector('.select')
   const selectList = document.querySelector('.select-list')
   const selectOption = document.querySelectorAll('.select-option')
-  let click = 0;
+  let MenuClick = 0;
   select.addEventListener('click',function(){
     selectList.classList.add('active')
     click ++;
-    if(click%2== 0){
+    if(MenuClick%2== 0){
       selectList.classList.remove('active')
     }
   })

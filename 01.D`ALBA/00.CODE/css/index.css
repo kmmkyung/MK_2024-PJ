@@ -715,10 +715,10 @@
   .section-1__swiper .swiper-pagination-fraction
   {
     width: 40px;
-    height: 220px;
+    height: 200px;
     position: absolute;
     z-index: 1;
-    top: 30%;
+    top: 25%;
     left: auto;
     right: 40px;
     transform: translateY(-50%);

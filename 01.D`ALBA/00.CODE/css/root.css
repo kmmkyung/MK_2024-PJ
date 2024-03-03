@@ -70,6 +70,10 @@ body{
   font-family: 'FreightDisplay-Regular', Noto Sans KR;
 }
 
+.mainColor{
+  color: var(--main);
+}
+
 .button__W{
   padding: 25px 25px;
   border: 1px solid #fff;
