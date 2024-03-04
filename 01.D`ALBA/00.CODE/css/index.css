@@ -671,8 +671,13 @@
 
 .section-7-img{
   width: 100%;
+  cursor: pointer;
+  transition: all 0.4s;
 }
 
+.section-7-img:hover{
+  opacity: 0.8;
+}
 
 /* 미디어쿼리 */
 @media screen and (max-width:1100px){
