@@ -232,7 +232,7 @@ const filterTagBox = document.querySelector('.filter-tag')
       let itemCapacityArr = itemCapacity.join(capacityString)
       itemCode += `
       <li class="item">
-        <a href="#">
+        <a href="product-item.html?item=${item.id}">
           <div class="item-wrap">
             <div class="item-text">
               <h5 class="item-text__title">${item.name}</h5>
