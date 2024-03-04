@@ -47,8 +47,9 @@ window.addEventListener('DOMContentLoaded',function(){
     </li>
     `
   }
-
+  
   headerMenuUl.innerHTML = headerMenuCode;
+  
 
   const gnbSubMenu = document.querySelectorAll('.gnbSubMenu')
   gnbSubMenu.forEach(function(ele){
@@ -108,7 +109,7 @@ window.addEventListener('DOMContentLoaded',function(){
   let click = [0,0,0];
   const menuTitle = document.querySelectorAll('.header-menu .menu-list')
   const menuItemBox = document.querySelectorAll('.header-menu .menu-list ol')
-
+  
   menuItemBox.forEach(function(ele){
     let eleH = ele.scrollHeight
     ele.style.height = eleH+'px'
@@ -123,8 +124,13 @@ window.addEventListener('DOMContentLoaded',function(){
       if(click[idx]%2==0){
         menuItemBox[idx].style.height=menuItemBox[idx].scrollHeight+'px'
       }
+      if(idx==3){
+        location.href="homeTry.html"
+      }
     })
   })
+
+ 
 
   // menu
   // 메뉴 버튼을 누르면 메뉴창 열림 / 메뉴 다른곳 누르면 메뉴창 닫힘
