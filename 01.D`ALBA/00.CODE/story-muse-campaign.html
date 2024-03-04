@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="./css/story-muse-campaign.css">
   <!-- js -->
   <script src="./js/common.js" type="module"></script>
+  <script src="./js/story-muse-campaign.js" type="module"></script>
   <!-- swiper -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -73,7 +74,7 @@
   </header>
   <main>
     <section id="section-1" class="section-1">
-      <video src=""></video>
+      <video muted loop></video>
       <div class="section-1-content">
         <h6></h6>
         <h1></h1>
@@ -92,8 +93,8 @@
       <div class="section-3-wrap">
         <div class="muse-section3__swiper">
           <ul class="swiper-wrapper muse-list">
-            <li class="swiper-slide list-item"></li>
           </ul>
+          <div class="swiper-pagination"></div>
         </div>
       </div>
       <div id="section-4" class="section-4">
@@ -114,6 +115,10 @@
                 <p class="item-content__capacity">1000lm</p>
               </div>
           </ul>
+          <div class="section-4__navigation">
+            <img class="section-4__navigation-button-prev" src="./assets/svg/arrow-left_w.svg" alt="arrow-left">
+            <img class="section-4__navigation-button-next" src="./assets/svg/arrow-right_w.svg" alt="arrow-right">
+          </div>
         </div>
       </div>
     </section>
