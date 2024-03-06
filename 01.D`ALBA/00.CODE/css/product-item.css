@@ -145,3 +145,7 @@
 }
 
 
+.buy-button{
+  position: absolute;
+  bottom: 0;
+}
