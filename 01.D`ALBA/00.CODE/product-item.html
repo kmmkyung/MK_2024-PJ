@@ -9,8 +9,10 @@
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/root.css">
   <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/product-item.css">
   <!-- js -->
   <script src="./js/common.js" type="module"></script>
+  <script src="./js/product-item.js" type="module"></script>
   <!-- swiper -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -18,7 +20,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>  
 </head>
-<body class="black">
+<body class="black whiteMenu">
   <header id="header">
     <div class="header-wrap">
       <div class="header-left">
@@ -71,6 +73,39 @@
     </div>
   </header>
   <main>
+    <div class="section-buy">
+      <div class="button">
+        <ul class="button-list">
+          <li class="list-item"><a href="#">REVIEW</a></li>
+          <li class="list-item"><a href="#">BUY</a></li>
+          <li class="list-item"><a href="#">선물하기</a></li>
+        </ul>
+      </div>
+      <div class="no-buy-window"></div>
+      <div class="buy-window">
+        <div class="buy-window-inner">
+          <div class="buy-window__item">
+            <h2>화이트 트러플 퍼스트 스프레이 세럼</h2>
+            <p>KRW29,900</p>
+          </div>
+          <div class="buy-window__input">
+            <button class="input-select">선택</button>
+            <ol>
+              <li>1</li>
+              <li>2</li>
+            </ol>
+          </div>
+          <div class="buy-window__naverPay">
+            <div class="naverPay-title">
+              <span>네이버 id로 간편구매</span>
+            </div>
+            <div class="naverPay-button">
+              <span>naver pay 구매버튼</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <section class="section-1">  <!-- 제품 이미지 및 설명 -->
       <div class="section-1-wrap">
         <div class="item-name">
@@ -81,7 +116,8 @@
         <div class="item-intro">
           <img src="" alt="">
           <div class="item-intro__text">
-            <h6 class="text"></h6>
+            <img src="">
+            <h6 class="title"></h6>
             <p class="text-text"></p>
             <p class="text-tag"></p>
           </div>
@@ -107,8 +143,15 @@
         </div>
       </div>
     </section>
-    <section class="section-3"> <!-- 설명 -->
+    <section class="section-3">
       <div class="section-3-wrap">
+        <img src="" alt="">
+        <h3></h3>
+        <p></p>
+      </div>
+    </section>
+    <section class="section-4"> <!-- 설명 -->
+      <div class="section-4-wrap">
         <h2 class="content-title"></h2>
         <div class="content-1">
           <img src="" alt="">
@@ -118,48 +161,73 @@
           </div>
         </div>
         <div class="content-2">
+          <img src="" alt="">
           <div class="content-2-text">
             <h6></h6>
             <p></p>
           </div>
         </div>
         <div class="content-3">
+          <img src="" alt="">
           <div class="content-3-text">
             <h6></h6>
             <p></p>
           </div>
         </div>
+        <div class="content-4">
+          <img src="" alt="">
+          <div class="content-4-text">
+            <h6></h6>
+            <p></p>
+          </div>
+        </div>
       </div>
     </section>
-    <section class="section-4"> <!-- 특허성분 -->
-      <div class="section-4-wrap">
+    <section class="section-5"> <!-- 특허성분 -->
+      <div class="section-5-wrap">
         <div class="patent-intro">
-          <img src="" alt="">
-          <h2></h2>
+          <img src="./assets/images/itemContent/patent.jpg" alt="">
+          <h2>EXCLUSIVE<br>INGREDIENT</h2>
         </div>
         <div class="patent-content">
           <div class="content-1">
-            <p></p>
-            <h5></h5>
-            <p></p>
+            <p>달바 독자적인 특허성분</p>
+            <h5>Trufferol™</h5>
+            <p class="content-1-caption">[특허 제10-2332666호]</p>
+            <p>
+              이탈리아산 화이트 트러플과 토코페롤을 황금비율로 배합하여<br>
+              달바의 탄력 메커니즘을 완성하는<br>
+              핵심 독자 성분 트러페롤™을 개발했습니다.
+            </p>
           </div>
           <div class="content-2">
-            <h6></h6>
-            <p></p>
+            <h6>White Truffle</h6>
+            <p>
+              이탈리아산 화이트 트러플<br>
+              (흰서양송로추출물)
+              </p>
             <div class="plus">
               <div class="plus-row"></div>
               <div class="plus-col"></div>
             </div>
-            <h6></h6>
-            <p></p>
-            <p class="content-2-caption"></p>
+            <h6>Tocopherol</h6>
+            <p>비타민E 토코페롤</p>
+            <p>
+              d'Alba 독자 성분'트러페롤' 인체적용시험 완료로 확인된 효과<br>
+              겉탄력 + 깊은탄력 2중 탄력 개선에 도움
+            </p>
+            <p class="content-2-caption">
+              [한국피부과학연구원, 2020.04.17~2020.06.08, 23명, 사용전, 2주사용후, 4주 사용후,<br>
+              피부탄력, 피부 깊은 탄력개선 평가 비교, 개인차있음]<br>
+              *성분 특성에 한함
+            </p>
           </div>
         </div>
       </div>
     </section>
-    <section class="section-5"> <!-- 성분설명 -->
-      <div class="section-5-wrap">
-        <p></p>
+    <section class="section-6"> <!-- 성분설명 -->
+      <div class="section-6-wrap">
+        <h5></h5>
         <div class="ingredients-title">
           <ul class="ingredients-title__list">
             <li class="list-item"><a href="#"></a></li>
@@ -168,17 +236,105 @@
         <div class="ingredients-text">
           <h6 class="text-title"></h6>
           <p class="text-ingredients"></p>
-          <p class="text-text"></p>
+          <p class="text-caption"></p>
         </div>
       </div>
     </section>
-    <section class="section-6"> <!-- 제품설명 -->
-      <div class="section-6-wrap">
-        <div class="info-use"></div>
-        <div class="info-tested"></div>
-        <div class="info-ingredients"></div>
-        <div class="info-product"></div>
-        <div class="info-shipping"></div>
+    <section class="section-7"> <!-- 제품설명 -->
+      <div class="section-7-wrap">
+        <div class="info-use">
+          <ul>HOW TO USE
+            <li>HOW TO USE IT
+              <div class="info-use__use"></div>
+            </li>
+            <li>TIP
+              <div class="info-use__tip"></div>
+            </li>
+          </ul>
+        </div>
+        <div class="info-tested">
+          <ul>TESTED / CERTIFICATION
+            <li class="info-tested__item">
+              <div class="info-tested__text"></div>
+            </li>
+          </ul>
+        </div>
+        <div class="info-ingredients">
+          <ul>INGREDIRENTS
+            <li>
+              <div></div>
+            </li>
+          </ul>
+        </div>
+        <div class="info-product">
+          <div class="info-product__wrap">
+            <p class="product-name">
+              <span>제품명 :</span>
+              <span></span>
+            </p>
+            <p class="product-capacity">
+              <span>용량 :</span>
+              <span></span>
+            </p>
+            <p>
+              <span>제품 주요 사양:</span>
+              <span>모든 피부</span>
+            </p>
+            <p>
+              <span>사용기한 :</span>
+              <span>개봉전 36개월 / 개봉후 12개월</span>
+            </p>
+            <p>
+              <span>제조자 및 책임판매업자 :</span>
+              <span>(주)비앤비코리아 / (주)비모뉴먼트</span>
+            </p>
+            <p>
+              <span>제조국:</span>
+              <span>대한민국</span>
+            </p>
+            <p>
+              <span>기능성 화장품 안전성 심사 필 유무 :</span>
+              <span>주름개선 기능성 화장품 / 화장품법에 따른 기능성 화장품 심사(또는 보고)를 필함</span>
+            </p>
+            <p>
+              <span>사용할 때의 주의사항 :</span>
+              <span>가. 화장품 사용 시 또는 사용 후 직사광선에 의하여 사용부위가 붉은 반점, 부어오름 또는 가려움증 등의 이상 증상이나 부작용이 있는 경우 전문의 등과 상담할 것</span>
+              <span>나. 상처가 있는 부위 등에는 사용을 자제할 것</span>
+              <span>다. 보관 및 취급 시의 주의사항</span>
+              <span>1) 어린이의 손이 닿지 않는 곳에 보관할 것</span>
+              <span>2) 직사광선을 피해서 보관할 것</span>
+            </p>
+            <p>
+              <span>품질보증기준 :</span>
+              <span>본 상품에 이상이 있을 경우 공정거래 위원회 고시 “소비자 분쟁 해결기준”에 의해 교환 또는 보상해 드립니다.</span>
+            </p>
+            <p>
+              <span>소비자 상담 관련 전화번호 :</span>
+              <span>02-332-7727</span>
+            </p>
+          </div>
+        </div>
+        <div class="info-shipping">
+          <p>변심 반품의 경우 왕복배송비를 차감한 금액이 환불되며, 제품 및 포장 상태가 개봉하거나 사용흔적이 없는 경우 가능합니다.</p>
+          <p>
+            <span>배송기간 :</span>
+            <span>영업일 기준 2~3일</span>
+          </p>
+          <p>
+            <span>배송안내 :</span>
+            <span>달바 공식몰은 CJ대한통운택배를 이용하며 기본 배송비 2,500원입니다.</span>
+            <span>무료배송은 30,000원 이상 구매시 적용됩니다.</span>
+            <span>* 도서산간/제주 지역의 경우 +2500원 배송비가 부과됩니다.</span>
+          </p>
+          <p>
+            <span>교환 및 반품안내 :</span>
+            <span>단순 변심으로 인한 교환 및 반품은 7일 이내 접수 시 가능합니다.</span>
+            <span>사용 후 피부 트러블로 인한 교환 및 반품은 20일 이내 접수 후 1:1 문의게시판에 접수하여 주시면 절차를 안내드립니다.</span>
+            <span>취소 / 교환 / 반품하시는 상품및 신청 사유에 따라 배송비 환불 또는 추가 배송비가 발생할 수 있습니다.</span>
+            <span>배송비는 쇼핑몰 정책에 따라 책정됩니다.</span>
+            <span>단, 포장 훼손 / 사용 흔적 있는 상품 / 상품 수령 후 7일이 지난 시점의 교환 및 반품은 불가능한 점 양해 부탁드립니다.</span>
+          </p>
+        </div>
       </div>
     </section>
   </main>

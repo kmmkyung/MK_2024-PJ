@@ -1,0 +1,147 @@
+.button{
+  position: fixed;
+  right: 0;
+  bottom: 50px;
+  z-index: 998;
+}
+
+.button-list .list-item{
+  width: 150px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  background-color: var(--white);
+}
+
+.button-list .list-item:nth-child(2){
+  background-color: var(--black);
+}
+
+.button-list .list-item:not(:last-child){
+  margin-bottom: 20px;
+}
+
+.button-list .list-item a{
+  font-size: var(--font-size-S);
+  display: block;
+  padding: 20px 0 20px 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.no-buy-window{
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  }
+
+.button-list .list-item:nth-child(2) a{
+  color: var(--white);
+}
+
+.buy-window{
+  height: 100vh;
+  width: 400px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: var(--white);
+  z-index: 999;
+  box-shadow: -1px 0px  5px rgba(0, 0, 0, 0.5);
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+.buy-window-inner{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.buy-window__item h2{
+  font-size: var(--font-size-S);
+  padding: 20px;
+  text-align: center;
+}
+
+.buy-window__item p{
+  font-size: var(--font-size-XS);
+  text-align: center;
+}
+
+.buy-window__input{
+  margin: 50px 0;
+  width: 100%;
+  height: 50px;
+}
+
+.input-select{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  color: var(--graya);
+  background-color: var(--grayf5);
+  text-align-last: left;
+  padding-left: 20px;
+  font-size: var(--font-size-S);
+}
+
+.input-select::after{
+  content: '▾';
+  position: absolute;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: var(--font-size-XS);
+  color: var(--graya);
+}
+
+.buy-window__input ol{
+  height: 0;
+  overflow: hidden;
+}
+
+.buy-window__input li{
+  height: 50px;
+  line-height: 50px;
+  padding-left: 20px;
+  font-size: var(--font-size-S);
+}
+
+.buy-window__naverPay{
+  width: 100%;
+  height: 53px;
+  border-top: 2px solid black;
+  border-bottom: 1px solid black;
+  display: flex;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.naverPay-title{
+  width: 80px;
+  margin-right: 10px;
+}
+
+.naverPay-button{
+  width: calc(100% - 80px);
+  background-color: #00de5a;
+  background-image:url(../assets/images/itemContent/naver-pay-2.png);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 75px;
+}
+
+.buy-window__naverPay span{
+  display: block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+

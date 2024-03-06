@@ -249,7 +249,7 @@
 }
 
 .selectBox::after {
-  content: '▼';
+  content: '▾';
   position: absolute;
   height: 50px;
   text-align: center;
