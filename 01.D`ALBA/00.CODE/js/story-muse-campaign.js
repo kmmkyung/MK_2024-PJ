@@ -12,9 +12,9 @@ window.addEventListener('DOMContentLoaded',function(){
   const section1p = document.querySelector('.section-1-content p')
   section1Video.src = `./assets/images/muse/${museCampaignData[locationLinkValue]["section1-video"]}`
   section1Video.poster = `./assets/images/muse/${museCampaignData[locationLinkValue]["section1-videoPoster"]}`
-  // setTimeout(function(){
-  //   section1Video.play()
-  // },3000)
+  setTimeout(function(){
+    section1Video.play()
+  },1000)
   section1h6.innerHTML=museCampaignData[locationLinkValue]["section1-h6"]
   section1h1.innerHTML=museCampaignData[locationLinkValue]["section1-h1"]
   section1p.innerHTML=museCampaignData[locationLinkValue]["section1-p"]
@@ -42,6 +42,10 @@ window.addEventListener('DOMContentLoaded',function(){
 
   const section3 = document.querySelector('.section-3')
   const section3Ul = document.querySelector('.muse-list')
+  switch(locationLinkValue){
+    case 'muse5' : section3.classList.add('muse5');
+    break;
+  }
   section3.style.backgroundImage=`url(./assets/images/muse/${museCampaignData[locationLinkValue]["section3-bg"]})`
   museCampaignData[locationLinkValue]["section-3-item"].forEach(function(ele){
     let section3Li = `<li class="swiper-slide list-item">
@@ -53,23 +57,75 @@ window.addEventListener('DOMContentLoaded',function(){
   const swiper1 = new Swiper('.muse-section3__swiper',{
     direction: 'horizontal',
     loop: true,
-      effect:'fade',
-      fadeEffect: { crossFade: true },
-      pagination: {
-        el: '.muse-section3__swiper .swiper-pagination',
-        clickable: true
-      },
-    })
+    effect:'fade',
+    fadeEffect: { crossFade: true },
+    pagination: {
+      el: '.muse-section3__swiper .swiper-pagination',
+      clickable: true
+    },
+  })
 
+  const section4 = document.querySelector('.section-4')
+  switch(locationLinkValue){
+    case 'muse5' : section4.classList.add('muse5');
+    break;
+  }
+  const section4P = document.querySelector('.section-4-text p')
+  const section4H6 = document.querySelector('.section-4-text h6')
+  const sectionUl = document.querySelector('.section-4 .product-list')
+  function section4Swiper(){
+  museCampaignData[locationLinkValue]["section4-li"].forEach(ele=>{      
+    let sectionLi = /* html */`
+    <li class="swiper-slide list-item">
+      <div class="item-content__top">
+        <h6 class="item-content__name">${ele.name}</h6>
+        <p class="item-content__price">${ele.price}</p>
+      </div>
+      <img class="item-content__img" src="./assets/images/muse/${ele.img}">
+      <div class="item-content__bottom">
+        <p class="item-content__tag">${ele.tag}</p>
+        <p class="item-content__capacity">${ele.capacity}</p>
+      </div>
+    </li>
+    `
+    sectionUl.innerHTML += sectionLi;
+  })
+}
+  section4Swiper()
+  section4P.innerHTML=museCampaignData[locationLinkValue]["section4-p"]
+  section4H6.innerHTML=museCampaignData[locationLinkValue]["section4-h6"]
 
+  if(locationLinkValue !== 'muse1'){
     const swiper2 = new Swiper('.muse-section4__swiper',{
       direction: 'horizontal',
-      loop: true,
-        effect:'fade',
-        fadeEffect: { crossFade: true },
-        navigation:{
-          prevEl: '.section-4__navigation-button-prev',
-          nextEl: '.section-4__navigation-button-next',
-        }
-      })
+      slidesPerView: 3,
+      centeredSlides: true,
+      loop:true,
+      spaceBetween: 30,
+      navigation:{
+        prevEl: '.section-4__navigation-button-prev',
+        nextEl: '.section-4__navigation-button-next',
+      },
+      on:{
+        init : section4Swiper()
+      }
+    })
+  }
+  if(locationLinkValue == 'muse1'){
+    const section4SwiperWrap = document.querySelector('.muse-section4__swiper')
+    section4SwiperWrap.classList.add('muse1')
+  }
+
+  const section5 = document.querySelector('.section-5')
+  section5.style.backgroundImage=`url(./assets/images/muse/${museCampaignData[locationLinkValue]["section5-bg"]})`
+  if(locationLinkValue == 'muse5'){
+    section5.style.display='none'
+  }
+
+  const section6 = document.querySelector('.section-6')
+  const section6P = document.querySelector('.section-6 p')
+  const section6H3 = document.querySelector('.section-6 h3')
+  section6.style.backgroundImage=`url(./assets/images/muse/${museCampaignData[locationLinkValue]["section6-bg"]})`
+  section6P.innerHTML=museCampaignData[locationLinkValue]["section6-p"]
+  section6H3.innerHTML=museCampaignData[locationLinkValue]["section6-h3"]
 })
