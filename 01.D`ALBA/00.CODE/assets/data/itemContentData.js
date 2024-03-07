@@ -1,13 +1,15 @@
 const itemContentData = [
   {
     "id":0,
+    "subclass":"mist",
     "nameKo":"화이트 트러플 퍼스트 스프레이 세럼",
-    "nameEn":"White truffle<br>first spray serum",
-    "itemImages":"./assets/images/product/mist/01.png",
+    "nameEn":"White truffle <br>first spray serum",
+    "itemImages":"01.png",
     "itemIntroImg":"",
     "itemIntroTitle":"깊은 속 보습으로<br>빛나는 탄력 광채 피부",
     "itemIntroText":"",
     "itemIntroTag":["수분보습","저자극","주름","영양탄력","윤기","페이셜"],
+    "section2":["vegan"],
     "section3-img":"mist-01-intro.gif",
     "section3-h3":"PREMIUM VEGAN<br>SHAKE & MIX",
     "section3-p":"옐로우 보습 광채 오일과<br>탄력 세럼층의 비건 포뮬러",
@@ -54,3 +56,5 @@ const itemContentData = [
   },
 
 ]
+
+export default itemContentData;

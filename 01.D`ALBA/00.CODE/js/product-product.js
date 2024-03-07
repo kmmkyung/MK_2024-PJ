@@ -74,7 +74,7 @@ const filterTagBox = document.querySelector('.filter-tag')
   window.addEventListener('click',function(event){    
     if(!selectBox.contains(event.target)){
       selectList.classList.remove('active')
-    }
+    } 
   })
   
   function itemSort(){
