@@ -52,6 +52,12 @@
   box-shadow: -1px 0px  5px rgba(0, 0, 0, 0.5);
   padding: 50px;
   box-sizing: border-box;
+  right: -400px;
+  transition: all 0.4s;
+}
+
+.buy-window.active{
+  right: 0;
 }
 
 .buy-window-inner{
@@ -104,6 +110,8 @@
 .buy-window__input ol{
   height: 0;
   overflow: hidden;
+  position: absolute;
+  width: 100%;
 }
 
 .buy-window__input li{
@@ -111,6 +119,12 @@
   line-height: 50px;
   padding-left: 20px;
   font-size: var(--font-size-S);
+  background-color: #fff;
+}
+
+.buy-window__input li:hover{
+  background-color: var(--graya);
+  color: var(--white);
 }
 
 .buy-window__naverPay{
@@ -126,6 +140,10 @@
 .naverPay-title{
   width: 80px;
   margin-right: 10px;
+  background-image:url(../assets/images/itemContent/naver-pay.png);
+  background-repeat: no-repeat;
+  background-size: 170px;
+  background-position: 0 -2%;
 }
 
 .naverPay-button{
@@ -135,6 +153,7 @@
   background-position: top;
   background-repeat: no-repeat;
   background-size: 75px;
+  cursor: pointer;
 }
 
 .buy-window__naverPay span{
@@ -144,8 +163,26 @@
   overflow: hidden;
 }
 
-
 .buy-button{
   position: absolute;
   bottom: 0;
+}
+
+.buy-button{
+  width: 100%;
+}
+
+.buy-button__buy{
+  width: 100%;
+  height: 50px;
+  border: 1px solid black;
+}
+
+.buy-button__cart{
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+  border: 1px solid black;
+  background-color: var(--black);
+  color: var(--white);
 }
