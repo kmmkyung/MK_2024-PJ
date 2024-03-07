@@ -315,3 +315,34 @@
   font-size: var(--font-size-S);
   line-height: 1.8;
 }
+
+/* section3 */
+.section-3{
+  width: 100%;
+  margin: 100px 0 200px 0;
+}
+
+.section-3-wrap{
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-3 img{
+  width: 100%;
+  height: auto;
+}
+
+.section-3 h3{
+  text-align: center;
+  font-size: var(--font-size-Title);
+  font-weight: normal;
+  margin-top: 200px;
+}
+
+.section-3 p{
+  text-align: center;
+  margin-top: 50px;
+  font-size: var(--font-size-S);
+  line-height: 1.8;
+}

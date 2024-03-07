@@ -14,19 +14,29 @@ const itemContentData = [
     "section3-h3":"PREMIUM VEGAN<br>SHAKE & MIX",
     "section3-p":"옐로우 보습 광채 오일과<br>탄력 세럼층의 비건 포뮬러",
     "section4-bg":["#f6de8c","#ffffff"],
-    "content-1-title":"VEGAN ALL IN ONE<br>SPRAY SERUM",
-    "content-1-img":"mist-01-content1.jpg",
-    "content-1-h6":"DOUBLE LAYERING",
-    "content-1-p":"피부를 부드럽게 감싸 주는 오일 보습으로<br>매끈하고 촉촉한 피부 윤기 케어<br><span>보습광채오일</span><br><br><span>&</span>쫀쫀한 탄력케어로 탄탄하게<br><span>영양 탄력 세럼</span>",
-    "content-2-img":"mist-01-content2.gif",
-    "content-2-h6":"합성 계면활성제 FREE",
-    "content-2-p":"합성 계면활성제를 사용하지 않아 흔들기 전,<br>세럼층과 오일층이 분리되어 있습니다.<br>드럽게 섞인 오일-세럼 포뮬라로<br>편안하게 스며드는 세럼을 느껴보세요.<br><br>자연스러운 윤기 광채 피부를 만들어 줍니다.",
-    "content-3-img":"mist-01-content3.jpg",
-    "content-2-h6":"오일-세럼 믹스 포뮬라",
-    "content-2-p":"뿌리는 순간 가볍게 내려앉는 미세한 안개분사<br>뿌릴수록 쌓이는 보습 광채<br>얼굴 전체 고르게 분사되는 부드럽고 편안한 맞춤 미세 분사",
-    "content-4-img":"mist-01-content4.jpg",
-    "content-4-h6":"",
-    "content-4-p":"",
+    "content-title":"VEGAN ALL IN ONE<br>SPRAY SERUM",
+    "section4-content":{
+      "content1":{
+        "content-img":"mist-01-content1.jpg",
+        "content-h6":"DOUBLE LAYERING",
+        "content-p":"피부를 부드럽게 감싸 주는 오일 보습으로<br>매끈하고 촉촉한 피부 윤기 케어<br><span>보습광채오일</span><br><br><span>&</span>쫀쫀한 탄력케어로 탄탄하게<br><span>영양 탄력 세럼</span>",
+      },
+      "content2":{
+        "content-img":"mist-01-content2.gif",
+        "content-h6":"합성 계면활성제 FREE",
+        "content-p":"합성 계면활성제를 사용하지 않아 흔들기 전,<br>세럼층과 오일층이 분리되어 있습니다.<br>드럽게 섞인 오일-세럼 포뮬라로<br>편안하게 스며드는 세럼을 느껴보세요.<br><br>자연스러운 윤기 광채 피부를 만들어 줍니다.",
+      },
+      "content3":{
+        "content-img":"mist-01-content3.jpg",
+        "content-h6":"오일-세럼 믹스 포뮬라",
+        "content-p":"뿌리는 순간 가볍게 내려앉는 미세한 안개분사<br>뿌릴수록 쌓이는 보습 광채<br>얼굴 전체 고르게 분사되는 부드럽고 편안한 맞춤 미세 분사",
+      },
+      "content4":{
+        "content-img":"mist-01-content4.jpg",
+        "content-h6":"",
+        "content-p":"",
+      }
+    },
     "ingredients-h5":"The Main Ingredients of<br>First Spray Serum",
     "ingredients-item":[
       "d'Alba-4 Blending Oil",

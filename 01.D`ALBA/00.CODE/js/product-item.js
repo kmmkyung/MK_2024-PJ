@@ -118,23 +118,27 @@ window.addEventListener('DOMContentLoaded',function(){
   `
 
   itemContentData.forEach(function(ele){
-    ele.section2.forEach((ele)=>{
-      switch(ele){
-        case 'vegan' : section2Wrap.innerHTML+=veganCode
-        break;
-        case 'clinical' : section2Wrap.innerHTML+=clinicalCode
-        break;
-        case 'derma' : section2Wrap.innerHTML+=dermaCode
-        break;
-        case 'clean' : section2Wrap.innerHTML+=cleanCode
-        break
-      }
-    })
+    if(ele.id == locationLinkValue){
+      ele.section2.forEach((ele)=>{
+        switch(ele){
+          case 'vegan' : section2Wrap.innerHTML+=veganCode
+          break;
+          case 'clinical' : section2Wrap.innerHTML+=clinicalCode
+          break;
+          case 'derma' : section2Wrap.innerHTML+=dermaCode
+          break;
+          case 'clean' : section2Wrap.innerHTML+=cleanCode
+          break;
+        }
+      })
+    }
   })
 
   // section3
   itemContentData.forEach(function(ele){
     const section3Img = document.querySelector('.section-3 img')
+    const section3H3 = document.querySelector('.section-3 h3')
+    const section3P = document.querySelector('.section-3 p')
     if(ele.id == locationLinkValue){
       if(ele["section3-img"] != ''){
         section3Img.src = `./assets/images/itemContent/${ele.subclass}/${ele.id}/${ele["section3-img"]}`
@@ -142,9 +146,33 @@ window.addEventListener('DOMContentLoaded',function(){
       else{
         section3Img.style.display='none'
       }
+      section3H3.innerHTML = ele['section3-h3']
+      section3P.innerHTML = ele['section3-p']
     }
   })
 
+
+  // section4
+  itemContentData.forEach(function(ele){
+    if(ele.id == locationLinkValue){
+      const section4Wrap = document.querySelector('.section-4-wrap')
+      const contentTitle = document.querySelector('.content-title')
+      contentTitle.innerHTML = ele['content-title']      
+      for(let content in ele["section4-content"]){
+        let contentCode = `
+            <div class="content">
+            <img src="" alt="content img">
+            <div class="content-text">
+              <h6>${content['content-h6']}</h6>
+              <p>${content['content-p']}</p>
+            </div>
+          </div>
+        `
+        section4Wrap.innerHTML += contentCode
+      }
+    }
+  })
+  
 
 
 })
