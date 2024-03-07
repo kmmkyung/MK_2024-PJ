@@ -154,14 +154,15 @@ window.addEventListener('DOMContentLoaded',function(){
 
   // section4
   itemContentData.forEach(function(ele){
+    const section4 = document.querySelector('.section-4')
+    const section4Wrap = document.querySelector('.section-4-wrap')
+    const contentTitle = document.querySelector('.content-title')
     if(ele.id == locationLinkValue){
-      const section4Wrap = document.querySelector('.section-4-wrap')
-      const contentTitle = document.querySelector('.content-title')
       contentTitle.innerHTML = ele['content-title']      
-      for(let content in ele["section4-content"]){
+      for(let content of ele["section4-content"]){
         let contentCode = `
             <div class="content">
-            <img src="" alt="content img">
+            <img src="./assets/images/itemContent/${ele.subclass}/${ele.id}/${content['content-img']}">
             <div class="content-text">
               <h6>${content['content-h6']}</h6>
               <p>${content['content-p']}</p>
@@ -170,6 +171,17 @@ window.addEventListener('DOMContentLoaded',function(){
         `
         section4Wrap.innerHTML += contentCode
       }
+      window.addEventListener('scroll',function(){
+        let section4Height = section4.offsetHeight;
+        if(window.scrollY<section4Height){
+          section4.style.backgroundColor = ele["section4-bg"][0]
+        }
+        if(window.scrollY>=section4Height){
+          section4.style.backgroundColor = ele["section4-bg"][1]
+          section4.style.transition = 'background-color 2s'
+        }
+      })
+      
     }
   })
   
