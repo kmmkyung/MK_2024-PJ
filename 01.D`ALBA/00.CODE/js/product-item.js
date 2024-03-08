@@ -1,4 +1,5 @@
 import itemContentData from '../assets/data/itemContentData.js'
+import itemIngredientsData from '../assets/data/itemIngredientsData.js';
 
 let locationLink = location.href;
 let locationLinkKey = locationLink.split("?")[1]
@@ -161,18 +162,34 @@ window.addEventListener('DOMContentLoaded',function(){
       contentTitle.innerHTML = ele['content-title']      
       for(let content of ele["section4-content"]){
         let contentCode = `
-            <div class="content">
-            <img src="./assets/images/itemContent/${ele.subclass}/${ele.id}/${content['content-img']}">
-            <div class="content-text">
-              <h6>${content['content-h6']}</h6>
-              <p>${content['content-p']}</p>
-            </div>
-          </div>
+        <div class="content">
+        <img src="./assets/images/itemContent/${ele.subclass}/${ele.id}/${content['content-img']}">
+        <div class="content-text">
+        <h6>${content['content-h6']}</h6>
+        <p>${content['content-p']}</p>
+        </div>
+        </div>
         `
         section4Wrap.innerHTML += contentCode
+        let contentTextLast = document.querySelector('.content:last-child .content-text')
+        let contentTextH6Last = document.querySelector('.content:last-child .content-text h6')
+        let contentTextPLast = document.querySelector('.content:last-child .content-text p')
+                
+        if(content['content-h6'] == ''){
+          contentTextH6Last.style.display='none'
+        }
+        else{
+          contentTextLast.style.marginTop = 100+'px'
+        }
+        if(content['content-p'] == ''){
+          contentTextPLast.style.display='none'
+        }
+        else{
+          contentTextLast.style.marginTop = 100+'px'
+        }
       }
       window.addEventListener('scroll',function(){
-        let section4Height = section4.offsetHeight;
+        let section4Height = section4.offsetHeight;        
         if(window.scrollY<section4Height){
           section4.style.backgroundColor = ele["section4-bg"][0]
         }
@@ -181,10 +198,35 @@ window.addEventListener('DOMContentLoaded',function(){
           section4.style.transition = 'background-color 2s'
         }
       })
-      
     }
   })
   
+    // section5
+    itemContentData.forEach(function(ele){
+      const section6H5 =  document.querySelector('.section-6 h5')
+      const ingredientsUl = document.querySelector('.ingredients-title__list')
+      const ingredientsText = document.querySelector('.ingredients-text')
+      let ingredientsTitleCode = /*html*/``      
+      let ingredientsTextCode = /*html*/``      
+      if(ele.id == locationLinkValue){
+        section6H5.innerHTML = ele["ingredients-h5"]
+
+        for(let list in itemIngredientsData){
+          for(let i = 0; i<ele['ingredients-item'].length; i++){
+            if(list == ele['ingredients-item'][i]){              
+              ingredientsTitleCode += `<li class="list-item"><a href="#">${itemIngredientsData[list]["ingredients-title"]}</a></li>` 
+              ingredientsTextCode += `
+                <h6 class="text-title">${itemIngredientsData[list]["ingredients-title"]}</h6>
+                <p class="text-ingredients">${itemIngredientsData[list]["ingredients-text"]}</p>
+                <p class="text-caption">${itemIngredientsData[list]["ingredients-caption"]}</p>
+              `
+            }
+            ingredientsUl.innerHTML = ingredientsTitleCode
+            ingredientsText.innerHTML = ingredientsTextCode
+          }
+        }
+      }
+    })
 
 
 })
