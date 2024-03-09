@@ -202,31 +202,57 @@ window.addEventListener('DOMContentLoaded',function(){
   })
   
     // section5
-    itemContentData.forEach(function(ele){
-      const section6H5 =  document.querySelector('.section-6 h5')
-      const ingredientsUl = document.querySelector('.ingredients-title__list')
-      const ingredientsText = document.querySelector('.ingredients-text')
-      let ingredientsTitleCode = /*html*/``      
-      let ingredientsTextCode = /*html*/``      
-      if(ele.id == locationLinkValue){
-        section6H5.innerHTML = ele["ingredients-h5"]
-
-        for(let list in itemIngredientsData){
-          for(let i = 0; i<ele['ingredients-item'].length; i++){
-            if(list == ele['ingredients-item'][i]){              
-              ingredientsTitleCode += `<li class="list-item"><a href="#">${itemIngredientsData[list]["ingredients-title"]}</a></li>` 
-              ingredientsTextCode += `
-                <h6 class="text-title">${itemIngredientsData[list]["ingredients-title"]}</h6>
-                <p class="text-ingredients">${itemIngredientsData[list]["ingredients-text"]}</p>
-                <p class="text-caption">${itemIngredientsData[list]["ingredients-caption"]}</p>
-              `
-            }
-            ingredientsUl.innerHTML = ingredientsTitleCode
-            ingredientsText.innerHTML = ingredientsTextCode
+  itemContentData.forEach(function(ele){
+    const section6 = document.querySelector('.section-6')
+    const section6H5 =  document.querySelector('.section-6 h5')
+    const ingredientsTitleUl = document.querySelector('.ingredients-title__list')
+    const ingredientsTextUl = document.querySelector('.ingredients-text__list')
+    let ingredientsTitleCode = /*html*/``      
+    let ingredientsTextCode = /*html*/``      
+    if(ele.id == locationLinkValue){
+      section6H5.innerHTML = ele["ingredients-h5"]
+      for(let list in itemIngredientsData){
+        for(let i = 0; i<ele['ingredients-item'].length; i++){
+          if(list == ele['ingredients-item'][i]){              
+            ingredientsTitleCode += `<li class="list-item"><a href="javascript:void(0)">${itemIngredientsData[list]["ingredients-title"]}</a></li>` 
+            
           }
         }
+        ingredientsTitleUl.innerHTML = ingredientsTitleCode
       }
-    })
+      const ingredientsLiA = document.querySelectorAll('.ingredients-title__list .list-item a')
+      section6.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__pc"]})`
+      ingredientsLiA[0].classList.add('active')
+      ingredientsTextCode += `
+      <li class="list-item" >
+      <h6 class="text-title">${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-title"]}</h6>
+      <p class="text-ingredients">${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-text"]}</p>
+      <p class="text-caption">${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-caption"]}</p>
+      </li>
+      `
+      ingredientsTextUl.innerHTML = ingredientsTextCode
+
+      ingredientsLiA.forEach(function(item,idx){
+        item.addEventListener('click',function(event){
+          let liActive = document.querySelector('.ingredients-title__list .list-item a.active')
+          let ingredientsTextCodeChange = `
+          <li class="list-item" >
+          <h6 class="text-title">${itemIngredientsData[event.target.textContent]["ingredients-title"]}</h6>
+          <p class="text-ingredients">${itemIngredientsData[event.target.textContent]["ingredients-text"]}</p>
+          <p class="text-caption">${itemIngredientsData[event.target.textContent]["ingredients-caption"]}</p>
+          </li>
+          `
+          section6.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__pc"]})`
+          if(liActive.classList.contains('active')){
+            liActive.classList.remove('active')
+            event.target.classList.add('active')
+          }
+          ingredientsTextUl.innerHTML = ingredientsTextCodeChange
+        })
+      })
+    
+    } //// if
+  }) //// itemContentData
 
 
 })

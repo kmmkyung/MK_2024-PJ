@@ -3,8 +3,8 @@ const itemIngredientsData = {
     "ingredients-title":"d'Alba-4 Blending Oil",
     "ingredients-text":"아보카도오일, 해바라기씨오일, 돌콩오일, 아나토씨오일",
     "ingredients-caption":"달바만의 피부 영양, 보습 성분으로 윤기나는 피부로 가꾸어 주는 데 도움을 줍니다.",
-    "ingredients-bg__pc":"Blending Oil.jpg",
-    "ingredients-bg__mobile":"mobile-Blending Oil.jpg",
+    "ingredients-bg__pc":"blending-Oil.jpg",
+    "ingredients-bg__mobile":"mobile-blending-Oil.jpg",
   },
   "IndiMultiEx WH-9 Complex (N)":{
     "ingredients-title":"IndiMultiEx WH-9 Complex (N)",
