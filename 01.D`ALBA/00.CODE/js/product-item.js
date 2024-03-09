@@ -270,30 +270,93 @@ window.addEventListener('DOMContentLoaded',function(){
 
   // section8
   itemContentData.forEach(function(ele){
-    const infoUse = document.querySelector('.info-use__use')
-    const infoTip = document.querySelector('.info-use__tip')
-    const infoTestedUl = document.querySelector('.info-tested ul')
-    const infoTestedText = document.querySelector('.info-tested__text')
-    let infoTestedCode = ``
     if(ele.id == locationLinkValue){
-      infoUse.innerHTML = ele["infoUse"]
-      infoTip.innerHTML = ele["infoTip"]
+      // Use
+      const infoUse = document.querySelector('.info-use')
+      const infoUseUl= document.querySelector('.info-use__list')
+      const infoUseTItle = document.querySelector('.info-title')
+      const infoUseUse = document.querySelector('.info-use__use')
+      const infoUseTip = document.querySelector('.info-use__tip')
+      const infoUseSubTitle = document.querySelectorAll('.info-use__subTitle')
+      const infoUseText = document.querySelectorAll('.info-use__text')
+      let useClick = [0,0];
+      infoUseUse.innerHTML = ele["infoUse"]
+      infoUseTip.innerHTML = ele["infoTip"]
+
+      infoUseTItle.addEventListener('click',function(){
+        infoUse.classList.toggle('active')
+        if(infoUse.classList.contains('active')){
+          infoUseUl.style.height = infoUseUl.scrollHeight+'px'
+        }
+        else{
+          infoUseUl.style.height = 0
+        }
+      })
+
+      infoUseSubTitle.forEach((ele,idx)=>{
+        ele.addEventListener('click',function(){
+          useClick[idx]++;
+          if(useClick[idx]%2 == 0){
+            ele.classList.remove('active')
+            infoUseText[idx].classList.remove('active')
+            infoUseText[idx].style.height = 0
+          }
+          else{
+            ele.classList.add('active')
+            infoUseUl.style.height = 'auto'
+            infoUseText[idx].classList.add('active')
+            infoUseText[idx].style.height = infoUseText[idx].scrollHeight+'px'
+          }
+        })
+      })
+      
+      // tested
+      const infoTested = document.querySelector('.info-tested')    
+      const infoTestedTitle = document.querySelector('.info-tested .info-title')
+      const infoTestedUl = document.querySelector('.info-tested ul')    
+      let infoTestedCode = ``
+      let testedClick = [0,0,0]
+      infoTestedTitle.addEventListener('click',function(){
+        infoTested.classList.toggle('active')
+        if(infoTested.classList.contains('active')){
+          infoTestedUl.style.height = infoTestedUl.scrollHeight+'px'
+        }
+        else{
+          infoTestedUl.style.height = 0
+        }
+      })
       for(let item of itemContentData){
         for(let i=0; i<Object.keys(item["infoTested-item"]).length; i++){
           infoTestedCode += `
-            <li class="info-tested__item">
+          <li class="info-tested__item">
             <p class="info-tested__title">${Object.keys(item["infoTested-item"])[i]}</p>
             <div class="info-tested__text">${item["infoTested-item"][Object.keys(item["infoTested-item"])[i]]}</div>
-            </li>
+          </li>
           ` 
         }
         infoTestedUl.innerHTML = infoTestedCode
       }
+      const infoTestedItemTitle = document.querySelectorAll('.info-tested__title')    
+      const infoTestedText = document.querySelectorAll('.info-tested__text')
+      infoTestedItemTitle.forEach((ele,idx)=>{
+        ele.addEventListener('click',function(){
+          testedClick[idx]++;
+          if(testedClick[idx]%2 == 0){
+            ele.classList.remove('active')
+            infoTestedText[idx].classList.remove('active')
+            infoTestedText[idx].style.height = 0
+          }
+          else{
+            ele.classList.add('active')
+            infoTestedUl.style.height = 'auto'
+            infoTestedText[idx].classList.add('active')
+            infoTestedText[idx].style.height = infoTestedText[idx].scrollHeight+'px'
+          }
+        })
+      })
+
+      // ingredients
+      
     }
   })
-
-
-
-
-
 })
