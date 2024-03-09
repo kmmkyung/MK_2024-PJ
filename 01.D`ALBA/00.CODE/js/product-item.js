@@ -232,7 +232,7 @@ window.addEventListener('DOMContentLoaded',function(){
       `
       ingredientsTextUl.innerHTML = ingredientsTextCode
 
-      ingredientsLiA.forEach(function(item,idx){
+      ingredientsLiA.forEach(function(item){
         item.addEventListener('click',function(event){
           let liActive = document.querySelector('.ingredients-title__list .list-item a.active')
           let ingredientsTextCodeChange = `
@@ -356,7 +356,68 @@ window.addEventListener('DOMContentLoaded',function(){
       })
 
       // ingredients
-      
+      const infoIngredients = document.querySelector('.info-ingredients')
+      const infoIngredientsTitle = document.querySelector('.info-ingredients .info-title')
+      const infoIngredientsUl = document.querySelector('.info-ingredients ul')
+      const infoIngredientsTextWrap = document.querySelector('.info-ingredients__textWrap')
+      const infoIngredientsWrap = document.querySelector('.info-ingredients__wrap')
+      let infoIngredientCode1 = ``;
+      let infoIngredientCode2 = ``;
+      for(let item of itemContentData){
+        for(let i=0; i<Object.keys(item["infoIngredients-item"]).length; i++){
+          infoIngredientCode1 += `
+          <li class="info-ingredients__item">
+          <p class="info-ingredients__subTitle">${Object.keys(item["infoIngredients-item"])[i]}</p>
+          </li>
+          `
+          infoIngredientCode2 += `
+          <div class="info-ingredients__text">${item["infoIngredients-item"][Object.keys(item["infoIngredients-item"])[i]]}</div>
+          `
+        }
+        infoIngredientsUl.innerHTML = infoIngredientCode1
+        infoIngredientsTextWrap.innerHTML = infoIngredientCode2
+      }
+
+      const infoIngredientsSubTitle = document.querySelectorAll('.info-ingredients__subTitle')
+      const infoIngredientsText = document.querySelectorAll('.info-ingredients__text')
+      infoIngredientsSubTitle[0].classList.add('active')
+      infoIngredientsText[0].classList.add('active')
+
+      infoIngredientsTitle.addEventListener('click',function(){
+        infoIngredients.classList.toggle('active')
+        if(infoIngredients.classList.contains('active')){
+          infoIngredientsWrap.style.height = infoIngredientsWrap.scrollHeight+'px'
+        }
+        else{
+          infoIngredientsWrap.style.height = 0
+        }
+      })
+      infoIngredientsSubTitle.forEach(function(ele,idx){
+        ele.addEventListener('click',function(event){
+          let itemActive = document.querySelector('.info-ingredients__subTitle.active')
+          let itemTextActive = document.querySelector('.info-ingredients__text.active')
+          ele.classList.add('active')
+          infoIngredientsText[idx].classList.add('active')
+          if(itemActive.classList.contains('active')){
+            itemActive.classList.remove('active')
+            itemTextActive.classList.remove('active')
+            event.target.classList.add('active')
+          }
+        })
+      })
+
+      const infoProduct = document.querySelector('.info-product')
+
+
+
+
+
+
+
+
+
+
+
     }
   })
 })
