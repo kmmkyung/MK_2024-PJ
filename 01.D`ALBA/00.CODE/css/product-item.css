@@ -571,3 +571,109 @@
   margin-top: 50px;
   color: var(--white);
 }
+
+.section-7{
+  max-width: 1000px;
+  width: 100%;
+  height: auto;
+  margin: 100px auto;
+}
+
+.section-7-wrap{
+  width: 100%;
+  height: 100%;
+}
+
+.section-7 img{
+  width: 100%;
+}
+
+.section-8{
+  max-width: 1100px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 200px;
+}
+
+.info-use,
+.info-tested,
+.info-ingredients,
+.info-product,
+.info-shipping{
+  border-top: 1px solid black;
+}
+
+.info-title{
+  padding: 15px 0;
+  font-size: var(--font-size-S);
+  font-weight: bold;
+  position: relative;
+}
+
+.info-title::after{
+  content: '';
+  background-image: url(../assets/svg/more-up_b.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: cover;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) rotate(-180deg);
+}
+
+.info-use li{
+  font-size: var(--font-size-XS);
+  padding: 15px 0;
+  border-top: 1px solid #eee;
+  position: relative;
+}
+
+.info-use li::after{
+  content: '+';
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.info-use li.active::after{
+  content: '-';
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+
+.info-use__use,
+.info-use__tip{
+  margin-top: 20px;
+  color: #777;
+  line-height: 1.8;
+  font-size: var(--font-size-XS);
+}
+
+.info-tested__item{
+  padding: 15px 0;
+  border-top: 1px solid #eee;
+  position: relative;
+}
+
+.info-tested__title,
+.info-tested__text{
+  font-size: var(--font-size-XS);
+  margin-top: 20px;
+  line-height: 1.8;
+}
+
+.info-tested__text{
+  color: #777;
+}

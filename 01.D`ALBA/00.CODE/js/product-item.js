@@ -47,19 +47,19 @@ window.addEventListener('DOMContentLoaded',function(){
     const introText = document.querySelector('.item-intro__text .text-text')
     const introTag = document.querySelector('.item-intro__text .text-tag')
     if(ele.id == locationLinkValue){
-      itemNameH1.innerHTML = ele.nameKo
-      itemNameH2.innerHTML = ele.nameEn
-      itemNameImg.src = `./assets/images/itemContent/${ele.subclass}/${ele.id}/${ele.itemImages}`
-      if(ele.itemIntroImg != '' ){
-        introImg.src = `./assets/images/itemContent/${ele.subclass}/${ele.id}/${ele.itemIntroImg}`
+      itemNameH1.innerHTML = ele["name-ko"]
+      itemNameH2.innerHTML = ele["name-en"]
+      itemNameImg.src = `./assets/images/itemContent/${ele.subclass}/${ele.id}/${ele["item-images"]}`
+      if(ele["itemIntro-img"] != '' ){
+        introImg.src = `./assets/images/itemContent/${ele.subclass}/${ele.id}/${ele["itemIntro-tmg"]}`
       }
       
-      if(ele.itemIntroImg == "" ){
+      if(ele["itemIntro-img"] == "" ){
         introImg.style.display='none'
       }
-      introTitle.innerHTML = ele.itemIntroTitle
-      introText.innerHTML = ele.itemIntroText
-      introTag.innerHTML = ele.itemIntroTag
+      introTitle.innerHTML = ele["itemIntro-title"]
+      introText.innerHTML = ele["itemIntro-text"]
+      introTag.innerHTML = ele["itemIntro-tag"]
     }
   })
 
@@ -253,6 +253,47 @@ window.addEventListener('DOMContentLoaded',function(){
     
     } //// if
   }) //// itemContentData
+
+  // section7
+  itemContentData.forEach(function(ele){
+    const section7Img = document.querySelector('.section-7 img')
+    
+    if(ele.id == locationLinkValue){
+      if(ele["section7-img"] != ''){
+        section7Img.src = `./assets/images/itemContent/${ele.subclass}/${ele.id}/${ele["section7-img"]}`
+      }
+      else{
+        section7Img.style.display='none'
+      }
+    }
+  })
+
+  // section8
+  itemContentData.forEach(function(ele){
+    const infoUse = document.querySelector('.info-use__use')
+    const infoTip = document.querySelector('.info-use__tip')
+    const infoTestedUl = document.querySelector('.info-tested ul')
+    const infoTestedText = document.querySelector('.info-tested__text')
+    let infoTestedCode = ``
+    if(ele.id == locationLinkValue){
+      infoUse.innerHTML = ele["infoUse"]
+      infoTip.innerHTML = ele["infoTip"]
+      for(let item of itemContentData){
+        for(let i=0; i<Object.keys(item["infoTested-item"]).length; i++){
+          infoTestedCode += `
+            <li class="info-tested__item">
+            <p class="info-tested__title">${Object.keys(item["infoTested-item"])[i]}</p>
+            <div class="info-tested__text">${item["infoTested-item"][Object.keys(item["infoTested-item"])[i]]}</div>
+            </li>
+          ` 
+        }
+        infoTestedUl.innerHTML = infoTestedCode
+      }
+    }
+  })
+
+
+
 
 
 })
