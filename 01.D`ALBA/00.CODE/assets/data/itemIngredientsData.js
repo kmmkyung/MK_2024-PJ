@@ -47,6 +47,41 @@ const itemIngredientsData = {
     "ingredients-caption":"풍부한 수분과 영양 공급으로 피부에 편안한 보습을 선사합니다.",
     "ingredients-bg__pc":"IndimultiEx-Herb-11-Complex.jpg",
     "ingredients-bg__mobile":"mobile_IndimultiEx-Herb-11-Complex.jpg"
+  },
+  "Red Flower Blending Oil":{
+    "ingredients-title":"Red Flower Blending Oil",
+    "ingredients-text":"자초오일(지치뿌리추출물), 로즈힙오일, 센티드제라늄꽃오일, 장미꽃오일",
+    "ingredients-caption":"달바만의 피부 진정x보습 성분으로 촉촉하고 싱그러운 피부로 가꾸어줍니다.",
+    "ingredients-bg__pc":"Rosa-Damascena-Flower-Water.jpg",
+    "ingredients-bg__mobile":"mobile_Rosa-Damascena-Flower-Water.jpg"
+  },
+  "Prunus Serrulata Flower Extract":{
+    "ingredients-title":"Prunus Serrulata Flower Extract",
+    "ingredients-text":"셀룰라타벚나무꽃추출물",
+    "ingredients-caption":"건조해진 피부에 수분과 영양을 공급하여 빛나는 활력 피부로 가꾸어줍니다.",
+    "ingredients-bg__pc":"Prunus-Serrulata-Flower-Extract.jpg",
+    "ingredients-bg__mobile":"mobile_Prunus-Serrulata-Flower-Extract.jpg"
+  },
+  "AQUAXYL™":{
+    "ingredients-title":"AQUAXYL™",
+    "ingredients-text":"자일리틸글루코사이드, 안하이드로자일리톨, 자일리톨",
+    "ingredients-caption":"수분 보유력이 높은 성분으로 피부 수분 공급에 도움을 주어 촉촉한 피부로 가꾸어줍니다.",
+    "ingredients-bg__pc":"AQUAXYL™.jpg",
+    "ingredients-bg__mobile":"mobile_AQUAXYL™.jpg"
+  },
+  "Lora Anti-S™":{
+    "ingredients-title":"Lora Anti-S™",
+    "ingredients-text":"연꽃꽃추출물, 쌀추출물, 개똥쑥추출물",
+    "ingredients-caption":"피부를 편안하게 진정시켜 줍니다.",
+    "ingredients-bg__pc":"Lora-Anti-S™.jpg",
+    "ingredients-bg__mobile":"mobile_Lora-Anti-S™.jpg"
+  },
+  "Beautiful Herb Story™":{
+    "ingredients-title":"Beautiful Herb Story™",
+    "ingredients-text":"라벤더꽃추출물, 로즈마리잎추출물, 오레가노추출물, 타임꽃/잎/줄기추출물",
+    "ingredients-caption":"식물에서 얻은 추출물 3가지 복합 성분으로 피부를 진정시키는데 도움을 줍니다.",
+    "ingredients-bg__pc":"Beautiful-Herb-Story™.jpg",
+    "ingredients-bg__mobile":"mobile_Beautiful-Herb-Story™.jpg"
   }
 } 
 

@@ -283,14 +283,14 @@ window.addEventListener('DOMContentLoaded',function(){
 
   // section7
   itemContentData.forEach(function(ele){
+    const section7 = document.querySelector('.section-7')
     const section7Img = document.querySelector('.section-7 img')
-    
     if(ele.id == locationLinkValue){
-      if(ele["section7-img"] != ''){
+      if(ele["section7-img"] !== ''){
         section7Img.src = `./assets/images/itemContent/${ele.subclass}/${ele.id}/${ele["section7-img"]}`
       }
-      else{
-        section7Img.style.display='none'
+      if(ele["section7-img"] == ''){
+        section7.style.display='none'
       }
     }
   })
