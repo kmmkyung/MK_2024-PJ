@@ -441,16 +441,6 @@ window.addEventListener('DOMContentLoaded',function(){
           infoShippingContentWrap.style.height = 0
         }
       })
-
-
-
-
-
-
-
-
-
-
     }
   })
 })

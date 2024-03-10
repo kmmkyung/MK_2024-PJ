@@ -765,10 +765,8 @@
 .info-ingredients__wrap{
   height: 0;
   overflow: hidden;
-}
-
-.info-ingredients__wrap{
   display: flex;
+  transition: all 0.4s;
 }
 
 .info-ingredients__wrap ul{
