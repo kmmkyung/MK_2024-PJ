@@ -153,7 +153,6 @@ window.addEventListener('DOMContentLoaded',function(){
     }
   })
 
-
   // section4
   itemContentData.forEach(function(ele){
     const section4 = document.querySelector('.section-4')
@@ -189,7 +188,7 @@ window.addEventListener('DOMContentLoaded',function(){
           contentTextLast.style.marginTop = 100+'px'
         }
       }
-      window.addEventListener('scroll',function(){
+      window.addEventListener('scroll',function(){        
         let section4Height = section4.offsetHeight;        
         if(window.scrollY<section4Height){
           section4.style.backgroundColor = ele["section4-bg"][0]
@@ -204,6 +203,7 @@ window.addEventListener('DOMContentLoaded',function(){
   
     // section5
   itemContentData.forEach(function(ele){
+    if(ele.id == locationLinkValue){
     const section6 = document.querySelector('.section-6')
     const section6H5 =  document.querySelector('.section-6 h5')
     const ingredientsTitleUl = document.querySelector('.ingredients-title__list')
@@ -221,6 +221,7 @@ window.addEventListener('DOMContentLoaded',function(){
         }
         ingredientsTitleUl.innerHTML = ingredientsTitleCode
       }
+      
       const ingredientsLiA = document.querySelectorAll('.ingredients-title__list .list-item a')
       section6.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__pc"]})`
       window.addEventListener('load',section5BgSize)
@@ -260,6 +261,7 @@ window.addEventListener('DOMContentLoaded',function(){
           ingredientsTextUl.innerHTML = ingredientsTextCodeChange
         })
       })
+    }
 
       window.addEventListener('resize',section5BgSize2)
       function section5BgSize2(){
@@ -289,7 +291,7 @@ window.addEventListener('DOMContentLoaded',function(){
   })
 
   // section8
-  itemContentData.forEach(function(ele){
+  itemContentData.forEach(function(ele,idx){
     if(ele.id == locationLinkValue){
       // Use
       const infoUse = document.querySelector('.info-use')
@@ -334,8 +336,7 @@ window.addEventListener('DOMContentLoaded',function(){
       const infoTested = document.querySelector('.info-tested')    
       const infoTestedTitle = document.querySelector('.info-tested .info-title')
       const infoTestedUl = document.querySelector('.info-tested ul')    
-      let infoTestedCode = ``
-      let testedClick = [0,0,0]
+      let infoTestedCode = ``;
       infoTestedTitle.addEventListener('click',function(){
         infoTested.classList.toggle('active')
         if(infoTested.classList.contains('active')){
@@ -345,17 +346,25 @@ window.addEventListener('DOMContentLoaded',function(){
           infoTestedUl.style.height = 0
         }
       })
-      for(let item of itemContentData){
-        for(let i=0; i<Object.keys(item["infoTested-item"]).length; i++){
-          infoTestedCode += `
-          <li class="info-tested__item">
-            <p class="info-tested__title">${Object.keys(item["infoTested-item"])[i]}</p>
-            <div class="info-tested__text">${item["infoTested-item"][Object.keys(item["infoTested-item"])[i]]}</div>
-          </li>
-          ` 
-        }
-        infoTestedUl.innerHTML = infoTestedCode
+      console.log(itemContentData[idx]['infoTested-item']);
+      
+      for(let item of itemContentData[idx]['infoTested-item']){
+        
+        infoTestedCode += `
+        <li class="info-tested__item">
+        <p class="info-tested__title">${Object.keys(item)}</p>
+        <div class="info-tested__text">${item[Object.keys(item)]}</div>
+        </li>
+        ` 
       }
+      infoTestedUl.innerHTML = infoTestedCode
+
+      const infoTestedLi = document.querySelectorAll('.info-tested ul li')
+      let testedClick = []
+      for(let i = 0; i<infoTestedLi.length; i++){
+        testedClick.push(0)
+      }      
+
       const infoTestedItemTitle = document.querySelectorAll('.info-tested__title')    
       const infoTestedText = document.querySelectorAll('.info-tested__text')
       infoTestedItemTitle.forEach((ele,idx)=>{
@@ -383,20 +392,20 @@ window.addEventListener('DOMContentLoaded',function(){
       const infoIngredientsWrap = document.querySelector('.info-ingredients__wrap')
       let infoIngredientCode1 = ``;
       let infoIngredientCode2 = ``;
-      for(let item of itemContentData){
-        for(let i=0; i<Object.keys(item["infoIngredients-item"]).length; i++){
-          infoIngredientCode1 += `
-          <li class="info-ingredients__item">
-            <p class="info-ingredients__subTitle">${Object.keys(item["infoIngredients-item"])[i]}</p>
-          </li>
-          `
-          infoIngredientCode2 += `
-          <div class="info-ingredients__text">${item["infoIngredients-item"][Object.keys(item["infoIngredients-item"])[i]]}</div>
-          `
-        }
-        infoIngredientsUl.innerHTML = infoIngredientCode1
-        infoIngredientsTextWrap.innerHTML = infoIngredientCode2
+
+      for(let item of itemContentData[idx]['infoIngredients-item']){ 
+        infoIngredientCode1 += `
+        <li class="info-ingredients__item">
+          <p class="info-ingredients__subTitle">${Object.keys(item)}</p>
+        </li>
+        `
+        infoIngredientCode2 += `
+        <div class="info-ingredients__text">${item[Object.keys(item)]}</div>
+        `
       }
+      infoIngredientsUl.innerHTML = infoIngredientCode1
+      infoIngredientsTextWrap.innerHTML = infoIngredientCode2
+
 
       const infoIngredientsSubTitle = document.querySelectorAll('.info-ingredients__subTitle')
       const infoIngredientsText = document.querySelectorAll('.info-ingredients__text')
