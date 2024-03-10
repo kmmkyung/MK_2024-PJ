@@ -245,6 +245,12 @@ window.addEventListener('DOMContentLoaded',function(){
 
       ingredientsLiA.forEach(function(item){
         item.addEventListener('click',function(event){
+          if(window.innerWidth>900){
+            section6.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__pc"]})`
+          }
+          else{
+            section6.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__mobile"]})`
+          }
           let liActive = document.querySelector('.ingredients-title__list .list-item a.active')
           let ingredientsTextCodeChange = `
           <li class="list-item" >
@@ -253,13 +259,11 @@ window.addEventListener('DOMContentLoaded',function(){
           <p class="text-caption">${itemIngredientsData[event.target.textContent]["ingredients-caption"]}</p>
           </li>
           `
-          
-          section6.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__pc"]})`
+          ingredientsTextUl.innerHTML = ingredientsTextCodeChange
           if(liActive.classList.contains('active')){
             liActive.classList.remove('active')
             event.target.classList.add('active')
           }
-          ingredientsTextUl.innerHTML = ingredientsTextCodeChange
         })
       })
     }

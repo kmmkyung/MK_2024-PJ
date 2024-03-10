@@ -114,6 +114,15 @@ const itemContentData = [
     "review":33716,
     "star":"4.9",
   },
+  {
+    "id":2,
+    "name":"화이트 트러플 바이탈 스프레이 세럼",
+    "subclass":"mist",
+    "capacity":["100ml"],
+    "tag":["비건","수분보습","진정","저자극","윤기","페이셜"],
+    "review":19923,
+    "star":"4.8",
+  },
 ]
 
 export default itemContentData;
