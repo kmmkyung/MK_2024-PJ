@@ -861,6 +861,22 @@
 }
 
 @media screen and (max-width:900px) {
+  .vegan{
+    background-image: url(../assets/images/itemContent/mobile-vegan.jpg);
+  }
+  
+  .clinical{
+    background-image: url(../assets/images/itemContent/mobile-clinical.jpg);
+  }
+  
+  .derma{
+    background-image: url(../assets/images/itemContent/mobile-derma.jpg);
+  }
+  
+  .clean{
+    background-image: url(../assets/images/itemContent/mobile-clean.jpg);
+  }
+
   .button-list .list-item{
     width: 100px;
   }

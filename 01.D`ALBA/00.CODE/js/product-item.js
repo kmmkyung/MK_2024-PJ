@@ -64,6 +64,7 @@ window.addEventListener('DOMContentLoaded',function(){
   })
 
   // section2
+  const section2 = document.querySelector('.section-2')
   const section2Wrap = document.querySelector('.section-2-wrap')
   let veganCode = /*html*/`
   <div class="vegan"> <!-- 비건 -->
@@ -222,6 +223,15 @@ window.addEventListener('DOMContentLoaded',function(){
       }
       const ingredientsLiA = document.querySelectorAll('.ingredients-title__list .list-item a')
       section6.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__pc"]})`
+      window.addEventListener('load',section5BgSize)
+      function section5BgSize(){
+        if(window.innerWidth>900){
+          section6.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__pc"]})`
+        }
+        else{
+          section6.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__mobile"]})`
+        }
+      }
       ingredientsLiA[0].classList.add('active')
       ingredientsTextCode += `
       <li class="list-item" >
@@ -250,7 +260,17 @@ window.addEventListener('DOMContentLoaded',function(){
           ingredientsTextUl.innerHTML = ingredientsTextCodeChange
         })
       })
-    
+
+      window.addEventListener('resize',section5BgSize2)
+      function section5BgSize2(){
+        let liActive = document.querySelector('.ingredients-title__list .list-item a.active')
+        if(window.innerWidth>900){
+          section6.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[liActive.textContent]["ingredients-bg__pc"]})`
+        }
+        else{
+          section6.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[liActive.textContent]["ingredients-bg__mobile"]})`
+        }
+      }
     } //// if
   }) //// itemContentData
 
