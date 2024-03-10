@@ -190,10 +190,10 @@ window.addEventListener('DOMContentLoaded',function(){
       }
       window.addEventListener('scroll',function(){        
         let section4Height = section4.offsetHeight;        
-        if(window.scrollY<section4Height){
+        if(window.scrollY<section4Height*1.2){
           section4.style.backgroundColor = ele["section4-bg"][0]
         }
-        if(window.scrollY>=section4Height){
+        if(window.scrollY>=section4Height*1.2){
           section4.style.backgroundColor = ele["section4-bg"][1]
           section4.style.transition = 'background-color 2s'
         }
@@ -347,10 +347,8 @@ window.addEventListener('DOMContentLoaded',function(){
           infoTestedUl.style.height = 0
         }
       })
-      console.log(itemContentData[idx]['infoTested-item']);
-      
-      for(let item of itemContentData[idx]['infoTested-item']){
-        
+
+      for(let item of itemContentData[idx]['infoTested-item']){  
         infoTestedCode += `
         <li class="info-tested__item">
         <p class="info-tested__title">${Object.keys(item)}</p>
