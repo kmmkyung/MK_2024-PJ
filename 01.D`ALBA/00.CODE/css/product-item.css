@@ -225,6 +225,15 @@
   margin-top: 50px;
 }
 
+.item-intro__text{
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.item-intro img{
+  width: 100%;
+}
+
 .item-intro__text .title{
   text-align: center;
   font-size: var(--font-size-S);

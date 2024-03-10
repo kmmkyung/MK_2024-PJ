@@ -51,15 +51,15 @@ window.addEventListener('DOMContentLoaded',function(){
       itemNameH2.innerHTML = ele["name-en"]
       itemNameImg.src = `./assets/images/itemContent/${ele.class}/${ele.id}/${ele["item-images"]}`
       if(ele["itemIntro-img"] != '' ){
-        introImg.src = `./assets/images/itemContent/${ele.class}/${ele.id}/${ele["itemIntro-tmg"]}`
+        introImg.src = `./assets/images/itemContent/${ele.class}/${ele.id}/${ele["itemIntro-img"]}`
+        introTitle.style.marginTop = 100+'px'
       }
-      
       if(ele["itemIntro-img"] == "" ){
         introImg.style.display='none'
       }
       introTitle.innerHTML = ele["itemIntro-title"]
       introText.innerHTML = ele["itemIntro-text"]
-      introTag.innerHTML = ele["itemIntro-tag"]
+      introTag.innerHTML = ele["tag"]
     }
   })
 
@@ -145,7 +145,7 @@ window.addEventListener('DOMContentLoaded',function(){
       if(ele["section3-img"] != ''){
         section3Img.src = `./assets/images/itemContent/${ele.class}/${ele.id}/${ele["section3-img"]}`
       }
-      else{
+      if(ele["section3-img"] == ''){
         section3Img.style.display='none'
       }
       section3H3.innerHTML = ele['section3-h3']
