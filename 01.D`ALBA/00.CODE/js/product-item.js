@@ -253,6 +253,7 @@ window.addEventListener('DOMContentLoaded',function(){
           <p class="text-caption">${itemIngredientsData[event.target.textContent]["ingredients-caption"]}</p>
           </li>
           `
+          
           section6.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__pc"]})`
           if(liActive.classList.contains('active')){
             liActive.classList.remove('active')

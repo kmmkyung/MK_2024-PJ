@@ -24,15 +24,15 @@ const itemIngredientsData = {
     "ingredients-title":"Rosa Damascena Flower Water",
     "ingredients-text":"다마스크장미꽃수",
     "ingredients-caption":"다마스크장미에서 얻은 식물성 에너지가<br>촉촉하게 빛나는 활력 피부로 가꾸어줍니다.",
-    "ingredients-bg__pc":"Rosa Damascena Flower Water.jpg",
-    "ingredients-bg__mobile":"mobile_Rosa Damascena Flower Water.jpg"
+    "ingredients-bg__pc":"Rosa-Damascena-Flower-Water.jpg",
+    "ingredients-bg__mobile":"mobile_Rosa-Damascena-Flower-Water.jpg"
   },
   "Moisture Star™":{
     "ingredients-title":"Moisture Star™",
     "ingredients-text":"오크라열매추출물",
     "ingredients-caption":"풍부한 보습을 공급해주어 촉촉한 피부로 가꾸어 주는 데 도움을 줍니다.",
-    "ingredients-bg__pc":"Moisture Star™.jpg",
-    "ingredients-bg__mobile":"mobile_Moisture Star™.jpg"
+    "ingredients-bg__pc":"Moisture-Star™.jpg",
+    "ingredients-bg__mobile":"mobile_Moisture-Star™.jpg"
   },
   "Vagestop™":{
     "ingredients-title":"Vagestop™",
@@ -45,8 +45,8 @@ const itemIngredientsData = {
     "ingredients-title":"IndimultiEx Herb-11 Complex(N)",
     "ingredients-text":"바질꽃/잎/출기추출물, 마트리카리아꽃추출물, 히비스커스꽃추출물, 라벤더꽃추출물, 레몬밤잎추출물, 페퍼민트잎추출물, 폴스애플민트잎추출물, 베르가못잎추출물, 프로방스장미꽃추출물, 로즈마리잎추출물, 살비아잎추출물",
     "ingredients-caption":"풍부한 수분과 영양 공급으로 피부에 편안한 보습을 선사합니다.",
-    "ingredients-bg__pc":"IndimultiEx Herb-11 Complex(N).jpg",
-    "ingredients-bg__mobile":"mobile_IndimultiEx Herb-11 Complex(N).jpg"
+    "ingredients-bg__pc":"IndimultiEx-Herb-11-Complex.jpg",
+    "ingredients-bg__mobile":"mobile_IndimultiEx-Herb-11-Complex.jpg"
   }
 } 
 
