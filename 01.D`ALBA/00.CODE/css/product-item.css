@@ -865,6 +865,10 @@
 }
 
 @media screen and (max-width:900px) {
+  .buy-window {
+    width: 300px;
+  }
+
   .vegan{
     background-image: url(../assets/images/itemContent/mobile-vegan.jpg);
   }
