@@ -49,9 +49,9 @@ window.addEventListener('DOMContentLoaded',function(){
     if(ele.id == locationLinkValue){
       itemNameH1.innerHTML = ele["name-ko"]
       itemNameH2.innerHTML = ele["name-en"]
-      itemNameImg.src = `./assets/images/itemContent/${ele.subclass}/${ele.id}/${ele["item-images"]}`
+      itemNameImg.src = `./assets/images/itemContent/${ele.class}/${ele.id}/${ele["item-images"]}`
       if(ele["itemIntro-img"] != '' ){
-        introImg.src = `./assets/images/itemContent/${ele.subclass}/${ele.id}/${ele["itemIntro-tmg"]}`
+        introImg.src = `./assets/images/itemContent/${ele.class}/${ele.id}/${ele["itemIntro-tmg"]}`
       }
       
       if(ele["itemIntro-img"] == "" ){
@@ -143,7 +143,7 @@ window.addEventListener('DOMContentLoaded',function(){
     const section3P = document.querySelector('.section-3 p')
     if(ele.id == locationLinkValue){
       if(ele["section3-img"] != ''){
-        section3Img.src = `./assets/images/itemContent/${ele.subclass}/${ele.id}/${ele["section3-img"]}`
+        section3Img.src = `./assets/images/itemContent/${ele.class}/${ele.id}/${ele["section3-img"]}`
       }
       else{
         section3Img.style.display='none'
@@ -163,7 +163,7 @@ window.addEventListener('DOMContentLoaded',function(){
       for(let content of ele["section4-content"]){
         let contentCode = `
         <div class="content">
-        <img src="./assets/images/itemContent/${ele.subclass}/${ele.id}/${content['content-img']}">
+        <img src="./assets/images/itemContent/${ele.class}/${ele.id}/${content['content-img']}">
         <div class="content-text">
         <h6>${content['content-h6']}</h6>
         <p>${content['content-p']}</p>
@@ -287,7 +287,7 @@ window.addEventListener('DOMContentLoaded',function(){
     const section7Img = document.querySelector('.section-7 img')
     if(ele.id == locationLinkValue){
       if(ele["section7-img"] !== ''){
-        section7Img.src = `./assets/images/itemContent/${ele.subclass}/${ele.id}/${ele["section7-img"]}`
+        section7Img.src = `./assets/images/itemContent/${ele.class}/${ele.id}/${ele["section7-img"]}`
       }
       if(ele["section7-img"] == ''){
         section7.style.display='none'
