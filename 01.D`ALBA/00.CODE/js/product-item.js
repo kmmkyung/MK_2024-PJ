@@ -367,7 +367,7 @@ window.addEventListener('DOMContentLoaded',function(){
         for(let i=0; i<Object.keys(item["infoIngredients-item"]).length; i++){
           infoIngredientCode1 += `
           <li class="info-ingredients__item">
-          <p class="info-ingredients__subTitle">${Object.keys(item["infoIngredients-item"])[i]}</p>
+            <p class="info-ingredients__subTitle">${Object.keys(item["infoIngredients-item"])[i]}</p>
           </li>
           `
           infoIngredientCode2 += `
@@ -398,7 +398,7 @@ window.addEventListener('DOMContentLoaded',function(){
           let itemTextActive = document.querySelector('.info-ingredients__text.active')
           ele.classList.add('active')
           infoIngredientsText[idx].classList.add('active')
-          if(itemActive.classList.contains('active')){
+          if(itemActive.classList.contains('active') && itemActive !== event.target){
             itemActive.classList.remove('active')
             itemTextActive.classList.remove('active')
             event.target.classList.add('active')
@@ -406,8 +406,41 @@ window.addEventListener('DOMContentLoaded',function(){
         })
       })
 
+      // product
       const infoProduct = document.querySelector('.info-product')
+      const infoProductTitle = document.querySelector('.info-product .info-title')
+      const infoProductContentWrap = document.querySelector('.info-product .info-product__contentWrap')
+      const infoProductName =  document.querySelector('.product-name .name')
+      const infoProductCapacity =  document.querySelector('.product-capacity .capacity')
+      let capacityString = " / "
+      let capacityArr = ele.capacity.join(capacityString)
+      infoProductName.innerHTML = ele['name-ko'];
+      infoProductCapacity.innerHTML = capacityArr;
 
+      infoProductTitle.addEventListener('click',function(){
+        infoProduct.classList.toggle('active')
+        if(infoProduct.classList.contains('active')){
+          infoProductContentWrap.style.height = infoProductContentWrap.scrollHeight+'px'
+        }
+        else{
+          infoProductContentWrap.style.height = 0
+        }
+      })
+
+      // shipping
+      const infoShipping = document.querySelector('.info-shipping')
+      const infoShippingTitle = document.querySelector('.info-shipping .info-title')
+      const infoShippingContentWrap = document.querySelector('.info-shipping__contentWrap')
+
+      infoShippingTitle.addEventListener('click',function(){
+        infoShipping.classList.toggle('active')
+        if(infoShipping.classList.contains('active')){
+          infoShippingContentWrap.style.height = infoShippingContentWrap.scrollHeight+'px'
+        }
+        else{
+          infoShippingContentWrap.style.height = 0
+        }
+      })
 
 
 

@@ -572,7 +572,7 @@
 }
 
 .section-7{
-  max-width: 1000px;
+  max-width: 600px;
   width: 100%;
   height: auto;
   margin: 100px auto;
@@ -591,8 +591,7 @@
   max-width: 1100px;
   width: 100%;
   height: auto;
-  margin: 0 auto;
-  margin-top: 200px;
+  margin: 200px auto 200px;
 }
 
 .info-use,
@@ -603,6 +602,7 @@
   border-top: 1px solid black;
   transition: all 0.4s;
   position: relative;
+  cursor: pointer;
 }
 
 .info-use.active,
@@ -635,10 +635,6 @@
 }
 
 /* use */
-.info-use{
-  font-size: var(--font-size-XS);
-}
-
 .info-use.active .info-title::after{
   transform: translateY(-50%);
 }
@@ -652,6 +648,7 @@
   position: relative;
   padding: 20px 0;
   border-top: 1px solid #eee;
+  font-size: var(--font-size-SubMenu);
 }
 
 .info-use__subTitle::after{
@@ -711,17 +708,18 @@
   position: relative;
 }
 
-.info-tested__title,
+.info-tested__title{
+  position: relative;
+  padding: 20px 0;
+  font-size: var(--font-size-SubMenu);
+  cursor: pointer;
+}
+
 .info-tested__text{
   font-size: var(--font-size-XS);
   line-height: 1.8;
 }
-
-.info-tested__title{
-  position: relative;
-  padding: 20px 0;
-}
-
+  
 .info-tested__title::after{
   content: '+';
   width: 10px;
@@ -767,7 +765,6 @@
 .info-ingredients__wrap{
   height: 0;
   overflow: hidden;
-  transition: all 0.4s;
 }
 
 .info-ingredients__wrap{
@@ -778,12 +775,9 @@
   width: 40%;
 }
 
-.info-ingredients__item{
-  padding: 20px 0;
-}
-
 .info-ingredients__subTitle{
-  font-size: var(--font-size-XS);
+  padding: 20px 0;
+  font-size: var(--font-size-SubMenu);
   cursor: pointer;
   transition: all 0.4s;
 }
@@ -813,4 +807,55 @@
 
 .info-ingredients__text.active{
   display: block;
+}
+
+.info-product.active .info-title::after{
+  transform: translateY(-50%);
+}
+
+.info-product__contentWrap{
+  height: 0;
+  overflow: hidden;
+  transition: all 0.4s;
+}
+
+.info-product__content{
+  margin-bottom: 20px;
+}
+
+.info-product__subtitle{
+  display: block;
+  font-size: var(--font-size-SubMenu);
+}
+
+.info-product__content span:not(:first-child){
+  display: block;
+  margin-top: 10px;
+  font-size: var(--font-size-XS);
+}
+
+.info-shipping.active .info-title::after{
+  transform: translateY(-50%);
+}
+
+.info-shipping__contentWrap{
+  height: 0;
+  overflow: hidden;
+  transition: all 0.4s;
+}
+
+.info-shipping__content{
+  margin-bottom: 20px;
+  display: block;
+  font-size: var(--font-size-XS);
+}
+
+.info-shipping__subtitle{
+  font-size: var(--font-size-SubMenu);
+}
+
+.info-shipping__content span:not(:first-child){
+  display: block;
+  margin-top: 10px;
+  font-size: var(--font-size-XS);
 }
