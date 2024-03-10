@@ -592,6 +592,8 @@
   width: 100%;
   height: auto;
   margin: 200px auto 200px;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .info-use,
@@ -856,4 +858,123 @@
   display: block;
   margin-top: 10px;
   font-size: var(--font-size-XS);
+}
+
+@media screen and (max-width:900px) {
+  .button-list .list-item{
+    width: 100px;
+  }
+
+  .button-list .list-item:not(:last-child){
+    margin-bottom: 10px;
+  }
+  
+  .button-list .list-item a{
+    font-size: var(--font-size-XS);
+    padding: 10px 0 10px 10px;
+  }
+
+  .item-name h2{
+    font-size: var(--font-size-XL);
+  }
+
+  .item-intro__text .title{
+    font-size: var(--font-size-XS);
+  }
+  
+  .item-intro__text .text-text{
+    font-size: var(--font-size-XS);
+  }
+  
+  .item-intro__text .text-tag{
+    font-size: var(--font-size-XS);
+  }
+  
+  .vegan-sub,
+  .clinical-sub,
+  .derma-sub,
+  .clean-sub{
+    font-size: var(--font-size-XS);
+  }
+  
+  .vegan-title,
+  .clinical-title,
+  .derma-title,
+  .clean-title{
+    font-size: var(--font-size-L);
+  }
+
+  .vegan-text,
+  .clinical-text,
+  .derma-text,
+  .clean-text{
+    font-size: var(--font-size-XS);
+  }
+
+  .section-3 h3{
+    font-size: var(--font-size-XL);
+  }
+
+  .section-3 p{
+    font-size: var(--font-size-XS);
+  }
+
+  .section-4 .content-title{
+    font-size: var(--font-size-XL);
+  }
+
+  .content-text h6{
+    font-size: var(--font-size-S);
+  }
+
+  .content-text p{
+    font-size: var(--font-size-XS);
+  }
+
+  .patent-intro h2{
+    font-size: var(--font-size-XL);
+  }
+
+  .content-1 .content-1__subTitle{
+    font-size: var(--font-size-S);
+  }
+
+  .content-1 .content-1__text{
+    font-size: var(--font-size-XS);
+  }
+
+  .content-2 .content-2__title{
+    font-size: var(--font-size-L);
+  }
+
+  .content-2 .content-2__subTitle{
+    font-size: var(--font-size-XS);
+  }
+
+  .section-6 {
+    padding: 100px 20px;
+  }
+
+  .section-6 h5{
+    font-size: var(--font-size-M);
+  }
+
+  .ingredients-title .list-item a{
+    font-size: var(--font-size-M);
+  }
+
+  .info-ingredients__wrap{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .info-ingredients__wrap ul {
+    width: 100%;
+  }
+
+  .info-ingredients__textWrap {
+    width: 100%;
+  }
+
 }
