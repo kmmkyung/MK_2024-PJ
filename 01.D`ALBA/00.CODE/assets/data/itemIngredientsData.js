@@ -140,10 +140,10 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"flower.jpg",
     "ingredients-bg__mobile":"mobile_flower.jpg"
   },
-  "병풀추출물":{
-    "ingredients-title":"병풀추출물",
+  "Centella Asiatica Extract":{
+    "ingredients-title":"Centella Asiatica Extract",
     "ingredients-text":"병풀추출물",
-    "ingredients-caption":"풍부한 수분과 영양 공급으로 피부에 편안한 보습을 선사합니다.",
+    "ingredients-caption":"외부로부터 자극 받은 피부를 진정시켜 피부를 순하게 보호해줍니다.",
     "ingredients-bg__pc":"Centella.jpg",
     "ingredients-bg__mobile":"mobile_Centella.jpg"
   },
@@ -230,6 +230,20 @@ const itemIngredientsData = {
     "ingredients-caption":"초록색 아열대 채소인 오크라열매추출물의 영양 성분이 피부를 촉촉하게 보습 케어해줍니다.",
     "ingredients-bg__pc":"Hibiscus-Esculentus-Fruit-Extract.jpg",
     "ingredients-bg__mobile":"mobile_Hibiscus-Esculentus-Fruit-Extract.jpg"
+  },
+  "Witch Hazel":{
+    "ingredients-title":"Witch Hazel",
+    "ingredients-text":"위치하젤추출물(버지니아풍면화잎추출물)",
+    "ingredients-caption":"피부 활력에 도움을줘 생기있는 피부 관리에 도움을 줍니다.",
+    "ingredients-bg__pc":"Witch-Hazel.jpg",
+    "ingredients-bg__mobile":"mobile_Witch-Hazel.jpg"
+  },
+  "":{
+    "ingredients-title":"",
+    "ingredients-text":"",
+    "ingredients-caption":"",
+    "ingredients-bg__pc":".jpg",
+    "ingredients-bg__mobile":"mobile_.jpg"
   },
   // "":{
   //   "ingredients-title":"",
