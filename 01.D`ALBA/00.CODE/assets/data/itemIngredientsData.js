@@ -108,8 +108,8 @@ const itemIngredientsData = {
     "ingredients-title":"Peptide Capsule",
     "ingredients-text":"아세틸헥사펩타이드-8, 카퍼트라이펩타이드-1, 팔미토일펜타펩타이드-4",
     "ingredients-caption":"안정화된 펩타이드 성분이 피부에 영양과 탄력을 공급해줍니다.",
-    "ingredients-bg__pc":"Peptide-Capsule.jpg",
-    "ingredients-bg__mobile":"mobile_Peptide-Capsule.jpg"
+    "ingredients-bg__pc":"Peptide-capsule.jpg",
+    "ingredients-bg__mobile":"mobile_Peptide-capsule.jpg"
   },
   "Vegan Protein 13 Complex":{
     "ingredients-title":"Vegan Protein 13 Complex",
@@ -179,8 +179,8 @@ const itemIngredientsData = {
     "ingredients-title":"Vegan Protein 11 Complex",
     "ingredients-text":"글라이코프로테인, 하이드롤라이즈드루핀단백질, 하이드롤라이즈드쌀단백질, 하이드롤라이즈드귀리단백질, 하이드롤라이즈드콩단백질, 하이드롤라이즈드감자단백질, 하이드롤라이즈드완두콩단백질, 하이드롤라이즈드옥수수단백질, 하이드롤라이즈드밀단백질, 하이드롤라이즈드보리단백질, 하이드롤라이즈드식물성단백질",
     "ingredients-caption":"풍부한 보습과 영양으로 피부를 탄탄하게 가꾸어 주는 데 도움을 줍니다.",
-    "ingredients-bg__pc":"Vegan-Protein.jpg",
-    "ingredients-bg__mobile":"mobile_Vegan-Protein.jpg"
+    "ingredients-bg__pc":"Vegan-protein.jpg",
+    "ingredients-bg__mobile":"mobile_Vegan-protein.jpg"
   },
   "Hibiscus Esculentus Fruit Extract™":{
     "ingredients-title":"Hibiscus Esculentus Fruit Extract™",
