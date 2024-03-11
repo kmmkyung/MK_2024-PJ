@@ -542,7 +542,6 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background: transparent;
   -webkit-transition: background-image 0.5s ease-in-out;
   -moz-transition: background-image 0.5s ease-in-out;
   -o-transition: background-image 0.5s ease-in-out;
