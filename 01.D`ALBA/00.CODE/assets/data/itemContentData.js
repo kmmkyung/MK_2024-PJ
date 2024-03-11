@@ -470,12 +470,101 @@ const itemContentData = [
     "review":213,
     "star":"4.9",
   },
+  {
+    "id":7,
+    "class":"mist",
+    "name-ko":"화이트 트러플 프라임 인텐시브 세럼",
+    "name-en":"White truffle<br>prime intensive serum",
+    "item-images":"item.png",
+    "itemIntro-img":"",
+    "itemIntro-title":"탄력의 근본 케어<br>비건 안티에이징 콜라겐 세럼",
+    "itemIntro-text":"",
+    "section2":["vegan"],
+    "section3-img":"start.gif",
+    "section3-h3":"Oil Capsule & Serum<br>Mix Formula",
+    "section3-p":"식물성 성분으로 코팅된 펩타이드 캡슐이<br>함유된 보습 광채 오일과<br>영양 가득 세럼의 황금 비율",
+    "section4-bg":["#f6de8c","#ffffff"],
+    "content-title":"Premium Vegan<br>Anti-Aging",
+        "section4-content":[
+      {
+        "content-img":"content1.jpg",
+        "content-h6":"Micro Capsulation Technology",
+        "content-p":"펩타이드 캡슐로 안정화된 효능 성분을<br>피부에 온전히 전달",
+      },
+      {
+        "content-img":"content2.jpg",
+        "content-h6":"오일-세럼 믹스 포뮬라",
+        "content-p":"영양 오일과 탄력 세럼이 믹스된 포뮬라가<br>빠르게 스며들어 선사하는 풍부한 보습",
+      },
+      {
+        "content-img":"content3.jpg",
+        "content-h6":"뿌릴수록 환해지는<br>브라이트닝 케어",
+        "content-p":"맑고 화사하게 빛나는 피부",
+      },
+    ],
+    "ingredients-h5":"The Main Ingredients of<br>White Truffle First Aromatic Spray Serum 8% is",
+    "ingredients-item":["d'Alba-11 Blending Oil","IndimultiEX Herb-11 Complex(N)","Rhodiola Rosea Root Extract™","Vagestop™","Moisture Star™","병풀추출물"],
+    "section7-img":"last.gif",
+    "infoUse":"세안 직후 제품을 상하로 3~5회 흔들어 내용물이 충분히 섞이게 한 뒤, 고개를 살짝 든 상태에서 10~20cm 떨어져 눈을 감고 얼굴 전체에 4~5회 골고루 분사한 후 가볍게 두드려 피부에 흡수시켜 줍니다.",
+    "infoTip":"1. 세안 후 즉시 사용하여 건조함을 느끼기 전에 보습 케어 해주세요.<br>2. 건조할 때 언제 어디서나 간편하게 사용 가능합니다.",
+    "infoTested-item":[
+      {"저자극 테스트 인증 완료":"피부 일차 자극 평가시험/등 1회 사용, 첩포 제거 1시간 후, 24시간 후 / 피엔케이피부임상연구센타 / 32명 / 2022.03.16~2022.03.18 / 개인차有"},
+      {"이탈리아 V-라벨 비건 인증 완료":"이탈리아 V-LABEL 비건 인증 완료"},
+      {"독일 더마 테스트 완료":"Germany Dermatest/30명/2022.05.13"},
+    ],
+    "infoIngredients-item":[
+      {"주름 개선 기능성화장품 고시 성분":""},
+      {"피부 윤기와 보습을 위한 성분":""},
+      {"피부 탄력을 돕는 식물성 성분":""},
+      {"수분 공급 및 진정 효과를 위한 성분":""},
+      {"기분을 좋게하는 향기를 내는 성분":""},
+      {"내용물의 안정성을 위한 성분":""},
+    ],
+    "capacity":["50ml","100ml","150ml"],
+    "tag":["안티에이징","보습144시간","비건콜라겐세럼"],
+    "review":240,
+    "star":"4.9",
+  },
 ]
 
 export default itemContentData;
 
 
 /*
+
+  "name-en":"White Truffle First<br>Aromatic Spray Serum<br>8%",
+    "item-images":"item.png",
+    "itemIntro-img":"",
+    "itemIntro-title":"맑고 화사한<br>탄력 피부를 만드는",
+    "itemIntro-text":"",
+    "section2":["vegan","derma"],
+    "section3-img":"start.jpg",
+    "section3-h3":"",
+    "section3-p":"<span>보습 탄력 집중 케어<br>환하게 빛나는 피부</span><br><br><span>황금비율 8:2<br>더블 레이어링</span><br><br>보습 광채 에너지를 선사하는<br><span>영양/보습오일 8%</span><br><br><span>&</span><br><br>매끈하고 탄탄한 피부로 가꾸어주는<br><span>생기/탄력 세럼 92%</span>",
+    "section4-bg":["#dda624","#ffffff"],
+    "content-title":"PREMIUM VEGAN 8%<br>For Extremely Dry Skin",
+        "section4-content":[
+      {
+        "content-img":"content1.jpg",
+        "content-h6":"",
+        "content-p":"다마스크장미꽃수가<br>선사하는 화사한 생기<br><br>이탈리아산 화이트 트러플(흰서양송로추출물)로<br>보습 탄력 케어",
+      },
+      {
+        "content-img":"content2.jpg",
+        "content-h6":"건조함부터 탄력까지<br>고영양 고보습 저자극 케어",
+        "content-p":"영양 오일과 탄력 세럼이 믹스된 포뮬라가<br>빠르게 스며들어 선사하는 풍부한 보습",
+      },
+      {
+        "content-img":"content3.jpg",
+        "content-h6":"뿌릴수록 환해지는<br>브라이트닝 케어",
+        "content-p":"맑고 화사하게 빛나는 피부",
+      },
+    ],
+    "ingredients-h5":"The Main Ingredients of<br>White Truffle First Aromatic Spray Serum 8% is",
+    "ingredients-item":["d'Alba-11 Blending Oil","IndimultiEX Herb-11 Complex(N)","Rhodiola Rosea Root Extract™","Vagestop™","Moisture Star™","병풀추출물"],
+    "section7-img":"last.gif",
+    "infoUse":"세안 직후 제품을 상하로 3~5회 흔들어 내용물이 충분히 섞이게 한 뒤, 고개를 살짝 든 상태에서 10~20cm 떨어져 눈을 감고 얼굴 전체에 4~5회 골고루 분사한 후 가볍게 두드려 피부에 흡수시켜 줍니다.",
+    "infoTip":"1. 세안 후 즉시 사용하여 건조함을 느끼기 전에 보습 케어 해주세요.<br>2. 건조할 때 언제 어디서나 간편하게 사용 가능합니다.",
     "infoTested-item":[
       {"저자극 테스트 인증 완료":"피부 일차 자극 평가시험/등 1회 사용, 첩포 제거 1시간 후, 24시간 후 / 피엔케이피부임상연구센타 / 32명 / 2022.03.16~2022.03.18 / 개인차有"},
       {"이탈리아 V-라벨 비건 인증 완료":"이탈리아 V-LABEL 비건 인증 완료"},

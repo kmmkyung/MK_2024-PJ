@@ -174,7 +174,7 @@ window.addEventListener('DOMContentLoaded',function(){
         let contentTextLast = document.querySelector('.content:last-child .content-text')
         let contentTextH6Last = document.querySelector('.content:last-child .content-text h6')
         let contentTextPLast = document.querySelector('.content:last-child .content-text p')
-                
+
         if(content['content-h6'] == ''){
           contentTextH6Last.style.display='none'
         }
@@ -188,6 +188,7 @@ window.addEventListener('DOMContentLoaded',function(){
           contentTextLast.style.marginTop = 100+'px'
         }
       }
+      
       window.addEventListener('scroll',function(){        
         let section4Height = section4.offsetHeight;        
         if(window.scrollY<section4Height*1.2){
