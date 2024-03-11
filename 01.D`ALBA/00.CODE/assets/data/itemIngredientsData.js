@@ -101,8 +101,8 @@ const itemIngredientsData = {
     "ingredients-title":"Vegan Collagen",
     "ingredients-text":"콜라겐추출물",
     "ingredients-caption":"비건 인증 받은 콜라겐이 피부에 영양을 공급하여 탄탄한 피부로 가꾸어 주는 데 도움을 줍니다.",
-    "ingredients-bg__pc":"Vegan-Collagen.jpg",
-    "ingredients-bg__mobile":"mobile_Vegan-Collagen.jpg"
+    "ingredients-bg__pc":"vegan-Collagen.jpg",
+    "ingredients-bg__mobile":"mobile_vegan-Collagen.jpg"
   },
   "Peptide Capsule":{
     "ingredients-title":"Peptide Capsule",
