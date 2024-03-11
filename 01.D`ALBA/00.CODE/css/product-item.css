@@ -532,14 +532,14 @@
   overflow: hidden;
 }
 
-.section-6 img{
+.section-6 .section-6__bg{
   width: 100%;
   height: 100%;
   object-fit: cover;
   position: absolute;
   top: 0;
   left: 0;
-  transition: all 14s;
+  transition: all 3s;
 }
 
 .section-6-wrap{
