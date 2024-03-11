@@ -524,10 +524,6 @@
   padding: 100px 200px;
   box-sizing: border-box;
   text-align: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  transition: all 0.4s;
   position: relative;
   overflow: hidden;
 }
@@ -539,12 +535,12 @@
   top: 0;
   left: 0;
   z-index: 0;
-  background-size: cover;
+  /* background-size: cover;
   background-position: center center;
-  background-repeat: no-repeat;
-  -webkit-transition: background-image 0.5s ease-in-out;
-  -moz-transition: background-image 0.5s ease-in-out;
-  -o-transition: background-image 0.5s ease-in-out;
+  background-repeat: no-repeat; */
+  /* -webkit-transition: background-image 0.5s ease-in-out; */
+  /* -moz-transition: background-image 0.5s ease-in-out; */
+  /* -o-transition: background-image 0.5s ease-in-out; */
   transition: background-image 0.5s ease-in-out;
 }
 
