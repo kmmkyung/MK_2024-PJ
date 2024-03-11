@@ -147,6 +147,42 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Centella.jpg",
     "ingredients-bg__mobile":"mobile_Centella.jpg"
   },
+  "Volufiline™":{
+    "ingredients-title":"Volufiline™",
+    "ingredients-text":"보르피린™ 50,000ppm",
+    "ingredients-caption":"지모뿌리추출물과 하이드로제네이티드아이소부텐이 결합된 프랑스 세더마사의 탄력 성분이 느슨해진 피부를 탄력 넘치게 가꿔줍니다.",
+    "ingredients-bg__pc":".jpg",
+    "ingredients-bg__mobile":"mobile_.jpg"
+  },
+  "Vegan Collagen, Ceramide NP":{
+    "ingredients-title":"Vegan Collagen, Ceramide NP",
+    "ingredients-text":"콜라겐추출물, 세라마이드엔피",
+    "ingredients-caption":"비건 인증을 받은 콜라겐추출물과 세라마이드가 거칠고 푸석한 피부를 촉촉하고 생동감 넘치는 피부로 가꾸어줍니다.",
+    "ingredients-bg__pc":".jpg",
+    "ingredients-bg__mobile":"mobile_.jpg"
+  },
+  "hyaluronic 8 Complex":{
+    "ingredients-title":"hyaluronic 8 Complex",
+    "ingredients-text":"소듐하이알루로네이트, 하이드록시프로필트라이모늄하이알루로네이트, 소듐아세틸레이티드하이알루로네이트,하이드롤라이즈드하이알루로닉애씨드, 하이알루로닉애씨드, 소듐하이알루로네이트크로스폴리머,하이드롤라이즈드소듐하이알루로네이트, 포타슘하이알루로네이트",
+    "ingredients-caption":"피부에 수분을 공급하여 사용 후 피부에 보습감을 부여해줍니다.",
+    "ingredients-bg__pc":".jpg",
+    "ingredients-bg__mobile":"mobile_.jpg"
+  },
+  "MultiEx BSASM Complex":{
+    "ingredients-title":"MultiEx BSASM Complex",
+    "ingredients-text":"녹차추출물, 병풀추출물, 마트리카리아꽃추출물, 다이포타슘글리시리제이트, 호장근뿌리추출물, 로즈마리잎추출물, 황금추출물",
+    "ingredients-caption":"자연에서 온 식물성 성분이 고민 피부를 잠재워 피부 진정에 도움을 줍니다.",
+    "ingredients-bg__pc":".jpg",
+    "ingredients-bg__mobile":"mobile_.jpg"
+  },
+  // "":{
+  //   "ingredients-title":"",
+  //   "ingredients-text":"",
+  //   "ingredients-caption":"",
+  //   "ingredients-bg__pc":".jpg",
+  //   "ingredients-bg__mobile":"mobile_.jpg"
+  // },
+  
 
 } 
 
