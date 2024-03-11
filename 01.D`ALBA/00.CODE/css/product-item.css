@@ -539,7 +539,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  transition: all 3s;
+  transition: background-image 3s; 
+  background-image: transparent;
 }
 
 .section-6-wrap{
