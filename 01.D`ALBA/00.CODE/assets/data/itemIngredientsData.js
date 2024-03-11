@@ -115,8 +115,8 @@ const itemIngredientsData = {
     "ingredients-title":"Vegan Protein 13 Complex",
     "ingredients-text":"글라이코프로테인, 하이드롤라이즈드루핀단백질, 하이드롤라이즈드쌀단백질, 하이드롤라이즈드귀리단백질, 하이드롤라이즈드콩단백질, 하이드롤라이즈드감자단백질, 하이드롤라이즈드완두콩단백질, 하이드롤라이즈드옥수수단백질, 하이드롤라이즈드밀단백질, 하이드롤라이즈드보리단백질, 하이드롤라이즈드식물성단백질, 하이드롤라이즈드스위트아몬드단백질, 하이드롤라이즈드호호바단백질",
     "ingredients-caption":"풍부한 보습과 영양으로 피부 탄력과 밀도를 케어해줍니다.",
-    "ingredients-bg__pc":"Vegan-Protein.jpg",
-    "ingredients-bg__mobile":"mobile_Vegan-Protein.jpg"
+    "ingredients-bg__pc":"Vegan-potein.jpg",
+    "ingredients-bg__mobile":"mobile_Vegan-protein.jpg"
   },
   "Vegan Glutathion":{
     "ingredients-title":"Vegan Glutathion",
