@@ -99,7 +99,7 @@ const itemIngredientsData = {
   },
   "Vegan Collagen":{
     "ingredients-title":"Vegan Collagen",
-    "ingredients-text":"원료적 특성에 한함",
+    "ingredients-text":"콜라겐추출물",
     "ingredients-caption":"비건 인증 받은 콜라겐이 피부에 영양을 공급하여 탄탄한 피부로 가꾸어 주는 데 도움을 줍니다.",
     "ingredients-bg__pc":"Vegan-Collagen.jpg",
     "ingredients-bg__mobile":"mobile_Vegan-Collagen.jpg"
@@ -174,6 +174,62 @@ const itemIngredientsData = {
     "ingredients-caption":"자연에서 온 식물성 성분이 고민 피부를 잠재워 피부 진정에 도움을 줍니다.",
     "ingredients-bg__pc":"MultiEx-BSASMTM.jpg",
     "ingredients-bg__mobile":"mobile_MultiEx-BSASMTM.jpg"
+  },
+  "Vegan Protein 11 Complex":{
+    "ingredients-title":"Vegan Protein 11 Complex",
+    "ingredients-text":"글라이코프로테인, 하이드롤라이즈드루핀단백질, 하이드롤라이즈드쌀단백질, 하이드롤라이즈드귀리단백질, 하이드롤라이즈드콩단백질, 하이드롤라이즈드감자단백질, 하이드롤라이즈드완두콩단백질, 하이드롤라이즈드옥수수단백질, 하이드롤라이즈드밀단백질, 하이드롤라이즈드보리단백질, 하이드롤라이즈드식물성단백질",
+    "ingredients-caption":"풍부한 보습과 영양으로 피부를 탄탄하게 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"Vegan-Protein.jpg",
+    "ingredients-bg__mobile":"mobile_Vegan-Protein.jpg"
+  },
+  "Hibiscus Esculentus Fruit Extract™":{
+    "ingredients-title":"Hibiscus Esculentus Fruit Extract™",
+    "ingredients-text":"오크라열매추출물",
+    "ingredients-caption":"거칠어진 피부를 수분 공급으로 촉촉하게 가꿔줍니다.",
+    "ingredients-bg__pc":"Hibiscus.jpg",
+    "ingredients-bg__mobile":"mobile_Hibiscus.jpg"
+  },
+  "LORA Anti-S™":{
+    "ingredients-title":"LORA Anti-S™",
+    "ingredients-text":"개똥쑥추출물, 연꽃꽃추출물, 쌀추출물, 효모발효물",
+    "ingredients-caption":"건조하고 지친 피부를 편안하게 진정시켜줍니다.",
+    "ingredients-bg__pc":"LORA.jpg",
+    "ingredients-bg__mobile":"mobile_LORA.jpg"
+  },
+  "IndimultiEx WH-9 Complex(N)™":{
+    "ingredients-title":"IndimultiEx WH-9 Complex(N)™",
+    "ingredients-text":"데이지꽃추출물, 프리지어추출물, 약모밀추출물, 에델바이스추출물, 마돈나백합꽃추출물, 뽕나무껍질추출물, 인삼추출물, 사우수레아인볼루크라타추출물",
+    "ingredients-caption":"플라워 콤플렉스가 영양과 탄력을 공급하여 활력있는 피부로 가꾸어줍니다.",
+    "ingredients-bg__pc":"IndimultiEx-WH-9.jpg",
+    "ingredients-bg__mobile":"mobile_IndimultiEx-WH-9.jpg"
+  },
+  "Water(Glacier Water)":{
+    "ingredients-title":"Water(Glacier Water)",
+    "ingredients-text":"캐나다산 빙하수 800,000ppm",
+    "ingredients-caption":"캐나다산 빙하수가 80%나 함유되어 풍부한 수분이 피부를 촉촉하게 가꾸어 줍니다.",
+    "ingredients-bg__pc":"Glacier-Water.jpg",
+    "ingredients-bg__mobile":"mobile_Glacier-Water.jpg"
+  },
+  "Calming Complex":{
+    "ingredients-title":"Calming Complex",
+    "ingredients-text":"개똥쑥추출물, 연꽃추출물, 쌀추출물, 효모발효물",
+    "ingredients-caption":"자연에서 온 식물성 성분들이 예민해진 피부를 진정시키는데 도움을 줍니다.",
+    "ingredients-bg__pc":"Calming-Complex.jpg",
+    "ingredients-bg__mobile":"mobile_Calming-Complex.jpg"
+  },
+  "Tannin Complex HR":{
+    "ingredients-title":"Tannin Complex HR",
+    "ingredients-text":"1,2-헥산다이올, 부틸렌글라이콜, 녹차추출물, 잇꽃꽃추출물, 커피콩추출물, 밤껍질추출물, 감나무잎추출물, 에틸헥실글리세린, 호장근뿌리추출물, 포도추출물, 정제수, 초피나무열매추출물",
+    "ingredients-caption":"자연에서 온 식물성 성분들이 모공, 피지케어에 도움을 줍니다.",
+    "ingredients-bg__pc":"Tannin-Complex-HR.jpg",
+    "ingredients-bg__mobile":"mobile_Tannin-Complex-HR.jpg"
+  },
+  "Hibiscus Esculentus Fruit Extract":{
+    "ingredients-title":"Hibiscus Esculentus Fruit Extract",
+    "ingredients-text":"오크라열매추출물",
+    "ingredients-caption":"초록색 아열대 채소인 오크라열매추출물의 영양 성분이 피부를 촉촉하게 보습 케어해줍니다.",
+    "ingredients-bg__pc":"Hibiscus-Esculentus-Fruit-Extract.jpg",
+    "ingredients-bg__mobile":"mobile_Hibiscus-Esculentus-Fruit-Extract.jpg"
   },
   // "":{
   //   "ingredients-title":"",
