@@ -238,13 +238,6 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Witch-Hazel.jpg",
     "ingredients-bg__mobile":"mobile_Witch-Hazel.jpg"
   },
-  "":{
-    "ingredients-title":"",
-    "ingredients-text":"",
-    "ingredients-caption":"",
-    "ingredients-bg__pc":".jpg",
-    "ingredients-bg__mobile":"mobile_.jpg"
-  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
