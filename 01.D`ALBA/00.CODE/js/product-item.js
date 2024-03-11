@@ -276,11 +276,11 @@ window.addEventListener('DOMContentLoaded',function(){
       function section5BgSize2(){
         let liActive = document.querySelector('.ingredients-title__list .list-item a.active')
         if(window.innerWidth>900){
-          section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__pc"]}`
+          section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[liActive.textContent]["ingredients-bg__pc"]}`
           // section6.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[liActive.textContent]["ingredients-bg__pc"]})`
         }
         else{
-          section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__mobile"]}`
+          section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[liActive.textContent]["ingredients-bg__mobile"]}`
           // section6.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[liActive.textContent]["ingredients-bg__mobile"]})`
         }
       }
