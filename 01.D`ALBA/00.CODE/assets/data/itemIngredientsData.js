@@ -101,8 +101,8 @@ const itemIngredientsData = {
     "ingredients-title":"Vegan Collagen",
     "ingredients-text":"콜라겐추출물",
     "ingredients-caption":"비건 인증 받은 콜라겐이 피부에 영양을 공급하여 탄탄한 피부로 가꾸어 주는 데 도움을 줍니다.",
-    "ingredients-bg__pc":"vegan-Collagen.jpg",
-    "ingredients-bg__mobile":"mobile_vegan-Collagen.jpg"
+    "ingredients-bg__pc":"Vegan-collagen.jpg",
+    "ingredients-bg__mobile":"mobile_Vegan-collagen.jpg"
   },
   "Peptide Capsule":{
     "ingredients-title":"Peptide Capsule",
@@ -158,8 +158,8 @@ const itemIngredientsData = {
     "ingredients-title":"Vegan Collagen, Ceramide NP",
     "ingredients-text":"콜라겐추출물, 세라마이드엔피",
     "ingredients-caption":"비건 인증을 받은 콜라겐추출물과 세라마이드가 거칠고 푸석한 피부를 촉촉하고 생동감 넘치는 피부로 가꾸어줍니다.",
-    "ingredients-bg__pc":"vegan-collagen.jpg",
-    "ingredients-bg__mobile":"mobile_vegan-collagen.jpg"
+    "ingredients-bg__pc":"Vegan-collagen.jpg",
+    "ingredients-bg__mobile":"mobile_Vegan-collagen.jpg"
   },
   "hyaluronic 8 Complex":{
     "ingredients-title":"hyaluronic 8 Complex",
