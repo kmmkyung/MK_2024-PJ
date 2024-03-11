@@ -82,7 +82,42 @@ const itemIngredientsData = {
     "ingredients-caption":"식물에서 얻은 추출물 3가지 복합 성분으로 피부를 진정시키는데 도움을 줍니다.",
     "ingredients-bg__pc":"Beautiful-Herb-Story™.jpg",
     "ingredients-bg__mobile":"mobile_Beautiful-Herb-Story™.jpg"
-  }
+  },
+  "d'Alba-14 Blending Oil":{
+    "ingredients-title":"d'Alba-14 Blending Oil",
+    "ingredients-text":"이탈리아산 올리브오일, 이탈리아산 마카다미아씨오일, 영국산 로즈힙열매오일, 모로코산 아르간커넬오일, 모로코산 프로방스장미꽃오일, 돌콩오일, 아보카도오일, 동백나무씨오일, 비타민나무열매오일, 달맞이꽃오일, 해바라기씨오일, 아나토씨오일, 잇꽃시오일",
+    "ingredients-caption":"달바만의 피부 영양X보습 성분으로 끈적임 없이 윤기나는 피부로 가꾸어줍니다.",
+    "ingredients-bg__pc":"blending-Oil.jpg",
+    "ingredients-bg__mobile":"mobile_blending-Oil.jpg"
+  },
+  "Vegan Collagen":{
+    "ingredients-title":"Vegan Collagen",
+    "ingredients-text":"원료적 특성에 한함",
+    "ingredients-caption":"비건 인증 받은 콜라겐이 피부에 영양을 공급하여 탄탄한 피부로 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"Vegan-Collagen.jpg",
+    "ingredients-bg__mobile":"mobile_Vegan-Collagen.jpg"
+  },
+  "Peptide Capsule":{
+    "ingredients-title":"Peptide Capsule",
+    "ingredients-text":"아세틸헥사펩타이드-8, 카퍼트라이펩타이드-1, 팔미토일펜타펩타이드-4",
+    "ingredients-caption":"안정화된 펩타이드 성분이 피부에 영양과 탄력을 공급해줍니다.",
+    "ingredients-bg__pc":"Peptide-Capsule.jpg",
+    "ingredients-bg__mobile":"mobile_Peptide-Capsule.jpg"
+  },
+  "Vegan Protein 13 Complex":{
+    "ingredients-title":"Vegan Protein 13 Complex",
+    "ingredients-text":"글라이코프로테인, 하이드롤라이즈드루핀단백질, 하이드롤라이즈드쌀단백질, 하이드롤라이즈드귀리단백질, 하이드롤라이즈드콩단백질, 하이드롤라이즈드감자단백질, 하이드롤라이즈드완두콩단백질, 하이드롤라이즈드옥수수단백질, 하이드롤라이즈드밀단백질, 하이드롤라이즈드보리단백질, 하이드롤라이즈드식물성단백질, 하이드롤라이즈드스위트아몬드단백질, 하이드롤라이즈드호호바단백질",
+    "ingredients-caption":"풍부한 보습과 영양으로 피부 탄력과 밀도를 케어해줍니다.",
+    "ingredients-bg__pc":"Vegan-Protein.jpg",
+    "ingredients-bg__mobile":"mobile_Vegan-Protein.jpg"
+  },
+  "Vegan Glutathion":{
+    "ingredients-title":"Vegan Glutathion",
+    "ingredients-text":"글루타티온",
+    "ingredients-caption":"피부를 밝고 맑아지도록 케어해줍니다.",
+    "ingredients-bg__pc":"Hydrolyzed-Hyaluronic-Acid.jpg",
+    "ingredients-bg__mobile":"mobile_Hydrolyzed-Hyaluronic-Acid.jpg"
+  },
 } 
 
 export default itemIngredientsData;
