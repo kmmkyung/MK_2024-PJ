@@ -238,6 +238,20 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Witch-Hazel.jpg",
     "ingredients-bg__mobile":"mobile_Witch-Hazel.jpg"
   },
+  "Tea Tree":{
+    "ingredients-title":"Tea Tree",
+    "ingredients-text":"티트리잎 오일",
+    "ingredients-caption":"모공 관리에 도움을줘 깨끗한 피부로 가꿔줍니다.",
+    "ingredients-bg__pc":"Tea-Tree.jpg",
+    "ingredients-bg__mobile":"mobile_Tea-Tree.jpg"
+  },
+  "Aloe Vera":{
+    "ingredients-title":"Aloe Vera",
+    "ingredients-text":"알로에베라잎수",
+    "ingredients-caption":"풍부한 수분을 공급해 촉촉한 피부 유지에 도움을 줍니다.",
+    "ingredients-bg__pc":"Aloe-Vera.jpg",
+    "ingredients-bg__mobile":"mobile_Aloe-Vera.jpg"
+  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
