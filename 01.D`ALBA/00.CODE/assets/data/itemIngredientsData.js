@@ -125,7 +125,6 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Hydrolyzed-Hyaluronic-Acid.jpg",
     "ingredients-bg__mobile":"mobile_Hydrolyzed-Hyaluronic-Acid.jpg"
   },
-
   "IndimultiEX Herb-11 Complex(N)":{
     "ingredients-title":"IndimultiEX Herb-11 Complex(N)",
     "ingredients-text":"마트리카리아꽃추출물,히비스커스꽃추출물,라벤더꽃추출물,페퍼민트잎추출물,애플민트잎추출물,레몬밤잎추출물,베르가못잎추출물,바질꽃/잎/줄기추출물,로즈마리잎추출물,프로방스장미꽃추출물,살비아잎추출물",
@@ -287,7 +286,6 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Phyto-Green-Peeling-Complex.jpg",
     "ingredients-bg__mobile":"mobile_Phyto-Green-Peeling-Complex.jpg"
   },
-  
   "Natural Complex":{
     "ingredients-title":"Natural Complex",
     "ingredients-text":"바오밥나무열매추출물, 트루로즈오브예리코추출물, 쑥잎추출물",
@@ -295,7 +293,34 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Tannin-Complex-HR.jpg",
     "ingredients-bg__mobile":"mobile_Tannin-Complex-HR.jpg"
   },
-  
+  "Vegan Collagen, Vegan Ceramide":{
+    "ingredients-title":"Vegan Collagen, Vegan Ceramide",
+    "ingredients-text":"콜라겐추출물, 세라마이드NP",
+    "ingredients-caption":"비건 인증 받은 콜라겐과 세라마이드가 피부에 영양을 공급하여 탄탄한 피부로 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"Vegan-collagen.jpg",
+    "ingredients-bg__mobile":"mobile_Vegan-collagen.jpg"
+  },
+  "Hyaluronic Acid 8Complex":{
+    "ingredients-title":"Hyaluronic Acid 8Complex",
+    "ingredients-text":"소듐하이알루로네이트, 소듐아세틸레이티드하이아룰로네이트, 하이드롤라이즈드하이알루로닉애씨드,소듐하이알루로네이트크로스폴리머, 하이드롤라이즈드소듐하이알루로네이트,하이드록시에틸아크릴레이트/소듐아크릴로일다이메틸타우레이트코폴리머, 포타슘하이알루로네이트",
+    "ingredients-caption":"수분과 보습을 전달하여 촉촉한 피부로 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"AQUAXYL™.jpg",
+    "ingredients-bg__mobile":"mobile_AQUAXYL™.jpg"
+  },
+  "Centella Asiatica, Total Solution Max Complex":{
+    "ingredients-title":"Centella Asiatica, Total Solution Max Complex",
+    "ingredients-text":"병풀추출물, 자작나무수액, 사탕수수추출물, 쟈스민추출물, 일랑일랑꽃오일,유럽라임트리추출물, 편백나무잎추출물, 어성초추출물, 에델바이스추출물",
+    "ingredients-caption":"풍부한 수분과 영양 공급으로 피부에 편안한 보습을 선사합니다.",
+    "ingredients-bg__pc":"Centella.jpg",
+    "ingredients-bg__mobile":"mobile_Centella.jpg"
+  },
+  "":{
+    "ingredients-title":"",
+    "ingredients-text":"",
+    "ingredients-caption":"",
+    "ingredients-bg__pc":".jpg",
+    "ingredients-bg__mobile":"mobile_.jpg"
+  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
@@ -303,8 +328,6 @@ const itemIngredientsData = {
   //   "ingredients-bg__pc":".jpg",
   //   "ingredients-bg__mobile":"mobile_.jpg"
   // },
-  
-
 } 
 
 export default itemIngredientsData;
