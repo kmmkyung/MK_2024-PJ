@@ -221,7 +221,84 @@ window.addEventListener('DOMContentLoaded',function(){
     }
   })
   
-    // section6
+  // section5
+  const section5 = document.querySelector('.section-5')
+  const section5Wrap = document.querySelector('.section-5-wrap')
+  let codePatent1 = /*html*/`
+  <div class="patent-intro">
+    <img src="./assets/images/itemContent/trufferol.jpg" alt="">
+    <h2>EXCLUSIVE<br>INGREDIENT</h2>
+  </div>
+  <div class="patent-content">
+    <div class="content-1">
+      <p class="content-1__subTitle">달바 독자적인 특허성분</p>
+      <h5 class="content-1__title">Trufferol™</h5>
+      <p class="content-1__caption">[특허 제10-2332666호]</p>
+      <p class="content-1__text">
+        이탈리아산 화이트 트러플과 토코페롤을 황금비율로 배합하여<br>
+        달바의 탄력 메커니즘을 완성하는<br>
+        핵심 독자 성분 트러페롤™을 개발했습니다.
+      </p>
+    </div>
+    <div class="content-2">
+      <h6 class="content-2__title">White Truffle</h6>
+      <p class="content-2__subTitle">
+        이탈리아산 화이트 트러플<br>
+        (흰서양송로추출물)
+        </p>
+      <div class="plus">
+        <div class="plus-row"></div>
+        <div class="plus-col"></div>
+      </div>
+      <h6 class="content-2__title">Tocopherol</h6>
+      <p class="content-2__subTitle">비타민E 토코페롤</p>
+      <p class="content-2__text">
+        d'Alba 독자 성분'트러페롤' 인체적용시험 완료로 확인된 효과<br>
+        겉탄력 + 깊은탄력 2중 탄력 개선에 도움
+      </p>
+      <p class="content-2__caption">
+        [한국피부과학연구원, 2020.04.17~2020.06.08, 23명, 사용전, 2주사용후, 4주 사용후,<br>
+        피부탄력, 피부 깊은 탄력개선 평가 비교, 개인차있음]<br>
+        *성분 특성에 한함
+      </p>
+    </div>
+  </div>
+  `
+  let codePatent2 = /*html*/`
+  <div class="patent-intro">
+    <img src="./assets/images/itemContent/trupair.jpg" alt="">
+    <h2>EXCLUSIVE<br>INGREDIENT</h2>
+  </div>
+  <div class="patent-content">
+    <div class="content-1">
+      <h5 class="content-1__title">Trupair™</h5>
+      <p class="content-1__text">
+      [흰서양송로추출물, 병풀추출물, 마데카소사이드, 아시아티코사이드, 아시아틱애씨드]
+      </p>
+    </div>
+    <div class="content-2">
+      <p class="content-2__text">
+      미네랄 성분이 풍부한 이탈리아산 화이트 트러플,<br>
+      수확 후 2일 이내의 생병풀에서 추출하여 신선한 병풀추출물,<br>
+      <br>
+      3가지 CICA 성분을 황금 비율로 배합하여<br>
+      달바의 진정 메커니즘을 완성하는 핵심 진성 성분
+      </p>
+    </div>
+  </div>
+  `
+  itemContentData.forEach(function(ele){
+    if(ele.id == locationLinkValue){
+      if(ele.patent === 'Trufferol'){
+        section5Wrap.innerHTML = codePatent1;
+      }
+      if(ele.patent === 'Trupair'){
+        section5Wrap.innerHTML = codePatent2;
+      }
+    }
+  })
+
+  // section6
   itemContentData.forEach(function(ele){
     if(ele.id == locationLinkValue){
     // const section6 = document.querySelector('.section-6')

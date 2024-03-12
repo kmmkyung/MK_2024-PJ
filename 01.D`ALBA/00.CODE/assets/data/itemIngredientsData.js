@@ -252,6 +252,34 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Aloe-Vera.jpg",
     "ingredients-bg__mobile":"mobile_Aloe-Vera.jpg"
   },
+  "Vegan Ceramide":{
+    "ingredients-title":"Vegan Ceramide",
+    "ingredients-text":"Ceramide NP",
+    "ingredients-caption":"지치고 건조해진 피부에 풍부한 보습을 공급해줍니다.",
+    "ingredients-bg__pc":"Vegan-Ceramide.jpg",
+    "ingredients-bg__mobile":"mobile_Vegan-Ceramide.jpg"
+  },
+  "Panthenol":{
+    "ingredients-title":"Panthenol",
+    "ingredients-text":"판테놀",
+    "ingredients-caption":"피부에 수분과 영양 공급으로 민감한 피부를 진정시켜줍니다.",
+    "ingredients-bg__pc":"panthenol.jpg",
+    "ingredients-bg__mobile":"mobile_panthenol.jpg"
+  },
+  "Phyto Green Peeling Complex":{
+    "ingredients-title":"Phyto Green Peeling Complex",
+    "ingredients-text":"포도추출물, 사과추출물, 매실추출물, 파파야열매추출물",
+    "ingredients-caption":"식물로부터 얻은 순한 각질 케어 성분으로 저자극 각질 케어에 도움을 줍니다.",
+    "ingredients-bg__pc":"Phyto-Green-Peeling-Complex.jpg",
+    "ingredients-bg__mobile":"mobile_Phyto-Green-Peeling-Complex.jpg"
+  },
+  "Hyaluronic acid":{
+    "ingredients-title":"Hyaluronic acid",
+    "ingredients-text":"소듐하이알루로네이트, 하이드롤라이즈드하이알루로닉애씨드, 소듐아세틸레이티드하이알루로네이트",
+    "ingredients-caption":"저분자, 중분자, 고분자 히알루론산으로 이루어져 촘촘한 피부 수분 보습에 도움을 줍니다.",
+    "ingredients-bg__pc":"AQUAXYL™.jpg",
+    "ingredients-bg__mobile":"mobile_AQUAXYL™.jpg"
+  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
