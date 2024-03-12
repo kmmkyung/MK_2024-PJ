@@ -221,6 +221,14 @@
   margin: 10px auto 0;
 }
 
+.item-homeTry{
+  width: 100%;
+}
+
+.item-homeTry img{
+  width: 100%;
+}
+
 .item-intro{
   margin-top: 50px;
 }
