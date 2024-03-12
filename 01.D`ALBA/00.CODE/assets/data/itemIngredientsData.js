@@ -280,6 +280,22 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"AQUAXYL™.jpg",
     "ingredients-bg__mobile":"mobile_AQUAXYL™.jpg"
   },
+  "Phyto Enzyme Complex, PHA":{
+    "ingredients-title":"Phyto Enzyme Complex, PHA",
+    "ingredients-text":"파파인, 브로멜라인, 프로테아제, 리파아제, 글루코노락톤",
+    "ingredients-caption":"효소 성분들과 파하 성분이 부드럽게 각질을 정돈해 매끄러운 피부 결로 가꾸어줍니다.",
+    "ingredients-bg__pc":"Phyto-Green-Peeling-Complex.jpg",
+    "ingredients-bg__mobile":"mobile_Phyto-Green-Peeling-Complex.jpg"
+  },
+  
+  "Natural Complex":{
+    "ingredients-title":"Natural Complex",
+    "ingredients-text":"바오밥나무열매추출물, 트루로즈오브예리코추출물, 쑥잎추출물",
+    "ingredients-caption":"피부 진정에 도움을 주는 식물성 성분 함유로 편안한 입술 케어에 도움을 줍니다.",
+    "ingredients-bg__pc":"Tannin-Complex-HR.jpg",
+    "ingredients-bg__mobile":"mobile_Tannin-Complex-HR.jpg"
+  },
+  
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
