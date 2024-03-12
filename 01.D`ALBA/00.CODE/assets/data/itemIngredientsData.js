@@ -342,6 +342,55 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"blending-Oil.jpg",
     "ingredients-bg__mobile":"mobile_blending-Oil.jpg"
   },
+  "White Truffle":{
+    "ingredients-title":"White Truffle",
+    "ingredients-text":"이탈리아산 화이트 트러플(흰서양송로추출물)",
+    "ingredients-caption":"땅 속의 다이아몬드, 풍부한 영양을 공급하여 탄력 있는 피부로 가꾸어 줍니다.",
+    "ingredients-bg__pc":"White Truffle.jpg",
+    "ingredients-bg__mobile":"mobile_White Truffle.jpg"
+  },
+  "Tocopherol":{
+    "ingredients-title":"Tocopherol",
+    "ingredients-text":"토코페롤",
+    "ingredients-caption":"비타민E 성분으로 생기있는 피부 관리에 도움을 줍니다.",
+    "ingredients-bg__pc":"Tocopherol.jpg",
+    "ingredients-bg__mobile":"mobile_Tocopherol.jpg"
+  },
+  "Adenosine":{
+    "ingredients-title":"Adenosine",
+    "ingredients-text":"아데노신",
+    "ingredients-caption":"식약처 고시 주름개선 기능성 성분으로 주름관리에 도움을 줍니다.",
+    "ingredients-bg__pc":"Adenosine.jpg",
+    "ingredients-bg__mobile":"mobile_Adenosine.jpg"
+  },
+  "Multi Herb Complex":{
+    "ingredients-title":"Multi Herb Complex",
+    "ingredients-text":"마트리카리아꽃추출물, 프리지어추출물, 라벤더추출물, 페퍼민트잎추출물, 베르가못잎추출물, 로즈마리잎추출물",
+    "ingredients-caption":"식물에서 얻은 추출물 6가지 복합 성분으로 촉촉하고 부드러운 피부로 가꾸어줍니다.", 
+    "ingredients-bg__pc":"Multi Herb.jpg",
+    "ingredients-bg__mobile":"mobile_Multi Herb.jpg"
+  },
+  "Natural Oil Complex":{
+    "ingredients-title":"Natural Oil Complex",
+    "ingredients-text":"빅사씨오일, 해바라기씨오일, 콩오일",
+    "ingredients-caption":"피부에 부드럽게 흡수되면서 건조하고 푸석한 피부에 영양감과 보습감을 부여해줍니다.",
+    "ingredients-bg__pc":"Natural Oil Complex.jpg",
+    "ingredients-bg__mobile":"mobile_Natural Oil Complex.jpg"
+  },
+  "Propolis Extract":{
+    "ingredients-title":"Propolis Extract",
+    "ingredients-text":"프로폴리스 추출물",
+    "ingredients-caption":"피부에 영양과 탄력을 공급해주어 매끄럽고 탄탄한 피부로 가꾸어줍니다.",
+    "ingredients-bg__pc":"Propolis.jpg",
+    "ingredients-bg__mobile":"mobile_Propolis.jpg"
+  },
+  "Hippophae Rhamnoides Fruit Extract":{
+    "ingredients-title":"Hippophae Rhamnoides Fruit Extract",
+    "ingredients-text":"비타민나무열매추출물",
+    "ingredients-caption":"건조해진 피부에 수분을 공급해주어 촉촉한 피부로 가꾸어줍니다.",
+    "ingredients-bg__pc":"Hippophae Rhamnoides Fruit.jpg",
+    "ingredients-bg__mobile":"mobile_Hippophae Rhamnoides Fruit.jpg"
+  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
