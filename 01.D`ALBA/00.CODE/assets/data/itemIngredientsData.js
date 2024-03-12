@@ -314,12 +314,33 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Centella.jpg",
     "ingredients-bg__mobile":"mobile_Centella.jpg"
   },
-  "":{
-    "ingredients-title":"",
-    "ingredients-text":"",
-    "ingredients-caption":"",
-    "ingredients-bg__pc":".jpg",
-    "ingredients-bg__mobile":"mobile_.jpg"
+  "Ascobic Acid":{
+    "ingredients-title":"Ascobic Acid",
+    "ingredients-text":"순수비타민씨, 아스코빅애씨",
+    "ingredients-caption":"칙칙한 피부를 환하고 투명한 피부로 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"Ascobic.jpg",
+    "ingredients-bg__mobile":"mobile_Ascobic.jpg"
+  },
+  "Sodium Hyaluronate":{
+    "ingredients-title":"Sodium Hyaluronate",
+    "ingredients-text":"소듐하이알루로네이트",
+    "ingredients-caption":"수분과 보습을 전달하여 촉촉한 피부로 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"AQUAXYL™.jpg",
+    "ingredients-bg__mobile":"mobile_AQUAXYL™.jpg"
+  },
+  "Macadamia Ternifolia Seed Oil":{
+    "ingredients-title":"Macadamia Ternifolia Seed Oil",
+    "ingredients-text":"마카다미아씨오일",
+    "ingredients-caption":"남태평양섬에서 자라는 열매에서 추출한 오일로 피부에 잘 흡수되며, 피부를 유연하게 가꾸어 줍니다.",
+    "ingredients-bg__pc":"Macadamia.jpg",
+    "ingredients-bg__mobile":"mobile_Macadamia.jpg"
+  },
+  "d'Alba Blending Oil":{
+    "ingredients-title":"d'Alba Blending Oil",
+    "ingredients-text":"올리브오일, 마카다미아씨오일, 돌콩오일, 아보카도오일, 동백나무씨오일, 비타민나무열매오일, 달맞이꽃오일, 해바라기씨오일, 아나토씨오일",
+    "ingredients-caption":"달바만의 피부 영양x보습 성분으로 끈적임 없이 윤기나는 피부로 가꾸어 줍니다.",
+    "ingredients-bg__pc":"blending-Oil.jpg",
+    "ingredients-bg__mobile":"mobile_blending-Oil.jpg"
   },
   // "":{
   //   "ingredients-title":"",

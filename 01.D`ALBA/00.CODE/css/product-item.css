@@ -269,7 +269,8 @@
 .vegan,
 .clinical,
 .derma,
-.clean{
+.clean,
+.ecocert{
   width: 100%;
   height: 100vh;
   position: relative;
@@ -299,10 +300,17 @@
   text-align: center;
 }
 
+.ecocert{
+  background-image: url(../assets/images/itemContent/ecocert.jpg);
+  color: var(--white);
+  text-align: center;
+}
+
 .vegan-wrap,
 .clinical-wrap,
 .derma-wrap,
-.clean-wrap{
+.clean-wrap,
+.ecocert-wrap{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -310,17 +318,23 @@
   width: 100%;
 }
 
+.ecocert img{
+  width: 250px;
+}
+
 .vegan-sub,
 .clinical-sub,
 .derma-sub,
-.clean-sub{
+.clean-sub,
+.ecocert-sub{
   font-size: var(--font-size-S);
 }
 
 .vegan-title,
 .clinical-title,
 .derma-title,
-.clean-title{
+.clean-title,
+.ecocert-title{
   margin: 20px 0;
   font-size: var(--font-size-Content);
   font-weight: normal;
@@ -329,7 +343,8 @@
 .vegan-text,
 .clinical-text,
 .derma-text,
-.clean-text{
+.clean-text,
+.ecocert-text{
   font-size: var(--font-size-S);
   line-height: 1.8;
 }
@@ -918,6 +933,10 @@
     background-image: url(../assets/images/itemContent/mobile-clean.jpg);
   }
 
+  .ecocert{
+    background-image: url(../assets/images/itemContent/mobile-ecocert.jpg);
+  }
+
   .button-list .list-item{
     width: 100px;
   }
@@ -954,17 +973,23 @@
     font-size: var(--font-size-XS);
   }
   
+  .ecocert img{
+    width: 200px;
+  }
+
   .vegan-title,
   .clinical-title,
   .derma-title,
-  .clean-title{
+  .clean-title,
+  .ecocert-title{
     font-size: var(--font-size-L);
   }
 
   .vegan-text,
   .clinical-text,
   .derma-text,
-  .clean-text{
+  .clean-text,
+  .ecocert-text{
     font-size: var(--font-size-XS);
   }
 

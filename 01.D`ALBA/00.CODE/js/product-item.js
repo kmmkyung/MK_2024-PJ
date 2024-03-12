@@ -137,6 +137,20 @@ window.addEventListener('DOMContentLoaded',function(){
     </div>
   </div>
   `
+  let ecocertCode =  /*html*/`
+  <div class="ecocert"> <!-- 서트 클린 -->
+    <div class="ecocert-wrap">
+      <img class="ecocert-img" src="./assets/images/itemContent/cosmos_ecocert.png">
+      <h3 class="ecocert-title">ECOCERT 인증 완료</h3>
+      <p class="ecocert-text">
+      <b>100% NATURAL, 97% ORGANIC</b><br><br>
+        독일, 프랑스, 이탈리아, 영국 유럽 4개국의 5개 인증 기관에서 연합한<br>
+        국제 유기농 화장품 협회(COSMOS-Standard AISBL)의<br>
+        엄격하고 까다로운 유기농 심사를 통과해 에코서트를 인증 완료했습니다
+      </p>
+    </div>
+  </div>
+  `
 
   itemContentData.forEach(function(ele){
     if(ele.id == locationLinkValue){
@@ -149,6 +163,8 @@ window.addEventListener('DOMContentLoaded',function(){
           case 'derma' : section2Wrap.innerHTML+=dermaCode
           break;
           case 'clean' : section2Wrap.innerHTML+=cleanCode
+          break;
+          case 'ecocert' : section2Wrap.innerHTML+=ecocertCode 
           break;
         }
       })
