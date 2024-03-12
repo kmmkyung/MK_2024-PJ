@@ -1355,6 +1355,7 @@ const itemContentData = [
     "review":1728,
     "star":"4.8",
   },
+  
 ]
 
 export default itemContentData;
