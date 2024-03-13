@@ -76,13 +76,6 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"AQUAXYL™.jpg",
     "ingredients-bg__mobile":"mobile_AQUAXYL™.jpg"
   },
-  "Lora Anti-S™":{
-    "ingredients-title":"Lora Anti-S™",
-    "ingredients-text":"연꽃꽃추출물, 쌀추출물, 개똥쑥추출물",
-    "ingredients-caption":"피부를 편안하게 진정시켜 줍니다.",
-    "ingredients-bg__pc":"Lora-Anti-S™.jpg",
-    "ingredients-bg__mobile":"mobile_Lora-Anti-S™.jpg"
-  },
   "Beautiful Herb Story™":{
     "ingredients-title":"Beautiful Herb Story™",
     "ingredients-text":"라벤더꽃추출물, 로즈마리잎추출물, 오레가노추출물, 타임꽃/잎/줄기추출물",
@@ -188,12 +181,12 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Hibiscus.jpg",
     "ingredients-bg__mobile":"mobile_Hibiscus.jpg"
   },
-  "LORA Anti-S™":{
-    "ingredients-title":"LORA Anti-S™",
+  "Lora Anti-S™":{
+    "ingredients-title":"Lora Anti-S™",
     "ingredients-text":"개똥쑥추출물, 연꽃꽃추출물, 쌀추출물, 효모발효물",
     "ingredients-caption":"건조하고 지친 피부를 편안하게 진정시켜줍니다.",
-    "ingredients-bg__pc":"LORA.jpg",
-    "ingredients-bg__mobile":"mobile_LORA.jpg"
+    "ingredients-bg__pc":"Lora-Anti-S™.jpg",
+    "ingredients-bg__mobile":"mobile_Lora-Anti-S™.jpg"
   },
   "IndimultiEx WH-9 Complex(N)™":{
     "ingredients-title":"IndimultiEx WH-9 Complex(N)™",
@@ -390,6 +383,48 @@ const itemIngredientsData = {
     "ingredients-caption":"건조해진 피부에 수분을 공급해주어 촉촉한 피부로 가꾸어줍니다.",
     "ingredients-bg__pc":"Hippophae Rhamnoides Fruit.jpg",
     "ingredients-bg__mobile":"mobile_Hippophae Rhamnoides Fruit.jpg"
+  },
+  "Prunus Persica (Peach) Fruit Extract":{
+    "ingredients-title":"Prunus Persica (Peach) Fruit Extract",
+    "ingredients-text":"복숭아 추출물",
+    "ingredients-caption":"칙칙하고 어두운 피부 톤을 맑고 화사하게 관리해주는데 도움을 줍니다.",
+    "ingredients-bg__pc":"Prunus Persica.jpg",
+    "ingredients-bg__mobile":"mobile_Prunus Persica.jpg"
+  },
+  "Hydrolyzed Hyaluronic Acid":{
+    "ingredients-title":"Hydrolyzed Hyaluronic Acid",
+    "ingredients-text":"하이드롤라이즈드하이알루로닉애씨드",
+    "ingredients-caption":"수분과 보습을 전달하여 촉촉한 피부로 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"Hydrolyzed-Hyaluronic-Acid.jpg",
+    "ingredients-bg__mobile":"mobile_Hydrolyzed-Hyaluronic-Acid.jpg"
+  },
+  "Allantoin":{
+    "ingredients-title":"Allantoin",
+    "ingredients-text":"알란토인",
+    "ingredients-caption":"수분과 보습을 전달하여 촉촉한 피부로 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"Allantoin.jpg",
+    "ingredients-bg__mobile":"mobile_Allantoin.jpg"
+  },
+  "Xylityl Glucosyde":{
+    "ingredients-title":"Xylityl Glucosyde",
+    "ingredients-text":"자일리틸글루코사이드",
+    "ingredients-caption":"수분과 보습을 전달하여 촉촉한 피부로 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"Xylityl Glucosyde.jpg",
+    "ingredients-bg__mobile":"mobile_Xylityl Glucosyde.jpg"
+  },
+  "Houttuynia Cordata Extract":{
+    "ingredients-title":"Houttuynia Cordata Extract",
+    "ingredients-text":"약모밀추출물",
+    "ingredients-caption":"피부 진정 효과 및 피부 보호에 도움을 줍니다.",
+    "ingredients-bg__pc":"Houttuynia.jpg",
+    "ingredients-bg__mobile":"mobile_Houttuynia.jpg"
+  },
+  "":{
+    "ingredients-title":"",
+    "ingredients-text":"",
+    "ingredients-caption":"",
+    "ingredients-bg__pc":".jpg",
+    "ingredients-bg__mobile":"mobile_.jpg"
   },
   // "":{
   //   "ingredients-title":"",
