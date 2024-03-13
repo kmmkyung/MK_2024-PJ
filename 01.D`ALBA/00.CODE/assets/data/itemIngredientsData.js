@@ -419,13 +419,6 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Houttuynia.jpg",
     "ingredients-bg__mobile":"mobile_Houttuynia.jpg"
   },
-  "":{
-    "ingredients-title":"",
-    "ingredients-text":"",
-    "ingredients-caption":"",
-    "ingredients-bg__pc":".jpg",
-    "ingredients-bg__mobile":"mobile_.jpg"
-  },
   "Madecassoside":{
     "ingredients-title":"Madecassoside",
     "ingredients-text":"마데카소사이드",
@@ -439,6 +432,13 @@ const itemIngredientsData = {
     "ingredients-caption":"풍부한 보습을 공급해주어 촉촉한 피부로 가꾸어 주는 데 도움을 줍니다.",
     "ingredients-bg__pc":"PHYTO-SOOTHER.jpg",
     "ingredients-bg__mobile":"mobile_PHYTO-SOOTHER.jpg"
+  },
+  "Calming-Some":{
+    "ingredients-title":"Calming-Some",
+    "ingredients-text":"다시마추출물, 베타글루칸, 하이드로제네이티드레시틴, 하이드롤라이즈드하이알루로닉애씨드, 프룩토올리고사카라이드, 한련초잎추출물",
+    "ingredients-caption":"식물성 보습 성분으로 이루어진 복합 성분이 예민해진 피부를 잠재우는데 도움을 줍니다.",
+    "ingredients-bg__pc":"Calming.jpg",
+    "ingredients-bg__mobile":"mobile_Calming.jpg"
   },
   // "":{
   //   "ingredients-title":"",
