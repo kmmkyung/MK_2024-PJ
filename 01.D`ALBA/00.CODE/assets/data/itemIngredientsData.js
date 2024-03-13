@@ -185,8 +185,8 @@ const itemIngredientsData = {
     "ingredients-title":"Lora Anti-S™",
     "ingredients-text":"개똥쑥추출물, 연꽃꽃추출물, 쌀추출물, 효모발효물",
     "ingredients-caption":"건조하고 지친 피부를 편안하게 진정시켜줍니다.",
-    "ingredients-bg__pc":"Lora-Anti-S™.jpg",
-    "ingredients-bg__mobile":"mobile_Lora-Anti-S™.jpg"
+    "ingredients-bg__pc":"Lora-Anti.jpg",
+    "ingredients-bg__mobile":"mobile_Lora-Anti.jpg"
   },
   "IndimultiEx WH-9 Complex(N)™":{
     "ingredients-title":"IndimultiEx WH-9 Complex(N)™",
