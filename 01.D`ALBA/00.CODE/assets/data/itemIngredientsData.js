@@ -433,6 +433,13 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Madecassoside.jpg",
     "ingredients-bg__mobile":"mobile_Madecassoside.jpg"
   },
+  "PHYTO-SOOTHER, Hyaluronic Acid-8":{
+    "ingredients-title":"PHYTO-SOOTHER, Hyaluronic Acid-8",
+    "ingredients-text":"레몬밤잎추출물, 살비아잎추출물, 양파추출물, 겔리듐 카르틸라기네움추출물, 히알루론산 8종",
+    "ingredients-caption":"풍부한 보습을 공급해주어 촉촉한 피부로 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"PHYTO-SOOTHER.jpg",
+    "ingredients-bg__mobile":"mobile_PHYTO-SOOTHER.jpg"
+  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
