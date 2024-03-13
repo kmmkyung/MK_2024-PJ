@@ -426,8 +426,8 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Madecassoside.jpg",
     "ingredients-bg__mobile":"mobile_Madecassoside.jpg"
   },
-  "PHYTO-SOOTHER, Hyaluronic Acid-8":{
-    "ingredients-title":"PHYTO-SOOTHER, Hyaluronic Acid-8",
+  "Phyto-Soother, Hyaluronic Acid-8":{
+    "ingredients-title":"Phyto-Soother, Hyaluronic Acid-8",
     "ingredients-text":"레몬밤잎추출물, 살비아잎추출물, 양파추출물, 겔리듐 카르틸라기네움추출물, 히알루론산 8종",
     "ingredients-caption":"풍부한 보습을 공급해주어 촉촉한 피부로 가꾸어 주는 데 도움을 줍니다.",
     "ingredients-bg__pc":"PHYTO-SOOTHER.jpg",
@@ -439,6 +439,27 @@ const itemIngredientsData = {
     "ingredients-caption":"식물성 보습 성분으로 이루어진 복합 성분이 예민해진 피부를 잠재우는데 도움을 줍니다.",
     "ingredients-bg__pc":"Calming.jpg",
     "ingredients-bg__mobile":"mobile_Calming.jpg"
+  },
+  "Phyto-Soother":{
+    "ingredients-title":"Phyto-Soother",
+    "ingredients-text":"알로에베라잎추출물, 다시마추출물, 참마뿌리추출물, 당느릅나무뿌리추출물, 제비꽃꽃추출물",
+    "ingredients-caption":"자연에서 온 식물성 성분이 고민 피부를 잠재워 피부 진정에 도움을 줍니다.",
+    "ingredients-bg__pc":"PHYTO-SOOTHER.jpg",
+    "ingredients-bg__mobile":"mobile_PHYTO-SOOTHER.jpg"
+  },
+  "Botanical Tannin Complex":{
+    "ingredients-title":"Botanical Tannin Complex",
+    "ingredients-text":"감나무잎추출물,  녹차추출물, 포도추출물, 잇꽃꽃추출물, 밤껍질추출물, 초피나무열매추출물, 호장근뿌리추출물, 커피콩추출물",
+    "ingredients-caption":"식물성 콤플렉스 성분이 모공 케어와 탄탄한 피부 관리에 도움을 줍니다.",
+    "ingredients-bg__pc":"Botanical.jpg",
+    "ingredients-bg__mobile":"mobile_Botanical.jpg"
+  },
+  "Oligo-HA":{
+    "ingredients-title":"Oligo-HA",
+    "ingredients-text":"하이드롤라이즈드하이알루로닉애씨드",
+    "ingredients-caption":"특허 받은 보습 성분이 촉촉한 피부고 가꿔주는데 도움을 줍니다.",
+    "ingredients-bg__pc":"Oligo-HA.jpg",
+    "ingredients-bg__mobile":"mobile_Oligo-HA.jpg"
   },
   // "":{
   //   "ingredients-title":"",

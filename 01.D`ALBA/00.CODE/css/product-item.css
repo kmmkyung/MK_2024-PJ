@@ -393,6 +393,7 @@
   height: auto;
   box-sizing: border-box;
   padding: 200px 50px;
+  transition: all 2s;
 }
 
 .section-4-wrap{

@@ -225,13 +225,14 @@ window.addEventListener('DOMContentLoaded',function(){
       }
       
       window.addEventListener('scroll',function(){
-        let section4Height = section4.offsetHeight;        
-        if(window.scrollY<section4Height*1.2){
+        let section4Height = section4.offsetHeight;  
+        console.log(window.scrollY,section4Height*1.2,section4Height*1.5);
+              
+        if(window.scrollY<section4Height*1.5){
           section4.style.backgroundColor = ele["section4-bg"][0]
         }
         if(window.scrollY>=section4Height*1.2){
           section4.style.backgroundColor = ele["section4-bg"][1]
-          section4.style.transition = 'background-color 2s'
         }
       })
     }
