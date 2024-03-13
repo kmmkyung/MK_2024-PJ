@@ -426,6 +426,13 @@ const itemIngredientsData = {
     "ingredients-bg__pc":".jpg",
     "ingredients-bg__mobile":"mobile_.jpg"
   },
+  "Madecassoside":{
+    "ingredients-title":"Madecassoside",
+    "ingredients-text":"마데카소사이드",
+    "ingredients-caption":"풍부한 수분과 영양 공급으로 피부에 편안한 보습을 선사합니다.",
+    "ingredients-bg__pc":"Madecassoside.jpg",
+    "ingredients-bg__mobile":"mobile_Madecassoside.jpg"
+  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
