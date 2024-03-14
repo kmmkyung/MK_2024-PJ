@@ -76,9 +76,15 @@ window.addEventListener('DOMContentLoaded',function(){
       if(ele["itemIntro-img"] == "" ){
         introImg.style.display='none'
       }
+      let tagArr = []
+      ele["tag"].forEach(ele=>{
+      let tagString = '#'+ele
+      tagArr.push(tagString)
+    })
+      
       introTitle.innerHTML = ele["itemIntro-title"]
       introText.innerHTML = ele["itemIntro-text"]
-      introTag.innerHTML = ele["tag"]
+      introTag.innerHTML = tagArr.join(' ')
     }
   })
 
@@ -225,9 +231,7 @@ window.addEventListener('DOMContentLoaded',function(){
       }
       
       window.addEventListener('scroll',function(){
-        let section4Height = section4.offsetHeight;  
-        console.log(window.scrollY,section4Height*1.2,section4Height*1.5);
-              
+        let section4Height = section4.offsetHeight;              
         if(window.scrollY<section4Height*1.5){
           section4.style.backgroundColor = ele["section4-bg"][0]
         }

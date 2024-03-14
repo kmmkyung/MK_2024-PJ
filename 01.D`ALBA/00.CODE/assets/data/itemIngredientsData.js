@@ -244,8 +244,8 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Aloe-Vera.jpg",
     "ingredients-bg__mobile":"mobile_Aloe-Vera.jpg"
   },
-  "Vegan Ceramide":{
-    "ingredients-title":"Vegan Ceramide",
+  "Ceramide NP":{
+    "ingredients-title":"Ceramide NP",
     "ingredients-text":"Ceramide NP",
     "ingredients-caption":"지치고 건조해진 피부에 풍부한 보습을 공급해줍니다.",
     "ingredients-bg__pc":"Vegan-Ceramide.jpg",
@@ -460,6 +460,34 @@ const itemIngredientsData = {
     "ingredients-caption":"특허 받은 보습 성분이 촉촉한 피부고 가꿔주는데 도움을 줍니다.",
     "ingredients-bg__pc":"Oligo-HA.jpg",
     "ingredients-bg__mobile":"mobile_Oligo-HA.jpg"
+  },
+  "Vitamin C":{
+    "ingredients-title":"Vitamin C",
+    "ingredients-text":"아스코빅애씨드",
+    "ingredients-caption":"순수 비타민C로 환하고 투명한 피부로 가꾸어줍니다.",
+    "ingredients-bg__pc":"Vitamin.jpg",
+    "ingredients-bg__mobile":"mobile_Vitamin.jpg"
+  },
+  "Herb complex":{
+    "ingredients-title":"Herb complex",
+    "ingredients-text":"바질추출물, 로즈마리잎추출물, 캐모마일꽃추출물, 레몬밤잎추출물",
+    "ingredients-caption":"풍부한 수분과 영양 공급으로 피부에 편안한 보습을 선사합니다.",
+    "ingredients-bg__pc":"Multi Herb.jpg",
+    "ingredients-bg__mobile":"mobile_Multi Herb.jpg"
+  },
+  "Fructan":{
+    "ingredients-title":"Fructan",
+    "ingredients-text":"프룩탄",
+    "ingredients-caption":"풍부한 수분과 영양 공급으로 피부에 편안한 보습을 선사합니다.",
+    "ingredients-bg__pc":"Fructan.jpg",
+    "ingredients-bg__mobile":"mobile_Fructan.jpg"
+  },
+  "Penta Hyaluronic Complex":{
+    "ingredients-title":"Penta Hyaluronic Complex",
+    "ingredients-text":"소듐하이알루로네이트, 하이알루로닉애씨드, 소듐하이알루로네이트크로스폴리머, 하이드록시프로필트라이모늄하이알루로네이트, 소듐아세틸레이티드하이알루로네이트",
+    "ingredients-caption":"수분과 보습을 전달하여 촉촉한 피부로 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"hyaluronic.jpg",
+    "ingredients-bg__mobile":"mobile_hyaluronic.jpg"
   },
   // "":{
   //   "ingredients-title":"",
