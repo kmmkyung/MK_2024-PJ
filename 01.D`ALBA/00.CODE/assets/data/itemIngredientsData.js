@@ -584,8 +584,8 @@ const itemIngredientsData = {
     "ingredients-title":"Ceramaide",
     "ingredients-text":"세라마이드엔피",
     "ingredients-caption":"세라마이드가 피부에 보습을 주어 탄탄한 피부로 가꾸어줍니다.",
-    "ingredients-bg__pc":"AQUAXYL™.jpg",
-    "ingredients-bg__mobile":"mobile_AQUAXYL™.jpg"
+    "ingredients-bg__pc":"Vegan-Ceramide.jpg",
+    "ingredients-bg__mobile":"mobile_Vegan-Ceramide.jpg"
   },
   // "":{
   //   "ingredients-title":"",
