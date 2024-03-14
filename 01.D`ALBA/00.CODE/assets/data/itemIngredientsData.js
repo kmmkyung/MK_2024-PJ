@@ -489,6 +489,48 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"hyaluronic.jpg",
     "ingredients-bg__mobile":"mobile_hyaluronic.jpg"
   },
+  "8 Peptide complex":{
+    "ingredients-title":"8 Peptide complex",
+    "ingredients-text":"노나펩타이드-1, 아세틸헥사펩타이드-8 카퍼트라이펩타이드-1, 트라이펩타이드-1, 팔미토일테트라펩타이드-7, 팔미토일트라이펩타이드-1, 팔미토일펜타펩타이드-4, 헥사펩타이드-9",
+    "ingredients-caption":"달바만의 피부 영양×보습 성분으로 윤기나는 피부로 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"Peptide-capsule.jpg",
+    "ingredients-bg__mobile":"mobile_Peptide-capsule.jpg"
+  },
+  "Nourishing Complex":{
+    "ingredients-title":"Nourishing Complex",
+    "ingredients-text":"다시마추출물, 한련초잎추출물, 황련추출물 병풀추출물, 무화과추출물, 카카오씨추출물, 귀리커넬추출물, 물푸레나무추출물, 바질꽃/잎/줄기추출물, 바실러스/소이빈발효추출물, 로즈마리잎추출물, 포르피리듐 크루엔툼추출물",
+    "ingredients-caption":"건조해진 피부에 수분을 공급해주어 촉촉한 피부로 가꾸어줍니다.",
+    "ingredients-bg__pc":"Nourishing.jpg",
+    "ingredients-bg__mobile":"mobile_Nourishing.jpg"
+  },
+  "Mangifera Indica (Mango) Seed Butter":{
+    "ingredients-title":"Mangifera Indica (Mango) Seed Butter",
+    "ingredients-text":"망고씨버터",
+    "ingredients-caption":"피부에 부드럽게 흡수되면서 건조하고 푸석한 피부에 영양감을 부여합니다.",
+    "ingredients-bg__pc":"Butter.jpg",
+    "ingredients-bg__mobile":"mobile_Butter.jpg"
+  },
+  "Butyrospermum Parkii (Shea) Butter":{
+    "ingredients-title":"Butyrospermum Parkii (Shea) Butter",
+    "ingredients-text":"시어버터",
+    "ingredients-caption":"버터의 풍부한 보습과 영양 성분이 거친 피부를 부드럽게 가꿔줍니다.",
+    "ingredients-bg__pc":"Butter.jpg",
+    "ingredients-bg__mobile":"mobile_Butter.jpg"
+  },
+  "Nelumbo Nucifera Flower Water":{
+    "ingredients-title":"Nelumbo Nucifera Flower Water",
+    "ingredients-text":"연꽃수",
+    "ingredients-caption":"예민해진 피부를 진정시키고 피부톤을 화사하게 가꾸어줍니다.",
+    "ingredients-bg__pc":"Flower Water.jpg",
+    "ingredients-bg__mobile":"mobile_Flower Water.jpg"
+  },
+  "Fruit-4 Complex":{
+    "ingredients-title":"Fruit-4 Complex",
+    "ingredients-text":"",
+    "ingredients-caption":"",
+    "ingredients-bg__pc":"Fruit.jpg",
+    "ingredients-bg__mobile":"mobile_Fruit.jpg"
+  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
