@@ -594,6 +594,13 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Hydroxydecyl-Ubiquinone.jpg",
     "ingredients-bg__mobile":"mobile_Hydroxydecyl-Ubiquinone.jpg"
   },
+  "PEP26-Complex":{
+    "ingredients-title":"PEP26-Complex",
+    "ingredients-text":"다이펩타이드-2, 아세틸헥사펩타이드-8, 카퍼트라이펩타이드-1, 팔미토일테트라펩타이드-7, 폴리글리세릴-10라우레이트, 아세틸테트라펩타이드-3, 아세틸트라이펩타이드-1, 노나펩타이드-1, 아세틸테트라펩타이드-2, 아세틸테트라펩타이드-5, 트라이펩타이드-1, 팔미토일펜타펩타이드-4, 헥사펩타이드-2, 팔미토일트라이펩타이드-5, 팔미토일트라이펩타이드-1, 팔미토일헥사펩타이드-12, 헥사펩타이드-9, 트라이펩타이드-2, 팔미토일다이펩타이드-7, 다이펩타이드-1, 펜타펩타이드-3, 트라이펩타이드-3, 알라닌/히스티딘/라이신폴리펩타이드카퍼에이치씨엘, 아세틸옥타펩타이드-3, 다이펩타이드-4, 올리고펩타이드-6",
+    "ingredients-caption":"펩타이드 26가지가 함유되어 피부 탄력을 높여 매끄럽고 탱탱한 피부관리에 도움을 줍니다.",
+    "ingredients-bg__pc":"AQUAXYL™.jpg",
+    "ingredients-bg__mobile":"mobile_AQUAXYL™.jpg"
+  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
