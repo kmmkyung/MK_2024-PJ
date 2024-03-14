@@ -34,6 +34,13 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Rosa-Damascena-Flower-Water.jpg",
     "ingredients-bg__mobile":"mobile_Rosa-Damascena-Flower-Water.jpg"
   },
+  "Rosa Damascena Flower Oil":{
+    "ingredients-title":"Rosa Damascena Flower Oil",
+    "ingredients-text":"다마스크장미꽃오일",
+    "ingredients-caption":"풍부한 영양 공급으로 윤기나는 피부로 가꾸어 줍니다.",
+    "ingredients-bg__pc":"Rosa-Damascena-Flower-Water.jpg",
+    "ingredients-bg__mobile":"mobile_Rosa-Damascena-Flower-Water.jpg"
+  },
   "Moisture Star™":{
     "ingredients-title":"Moisture Star™",
     "ingredients-text":"오크라열매추출물",
@@ -526,10 +533,59 @@ const itemIngredientsData = {
   },
   "Fruit-4 Complex":{
     "ingredients-title":"Fruit-4 Complex",
-    "ingredients-text":"",
-    "ingredients-caption":"",
+    "ingredients-text":"무화과추출물, 은행추출물, 뽕나무열매추출물, 석류추출물",
+    "ingredients-caption":"과실 복합 성분이 피부에 수분을 공급하여 촉촉하고 예민해진 피부를 진정시켜줍니다.",
     "ingredients-bg__pc":"Fruit.jpg",
     "ingredients-bg__mobile":"mobile_Fruit.jpg"
+  },
+  "Opuntia ficus-indica":{
+    "ingredients-title":"Opuntia ficus-indica",
+    "ingredients-text":"백년초 (보검선인장줄기추출물)",
+    "ingredients-caption":"수분 저장 능력이 뛰어나 건조 환경에서도 마르지 않는 수분과 보습을 전달해 줍니다.",
+    "ingredients-bg__pc":"ficus-indica.jpg",
+    "ingredients-bg__mobile":"mobile_ficus-indica.jpg"
+  },
+  "Glutathione":{
+    "ingredients-title":"Glutathione",
+    "ingredients-text":"글루타티온",
+    "ingredients-caption":"피부를 밝고 맑아지도록 케어해 줍니다.",
+    "ingredients-bg__pc":"Glutathione.jpg",
+    "ingredients-bg__mobile":"mobile_Glutathione.jpg"
+  },
+  "Vitamin C & Vitamin 7-Complex":{
+    "ingredients-title":"Vitamin C & Vitamin 7-Complex",
+    "ingredients-text":"아스코빅애씨드, 나이아신아마이드, 리놀레닉애씨드, 바이오틴, 사이아노코발아민, 토코페릴아세테이트, 판토테닉애씨드",
+    "ingredients-caption":"순수 비타민C와 7가지 비타민을 골고루 구성해 피부에 강력한 비타 에너지를 선사해 맑고 화사한 건강 피부로 가꾸어 줍니다.",
+    "ingredients-bg__pc":"Vitamin-Complex.jpg",
+    "ingredients-bg__mobile":"mobile_Vitamin-Complex.jpg"
+  },
+  "Squalane":{
+    "ingredients-title":"Squalane",
+    "ingredients-text":"스쿠알란",
+    "ingredients-caption":"수분 보호막을 형성해 촉촉한 수분 탄력을 선사합니다.",
+    "ingredients-bg__pc":"Squalane.jpg",
+    "ingredients-bg__mobile":"mobile_Squalane.jpg"
+  },
+  "Sodium DNA":{
+    "ingredients-title":"Sodium DNA",
+    "ingredients-text":"소듐디엔에이",
+    "ingredients-caption":"다양한 외부 유해 환경으로부터 보호하고 탄탄한 피부로 케어해 줍니다.",
+    "ingredients-bg__pc":"blending-Oil.jpg",
+    "ingredients-bg__mobile":"mobile_blending-Oil.jpg"
+  },
+  "Hydroxydecyl Ubiquinone":{
+    "ingredients-title":"Hydroxydecyl Ubiquinone",
+    "ingredients-text":"하이드록시데실유비퀴논",
+    "ingredients-caption":"뛰어난 영양 보습 효과로 맑고 화사한 에너지를 부여해 줍니다.",
+    "ingredients-bg__pc":"Hydroxydecyl-Ubiquinone.jpg",
+    "ingredients-bg__mobile":"mobile_Hydroxydecyl-Ubiquinone.jpg"
+  },
+  "Ceramaide":{
+    "ingredients-title":"Ceramaide",
+    "ingredients-text":"세라마이드엔피",
+    "ingredients-caption":"세라마이드가 피부에 보습을 주어 탄탄한 피부로 가꾸어줍니다.",
+    "ingredients-bg__pc":"AQUAXYL™.jpg",
+    "ingredients-bg__mobile":"mobile_AQUAXYL™.jpg"
   },
   // "":{
   //   "ingredients-title":"",
