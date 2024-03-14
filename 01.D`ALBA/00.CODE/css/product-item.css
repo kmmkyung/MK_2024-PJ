@@ -917,6 +917,25 @@
   font-size: var(--font-size-XS);
 }
 
+.section-add{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.section-add span{
+  font-weight: normal;
+}
+
+.section-add span:first-child{
+  font-size: var(--font-size-L);
+}
+
+.section-add span:last-child{
+  font-size: var(--font-size-XS);
+}
+
 @media screen and (max-width:900px) {
   .buy-window {
     width: 300px;

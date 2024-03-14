@@ -587,6 +587,13 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Vegan-Ceramide.jpg",
     "ingredients-bg__mobile":"mobile_Vegan-Ceramide.jpg"
   },
+  "Flower-7 Complex":{
+    "ingredients-title":"Flower-7 Complex",
+    "ingredients-text":"연꽃꽃추출물, 장미추출물, 커먼자스민추출물, 나팔수선화추출물, 마돈나백합비늘줄기추출물, 블루플래그아이리스추출물, 프리지어추출물",
+    "ingredients-caption":"피부에 수분을 공급하여 촉촉하고 보습감 있는 피부로 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"Hydroxydecyl-Ubiquinone.jpg",
+    "ingredients-bg__mobile":"mobile_Hydroxydecyl-Ubiquinone.jpg"
+  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
