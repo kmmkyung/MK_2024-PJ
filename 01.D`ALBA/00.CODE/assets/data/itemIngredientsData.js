@@ -346,8 +346,8 @@ const itemIngredientsData = {
     "ingredients-title":"White Truffle",
     "ingredients-text":"이탈리아산 화이트 트러플(흰서양송로추출물)",
     "ingredients-caption":"땅 속의 다이아몬드, 풍부한 영양을 공급하여 탄력 있는 피부로 가꾸어 줍니다.",
-    "ingredients-bg__pc":"White Truffle.jpg",
-    "ingredients-bg__mobile":"mobile_White Truffle.jpg"
+    "ingredients-bg__pc":"White-Truffle.jpg",
+    "ingredients-bg__mobile":"mobile_White-Truffle.jpg"
   },
   "Tocopherol":{
     "ingredients-title":"Tocopherol",
@@ -600,6 +600,34 @@ const itemIngredientsData = {
     "ingredients-caption":"펩타이드 26가지가 함유되어 피부 탄력을 높여 매끄럽고 탱탱한 피부관리에 도움을 줍니다.",
     "ingredients-bg__pc":"AQUAXYL™.jpg",
     "ingredients-bg__mobile":"mobile_AQUAXYL™.jpg"
+  },
+  "ARA COM15(H)":{
+    "ingredients-title":"ARA COM15(H)",
+    "ingredients-text":"캐모마일꽃추출물, 녹차추출물, 포트마리골드꽃추출물, 레몬그라스추출물, 유칼립투스잎추출물, 히비스커스꽃추출물, 커먼자스민추출물, 라벤더꽃추출물, 페퍼민트잎추출물, 애플민트잎추출물, 레몬밤추출물, 티트리추출물, 올리브나무잎추출물, 로즈마리잎추출물, 살비아추출물",
+    "ingredients-caption":"풍부한 보습을 공급해주어 촉촉한 피부로 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"ARA.jpg",
+    "ingredients-bg__mobile":"mobile_ARA.jpg"
+  },
+  "Greeny Blending Energy":{
+    "ingredients-title":"Greeny Blending Energy",
+    "ingredients-text":"병풀추출물, 티트리오일, 녹차씨오일",
+    "ingredients-caption":"풍부한 수분과 영양 공급으로 피부에 편안한 보습을 선사합니다.",
+    "ingredients-bg__pc":"Greeny.jpg",
+    "ingredients-bg__mobile":"mobile_Greeny.jpg"
+  },
+  "THA 9 Complex":{
+    "ingredients-title":"THA 9 Complex",
+    "ingredients-text":"소듐하이알루로네이트크로스폴리머, 소듐하이알루로네이트, 하이드롤라이즈드하이알루로닉애씨드, 하이알루로닉애씨드,소듐아세틸레이티드하이랄루로네이트, 하이드록시프로필트라이모늄하이알루로네이트, 포타슘하이알루로네이트, 하이드롤라이즈드소듐하이알루로네이트, 다이메틸실란올하이알루로네이트",
+    "ingredients-caption":"풍부한 보습을 공급해주어 촉촉한 피부로 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"AQUAXYL™.jpg",
+    "ingredients-bg__mobile":"mobile_AQUAXYL™.jpg"
+  },
+  "Scoti-Speedwell™":{
+    "ingredients-title":"Scoti-Speedwell™",
+    "ingredients-text":"스피드웰추출물",
+    "ingredients-caption":"풍부한 수분과 영양 공급으로 피부에 편안한 보습을 선사합니다.",
+    "ingredients-bg__pc":"Scoti-Speedwell.jpg",
+    "ingredients-bg__mobile":"mobile_Scoti-Speedwell.jpg"
   },
   // "":{
   //   "ingredients-title":"",
