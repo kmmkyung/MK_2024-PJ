@@ -629,6 +629,41 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Scoti-Speedwell.jpg",
     "ingredients-bg__mobile":"mobile_Scoti-Speedwell.jpg"
   },
+  "BIO-Pseudane":{
+    "ingredients-title":"BIO-Pseudane",
+    "ingredients-text":"슈도알테로모나스발효추출물",
+    "ingredients-caption":"피부 수분 유지와 매끄러운 피부 관리에 도움을 줍니다.",
+    "ingredients-bg__pc":"BIO.jpg",
+    "ingredients-bg__mobile":"mobile_BIO.jpg"
+  },
+  "PHYTO CALMING COMPLEX":{
+    "ingredients-title":"PHYTO CALMING COMPLEX",
+    "ingredients-text":"레몬밤잎추출물, 세이지잎추출물, 양파추출물, 우뭇가사리추출물",
+    "ingredients-caption":"피부를 촉촉하게 진정시켜주는데 도움을 줍니다.",
+    "ingredients-bg__pc":"PHYTO.jpg",
+    "ingredients-bg__mobile":"mobile_PHYTO.jpg"
+  },
+  "Protein-11 complex":{
+    "ingredients-title":"Protein-11 complex",
+    "ingredients-text":"",
+    "ingredients-caption":"",
+    "ingredients-bg__pc":".jpg",
+    "ingredients-bg__mobile":"mobile_.jpg"
+  },
+  "Hyaluronic Acid":{
+    "ingredients-title":"Hyaluronic Acid",
+    "ingredients-text":"",
+    "ingredients-caption":"",
+    "ingredients-bg__pc":".jpg",
+    "ingredients-bg__mobile":"mobile_.jpg"
+  },
+  "Cica Full Care":{
+    "ingredients-title":"Cica Full Care",
+    "ingredients-text":"",
+    "ingredients-caption":"",
+    "ingredients-bg__pc":".jpg",
+    "ingredients-bg__mobile":"mobile_.jpg"
+  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
