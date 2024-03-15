@@ -3251,12 +3251,12 @@ const itemContentData = [
     "ingredients-h5":"The Main Ingredients of<br>White Truffle Sleeping Mask is",
     "ingredients-item":["Vegan Collagen","Protein-11 complex","Hyaluronic Acid","Ceramaide","Panthenol","Cica Full Care"],
     "section7-img":"last.jpg",
-    "infoUse":"세안 직후 제품을 상하로 3~5회 흔들어 내용물이 충분히 섞이게 한 뒤, 고개를 살짝 든 상태에서 10~20cm 떨어져 눈을 감고 얼굴 전체에 4~5회 골고루 분사한 후 가볍게 두드려 피부에 흡수시켜 줍니다.",
-    "infoTip":"1. 세안 후 즉시 사용하여 건조함을 느끼기 전에 보습 케어 해주세요.<br>2. 건조할 때 언제 어디서나 간편하게 사용 가능합니다.",
+    "infoUse":"",
+    "infoTip":"",
     "infoTested-item":[
-      {"저자극 테스트 인증 완료":"피부 일차 자극 평가시험/등 1회 사용, 첩포 제거 1시간 후, 24시간 후 / 피엔케이피부임상연구센타 / 32명 / 2022.03.16~2022.03.18 / 개인차有"},
+      {"저자극 테스트 인증 완료":""},
       {"이탈리아 V-라벨 비건 인증 완료":"이탈리아 V-LABEL 비건 인증 완료"},
-      {"독일 더마 테스트 완료":"Germany Dermatest/30명/2022.05.13"},
+      {"독일 더마 테스트 완료":"Germany Dermatest"},
     ],
     "infoIngredients-item":[
       {"주름 개선 기능성화장품 고시 성분":""},
