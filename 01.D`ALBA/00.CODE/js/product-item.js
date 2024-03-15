@@ -346,12 +346,12 @@ window.addEventListener('DOMContentLoaded',function(){
       window.addEventListener('load',section5BgSize)
       function section5BgSize(){
         if(window.innerWidth>900){
-          section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__pc"]}`
-          // section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__pc"]})`
+          // section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__pc"]}`
+          section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__pc"]})`
         }
         else{
-          section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__mobile"]}`
-          // section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__mobile"]})`
+          // section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__mobile"]}`
+          section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__mobile"]})`
         }
       }
       ingredientsLiA[0].classList.add('active')
@@ -367,12 +367,12 @@ window.addEventListener('DOMContentLoaded',function(){
       ingredientsLiA.forEach(function(item){
         item.addEventListener('click',function(event){
           if(window.innerWidth>900){
-            section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__pc"]}`
-            // section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__pc"]})`
+            // section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__pc"]}`
+            section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__pc"]})`
           }
           else{
-            section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__mobile"]}`
-            // section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__mobile"]})`
+            // section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__mobile"]}`
+            section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__mobile"]})`
           }
           let liActive = document.querySelector('.ingredients-title__list .list-item a.active')
           let ingredientsTextCodeChange = `

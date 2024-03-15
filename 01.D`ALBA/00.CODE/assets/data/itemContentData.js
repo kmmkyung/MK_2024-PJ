@@ -2130,7 +2130,7 @@ const itemContentData = [
     "section2":[],
     "section3-img":"start.gif",
     "section3-h3":"EXTRA INTENSIVE<br>NOURISHING FORMULA",
-    "section3-p":"식물성 성분 본연의 컬러를 담은<span>고농축 옐로우 컬러</span><br><br><span>&</span><br><br>연약한 눈가에 부드럽게 녹아드는<br><span>고보습 밀착 텍스처</span>",
+    "section3-p":"식물성 성분 본연의 컬러를 담은<br><span>고농축 옐로우 컬러</span><br><br><span>&</span><br><br>연약한 눈가에 부드럽게 녹아드는<br><span>고보습 밀착 텍스처</span>",
     "section4-bg":["#d2c5aa","#ffffff"],
     "content-title":"WHITEHNING &WRINKLE<br>EYE CORE CARE",
     "section4-content":[
