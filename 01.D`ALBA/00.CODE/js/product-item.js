@@ -323,7 +323,7 @@ window.addEventListener('DOMContentLoaded',function(){
   itemContentData.forEach(function(ele){
     if(ele.id == locationLinkValue){
     // const section6 = document.querySelector('.section-6')
-    const section6Img = document.querySelector('.section-6 .section-6__bg')
+    // const section6Img = document.querySelector('.section-6 .section-6__bg')
     const section6Bg = document.querySelector('.section-6 .section-6__bg')
     const section6H5 =  document.querySelector('.section-6 h5')
     const ingredientsTitleUl = document.querySelector('.ingredients-title__list')
@@ -395,12 +395,12 @@ window.addEventListener('DOMContentLoaded',function(){
       function section5BgSize2(){
         let liActive = document.querySelector('.ingredients-title__list .list-item a.active')
         if(window.innerWidth>900){
-          section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[liActive.textContent]["ingredients-bg__pc"]}`
-          // section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[liActive.textContent]["ingredients-bg__pc"]})`
+          // section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[liActive.textContent]["ingredients-bg__pc"]}`
+          section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[liActive.textContent]["ingredients-bg__pc"]})`
         }
         else{
-          section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[liActive.textContent]["ingredients-bg__mobile"]}`
-          // section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[liActive.textContent]["ingredients-bg__mobile"]})`
+          // section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[liActive.textContent]["ingredients-bg__mobile"]}`
+          section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[liActive.textContent]["ingredients-bg__mobile"]})`
         }
       }
     } //// if
