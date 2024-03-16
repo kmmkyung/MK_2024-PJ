@@ -110,7 +110,6 @@ window.addEventListener('DOMContentLoaded',function(){
   let click = [0,0,0];
   const menuTitle = document.querySelectorAll('.header-menu .menu-list__title')
   const menuItemBox = document.querySelectorAll('.header-menu .menu-list ol')
-  console.log(menuTitle);
   
   menuItemBox.forEach(function(ele){
     let eleH = ele.scrollHeight

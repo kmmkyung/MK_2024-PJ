@@ -204,18 +204,24 @@ window.addEventListener('DOMContentLoaded',function(){
       for(let content of ele["section4-content"]){
         let contentCode = `
         <div class="content">
-        <img src="./assets/images/itemContent/${ele.class}/${ele.id}/${content['content-img']}">
+        <img class="content-img" src="./assets/images/itemContent/${ele.class}/${ele.id}/${content['content-img']}">
         <div class="content-text">
-        <h6>${content['content-h6']}</h6>
-        <p>${content['content-p']}</p>
-        </div>
+          <h6>${content['content-h6']}</h6>
+          <p>${content['content-p']}</p>
+          </div>
         </div>
         `
         section4Wrap.innerHTML += contentCode
+        let contentImg = document.querySelectorAll('.content:last-child .content-img')
         let contentTextLast = document.querySelector('.content:last-child .content-text')
         let contentTextH6Last = document.querySelector('.content:last-child .content-text h6')
         let contentTextPLast = document.querySelector('.content:last-child .content-text p')
 
+        contentImg.forEach((ele,idx)=>{
+          if(content['content-img'] == ''){
+            contentImg[idx].style.display='none'
+          }
+        })
         if(content['content-h6'] == ''){
           contentTextH6Last.style.display='none'
         }

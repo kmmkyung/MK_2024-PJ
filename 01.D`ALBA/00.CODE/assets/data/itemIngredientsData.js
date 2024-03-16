@@ -734,6 +734,48 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"BSASM.jpg",
     "ingredients-bg__mobile":"mobile_BSASM.jpg"
   },
+  "Cica full care":{
+    "ingredients-title":"Cica full care",
+    "ingredients-text":"병풀추출물, 마데카소사이드, 마데카식애씨드, 아시아티코사이드, 아시아틱애씨드, 병풀뿌리추출물",
+    "ingredients-caption":"식물성 성분이 예민해진 피부를 다독이는데 도움을 줍니다.",
+    "ingredients-bg__pc":"Centella.jpg",
+    "ingredients-bg__mobile":"mobile_Centella.jpg"
+  },
+  "Castanea Crenata(Chestnet)Shell Powder, Sing Greens":{
+    "ingredients-title":"Castanea Crenata(Chestnet)Shell Powder, Sing Greens",
+    "ingredients-text":"밤껍질가루, 포도추출물, 사과추출물, 매실추출물, 파파야열매추출물",
+    "ingredients-caption":"식물성 각질 케어 성분이 매끄러운 피부 결 케어에 도움을 줍니다.",
+    "ingredients-bg__pc":"grape.jpg",
+    "ingredients-bg__mobile":"mobile_grape.jpg"
+  },
+  "PHYTO GREEN PEELING COMPLEX":{
+    "ingredients-title":"PHYTO GREEN PEELING COMPLEX",
+    "ingredients-text":"포도추출물, 사과추출물, 매실추출물, 파파야열매추출물",
+    "ingredients-caption":"식물성 각질 케어 성분이 매끄러운 피부 결 케어에 도움을 줍니다.",
+    "ingredients-bg__pc":"grape.jpg",
+    "ingredients-bg__mobile":"mobile_grape.jpg"
+  },
+  "BHA":{
+    "ingredients-title":"BHA",
+    "ingredients-text":"베타인살리실레이트",
+    "ingredients-caption":"베타인과 살리실산의 혼합물로 모공 피지를 케어해주고 수분을 공급하여 피부 진정에 도움을 줍니다.",
+    "ingredients-bg__pc":"BHA.jpg",
+    "ingredients-bg__mobile":"mobile_BHA.jpg"
+  },
+  "PHA":{
+    "ingredients-title":"PHA",
+    "ingredients-text":"글루코노락톤",
+    "ingredients-caption":"수용성 각질 케어 성분으로 피부 표면 각질을 부드럽게 정리해 매끈한 피부 표현에 도움을 줍니다.",
+    "ingredients-bg__pc":"Oligo-HA.jpg",
+    "ingredients-bg__mobile":"mobile_Oligo-HA.jpg"
+  },
+  "5-HYALURONATE":{
+    "ingredients-title":"5-HYALURONATE",
+    "ingredients-text":"소듐하이알루로네이트, 소듐하이알루로네이트크로스폴리머, 하이알루로닉애씨드, 하이드롤라이즈드하이알루로닉애씨드, 글라이코스아미노글리칸",
+    "ingredients-caption":"5가지 보습 성분이 피부 수분 유지에 도움을 줍니다.",
+    "ingredients-bg__pc":"Madecassoside.jpg",
+    "ingredients-bg__mobile":"mobile_Madecassoside.jpg"
+  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
