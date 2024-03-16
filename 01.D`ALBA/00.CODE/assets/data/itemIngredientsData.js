@@ -776,6 +776,13 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Madecassoside.jpg",
     "ingredients-bg__mobile":"mobile_Madecassoside.jpg"
   },
+  "Hyaluronic 10 Complex":{
+    "ingredients-title":"Hyaluronic 10 Complex",
+    "ingredients-text":"하이알루로닉애씨드, 소듐하이알루로네이트, 소듐아세틸레이티드하이알루로네이트, 소듐하이알루로네이트크로스폴리머, 포타슘하이알루로네이트, 소듐하이알루로네이트다이메틸실란올, 다이메틸실란올하이알루로네이트, 하이드록시프로필트라이모늄하이알루로네이트, 하이드롤라이즈드소듐하이알루로네이트, 하이드롤라이즈드하이알루로닉애씨드",
+    "ingredients-caption":"10가지 종류의 히알루론산이 풍부한 보습을 공급해 촉촉한 피부로 가꿔주는데 도움을 줍니다.",
+    "ingredients-bg__pc":"AQUAXYL™.jpg",
+    "ingredients-bg__mobile":"mobile_AQUAXYL™.jpg"
+  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
