@@ -87,7 +87,7 @@ window.addEventListener('DOMContentLoaded',function(){
           break; 
         case "mask": location.href="product-product.html?product="+dataLink
           break;
-        case "cream": location.href="product-product.html?product="+dataLink
+        case "creams": location.href="product-product.html?product="+dataLink
           break;
         case "cleanser": location.href="product-product.html?product="+dataLink
           break;

@@ -713,6 +713,27 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Salicylic.jpg",
     "ingredients-bg__mobile":"mobile_Salicylic.jpg"
   },
+  "Gold Moonlight":{
+    "ingredients-title":"Gold Moonlight",
+    "ingredients-text":"일라이트",
+    "ingredients-caption":"프랑스의 Auvergne 화산 지대로부터 얻은 골드 클레이로 노폐물과 피지를 세정해줍니다.",
+    "ingredients-bg__pc":"Moonlight.jpg",
+    "ingredients-bg__mobile":"mobile_Moonlight.jpg"
+  },
+  "d'Alba-7 Blending Oil":{
+    "ingredients-title":"d'Alba-7 Blending Oil",
+    "ingredients-text":"올리브오일, 마카다미아씨오일,동백나무씨오일, 호호바씨오일, 아르간커넬오일, 해바라기씨오일, 아나토씨오일",
+    "ingredients-caption":"달바만의 피부 영양x보습 성분으로 세안 후에도 촉촉한 피부로 가꾸어줍니다.",
+    "ingredients-bg__pc":"blending-Oil.jpg",
+    "ingredients-bg__mobile":"mobile_blending-Oil.jpg"
+  },
+  "MultiEx BSASM":{
+    "ingredients-title":"MultiEx BSASM",
+    "ingredients-text":"병풀추출물, 황금추출물, 호장근뿌리추출물, 녹차추출물, 스페인감초뿌리추출물,마트리카리아꽃추출물, 로즈마리잎추출물",
+    "ingredients-caption":"건조해진 피부에 수분을 공급해주어 촉촉한 피부로 가꾸어줍니다.",
+    "ingredients-bg__pc":"BSASM.jpg",
+    "ingredients-bg__mobile":"mobile_BSASM.jpg"
+  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
