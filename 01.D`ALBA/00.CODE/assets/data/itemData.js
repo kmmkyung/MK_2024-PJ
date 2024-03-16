@@ -423,7 +423,7 @@ const itemData = [
     "subclass":"",
     "option":"",
     "price":39000,
-    "capacity":["150ml","5.07FL.OZ"],
+    "capacity":["150ml"],
     "tag":["비건","수분보습","저자극","주름","미백","자외선 차단","바디"],
     "review":0,
     "star":"0.0",

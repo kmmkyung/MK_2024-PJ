@@ -604,6 +604,21 @@ window.addEventListener('DOMContentLoaded',function(){
           infoShippingContentWrap.style.height = 0
         }
       })
+      const shippingH2 = document.querySelector('.buy-window__item h2')
+      const shippingPrice = document.querySelector('.buy-window__item p')
+      if(ele.id == locationLinkValue){
+        shippingH2.innerHTML = ele['name-ko']
+        shippingPrice.innerHTML = `KRW ${ele['price']}`
+      }
+
+      const shippingCapacity = document.querySelector('.buy-window__input ol') 
+      let shippingCapacityCode = ``
+      ele.capacity.forEach(item=>{
+        shippingCapacityCode += `<li>${item}</li>`
+      })
+      console.log(shippingCapacityCode);
+      
+      shippingCapacity.innerHTML = shippingCapacityCode
     }
   })
 })
