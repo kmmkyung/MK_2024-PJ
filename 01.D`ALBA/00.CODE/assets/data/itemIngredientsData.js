@@ -645,24 +645,38 @@ const itemIngredientsData = {
   },
   "Protein-11 complex":{
     "ingredients-title":"Protein-11 complex",
-    "ingredients-text":"",
-    "ingredients-caption":"",
-    "ingredients-bg__pc":".jpg",
-    "ingredients-bg__mobile":"mobile_.jpg"
+    "ingredients-text":"글라이코프로테인, 하이드롤라이즈드루핀단백질, 하이드롤라이즈드쌀단백질, 하이드롤라이즈드귀리단백질, 하이드롤라이즈드콩단백질, 하이드롤라이즈드감자단백질, 하이드롤라이즈드완두콩단백질, 하이드롤라이즈드옥수수단백질, 하이드롤라이즈드밀단백질, 하이드롤라이즈드보리단백질, 하이드롤라이즈드식물성단백질",
+    "ingredients-caption":"탄탄하고 매끄러운 피부 관리에 도움을 줍니다.",
+    "ingredients-bg__pc":"Protein.jpg",
+    "ingredients-bg__mobile":"mobile_Protein.jpg"
   },
   "Hyaluronic Acid":{
     "ingredients-title":"Hyaluronic Acid",
-    "ingredients-text":"",
-    "ingredients-caption":"",
-    "ingredients-bg__pc":".jpg",
-    "ingredients-bg__mobile":"mobile_.jpg"
+    "ingredients-text":"히알루론산",
+    "ingredients-caption":"풍부한 수분 공급으로 촉촉한 피부로 가꿔주는데 도움을 줍니다.",
+    "ingredients-bg__pc":"AQUAXYL™.jpg",
+    "ingredients-bg__mobile":"mobile_AQUAXYL™.jpg"
   },
   "Cica Full Care":{
     "ingredients-title":"Cica Full Care",
-    "ingredients-text":"",
-    "ingredients-caption":"",
-    "ingredients-bg__pc":".jpg",
-    "ingredients-bg__mobile":"mobile_.jpg"
+    "ingredients-text":"풀잎추출물, 마데카소사이드, 마데카식애씨드, 아시아티코사이드, 아시아틱애씨드, 병풀뿌리추출물",
+    "ingredients-caption":"예민해진 피부 진정에 도움을 줍니다.",
+    "ingredients-bg__pc":"Centella.jpg",
+    "ingredients-bg__mobile":"mobile_Centella.jpg"
+  },
+  "Botanicutical Plus-10™":{
+    "ingredients-title":"Botanicutical Plus-10™",
+    "ingredients-text":"스페인감초뿌리추출물, 하수오뿌리추출물, 진흙버섯추출물, 뽕나무껍질추출물, 고삼뿌리추출물,라케모사승마뿌리추출물, 검은깨추출물, 참당귀뿌리추출물, 작약뿌리추출물, 황금추출물",
+    "ingredients-caption":"풍부한 보습과 영양으로 피부를 탄탄하게 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"Botanicutical.jpg",
+    "ingredients-bg__mobile":"mobile_Botanicutical.jpg"
+  },
+  "Oriental Beauty Fruits Newplex™":{
+    "ingredients-title":"Oriental Beauty Fruits Newplex™",
+    "ingredients-text":"석류추출물, 무화과추출물, 오디추출물, 은행추출물",
+    "ingredients-caption":"칙칙한 피부를 환하고 투명한 피부로 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"Fruits.jpg",
+    "ingredients-bg__mobile":"mobile_Fruits.jpg"
   },
   // "":{
   //   "ingredients-title":"",
