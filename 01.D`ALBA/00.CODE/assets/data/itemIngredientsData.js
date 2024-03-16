@@ -678,6 +678,41 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Fruits.jpg",
     "ingredients-bg__mobile":"mobile_Fruits.jpg"
   },
+  "Illite":{
+    "ingredients-title":"Illite",
+    "ingredients-text":"프랑스산 골드 클레이(일라이트)",
+    "ingredients-caption":"노폐물과 피지를 흡착하는 능력으로 깨끗한 모공 관리를 도와줍니다.",
+    "ingredients-bg__pc":"Illite.jpg",
+    "ingredients-bg__mobile":"mobile_Illite.jpg"
+  },
+  "Anti-Sebum p":{
+    "ingredients-title":"Anti-Sebum p",
+    "ingredients-text":"달맞이꽃꽃추출물, 대왕소나무잎추출물, 칡뿌리추출물",
+    "ingredients-caption":"식물성 성분들이 피부 유분케어에 도움을 줍니다.",
+    "ingredients-bg__pc":"flower.jpg",
+    "ingredients-bg__mobile":"mobile_flower.jpg"
+  },
+  "Onsen-Sui":{
+    "ingredients-title":"Onsen-Sui",
+    "ingredients-text":"벨기에산 스파워터(온천수)",
+    "ingredients-caption":"벨기에 스파 지역의 미네랄 온천수로 피부 수분 공급 및 보습 유지에 도움을 줍니다.",
+    "ingredients-bg__pc":"Glacier-Water.jpg",
+    "ingredients-bg__mobile":"mobile_Glacier-Water.jpg"
+  },
+  "Calming complex lipocalm":{
+    "ingredients-title":"Calming complex lipocalm",
+    "ingredients-text":"병풀추출물, 무화과추출물, 세라마이드엔피, 하이드로제네이티드레시틴",
+    "ingredients-caption":"피부 진정 성분을 나노 리포좀에 담아 효과적으로 피부 보호, 진정에 도움을 줍니다.",
+    "ingredients-bg__pc":"Centella.jpg",
+    "ingredients-bg__mobile":"mobile_Centella.jpg"
+  },
+  "Kaolin, Salicylic Acid, Gluconolactone":{
+    "ingredients-title":"Kaolin, Salicylic Acid, Gluconolactone",
+    "ingredients-text":"카올린, 살리실릭애씨드, 글루코노락톤",
+    "ingredients-caption":"피지, 모공케어로 매끈한 피부로 가꾸어줍니다.",
+    "ingredients-bg__pc":"Salicylic.jpg",
+    "ingredients-bg__mobile":"mobile_Salicylic.jpg"
+  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
