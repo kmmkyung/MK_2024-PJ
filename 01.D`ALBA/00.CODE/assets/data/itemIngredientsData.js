@@ -528,8 +528,8 @@ const itemIngredientsData = {
     "ingredients-title":"Nelumbo Nucifera Flower Water",
     "ingredients-text":"연꽃수",
     "ingredients-caption":"예민해진 피부를 진정시키고 피부톤을 화사하게 가꾸어줍니다.",
-    "ingredients-bg__pc":"Flower Water.jpg",
-    "ingredients-bg__mobile":"mobile_Flower Water.jpg"
+    "ingredients-bg__pc":"Flower-Water.jpg",
+    "ingredients-bg__mobile":"mobile_Flower-Water.jpg"
   },
   "Fruit-4 Complex":{
     "ingredients-title":"Fruit-4 Complex",
