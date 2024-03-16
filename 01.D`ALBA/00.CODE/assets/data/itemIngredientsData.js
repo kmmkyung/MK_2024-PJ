@@ -783,6 +783,41 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"AQUAXYL™.jpg",
     "ingredients-bg__mobile":"mobile_AQUAXYL™.jpg"
   },
+  "Sebum Controlle":{
+    "ingredients-title":"Sebum Controlle",
+    "ingredients-text":"달맞이꽃, 갈근, 솔잎, 유근피 혼합추출물",
+    "ingredients-caption":"피지케어를 통해 매끄러운 피부 결로 가꾸는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"Sebum.jpg",
+    "ingredients-bg__mobile":"mobile_Sebum.jpg"
+  },
+  "Vegan Protein 13 Complex":{
+    "ingredients-title":"Vegan Protein 13 Complex",
+    "ingredients-text":"글라이코프로테인, 하이드롤라이즈드루핀단백질, 하이드롤라이즈드쌀단백질, 하이드롤라이즈드귀리단백질, 하이드롤라이즈드콩단백질, 하이드롤라이즈드감자단백질, 하이드롤라이즈드완두콩단백질, 하이드롤라이즈드옥수수단백질, 하이드롤라이즈드밀단백질, 하이드롤라이즈드보리단백질, 하이드롤라이즈드식물성단백질, 하이드롤라이즈드스위트아몬드단백질, 하이드롤라이즈드호호바단백질",
+    "ingredients-caption":"풍부한 보습과 영양으로 피부 탄력과 밀도를 케어해 줍니다.",
+    "ingredients-bg__pc":"Centella.jpg",
+    "ingredients-bg__mobile":"mobile_Centella.jpg"
+  },
+  "Royal-14 Branding Oil":{
+    "ingredients-title":"Royal-14 Branding Oil",
+    "ingredients-text":"올리브오일,마카다미아씨오일,돌콩오일,아보카도오일, 동백나무씨오일,비타민나무열매오일, 달맞이꽃오일, 해바라기씨오일, 아나토씨오일, 호호바씨오일, 잇꽃씨오일, 로즈힙열매오일, 모로코산 아르간커넬오일, 모로코산 프로방스장미꽃오일",
+    "ingredients-caption":"달바만의 시그니처 영양X보습 성분으로 끈적임 없이 윤기나는 피부로 가꾸어줍니다.",
+    "ingredients-bg__pc":"blending-Oil.jpg",
+    "ingredients-bg__mobile":"mobile_blending-Oil.jpg"
+  },
+  "hyaluronic 3 Complex":{
+    "ingredients-title":"hyaluronic 3 Complex",
+    "ingredients-text":"하이드롤라이즈드하이알루로닉애씨드, 소듐아세틸레이티드하이알루로네이트, 소듐하이알루로네이트",
+    "ingredients-caption":"피부에 수분을 공급하여 사용 후 피부에 보습감을 부여해 줍니다.",
+    "ingredients-bg__pc":"AQUAXYL™.jpg",
+    "ingredients-bg__mobile":"mobile_AQUAXYL™.jpg"
+  },
+  // "":{
+  //   "ingredients-title":"",
+  //   "ingredients-text":"",
+  //   "ingredients-caption":"",
+  //   "ingredients-bg__pc":".jpg",
+  //   "ingredients-bg__mobile":"mobile_.jpg"
+  // },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
