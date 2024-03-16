@@ -32,7 +32,8 @@ window.addEventListener('DOMContentLoaded',function(){
 
   for(let title in gnbData){
     headerMenuCode += /* html */`
-    <li class="menu-list">${title}
+    <li class="menu-list">
+    <h5 class="menu-list__title">${title}</h5>
       <ol>
     `
     for(let menu of gnbData[title]){
@@ -107,8 +108,9 @@ window.addEventListener('DOMContentLoaded',function(){
 
   // 메뉴 누르면 메뉴 닫힘
   let click = [0,0,0];
-  const menuTitle = document.querySelectorAll('.header-menu .menu-list')
+  const menuTitle = document.querySelectorAll('.header-menu .menu-list__title')
   const menuItemBox = document.querySelectorAll('.header-menu .menu-list ol')
+  console.log(menuTitle);
   
   menuItemBox.forEach(function(ele){
     let eleH = ele.scrollHeight
@@ -130,7 +132,6 @@ window.addEventListener('DOMContentLoaded',function(){
     })
   })
 
- 
 
   // menu
   // 메뉴 버튼을 누르면 메뉴창 열림 / 메뉴 다른곳 누르면 메뉴창 닫힘

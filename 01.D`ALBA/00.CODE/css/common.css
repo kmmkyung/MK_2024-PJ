@@ -166,10 +166,14 @@ body.whiteMenu .menu-etc a{
 
 .header-menu .menu-list{
   display: block;
-  font-size: var(--font-size-Menu);
   margin: 40px 0;
   opacity: 0.85;
   cursor: pointer;
+}
+
+.header-menu .menu-list__title{
+  font-size: var(--font-size-Menu);
+  font-weight: normal;
 }
 
 .header-menu .menu-list:last-child{
