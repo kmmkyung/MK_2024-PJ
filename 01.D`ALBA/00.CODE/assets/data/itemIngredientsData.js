@@ -832,13 +832,13 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"pinkDiamond.jpg",
     "ingredients-bg__mobile":"mobile_pinkDiamond.jpg"
   },
-  // "":{
-  //   "ingredients-title":"",
-  //   "ingredients-text":"",
-  //   "ingredients-caption":"",
-  //   "ingredients-bg__pc":".jpg",
-  //   "ingredients-bg__mobile":"mobile_.jpg"
-  // },
+  "Hemi-Spherical Fitting Powder & Pine Glue":{
+    "ingredients-title":"Hemi-Spherical Fitting Powder & Pine Glue",
+    "ingredients-text":"티타늄다이옥사이드, 메칠하이드로제네이티드로지네이트",
+    "ingredients-caption":"반구형 파우더와 소나무 수액에서 추출한 자연에서 온 성분이 메이크업의 밀착력을 높여줍니다.",
+    "ingredients-bg__pc":"tree.jpg",
+    "ingredients-bg__mobile":"mobile_tree.jpg"
+  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
