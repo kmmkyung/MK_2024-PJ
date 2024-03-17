@@ -322,13 +322,16 @@ window.addEventListener('DOMContentLoaded',function(){
       if(ele.patent === 'Trupair'){
         section5Wrap.innerHTML = codePatent2;
       }
+      if(ele.patent == ''){
+        section5.style.display = 'none';
+      }
     }
   })
 
   // section6
   itemContentData.forEach(function(ele){
     if(ele.id == locationLinkValue){
-    // const section6 = document.querySelector('.section-6')
+    const section6 = document.querySelector('.section-6')
     // const section6Img = document.querySelector('.section-6 .section-6__bg')
     const section6Bg = document.querySelector('.section-6 .section-6__bg')
     const section6H5 =  document.querySelector('.section-6 h5')
@@ -337,64 +340,69 @@ window.addEventListener('DOMContentLoaded',function(){
     let ingredientsTitleCode = /*html*/``      
     let ingredientsTextCode = /*html*/``      
     if(ele.id == locationLinkValue){
-      section6H5.innerHTML = ele["ingredients-h5"]
-      for(let list in itemIngredientsData){
-        for(let i = 0; i<ele['ingredients-item'].length; i++){
-          if(list == ele['ingredients-item'][i]){              
-            ingredientsTitleCode += `<li class="list-item"><a href="javascript:void(0)">${itemIngredientsData[list]["ingredients-title"]}</a></li>` 
-            
+      if(ele['ingredients-item'] == ""){
+        section6.style.display='none'
+      }
+      if(ele['ingredients-item'] != ""){
+        section6H5.innerHTML = ele["ingredients-h5"]
+        for(let list in itemIngredientsData){
+          for(let i = 0; i<ele['ingredients-item'].length; i++){
+            if(list == ele['ingredients-item'][i]){              
+              ingredientsTitleCode += `<li class="list-item"><a href="javascript:void(0)">${itemIngredientsData[list]["ingredients-title"]}</a></li>` 
+              
+            }
           }
+          ingredientsTitleUl.innerHTML = ingredientsTitleCode
         }
-        ingredientsTitleUl.innerHTML = ingredientsTitleCode
-      }
-      
-      const ingredientsLiA = document.querySelectorAll('.ingredients-title__list .list-item a')
-      window.addEventListener('load',section5BgSize)
-      function section5BgSize(){
-        if(window.innerWidth>900){
-          // section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__pc"]}`
-          section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__pc"]})`
-        }
-        else{
-          // section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__mobile"]}`
-          section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__mobile"]})`
-        }
-      }
-      ingredientsLiA[0].classList.add('active')
-      ingredientsTextCode += `
-      <li class="list-item" >
-      <h6 class="text-title">${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-title"]}</h6>
-      <p class="text-ingredients">${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-text"]}</p>
-      <p class="text-caption">${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-caption"]}</p>
-      </li>
-      `
-      ingredientsTextUl.innerHTML = ingredientsTextCode
-
-      ingredientsLiA.forEach(function(item){
-        item.addEventListener('click',function(event){
+        
+        const ingredientsLiA = document.querySelectorAll('.ingredients-title__list .list-item a')
+        window.addEventListener('load',section5BgSize)
+        function section5BgSize(){
           if(window.innerWidth>900){
-            // section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__pc"]}`
-            section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__pc"]})`
+            // section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__pc"]}`
+            section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__pc"]})`
           }
           else{
-            // section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__mobile"]}`
-            section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__mobile"]})`
+            // section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__mobile"]}`
+            section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__mobile"]})`
           }
-          let liActive = document.querySelector('.ingredients-title__list .list-item a.active')
-          let ingredientsTextCodeChange = `
-          <li class="list-item" >
-          <h6 class="text-title">${itemIngredientsData[event.target.textContent]["ingredients-title"]}</h6>
-          <p class="text-ingredients">${itemIngredientsData[event.target.textContent]["ingredients-text"]}</p>
-          <p class="text-caption">${itemIngredientsData[event.target.textContent]["ingredients-caption"]}</p>
-          </li>
-          `
-          ingredientsTextUl.innerHTML = ingredientsTextCodeChange
-          if(liActive.classList.contains('active')){
-            liActive.classList.remove('active')
-            event.target.classList.add('active')
-          }
+        }
+        ingredientsLiA[0].classList.add('active')
+        ingredientsTextCode += `
+        <li class="list-item" >
+        <h6 class="text-title">${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-title"]}</h6>
+        <p class="text-ingredients">${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-text"]}</p>
+        <p class="text-caption">${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-caption"]}</p>
+        </li>
+        `
+        ingredientsTextUl.innerHTML = ingredientsTextCode
+
+        ingredientsLiA.forEach(function(item){
+          item.addEventListener('click',function(event){
+            if(window.innerWidth>900){
+              // section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__pc"]}`
+              section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__pc"]})`
+            }
+            else{
+              // section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__mobile"]}`
+              section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__mobile"]})`
+            }
+            let liActive = document.querySelector('.ingredients-title__list .list-item a.active')
+            let ingredientsTextCodeChange = `
+            <li class="list-item" >
+            <h6 class="text-title">${itemIngredientsData[event.target.textContent]["ingredients-title"]}</h6>
+            <p class="text-ingredients">${itemIngredientsData[event.target.textContent]["ingredients-text"]}</p>
+            <p class="text-caption">${itemIngredientsData[event.target.textContent]["ingredients-caption"]}</p>
+            </li>
+            `
+            ingredientsTextUl.innerHTML = ingredientsTextCodeChange
+            if(liActive.classList.contains('active')){
+              liActive.classList.remove('active')
+              event.target.classList.add('active')
+            }
+          })
         })
-      })
+      }
     }
 
       window.addEventListener('resize',section5BgSize2)
@@ -543,8 +551,10 @@ window.addEventListener('DOMContentLoaded',function(){
 
       const infoIngredientsSubTitle = document.querySelectorAll('.info-ingredients__subTitle')
       const infoIngredientsText = document.querySelectorAll('.info-ingredients__text')
-      infoIngredientsSubTitle[0].classList.add('active')
-      infoIngredientsText[0].classList.add('active')
+      if(ele['infoIngredients-item'] != ''){
+        infoIngredientsSubTitle[0].classList.add('active')
+        infoIngredientsText[0].classList.add('active')
+      }
 
       infoIngredientsTitle.addEventListener('click',function(){
         infoIngredients.classList.toggle('active')

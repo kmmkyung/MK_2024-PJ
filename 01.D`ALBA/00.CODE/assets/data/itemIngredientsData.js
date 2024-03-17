@@ -811,6 +811,48 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"AQUAXYL™.jpg",
     "ingredients-bg__mobile":"mobile_AQUAXYL™.jpg"
   },
+  "Triffle Truffles Extract":{
+    "ingredients-title":"Triffle Truffles Extract",
+    "ingredients-text":"서양송로추출물, 검은서양송로추출물, 여름송로추출물",
+    "ingredients-caption":"트러플을 생산하는 청정지역 이탈리아, 프랑스, 호주 3개국 트러플의 풍부한 영양이 피부에 진한 보습 선사",
+    "ingredients-bg__pc":"White-Truffle.jpg",
+    "ingredients-bg__mobile":"mobile_White-Truffle.jpg"
+  },
+  "Antioxidation & Elasticity":{
+    "ingredients-title":"Antioxidation & Elasticity",
+    "ingredients-text":"무화과추출물, 은행추출물, 뽕나무열매추출물, 석류추출물 보리씨추출물, 베타글루칸, 소듐하이알루로네이트, 트레할로오스 석류나무꽃추출물, 호호바씨오일",
+    "ingredients-caption":"자연에서 온 성분들이 피부에 촉촉한 보습을 선사해 맑고 탄탄한 피부로 가꾸어줍니다.",
+    "ingredients-bg__pc":"Fruit.jpg",
+    "ingredients-bg__mobile":"mobile_Fruit.jpg"
+  },
+  "Pink Flower & Diamond Powder":{
+    "ingredients-title":"Pink Flower & Diamond Powder",
+    "ingredients-text":"접시꽃추출물, 데이지꽃추출물, 동백나무꽃추출물, 와일드제라늄추출물, 봉선화꽃/잎/줄기추출물, 양귀비꽃추출물, 복사나무꽃추출물, 채송화추출물, 모란꽃추출물, 프로방스장미꽃추출물, 튤립추출물, 다이아몬드가루, 세룰라타벚나무꽃추출물, 연꽃꽃추출물, 연꽃잎추출물, 연꽃씨추출물, 연꽃뿌리추출물",
+    "ingredients-caption": "플라워와 보석 성분이 피부를 맑고 화사한 광채를 더해줍니다.",
+    "ingredients-bg__pc":"pinkDiamond.jpg",
+    "ingredients-bg__mobile":"mobile_pinkDiamond.jpg"
+  },
+  // "":{
+  //   "ingredients-title":"",
+  //   "ingredients-text":"",
+  //   "ingredients-caption":"",
+  //   "ingredients-bg__pc":".jpg",
+  //   "ingredients-bg__mobile":"mobile_.jpg"
+  // },
+  // "":{
+  //   "ingredients-title":"",
+  //   "ingredients-text":"",
+  //   "ingredients-caption":"",
+  //   "ingredients-bg__pc":".jpg",
+  //   "ingredients-bg__mobile":"mobile_.jpg"
+  // },
+  // "":{
+  //   "ingredients-title":"",
+  //   "ingredients-text":"",
+  //   "ingredients-caption":"",
+  //   "ingredients-bg__pc":".jpg",
+  //   "ingredients-bg__mobile":"mobile_.jpg"
+  // },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",

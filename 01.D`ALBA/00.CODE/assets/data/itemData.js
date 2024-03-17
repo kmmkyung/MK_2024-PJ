@@ -974,7 +974,7 @@ const itemData = [
   },
   {
     "id":67,
-    "name":"워터플 프레쉬 선 쿠션 퍼프 1p",
+    "name":"워터풀 프레쉬 선 쿠션 퍼프 1p",
     "class":"메이크업",
     "subclass":"",
     "option":"",
