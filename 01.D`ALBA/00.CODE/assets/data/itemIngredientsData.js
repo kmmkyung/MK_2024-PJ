@@ -951,6 +951,27 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"flower.jpg",
     "ingredients-bg__mobile":"mobile_flower.jpg"
   },
+  "Calendula Officinalis Flower Oil":{
+    "ingredients-title":"Calendula Officinalis Flower Oil",
+    "ingredients-text":"포트마리골드꽃오일",
+    "ingredients-caption":"영양감 가득한 식물성 성분으로 피부를 부드럽게 가꾸어 줍니다.",
+    "ingredients-bg__pc":"Calendula.jpg",
+    "ingredients-bg__mobile":"mobile_Calendula.jpg"
+  },
+  "Adansonia Digitata Fruit Extract, Anastatica Hierochuntica Extract, Artemisia Princeps Leaf Extract":{
+    "ingredients-title":"Adansonia Digitata Fruit Extract, Anastatica Hierochuntica Extract, Artemisia Princeps Leaf Extract",
+    "ingredients-text":"바오밥나무열매추출물, 트루로즈오브예리코추출물, 쑥잎추출물",
+    "ingredients-caption":"풍부한 수분과 영양 공급으로 피부에 편안한 보습을 선사합니다.",
+    "ingredients-bg__pc":"BSASM.jpg",
+    "ingredients-bg__mobile":"mobile_BSASM.jpg"
+  },
+  "Ethanol":{
+    "ingredients-title":"Ethanol",
+    "ingredients-text":"에탄올",
+    "ingredients-caption":"밀과 보리 등 곡물에서 추출한 '곡물 발효 주정 에탄올' 로 피부 자극이 적고 살균 효과가 우수한 에탄올을 사용했습니다.",
+    "ingredients-bg__pc":"ficus-indica.jpg",
+    "ingredients-bg__mobile":"mobile_ficus-indica.jpg"
+  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
