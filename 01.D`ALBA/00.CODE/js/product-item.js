@@ -448,7 +448,6 @@ window.addEventListener('DOMContentLoaded',function(){
       let useClick = [0,0];
       infoUseUse.innerHTML = ele["infoUse"]
       infoUseTip.innerHTML = ele["infoTip"]
-
       infoUseTItle.addEventListener('click',function(){
         infoUse.classList.toggle('active')
         if(infoUse.classList.contains('active')){
@@ -579,7 +578,65 @@ window.addEventListener('DOMContentLoaded',function(){
         })
       })
 
+
+
       // product
+      if( ele.id == 80){
+        const productContentWrap = document.querySelector('.info-product__contentWrap')
+        let idCode80 = `
+          <p class="product-name info-product__content">
+            <span class="info-product__subtitle">제품명 :</span>
+            <span class="name"></span>
+          </p>
+          <p class="product-capacity  info-product__content">
+            <span class="info-product__subtitle">용도 :</span>
+            <span class="capacity">마사지 기구</span>
+          </p>
+          <p class="info-product__content">
+            <span class="info-product__subtitle">재질:</span>
+            <span>도자기(세라믹)</span>
+          </p>
+          <p class="info-product__content">
+            <span class="info-product__subtitle">사용 방법:</span>
+            <span>사용 전, 마사지가 필요한 부위에 오일 또는 크림을 도포한 뒤<br>
+            괄사를 이용해 지그시 누르고 부드럽게 문질러 줍니다.<br>*제품 사용 후에는 괄사에 남아있는 오일과 크림을 닦아낸 후 보관해주세요.</span>
+          </p>
+          <p class="info-product__content">
+            <span class="info-product__subtitle">제조자 및 책임판매업자 :</span>
+            <span>(주)비앤비코리아 / (주)비모뉴먼트</span>
+          </p>
+          <p class="info-product__content">
+            <span class="info-product__subtitle">제조국:</span>
+            <span>대한민국</span>
+          </p>
+          <p class="info-product__content">
+            <span class="info-product__subtitle">기능성 화장품 안전성 심사 필 유무 :</span>
+            <span>기능성 화장품 / 화장품법에 따른 기능성 화장품 심사(또는 보고)를 필함</span>
+          </p>
+          <p class="info-product__content">
+            <span class="info-product__subtitle">사용할 때의 주의사항 :</span>
+            <span>1. 마사지 이외의 다른 용도로 사용하지 마십시오.</span>
+            <span>2. 제품의 바닥면으로 마사지 하지 마십시오.</span>
+            <span>3. 무리하게 힘을 주어 사용하지 마십시오.</span>
+            <span>4. 너무 심하게 사용할 경우 부상, 피부 손상이 될 수 있으니 강도를 조절해서 사용하십시오.</span>
+            <span>5. 어린이 및 영/유아 손에 닿지 않는 곳에서 보관하십시오.</span>
+            <span>6. 타인에게 던지거나 제품 충격, 파손에 주의하십시오.</span>
+            <span>7. 열기(직화열 포함) 및 화기, 화학약품, 직사광선, 떨어트림 등의 노출에 주의하십시오.</span>
+            <span>8. 파손된 제품은 절대 다시 사용하시 마십시오.</span>
+            <span>9. 상처가 있는 부위에 사용하지 마십시오.</span>
+            <span>10. 본 제품은 의료기기가 아닌 일반 공산품입니다.</span>
+          </p>
+          <p class="info-product__content">
+            <span class="info-product__subtitle">품질보증기준 :</span>
+            <span>본 상품에 이상이 있을 경우 공정거래 위원회 고시 “소비자 분쟁 해결기준”에 의해 교환 또는 보상해 드립니다.</span>
+          </p>
+          <p class="info-product__content">
+            <span class="info-product__subtitle">소비자 상담 관련 전화번호 :</span>
+            <span>02-332-7727</span>
+          </p>  
+        `
+        productContentWrap.innerHTML = idCode80 
+      }
       const infoProduct = document.querySelector('.info-product')
       const infoProductTitle = document.querySelector('.info-product .info-title')
       const infoProductContentWrap = document.querySelector('.info-product .info-product__contentWrap')

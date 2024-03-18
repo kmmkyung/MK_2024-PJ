@@ -269,8 +269,8 @@ const itemIngredientsData = {
     "ingredients-title":"Phyto Green Peeling Complex",
     "ingredients-text":"포도추출물, 사과추출물, 매실추출물, 파파야열매추출물",
     "ingredients-caption":"식물로부터 얻은 순한 각질 케어 성분으로 저자극 각질 케어에 도움을 줍니다.",
-    "ingredients-bg__pc":"Phyto-Green-Peeling-Complex.jpg",
-    "ingredients-bg__mobile":"mobile_Phyto-Green-Peeling-Complex.jpg"
+    "ingredients-bg__pc":"Oligo-HA.jpg",
+    "ingredients-bg__mobile":"mobile_Oligo-HA.jpg"
   },
   "Hyaluronic acid":{
     "ingredients-title":"Hyaluronic acid",
@@ -283,8 +283,8 @@ const itemIngredientsData = {
     "ingredients-title":"Phyto Enzyme Complex, PHA",
     "ingredients-text":"파파인, 브로멜라인, 프로테아제, 리파아제, 글루코노락톤",
     "ingredients-caption":"효소 성분들과 파하 성분이 부드럽게 각질을 정돈해 매끄러운 피부 결로 가꾸어줍니다.",
-    "ingredients-bg__pc":"Phyto-Green-Peeling-Complex.jpg",
-    "ingredients-bg__mobile":"mobile_Phyto-Green-Peeling-Complex.jpg"
+    "ingredients-bg__pc":"Oligo-HA.jpg",
+    "ingredients-bg__mobile":"mobile_Oligo-HA.jpg"
   },
   "Natural Complex":{
     "ingredients-title":"Natural Complex",
@@ -881,20 +881,76 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Ferment.jpg",
     "ingredients-bg__mobile":"mobile_Ferment.jpg"
   },
-  // "":{
-  //   "ingredients-title":"",
-  //   "ingredients-text":"",
-  //   "ingredients-caption":"",
-  //   "ingredients-bg__pc":".jpg",
-  //   "ingredients-bg__mobile":"mobile_.jpg"
-  // },
-  // "":{
-  //   "ingredients-title":"",
-  //   "ingredients-text":"",
-  //   "ingredients-caption":"",
-  //   "ingredients-bg__pc":".jpg",
-  //   "ingredients-bg__mobile":"mobile_.jpg"
-  // },
+  "Multi Protein Complex HD":{
+    "ingredients-title":"Multi Protein Complex HD",
+    "ingredients-text":"하이드롤라이즈드밀단백질, 하이드롤라이즈드콩단백질",
+    "ingredients-caption":"밀과 콩으로부터 추출한 단백질 성분이 탄탄하고 부드러운 모발로 가꾸어 줍니다.",
+    "ingredients-bg__pc":"Vegan-protein.jpg",
+    "ingredients-bg__mobile":"mobile_Vegan-protein.jpg"
+  },
+  "Hydrolyzed Keratin":{
+    "ingredients-title":"Hydrolyzed Keratin",
+    "ingredients-text":"하이드롤라이즈드케라틴",
+    "ingredients-caption":"푸석해진 모발에 영양을 공급하여 부드러운 머릿결로 가꾸어 줍니다.",
+    "ingredients-bg__pc":"Oligo-HA.jpg",
+    "ingredients-bg__mobile":"mobile_Oligo-HA.jpg"
+  },
+  "Amino Acid Complex":{
+    "ingredients-title":"Amino Acid Complex",
+    "ingredients-text":"글라이신, 세린, 글루타믹애씨드, 아스파틱애씨드, 류신, 알라닌, 라이신, 알지닌, 타이로신, 페닐알라닌, 트레오닌, 프롤린, 발린, 아이소류신, 히스티딘, 메티오닌, 시스테인, 트립토판",
+    "ingredients-caption":"아미노산 성분이 모발 수분, 보습 케어에 도움을 줍니다.",
+    "ingredients-bg__pc":"Glutathione.jpg",
+    "ingredients-bg__mobile":"mobile_Glutathione.jpg"
+  },
+  "d'Alba-9 Blending Oil":{
+    "ingredients-title":"d'Alba-9 Blending Oil",
+    "ingredients-text":"아르간커넬오일, 마카다미아씨오일, 달맞이꽃오일, 호호바씨오일, 동백나무씨오일, 해바라기씨오일, 비타민나무오일, 올리브오일, 아보카도오일",
+    "ingredients-caption":"영양X보습 성분으로 윤기나는 피부로 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"blending-Oil.jpg",
+    "ingredients-bg__mobile":"mobile_blending-Oil.jpg"
+  },
+  "Star-derma™":{
+    "ingredients-title":"Star-derma™",
+    "ingredients-text":"별꽃 추출물",
+    "ingredients-caption":"큐티클 들뜸 현상을 완화해 주고 보습 효과까지 도와 차분한 머릿결로 케어해 줍니다",
+    "ingredients-bg__pc":"Houttuynia.jpg",
+    "ingredients-bg__mobile":"mobile_Houttuynia.jpg"
+  },
+  "Amino Acid Complex 17":{
+    "ingredients-title":"Multi Protein 7",
+    "ingredients-text":"글라이신, 세린, 글루타믹애씨드, 아스파틱애씨드, 류신, 알라닌, 라이신, 알지닌, 타이로신, 페닐알라닌, 트레오닌, 프롤린, 발린, 아이소류신, 히스티딘, 메티오닌, 시스테인",
+    "ingredients-caption":"아미노산 성분이 모발 수분, 보습 케어에 도움을 줍니다.",
+    "ingredients-bg__pc":"hyaluronic.jpg",
+    "ingredients-bg__mobile":"mobile_hyaluronic.jpg"
+  },
+  "ROSE FLOWER Oil":{
+    "ingredients-title":"ROSE FLOWER Oil",
+    "ingredients-text":"장미꽃오일",
+    "ingredients-caption":"모발 윤기 코팅 및 수분 유지에 도움을 줍니다.",
+    "ingredients-bg__pc":"rose.jpg",
+    "ingredients-bg__mobile":"mobile_rose.jpg"
+  },
+  "Multi Protein 7":{
+    "ingredients-title":"Amino Acid Complex 17",
+    "ingredients-text":"하이드롤라이즈드케라틴,하이드롤라이즈드콩단백질,하이드롤라이즈드밀달백질, 하이드롤라이즈드쌀단백질,하이드롤라이즈드식물성단백질, 하이드롤라이즈드루핀단백질,하이드롤라이즈드콜라겐",
+    "ingredients-caption":"단백질 성분이 탄탄하고 부드러운 모발로 가꾸어 줍니다.",
+    "ingredients-bg__pc":"Hydrolyzed-Hyaluronic-Acid.jpg",
+    "ingredients-bg__mobile":"mobile_Hydrolyzed-Hyaluronic-Acid.jpg"
+  },
+  "Quillaja Saponaria Bark Extract":{
+    "ingredients-title":"Quillaja Saponaria Bark Extract",
+    "ingredients-text":"퀼라자껍질추출물",
+    "ingredients-caption":"세정 효과가 있는 식물성 추출물이 청결 관리에 도움을 줍니다.",
+    "ingredients-bg__pc":"Saponaria.jpg",
+    "ingredients-bg__mobile":"mobile_Saponaria.jpg"
+  },
+  "Cynanchum Atratum Extract, Althaea Rosea Flower Extract":{
+    "ingredients-title":"Cynanchum Atratum Extract, Althaea Rosea Flower Extract",
+    "ingredients-text":"백미꽃추출물, 접시꽃추출물",
+    "ingredients-caption":"풍부한 수분과 영양 공급으로 피부에 편안한 보습을 선사합니다.",
+    "ingredients-bg__pc":"flower.jpg",
+    "ingredients-bg__mobile":"mobile_flower.jpg"
+  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
