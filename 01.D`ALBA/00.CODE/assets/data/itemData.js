@@ -1137,7 +1137,7 @@ const itemData = [
     "class":"헤어·바디",
     "subclass":"헤어",
     "option":"",
-    "price":38000,
+    "price":28000,
     "capacity":["210ml"],
     "tag":["저자극","윤기","바디&헤어"],
     "review":1115,

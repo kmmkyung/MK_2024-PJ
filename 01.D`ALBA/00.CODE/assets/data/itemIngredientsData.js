@@ -456,7 +456,7 @@ const itemIngredientsData = {
   },
   "Botanical Tannin Complex":{
     "ingredients-title":"Botanical Tannin Complex",
-    "ingredients-text":"감나무잎추출물,  녹차추출물, 포도추출물, 잇꽃꽃추출물, 밤껍질추출물, 초피나무열매추출물, 호장근뿌리추출물, 커피콩추출물",
+    "ingredients-text":"감나무잎추출물, 녹차추출물, 포도추출물, 잇꽃꽃추출물, 밤껍질추출물, 초피나무열매추출물, 호장근뿌리추출물, 커피콩추출물",
     "ingredients-caption":"식물성 콤플렉스 성분이 모공 케어와 탄탄한 피부 관리에 도움을 줍니다.",
     "ingredients-bg__pc":"Botanical.jpg",
     "ingredients-bg__mobile":"mobile_Botanical.jpg"
@@ -860,6 +860,41 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Tea-Tree.jpg",
     "ingredients-bg__mobile":"mobile_Tea-Tree.jpg"
   },
+  "Dexpanthenol, Salicylc acid, L-Menthol":{
+    "ingredients-title":"Dexpanthenol, Salicylc acid, L-Menthol",
+    "ingredients-text":"덱스판테놀, 살리실릭애씨드, 엔-멘톨",
+    "ingredients-caption":"식약처 고시 탈모증상 완화 기능성 성분으로 건강한 두피, 모발 관리에 도움을 줍니다.",
+    "ingredients-bg__pc":"IndimultiExHerb.jpg",
+    "ingredients-bg__mobile":"mobile_IndimultiExHerb.jpg"
+  },
+  "Diospyros Kaki Fruit Extract, Camellia Japonica Leaf Extract, Ceratonia Siliqua(Carob)Fruit Extract":{
+    "ingredients-title":"Diospyros Kaki Fruit Extract, Camellia Japonica Leaf Extract, Ceratonia Siliqua(Carob)Fruit Extract",
+    "ingredients-text":"감추출물, 동백나무잎추출물, 캐롭열매추출물",
+    "ingredients-caption":"두피와 모발 케어 특허 성분으로 탄탄한 두피와 부드러운 모발로 가꾸는데 도움을 줍니다.",
+    "ingredients-bg__pc":"Botanical.jpg",
+    "ingredients-bg__mobile":"mobile_Botanical.jpg"
+  },
+  "Ferment Complex":{
+    "ingredients-title":"Ferment Complex",
+    "ingredients-text":"낫토검, 귀리커넬추출물, 락토바실러스발효물, 쌀발효여과물, 녹두씨추출물",
+    "ingredients-caption":"발효곡물추출물이 두피와 모발의 청결 관리에 도움을 줍니다.",
+    "ingredients-bg__pc":"Ferment.jpg",
+    "ingredients-bg__mobile":"mobile_Ferment.jpg"
+  },
+  // "":{
+  //   "ingredients-title":"",
+  //   "ingredients-text":"",
+  //   "ingredients-caption":"",
+  //   "ingredients-bg__pc":".jpg",
+  //   "ingredients-bg__mobile":"mobile_.jpg"
+  // },
+  // "":{
+  //   "ingredients-title":"",
+  //   "ingredients-text":"",
+  //   "ingredients-caption":"",
+  //   "ingredients-bg__pc":".jpg",
+  //   "ingredients-bg__mobile":"mobile_.jpg"
+  // },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
