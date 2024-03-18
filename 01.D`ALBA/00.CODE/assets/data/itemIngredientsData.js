@@ -839,27 +839,27 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"tree.jpg",
     "ingredients-bg__mobile":"mobile_tree.jpg"
   },
-  // "":{
-  //   "ingredients-title":"",
-  //   "ingredients-text":"",
-  //   "ingredients-caption":"",
-  //   "ingredients-bg__pc":".jpg",
-  //   "ingredients-bg__mobile":"mobile_.jpg"
-  // },
-  // "":{
-  //   "ingredients-title":"",
-  //   "ingredients-text":"",
-  //   "ingredients-caption":"",
-  //   "ingredients-bg__pc":".jpg",
-  //   "ingredients-bg__mobile":"mobile_.jpg"
-  // },
-  // "":{
-  //   "ingredients-title":"",
-  //   "ingredients-text":"",
-  //   "ingredients-caption":"",
-  //   "ingredients-bg__pc":".jpg",
-  //   "ingredients-bg__mobile":"mobile_.jpg"
-  // },
+  "OLIGO-HA":{
+    "ingredients-title":"OLIGO-HA",
+    "ingredients-text":"하이드롤라이즈드 하이알루로닉애씨드",
+    "ingredients-caption":"수분과 보습을 전달하여 촉촉한 피부로 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"hyaluronic.jpg",
+    "ingredients-bg__mobile":"mobile_hyaluronic.jpg"
+  },
+  "Black Food Complex":{
+    "ingredients-title":"Black Food Complex",
+    "ingredients-text":"검정콩추출물, 검은깨추출물, 흑미추출물, 라즈베리추출물, 로우스위트블루베리추출물, 뽕나무열매추출물",
+    "ingredients-caption":"자연에서 얻은 6가지 블랙 푸드 성분이 풍부한 영양을 공급하여 활력있는 피부로 가꿔줍니",
+    "ingredients-bg__pc":"BlackBean.jpg",
+    "ingredients-bg__mobile":"mobile_BlackBean.jpg"
+  },
+  "Melaleuca Alternifolia (Tea Tree) Leaf Extract":{
+    "ingredients-title":"Melaleuca Alternifolia (Tea Tree) Leaf Extract",
+    "ingredients-text":"티트리잎추출물",
+    "ingredients-caption":"풍부한 수분과 영양 공급으로 피부에 편안한 보습을 선사합니다.",
+    "ingredients-bg__pc":"Tea-Tree.jpg",
+    "ingredients-bg__mobile":"mobile_Tea-Tree.jpg"
+  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
