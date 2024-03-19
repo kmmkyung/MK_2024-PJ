@@ -972,6 +972,55 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"ficus-indica.jpg",
     "ingredients-bg__mobile":"mobile_ficus-indica.jpg"
   },
+  "Hydrating hyaluronic acid":{
+    "ingredients-title":"Hydrating hyaluronic acid",
+    "ingredients-text":"소듐하이알루로네이트, 하이드록시프로필트라이모늄하이알루로네이트, 하이드롤라이즈드하이알루로닉애씨드, 소듐아세틸레이티드하이알루로네이트, 하이알루로닉애씨드, 하이드롤라이즈드소듐하이알루로네이트, 소듐하이알루로네이트크로스폴리머, 포타슘하이알루로네이트",
+    "ingredients-caption":"풍부한 보습을 공급해주어 촉촉한 피부로 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"AQUAXYL™.jpg",
+    "ingredients-bg__mobile":"mobile_AQUAXYL™.jpg"
+  },
+  "Lupinus Albus Seed Extract":{
+    "ingredients-title":"Lupinus Albus Seed Extract",
+    "ingredients-text":"하얀루핀씨추출물",
+    "ingredients-caption":"풍부한 보습과 영양으로 피부를 탄탄하게 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"Lupinus.jpg",
+    "ingredients-bg__mobile":"mobile_Lupinus.jpg"
+  },
+  "5 Beans complex":{
+    "ingredients-title":"5 Beans complex",
+    "ingredients-text":"녹두추출물, 줄작두콩씨추출물,검정콩추출물, 에스큘렌타렌즈콩씨추출물, 캐롭씨추출물, 칡뿌리추출물, 락토바실러스발효용해물",
+    "ingredients-caption":"매끄러운 피부 관리에 도움을 줍니다.",
+    "ingredients-bg__pc":"Beans.jpg",
+    "ingredients-bg__mobile":"mobile_Beans.jpg"
+  },
+  "Garcinia Cambogia Extracts(HCA)":{
+    "ingredients-title":"Garcinia Cambogia Extracts(HCA)",
+    "ingredients-text":"가르시니아캄보지아추출물",
+    "ingredients-caption":"탄수화물이 지방으로 합성되는것을 억제하여 체지방 감소에 도움을 줍니다.",
+    "ingredients-bg__pc":"Vegan-collagen.jpg",
+    "ingredients-bg__mobile":"mobile_Vegan-collagen.jpg"
+  },
+  "Indigestible Maltodextrin (dietary fiber)":{
+    "ingredients-title":"Indigestible Maltodextrin (dietary fiber)",
+    "ingredients-text":"난소화성말토덱스트린",
+    "ingredients-caption":"식후 혈당 상승 억제에 도움을 줄 수 있으며, 배변활동 원활에 도움을 줍니다.",
+    "ingredients-bg__pc":"Vitamin.jpg",
+    "ingredients-bg__mobile":"mobile_Vitamin.jpg"
+  },
+  "Plant Collagen Booster(H)":{
+    "ingredients-title":"Plant Collagen Booster(H)",
+    "ingredients-text":"식물성 콜라겐 부스터",
+    "ingredients-caption":"피부에 영양을 공급하여 탄탄한 피부로 가꾸어 주는 데 도움을 줍니다.",
+    "ingredients-bg__pc":"Vegan-collagen.jpg",
+    "ingredients-bg__mobile":"mobile_Vegan-collagen.jpg"
+  },
+  "4-Vitamins":{
+    "ingredients-title":"4-Vitamins",
+    "ingredients-text":"Vitamin C, Vitamin B1, Vitamin B12, Vitamin D",
+    "ingredients-caption":"피부에 강력한 비타 에너지를 선사해 맑고 화사한 건강 피부로 가꾸어 줍니다.",
+    "ingredients-bg__pc":"Vitamin.jpg",
+    "ingredients-bg__mobile":"mobile_Vitamin.jpg"
+  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",
