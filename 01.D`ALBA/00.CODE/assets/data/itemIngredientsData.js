@@ -1021,6 +1021,13 @@ const itemIngredientsData = {
     "ingredients-bg__pc":"Vitamin.jpg",
     "ingredients-bg__mobile":"mobile_Vitamin.jpg"
   },
+  "5-Vitamins":{
+    "ingredients-title":"5-Vitamins",
+    "ingredients-text":"Vitamin C, Vitamin B1, Vitamin B12, Vitamin D, Vitamin E",
+    "ingredients-caption":"피부에 강력한 비타 에너지를 선사해 맑고 화사한 건강 피부로 가꾸어 줍니다.",
+    "ingredients-bg__pc":"Vitamin.jpg",
+    "ingredients-bg__mobile":"mobile_Vitamin.jpg"
+  },
   // "":{
   //   "ingredients-title":"",
   //   "ingredients-text":"",

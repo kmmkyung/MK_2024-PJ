@@ -144,7 +144,7 @@ window.addEventListener('DOMContentLoaded',function(){
   </div>
   `
   let ecocertCode =  /*html*/`
-  <div class="ecocert"> <!-- 서트 클린 -->
+  <div class="ecocert"> <!-- ECOCERT -->
     <div class="ecocert-wrap">
       <img class="ecocert-img" src="./assets/images/itemContent/cosmos_ecocert.png">
       <h3 class="ecocert-title">ECOCERT 인증 완료</h3>
@@ -153,6 +153,29 @@ window.addEventListener('DOMContentLoaded',function(){
         독일, 프랑스, 이탈리아, 영국 유럽 4개국의 5개 인증 기관에서 연합한<br>
         국제 유기농 화장품 협회(COSMOS-Standard AISBL)의<br>
         엄격하고 까다로운 유기농 심사를 통과해 에코서트를 인증 완료했습니다
+      </p>
+    </div>
+  </div>
+  `
+  let dermaId95 =  /*html*/`
+  <div class="derma"> <!-- 더마 테스트 -->
+    <div class="derma-wrap">
+      <p class="derma-sub">독일 더마 테스트</p>
+      <h3 class="derma-title">EXCELLENT</h3>
+      <p class="derma-text">
+        1978년 설립된 독일 피부과학연구소에서 진행되는<br>
+        엄격한 테스트를 통과한 저자극 제품입니다.<br>
+        *독일-Germant Dermastest/30명/2021.09.10
+      </p>
+      <div class="derma-content2">
+        <h3 class="derma-title">탈취 작용 테스트</h3>
+        <p class="derma-text">
+        향균력 99.9%%<br>달바 필로우 미스트는 불쾌한 냄새를 제거하는<br>탈취 테스트를 완료한 제품입니다.<br><br>KATRI 한국의류시험연구원/황색포도상구균, 폐렴균 99% 감소/2022.12.23
+        </p>
+      </div>
+      <h3 class="derma-title">항균 작용 테스트</h3>
+      <p class="derma-text">
+        탈취력 99%<br>달바 필로우 미스트는 유해균을 잡아주는<br>항균 테스트를 완료한 제품입니다.<br><br>KOTITI 시험연구원/암모니아, 포름알데히드 99.9% 감소/2022.12.01
       </p>
     </div>
   </div>
@@ -171,6 +194,8 @@ window.addEventListener('DOMContentLoaded',function(){
           case 'clean' : section2Wrap.innerHTML+=cleanCode
           break;
           case 'ecocert' : section2Wrap.innerHTML+=ecocertCode 
+          break;
+          case 'dermaId95' : section2Wrap.innerHTML+=dermaId95 
           break;
         }
       })
@@ -253,7 +278,7 @@ window.addEventListener('DOMContentLoaded',function(){
   const section5Wrap = document.querySelector('.section-5-wrap')
   let codePatent1 = /*html*/`
   <div class="patent-intro">
-    <img src="./assets/images/itemContent/trufferol.jpg" alt="">
+    <img src="./assets/images/itemContent/trufferol.jpg" alt="trufferol">
     <h2>EXCLUSIVE<br>INGREDIENT</h2>
   </div>
   <div class="patent-content">
@@ -293,7 +318,7 @@ window.addEventListener('DOMContentLoaded',function(){
   `
   let codePatent2 = /*html*/`
   <div class="patent-intro">
-    <img src="./assets/images/itemContent/trupair.jpg" alt="">
+    <img src="./assets/images/itemContent/trupair.jpg" alt="trupair">
     <h2>EXCLUSIVE<br>INGREDIENT</h2>
   </div>
   <div class="patent-content">
@@ -314,6 +339,61 @@ window.addEventListener('DOMContentLoaded',function(){
     </div>
   </div>
   `
+let codePatent3 = /*html*/`
+  <div class="patent-intro">
+    <img src="./assets/images/itemContent/fragrance.jpg" alt="fragrance">
+    <h2>EXCLUSIVE<br>INGREDIENT</h2>
+  </div>
+  <div class="patent-content">
+    <div class="content-1">
+      <p class="content-1__subTitle">달바만의 세련된</p>
+      <h5 class="content-1__title">FRAGRANCE</h5>
+      <p class="content-1__text">
+        이탈리아산 명품 원료 레몬오일이 함유되어<br>
+        우아한 자연의 움직임과 유려한 싱그러움을<br>
+        본연 그대로 느낄 수 있습니다.
+      </p>
+    </div>
+    <div class="content-2">
+      <h6 class="content-2__title">italy lemon oil</h6>
+      <p class="content-2__subTitle">이탈리아산 레몬 오일</p>
+    </div>
+  </div>
+`
+let codePatent4 = /*html*/`
+<div class="patent-intro">
+  <img src="./assets/images/itemContent/Triple.jpg" alt="trufferol">
+  <h2>EXCLUSIVE<br>INGREDIENT</h2>
+</div>
+<div class="patent-content">
+  <div class="content-1">
+    <p class="content-1__subTitle">달바의 세련된</p>
+    <h5 class="content-1__title">Triple Essential Oil</h5>
+    <p class="content-1__text">
+      식물성 에센셜 오일을 블렌딩하여 만든<br>‘Triple essential oil’ 처방으로<br>향이 머무른 자리에 선연하게 안도감을 남겨줍니다.
+    </p>
+  </div>
+  <div class="content-2">
+    <h6 class="content-2__title">Lavandula Hybrida Oil</h6>
+    <p class="content-2__subTitle">(라벤더 오일)</p>
+    <p class="content-2__text">편안한 분위기 속 휴식을 도움</p>
+    <div class="plus">
+      <div class="plus-row"></div>
+      <div class="plus-col"></div>
+    </div>
+    <h6 class="content-2__title">Salvia Sclarea(Clary) Oil</h6>
+    <p class="content-2__subTitle">(클라리 세이지 오일)</p>
+    <p class="content-2__text">신체와 감정의 균형 유지</p>
+    <div class="plus">
+      <div class="plus-row"></div>
+      <div class="plus-col"></div>
+    </div>
+    <h6 class="content-2__title">Eucalyptus Globulus Leaf Oil</h6>
+    <p class="content-2__subTitle">(유칼립투스 오일)</p>
+    <p class="content-2__text">낯선 환경에서 익숙함과 안심 조성</p>
+  </div>
+</div>
+`
   itemContentData.forEach(function(ele){
     if(ele.id == locationLinkValue){
       if(ele.patent === 'Trufferol'){
@@ -321,6 +401,12 @@ window.addEventListener('DOMContentLoaded',function(){
       }
       if(ele.patent === 'Trupair'){
         section5Wrap.innerHTML = codePatent2;
+      }
+      if(ele.patent === 'Fragrance'){
+        section5Wrap.innerHTML = codePatent3;
+      }
+      if(ele.patent === 'Triple'){
+        section5Wrap.innerHTML = codePatent4;
       }
       if(ele.patent == ''){
         section5.style.display = 'none';
