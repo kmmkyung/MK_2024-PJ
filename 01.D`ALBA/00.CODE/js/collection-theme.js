@@ -131,6 +131,7 @@ window.addEventListener('DOMContentLoaded',function(){
   let section5Li
   let section5h6 = collectionData[locationLinkValue]["section-5_h6"]
   let section5p = collectionData[locationLinkValue]["section-5_p"]
+  let section5Link = collectionData[locationLinkValue]["section-5_link"]
   section5.style.backgroundImage = `url(${collectionData[locationLinkValue]["section-5_bg"]})`
   section5Title.forEach(function(ele,idx){
     section5List=`
@@ -148,7 +149,7 @@ window.addEventListener('DOMContentLoaded',function(){
       <li class="swiper-slide">
         <h6>${ele}</h6>
         <p>${section5p[idx]}</p>
-        <a href="#">구매하기</a>
+        <a href="${section5Link[idx]}">구매하기</a>
       </li>
     `
     section5Ul.innerHTML += section5Li;

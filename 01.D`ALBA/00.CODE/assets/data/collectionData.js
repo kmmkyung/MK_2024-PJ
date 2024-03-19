@@ -28,6 +28,12 @@ const collectionData = {
       "건조함부터 탄력까지 고영양 고보습 저자극 케어<br>더블 레이어링 세럼",
       "주름 집중 케어 + 미백 관리,<br>한 번에 더블 블랜딩<br>고기능성 올인원 멀티밤"
     ],
+    "section-5_link":[
+      "product-item.html?item=19",
+      "product-item.html?item=4",
+      "product-item.html?item=5",
+      "product-item.html?item=44",
+    ],
     "section-6_page0":{
       "h2":"Clean & Safe Beauty",
       "h5":"비건 컬렉션",
@@ -81,6 +87,12 @@ const collectionData = {
       "속보습 & 속탄력 & 각질 개선<br>윤기나는 결광케어",
       "주름 집중 케어 + 미백 관리, 한 번에 더블 블랜딩<br>고기능성 올인원 멀티밤",
       "매일 달라지는 피부 컨디션<br>나만의 피부 상태를 위한 프리미엄 맞춤케어<br>더블 블렌딩"
+    ],
+    "section-5_link":[
+      "product-item.html?item=13",
+      "product-item.html?item=1",
+      "product-item.html?item=44",
+      "product-item.html?item=41",
     ],
     "section-6_page0":{
       "h2":"Natural, but Powerful",
@@ -136,6 +148,12 @@ const collectionData = {
       "끈적임 없이 가볍고 산뜻한<br>워터리 수분광 에센스 선크림",
       "풍부한 보습과 함께 느껴지는<br>눈부신 피부 결광"
     ],
+    "section-5_link":[
+      "product-item.html?item=0",
+      "product-item.html?item=13",
+      "product-item.html?item=22",
+      "product-item.html?item=65",
+    ],
     "section-6_page0":{
       "h2":"Natural, but Powerful",
       "h5":"항산화 컬렉션",
@@ -189,6 +207,12 @@ const collectionData = {
       "민감성 피부를 위한<br>수분 가득 진정 토너",
       "붉어진 민감성 피부<br>저자극 진정 케어",
       "연약해진 피부를 위한<br>장벽 개선 진정 세럼"
+    ],
+    "section-5_link":[
+      "product-item.html?item=23",
+      "product-item.html?item=14",
+      "product-item.html?item=2",
+      "product-item.html?item=12",
     ],
     "section-6_page0":{
       "h2":"Natural, but Powerful",
@@ -245,6 +269,12 @@ const collectionData = {
       "이탈리아산 흰서양송로추출물 92%<br>고농축 영양 가득 탄력광채 앰플",
       "100시간 보습과 함께<br>깊은 속부터 탄력케어",
       "영국산 고순도 비타민C 100%<br>생기 넘치는 활력 에너지"
+    ],
+    "section-5_link":[
+      "product-item.html?item=39",
+      "product-item.html?item=16",
+      "product-item.html?item=6",
+      "product-item.html?item=17",
     ],
     "section-6_page0":{
       "h2":"Clean & Safe Beauty",
