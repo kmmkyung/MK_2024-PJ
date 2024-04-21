@@ -75,7 +75,7 @@
       flex-wrap: nowrap;
       gap: 10vw;
       width: max-content;
-      animation: topText 20s linear infinite;
+      // animation: topText 20s linear infinite;
       
       @keyframes topText {
         100% {
