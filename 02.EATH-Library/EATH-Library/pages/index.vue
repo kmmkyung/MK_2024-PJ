@@ -2,14 +2,20 @@
   <div>
     <aside class="top-notice">
       <div class="top-notice__wrap">
-        <div class="texts-wrap">
+        <p>
+          <span class="text-brand">EATH LIBRARY</span>
           <span>회원가입시 5% 할인쿠폰과 무료배송 혜택을 드립니다.</span>
-          <span>EATH LIBRARY</span>
+          <span class="text-brand">EATH LIBRARY</span>
+          <span>Evolutionary, Achievement from Traditional Heritage</span>
+          <span class="text-brand">EATH LIBRARY</span>
+          <span>당신의 손을 위한 가장 자연스러운 선택.</span>
+          <span class="text-brand">EATH LIBRARY</span>
           <span>회원가입시 5% 할인쿠폰과 무료배송 혜택을 드립니다.</span>
-          <span>EATH LIBRARY</span>
-          <span>회원가입시 5% 할인쿠폰과 무료배송 혜택을 드립니다.</span>
-          <span>EATH LIBRARY</span>
-        </div>
+          <span class="text-brand">EATH LIBRARY</span>
+          <span>Evolutionary, Achievement from Traditional Heritage</span>
+          <span class="text-brand">EATH LIBRARY</span>
+          <span>당신의 손을 위한 가장 자연스러운 선택.</span>
+        </p>
       </div>
     </aside>
   </div>
@@ -32,33 +38,41 @@
   text-align: center;
   
   .top-notice__wrap{
-    width: 100%;
-    height: 100%;
-    padding: 0 25px;
-    
-    .texts-wrap{
-      display: flex;
-      flex-wrap: nowrap;
-      gap: min(15vw,200px);
-      animation: topText 20s infinite;
-      
+    // width: calc(100% - 50px);
+    // margin: 0 25px;
+    overflow: hidden;
+    white-space: nowrap;
+        
+    p{
+      white-space: nowrap;
+      animation: topText 5s linear infinite;
+
       @keyframes topText {
-        0%{
-          transform: translateX(0%);
-        }
-        100%{
-          transform: translateX(-100%);
+        100% { transform: translateX(calc(-100%));
         }
       }
       
+      &:hover{
+        animation-play-state: paused;
+      }
+      
+      span:not(:last-child){
+        margin-right: 10vw;
+      }
+      
       span{
+        display: inline-block;
+        text-align: left;
         line-height: 40px;
         font-size: abstracts.$font-size-s;
-        white-space: nowrap;
         
         &:hover{
           text-decoration: underline;
         }
+      }
+      
+      .text-brand{
+        font-weight: bold;
       }
     }
   }
