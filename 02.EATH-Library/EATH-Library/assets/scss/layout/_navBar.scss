@@ -1,1 +1,74 @@
-@use '../abstracts'
+@use '../abstracts' as *;
+
+.header-wrap{
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 40px; 
+}
+
+.pc-menu{
+  position: fixed;
+  z-index: 888;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+  .pc-bar{
+    width: 22px; 
+    height: 22px;
+    cursor: pointer;
+    padding: 18px;
+    box-sizing: content-box;
+    .line{
+      margin: 5px 0 ;
+      display: inline-block;
+      width: 100%;
+      height: 1px;
+      background-color: #000;
+      transition: transform 0.2s;
+    }
+  }
+  .pc-bar.active{
+    .topLine{
+      transform: translateY(6px) rotateZ(45deg);
+    }
+    .bottomLine{
+      transform: translateY(-6px) rotateZ(-45deg);
+    }
+  }
+
+  .pc-nav{
+    position: absolute;
+    right: 20px;
+    top: 100px;
+    z-index: 888;
+    .nav-wrap{
+      width: 100%;
+      height: 100%;
+      .list-item{
+        margin-bottom: 10px;
+        text-align: right;
+        a{
+          font-size: $font-size-s;
+        }
+      }
+      .pc-login,
+      .pc-cart{
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.header-bg{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 777;
+  top: 0;
+  right: 0;
+  background: linear-gradient(90deg,transparent,$main-color);
+}

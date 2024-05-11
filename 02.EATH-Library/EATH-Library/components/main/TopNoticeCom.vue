@@ -34,6 +34,8 @@
 @use '../../assets/scss/abstracts';
 
 .top-notice{
+  position: relative;;
+  z-index: 888;
   width: 100%;
   height: 40px;
   background-color: #000;
