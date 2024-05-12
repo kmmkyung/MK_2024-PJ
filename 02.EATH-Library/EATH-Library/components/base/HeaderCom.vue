@@ -3,7 +3,7 @@
     <div class="header-wrap">
       <div class="pc-menu">
         <div class="pc-logo" v-on:click="home()"></div>
-        <div class="pc-bar">
+        <div class="pc-bar" v-on:click="pcMenuActive()">
           <span class="line topLine"></span>
           <span class="line bottomLine"></span>
         </div>
@@ -24,12 +24,13 @@
       </div>
       <div class="mobile-menu">
         <div class="mobile-logo" v-on:click="home()"></div>
-        <div class="mobile-bar">
-          <span class="line"></span>
-          <span class="line"></span>
+        <div class="mobile-bar" v-on:click="mobileMenuActive()">
+          <span class="line topLine"></span>
+          <span class="line bottomLine"></span>
         </div>
         <nav class="mobile-nav">
           <div class="nav-wrap">
+            <img class="wide-logo" src="../../assets/images/logo-wide.png" alt="logo">
             <ul class="menu-list">
               <li class="list-item"><a href="#">제품</a></li>
               <li class="list-item"><a href="#">브랜드</a></li>
@@ -37,14 +38,17 @@
               <li class="list-item"><a href="#">매거진</a></li>
               <li class="list-item"><a href="#">성분</a></li>
               <li class="list-item"><a href="#">이벤트</a></li>
-              <li class="list-item"><a href="#">로그인</a></li>
-              <li class="list-item"><a href="#">(0)</a></li>
             </ul>
+            <ol class="subMenu-list">
+              <li class="list-item mobile-login"><a href="#">로그인</a></li>
+              <li class="list-item mobile-cart"><a href="#">(0)</a></li>
+            </ol>
           </div>
         </nav>
       </div>
     </div>
-    <div class="header-bg"></div>
+    <div class="header-pcBg"></div>
+    <div class="header-mobileBg"></div>
   </header>
 </template>
 
@@ -61,6 +65,26 @@ import logoData from '../../js/logoData.js'
     methods:{
       home(){
         this.$router.push('/')
+      },
+      pcMenuActive(){
+        const pcMenuBar = document.querySelector('.pc-bar')
+        const pcMenuNav = document.querySelector('.pc-nav')
+        const pcBg = document.querySelector('.header-pcBg')
+        pcMenuBar.addEventListener('click',function(){
+          pcMenuBar.classList.toggle('active')
+          pcMenuNav.classList.toggle('active')
+          pcBg.classList.toggle('active')
+        })
+      },
+      mobileMenuActive(){
+        const mobileMenuBar = document.querySelector('.mobile-bar')
+        const mobileMenuNav = document.querySelector('.mobile-nav')
+        const mobileBg = document.querySelector('.header-mobileBg')
+        mobileMenuBar.addEventListener('click',function(){
+          mobileMenuBar.classList.toggle('active')
+          mobileMenuNav.classList.toggle('active')
+          mobileBg.classList.toggle('active')
+        })
       }
     },
     mounted(){
