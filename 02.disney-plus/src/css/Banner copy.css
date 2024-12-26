@@ -53,13 +53,7 @@ html{
   font-size: 1.6rem;
   font-weight: 500;
   max-width: 400px;
-  /* height: 80px; */
-
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+  height: 80px;
 }
 
 .banner--fadeBottom {

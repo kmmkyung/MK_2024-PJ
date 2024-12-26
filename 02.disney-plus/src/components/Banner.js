@@ -26,7 +26,7 @@ function Banner() {
     setMovie(movieDetail)
   }
 
-  
+
   // css
   const cssBanner = {
     backgroundImage : `url('https://image.tmdb.org/t/p/original/${movie.backdrop_path}')`,
@@ -40,9 +40,9 @@ function Banner() {
       <div className='banner__contents'>
         <h1 className='banner__title'>{movie.title || movie.name || movie.original_name}</h1>
         <div className='banner__buttons'>
-          {movie?.videos?.results[0]?.key && <button className='banner_button play'>Play</button>}
+          {movie?.videos?.results[0]?.key && <button className='banner__button play'>Play</button>}
         </div>
-        <p className='banner__description'>{movie.overview  }</p>
+        <p className='banner__description'>{movie.overview}</p>
       </div>
       <div className='banner--fadeBottom'></div>
     </header>
