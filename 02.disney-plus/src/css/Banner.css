@@ -27,9 +27,6 @@ html{
 }
 
 .banner__button {
-  display: flex;
-  justify-content: start;
-  align-items: center;
   cursor: pointer;
   outline: none;
   border: none;
@@ -79,6 +76,16 @@ html{
   margin-left: 4px;
 }
 
+.close {
+  background-color: transparent;
+  color: #fff;
+  font-size: 5rem;
+  position: absolute;
+  z-index: 99;
+  top: 0;
+  right: 0;
+}
+
 @media screen and (max-width: 1500px) { /* 1500px 이햐 */
   .banner {
     height: 448px;
@@ -115,5 +122,3 @@ html{
     border-radius: 4px;
   }
 }
-
-
