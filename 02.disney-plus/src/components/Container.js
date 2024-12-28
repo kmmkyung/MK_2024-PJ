@@ -13,6 +13,5 @@ function Container(){
 export default Container;
 
 const Container = styled.main`
-  position: relative;
-  
+  position: relative;  
 `
