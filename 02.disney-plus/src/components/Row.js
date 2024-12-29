@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
 import axiosInstance from '../api/axios';
 import '../css/Row.css';
+import MovieModal from './MovieModal';
 
 function Row(props) {
   // state
@@ -10,6 +11,8 @@ function Row(props) {
   let dragStartX = useRef(0); // 드래그 시작 위치
   let scrollLeft = useRef(0); // 스크롤 위치
   let isDragging = false; // 드래그 중
+  let [ modalOpen, setModalOpen ] = useState(false); // 모달
+  let [ movieSelected, setMovieSelected ] = useState({}); // 선택된 영화
   
   // useCallback
   const fetchMovieData = useCallback( async () => {
@@ -67,11 +70,11 @@ function Row(props) {
     scrollLeft.current = sliderRef.current.scrollLeft; // 스크롤 위치    
     sliderRef.current.style.cursor = "grabbing"; // 드래그 중 커서
     sliderRef.current.style.scrollBehavior = "auto"; // 부드러운 스크롤 제거
-    noSelectDrag()
   };
-
+  
   function handleMouseMove(event){
     if(!isDragging){ return }
+    noSelectDrag()
     event.preventDefault();
     const currentX = event.pageX; // 현재 마우스 위치
     const moveX = currentX - dragStartX.current; // 드래그한 거리
@@ -85,6 +88,11 @@ function Row(props) {
     sliderRef.current.style.scrollBehavior = "smooth";
     noSelectDrag()
     scrollLeft.current = sliderRef.current.scrollLeft;
+  }
+
+  function movieModalOpen(movie){
+    setModalOpen(true);
+    setMovieSelected(movie);
   }
 
   // render
@@ -102,7 +110,8 @@ function Row(props) {
           {movies.map(function(ele){
             return <div className='row__poster' key={ele.id}>
               <div className='poster__wrap' >
-                <img className='poster__img' src={`https://image.tmdb.org/t/p/original/${ele.backdrop_path}`} alt={ele.name}/>
+                <img className='poster__img' src={`https://image.tmdb.org/t/p/original/${ele.backdrop_path}`} alt={ele.name}
+                onClick={()=>movieModalOpen(ele)}/>
               </div>
               <h6 className='poster-title'>{ele.name || ele.title}</h6>
               </div>
@@ -112,6 +121,7 @@ function Row(props) {
           <span className='arrow' >{'>'}</span>
         </div>
       </div>
+      {modalOpen ? <MovieModal setModalOpen={setModalOpen} movieSelected={movieSelected}></MovieModal> : null}
     </div>
   )
 }
