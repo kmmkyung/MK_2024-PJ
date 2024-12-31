@@ -29,9 +29,29 @@ function SearchPage(){
     }
   }
 
-  return (
-    <div>search</div>
-  )
+  if(searchResults.length > 0){
+    return (
+      <section className='search__container'>
+        {searchResults.map(function(ele,idx){
+          if(ele.backdrop_path && ele.media_type !== 'person'){
+            console.log(ele);
+          }
+
+        })}
+      </section>
+    )
+  }
+  else {
+    return (
+      <section className='no-results'>
+        <div className='no-results__text'>
+          <p>검색어 "{searchTerm}" 에 맞는 영화가 없습니다.</p>
+        </div>
+      </section>
+    )
+  }
 }
 
 export default SearchPage;
+
+// 기분이 안좋다. 왜 나였는지 왜 알고있어야하는게 나였는지
