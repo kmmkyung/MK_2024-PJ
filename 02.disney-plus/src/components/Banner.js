@@ -21,7 +21,6 @@ function Banner() {
     
     // 가져온 여러 영화 중 랜덤한 영화 하나의 ID를 가져오기
     const movieID = response.data.results[Math.floor(Math.random() * response.data.results.length)].id;
-    console.log(movieID);
 
     // 특정 영화의 상세 정보 가져오기
     const { data:movieDetail } = await axiosInstance.get(`movie/${movieID}`,{params:{ append_to_response: 'videos' }});

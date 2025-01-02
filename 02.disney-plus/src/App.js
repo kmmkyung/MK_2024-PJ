@@ -9,10 +9,10 @@ import SearchPage from './page/SearchPage';
 
 function Layout(){
   return (
-    <div>
+    <>
       <Nav></Nav>
       <Outlet/>
-    </div>
+    </>
   )
 }
 
@@ -23,7 +23,7 @@ function App() {
         <Route path='/' element={<Layout/>}>
           <Route index element={<LoginPage/>}/>
           <Route path='main' element={<MainPage/>}/>
-          <Route path=':movieId' element={<DetailPage/>}/>
+          <Route path=':programId' element={<DetailPage/>}/>
           <Route path='search' element={<SearchPage/>}/>
         </Route>
       </Routes>  
