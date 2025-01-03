@@ -18,6 +18,8 @@ function Row(props) {
   const fetchMovieData = useCallback( async () => {
     const response = await axiosInstance.get(props.fetchUrl);    
     setMovies(response.data.results);
+    console.log(response.data);
+    
   },[props.fetchUrl]); // props.fetchUrl이 바뀔때 다시 실행
 
   // effect
@@ -97,9 +99,9 @@ function Row(props) {
 
   // render
   return (
-    <div>
-      <h2>{props.title}</h2>
-      <div className='slider' >
+    <div className='row'>
+      <h2 className='slider__title'>{props.title}</h2>
+      <div className='slider'>
         <div className='slider__arrow-left arrow__wrap' onClick={()=>handleSlide('left')}>
           <span className='arrow' >{'<'}</span>
         </div>

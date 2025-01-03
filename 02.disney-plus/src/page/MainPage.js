@@ -25,14 +25,7 @@ export default MainPage;
 const Container = styled.main`
   min-height: calc(100vh - 250px);
   overflow-x: hidden;
-  padding: 0 calc(3.5vw + 5px);
-  margin: 70px 0;
-  
-  &:after {
-    background: url("/images/home-background.png") center center / cover no-repeat fixed;
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
+  padding: 70px calc(3.5vw + 5px);
+  background: url("/images/home-background.png") center center / cover no-repeat fixed;
   }
 `;
