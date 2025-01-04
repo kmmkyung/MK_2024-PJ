@@ -76,10 +76,11 @@
   max-height: 160px;
   object-fit: contain;
   border-radius: 4px;
+  vertical-align: bottom;
 }
 
 .poster-title{
-  font-size: 1.2rem;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
   margin: 12px 0 0 0;
 }
 

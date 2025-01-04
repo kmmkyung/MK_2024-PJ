@@ -60,6 +60,7 @@ const NavWrapper = styled.nav`
   padding: 0 36px;
   letter-spacing: 16px;
   z-index: 3;
+  transition: background-color 0.3s;
 `;
 
 const Logo = styled.a`

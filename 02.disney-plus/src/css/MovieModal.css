@@ -68,18 +68,23 @@
 }
 
 .modal__details {
-  font-size: 1.4rem;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
 }
 
 .modal__title {
   padding: 0;
   margin: 16px 0;
-  font-size: 4rem;
+  font-size: clamp(2rem, 8vw, 4rem);
+}
+
+.modal__rating {
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
 }
 
 .modal__overview {
-  font-size: 1.6rem;
+  font-size: clamp(1.4rem, 2vw, 1.6rem);
   line-height: 1.5;
+  margin-top: 10px;
 }
 
 @media screen and (max-width: 768px) {
