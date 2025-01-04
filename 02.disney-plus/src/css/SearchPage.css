@@ -29,19 +29,19 @@
 }
 
 .movie__title{
-  font-size: 1.4rem;
+  font-size: clamp(1.4rem, 2vw, 1.6rem);
 }
 
 .no-results {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100svh;
+  height: 100vh;
 }
 
 .no-results__text p{
   color: #c5c5c5;
-  font-size: 1.6rem;
+  font-size: clamp(1.4rem, 2vw, 1.6rem);
 }
 
 @media screen and (max-width: 768px) {
