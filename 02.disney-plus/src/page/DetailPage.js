@@ -103,7 +103,9 @@ if( !program ) return null;
     {
       name: 'info',
       content: (
-        <div className='tap__content--info tap__content'></div>
+        <div className='tap__content--info tap__content'>
+          
+        </div>
       )
     }
   ]
