@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { LoadingContext } from '../context/LoadingContext';
 import axiosInstance from '../api/axios';
 import '../css/DetailPage.css';
 
 function DetailPage(){
+  // context
+  const { setIsLoading } = useContext(LoadingContext);
+
   // state
   const navigate = useNavigate();
   const location = useLocation();
@@ -13,21 +17,28 @@ function DetailPage(){
   let [ program, setProgram ] = useState();
   let [ collection, setCollection ] = useState();
   let [ similar, setSimilar ] = useState();
+  let [ credits, setCredits ] = useState();
   let [ activeTab, setActiveTab ] = useState(0);
   
   // effect
   useEffect(()=>{
     async function fetchData(){
       try{
-        const media = mediaType === 'movie' ? `/movie/${programId}` : `/tv/${programId}`;
-        const response = await axiosInstance.get(media);
+        setIsLoading(true); // 로딩시작
+        const programMedia = mediaType === 'movie' ? `/movie/${programId}` : `/tv/${programId}`;
+        const response = await axiosInstance.get(programMedia);
         setProgram(response.data);
+
+        const creditsMedia = mediaType === 'movie' ? `/movie/${programId}/credits` : `/tv/${programId}/credits`;
+        const responseCredits = await axiosInstance.get(creditsMedia);
+        setCredits(responseCredits.data);
+        console.log(responseCredits.data);
 
         const mediaSimilar = mediaType === 'movie' ? `/movie/${programId}/similar` : `/tv/${programId}/similar`;
         const responseSimilar = await axiosInstance.get(mediaSimilar);
-        setSimilar(responseSimilar.data);  
+        setSimilar(responseSimilar.data);
 
-        if(response.data.belongs_to_collection !== null){
+        if(response.data.belongs_to_collection !== null && response.data.belongs_to_collection){
           const collectionId = response.data.belongs_to_collection.id;
           const responseCollection = await axiosInstance.get(`/collection/${collectionId}`);
           setCollection(responseCollection.data);
@@ -35,15 +46,18 @@ function DetailPage(){
         else{
           setCollection(null);
         }
-
-        window.scrollTo(0, 0);
       }
       catch(err){
         console.log(err);
       }
+      finally{
+        setIsLoading(false); // 로딩끝
+      }
     }
     fetchData()
-  },[programId, mediaType])
+    window.scrollTo(0, 0);
+    setActiveTab(0);
+  },[programId, mediaType, setIsLoading])
 
   useEffect(()=>{
     function listOn(){
@@ -61,12 +75,11 @@ function DetailPage(){
 
 if( !program ) return null;
 
-  // function
-
   // tap data
   const taps = [
+    collection &&
     { name: 'collection',
-      content: collection && (
+      content: 
         <div className='tap__content--collection tap__content'>
           {collection.parts.map(function (ele) {
             if (ele.backdrop_path) {
@@ -80,11 +93,10 @@ if( !program ) return null;
             return null;
           })}
         </div>
-      )
     },  
-    {
+    similar &&  {
       name: 'similar',
-      content: similar && (
+      content: 
         <div className='tap__content--similar tap__content'>
           {similar.results.map(function (ele) {
             if (ele.backdrop_path) {
@@ -98,18 +110,71 @@ if( !program ) return null;
             return null;
           })}
         </div>
-      )
     },
     {
       name: 'info',
-      content: (
-        <div className='tap__content--info tap__content'>
-          
-        </div>
-      )
+      content: 
+      <div className='tap__content--info tap__content'>
+        {mediaType === 'movie' ? 
+          <div className='info__container'>
+            <div className='info__left'>
+              <h2 className='info__title'>{program.title || program.name}</h2>
+              <p className='info__description'>{program.overview}</p>
+            </div>
+            <div className='info__right'>
+              <div className='info__content'>
+                <p><span>공개일: </span><span>{(program.release_date).slice(0,4)}</span></p>
+                <p><span>러닝타임: </span><span>{Math.floor(program.runtime/60)}시간 {Math.floor(program.runtime%60).toString().padStart(2, '0')}분</span></p>
+                <p><span>장르: </span><span>{program.genres.map(function(ele){return ele.name}).join(', ')}</span></p>
+              </div>
+              <div className='info__credits'>
+              {credits && credits.crew.filter(ele=>ele.job==="Director").length > 0 ? 
+                <p className='info__director'>
+                  <span>감독: </span>
+                  {credits.crew.filter(ele=>ele.job==="Director").map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
+                </p>
+                : null }
+                <p className='info__cast'>
+                  <span>배우: </span>
+                  {credits && credits.cast.slice(0,6).map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
+                </p>
+              </div>`
+            </div>
+          </div>
+          :
+          <div className='info__container'>
+            <div className='info__left'>
+              <h2 className='info__title'>{program.title || program.name}</h2>
+              <p className='info__description'>{program.overview}</p>
+            </div>
+            <div className='info__right'>
+              <div className='info__content'>
+                <p><span>공개일: </span><span>{(program.first_air_date).slice(0,4)}</span></p>
+                <p><span>총 시즌: </span><span>{program.number_of_seasons}의 시즌</span></p>
+                <p><span>장르: </span><span>{program.genres.map(function(ele){return ele.name}).join(', ')}</span></p>
+              </div>
+              <div className='info__credits'>
+                {credits && credits.crew.filter(ele=>ele.job==="Director").length > 0 ? 
+                <p className='info__director'>
+                  <span>감독: </span>
+                  {credits.crew.filter(ele=>ele.job==="Director").map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
+                </p>
+                : null }
+                <p className='info__cast'>
+                  <span>배우: </span>
+                  {credits && credits.cast.slice(0,6).map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
+                </p>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
     }
-  ]
+  ].filter(Boolean);
 
+  // function
+
+  // component
   function MainContentMovie(){
     return (
       <div className='main__content'>
@@ -141,22 +206,23 @@ if( !program ) return null;
         <div className='main__container'>
           <h1 className='main__title'>{program.title || program.name}</h1>
             { mediaType === 'movie' ? <MainContentMovie/> : <MainContentTv/> }
-          <p className='main__description'>{program.overview}</p>
+          {/* <p className='main__description'>{program.overview}</p> */}
         </div>
         <div className='detail__tap'>
           <ul className='tap__list'>
             { taps.map(function(ele,idx){
-              return <li className={`list__item ${activeTab === idx ? 'on':''}`} key={idx} onClick={()=>setActiveTab(idx)}>{ele.name}</li>
-            })}
+              return <li className={`list__item ${activeTab === idx ? 'on':''}`} key={idx} onClick={()=>setActiveTab(idx)}>{ele.name}</li>})
+            }
           </ul>
           <div className='tap__contents'>
             {/* 내용 */}
-            { taps[activeTab].content }
-          </div>
+            {taps[activeTab].content}
+            </div>
         </div>
       </div>
     </section>
   )
 }
+
 
 export default DetailPage;

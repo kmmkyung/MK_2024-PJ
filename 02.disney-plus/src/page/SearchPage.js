@@ -12,7 +12,7 @@ function SearchPage(){
   // use effect
   let query = new URLSearchParams(useLocation().search); // ?movieTitle=검색어
   const searchTerm = query.get('movieTitle'); // 검색어
-  const deBouncedSearchTerm = useDebounce(searchTerm, 1000);
+  const deBouncedSearchTerm = useDebounce(searchTerm, 800);
   useEffect(()=>{
     if(deBouncedSearchTerm){
       fetchSearchMovie(deBouncedSearchTerm)

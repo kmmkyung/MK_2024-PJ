@@ -2,3 +2,6 @@
   outline: 1px solid aquamarine;
 } */
 
+body::-webkit-scrollbar {
+  display: none;
+}
