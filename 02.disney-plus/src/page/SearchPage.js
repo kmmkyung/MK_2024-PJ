@@ -1,18 +1,18 @@
 import axiosInstance from '../api/axios';
-import React, { useEffect, useState } from 'react'
-import { useLocation, useNavigate } from'react-router-dom';
+import React, { useEffect } from 'react'
+import { useLocation, useNavigate, useOutletContext } from'react-router-dom';
 import { useDebounce } from '../hooks/useDebounce';
 import '../css/SearchPage.css';
 
 function SearchPage(){
   // state
-  let [ searchResults, setSearchResults ] = useState([]);
   const navigate = useNavigate();
-  
+  const { searchResults, setSearchResults } = useOutletContext();
+
   // use effect
   let query = new URLSearchParams(useLocation().search); // ?movieTitle=검색어
   const searchTerm = query.get('movieTitle'); // 검색어
-  const deBouncedSearchTerm = useDebounce(searchTerm, 800);
+  const deBouncedSearchTerm = useDebounce(searchTerm, 1000);
   useEffect(()=>{
     if(deBouncedSearchTerm){
       fetchSearchMovie(deBouncedSearchTerm)
@@ -23,23 +23,23 @@ function SearchPage(){
   async function fetchSearchMovie(searchTerm){
     try {
       const response = await axiosInstance.get(`/search/multi?include_adult=false&query=${searchTerm}`)
-      setSearchResults(response.data.results);  
+      setSearchResults(response.data.results);
     }
     catch (error) {
       console.error(error);
     }
   }
 
-  if(searchResults.length > 0){
+  if(searchResults.filter((ele)=>ele.backdrop_path && ele.backdrop_path !== null).length > 0){
     return (
       <section className='search__container'>
         <div className='movie__container'>
         {searchResults.map(function(ele){
-          if(ele.backdrop_path && ele.media_type !== 'person'){
+          if(ele.backdrop_path && ele.backdrop_path !== null){
             const movieImageUrl = "https://image.tmdb.org/t/p/w500/" + ele.backdrop_path;
             return(
                 <div className='movie' key={ele.id}>
-                  <div className='movie__column-poster' onClick={()=>{navigate(`/${ele.id}`,{state:{data:ele}})} }>
+                  <div className='movie__column-poster' onClick={()=>{navigate(`/detail/${ele.id}`,{state:{data:ele}})} }>
                     <img src={movieImageUrl} alt='movie' className='movie__poster'/>
                     <p className='movie__title'>{ ele.title || ele.name }</p>
                   </div>

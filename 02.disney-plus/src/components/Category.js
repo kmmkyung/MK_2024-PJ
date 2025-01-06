@@ -1,41 +1,51 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import styled from'styled-components';
-
+import companiesData from '../data/companiesData';
 function Category() {
+  // state
+  const navigate = useNavigate();
+  
+  // function
+  function handleNavigate(companyName){
+    const company = companiesData.find((item) => item.companyName === companyName);
+    navigate(`/company/${companyName}`,{state: {company:company}});
+  }
+
   return (
     <Container>
-      <Wrap>
+      <Wrap onClick={()=> { handleNavigate('disney');}}>
         <img src='/images/viewers-disney.png' alt='disney'/>
         <video autoPlay muted loop>
           <source src='/videos/disney.mp4' type='video/mp4'/>
         </video>
       </Wrap>
-      <Wrap>
-        <img src='/images/viewers-pixar.png' alt='disney'/>
+      <Wrap onClick={()=> { handleNavigate('pixar');}}>
+        <img src='/images/viewers-pixar.png' alt='pixar'/>
         <video autoPlay muted loop>
           <source src='/videos/pixar.mp4' type='video/mp4'/>
         </video>
       </Wrap>
-      <Wrap>
-        <img src='/images/viewers-marvel.png' alt='disney'/>
+      <Wrap onClick={()=> { handleNavigate('marvel');}}>
+        <img src='/images/viewers-marvel.png' alt='marvel'/>
         <video autoPlay muted loop>
           <source src='/videos/marvel.mp4' type='video/mp4'/>
         </video>
       </Wrap>
-      <Wrap>
-        <img src='/images/viewers-starwars.png' alt='disney'/>
+      <Wrap onClick={()=> { handleNavigate('starWars');}}>
+        <img src='/images/viewers-starWars.png' alt='starWars'/>
         <video autoPlay muted loop>
           <source src='/videos/starWars.mp4' type='video/mp4'/>
         </video>
       </Wrap>
-      <Wrap>
-        <img src='/images/viewers-national.png' alt='disney'/>
+      <Wrap onClick={()=> { handleNavigate('nationalGeographic');}}>
+        <img src='/images/viewers-nationalGeographic.png' alt='nationalGeographic'/>
         <video autoPlay muted loop>
-          <source src='/videos/national-geographic.mp4' type='video/mp4'/>
+          <source src='/videos/nationalGeographic.mp4' type='video/mp4'/>
         </video>
       </Wrap>
-      <Wrap>
-        <img src='/images/viewers-star.png' alt='disney'/>
+      <Wrap onClick={()=> { handleNavigate('star');}}>
+        <img src='/images/viewers-star.png' alt='star'/>
         <video autoPlay muted loop>
           <source src='/videos/star.mp4' type='video/mp4'/>
         </video>

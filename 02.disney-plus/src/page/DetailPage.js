@@ -28,15 +28,17 @@ function DetailPage(){
         const programMedia = mediaType === 'movie' ? `/movie/${programId}` : `/tv/${programId}`;
         const response = await axiosInstance.get(programMedia);
         setProgram(response.data);
+        console.log(response.data);
 
         const creditsMedia = mediaType === 'movie' ? `/movie/${programId}/credits` : `/tv/${programId}/credits`;
         const responseCredits = await axiosInstance.get(creditsMedia);
         setCredits(responseCredits.data);
-        console.log(responseCredits.data);
 
         const mediaSimilar = mediaType === 'movie' ? `/movie/${programId}/similar` : `/tv/${programId}/similar`;
         const responseSimilar = await axiosInstance.get(mediaSimilar);
-        setSimilar(responseSimilar.data);
+        if(responseSimilar.data.results.length > 0){
+          setSimilar(responseSimilar.data);
+        }        
 
         if(response.data.belongs_to_collection !== null && response.data.belongs_to_collection){
           const collectionId = response.data.belongs_to_collection.id;
@@ -55,7 +57,6 @@ function DetailPage(){
       }
     }
     fetchData()
-    window.scrollTo(0, 0);
     setActiveTab(0);
   },[programId, mediaType, setIsLoading])
 
@@ -84,7 +85,7 @@ if( !program ) return null;
           {collection.parts.map(function (ele) {
             if (ele.backdrop_path) {
               return (
-                <div className='collection__item' key={ele.id} onClick={() => { navigate(`/${ele.id}`, { state: { data: ele } }); }}>
+                <div className='collection__item' key={ele.id} onClick={() => { navigate(`/detail/${ele.id}`, { state: { data: ele } }); }}>
                   <img className='collection__img' src={`https://image.tmdb.org/t/p/original/${ele.backdrop_path}`} alt={ele.name} />
                   <h6 className='collection__title'>{ele.title}</h6>
                 </div>
@@ -101,7 +102,7 @@ if( !program ) return null;
           {similar.results.map(function (ele) {
             if (ele.backdrop_path) {
               return (
-                <div className='similar__item' key={ele.id} onClick={() => { navigate(`/${ele.id}`, { state: { data: { ...ele, media_type: mediaType } } }); }}>
+                <div className='similar__item' key={ele.id} onClick={() => { navigate(`/detail/${ele.id}`, { state: { data: { ...ele, media_type: mediaType } } }); }}>
                   <img className='similar__img' src={`https://image.tmdb.org/t/p/original/${ele.backdrop_path}`} alt={ele.name} />
                   <h6 className='similar__title'>{ele.title || ele.name}</h6>
                 </div>
@@ -125,7 +126,7 @@ if( !program ) return null;
               <div className='info__content'>
                 <p><span>공개일: </span><span>{(program.release_date).slice(0,4)}</span></p>
                 <p><span>러닝타임: </span><span>{Math.floor(program.runtime/60)}시간 {Math.floor(program.runtime%60).toString().padStart(2, '0')}분</span></p>
-                <p><span>장르: </span><span>{program.genres.map(function(ele){return ele.name}).join(', ')}</span></p>
+                { program.genres.length > 0 ? <p><span>장르: </span><span>{program.genres.map(function(ele){return ele.name}).join(', ')}</span></p> : null }
               </div>
               <div className='info__credits'>
               {credits && credits.crew.filter(ele=>ele.job==="Director").length > 0 ? 
@@ -151,7 +152,7 @@ if( !program ) return null;
               <div className='info__content'>
                 <p><span>공개일: </span><span>{(program.first_air_date).slice(0,4)}</span></p>
                 <p><span>총 시즌: </span><span>{program.number_of_seasons}의 시즌</span></p>
-                <p><span>장르: </span><span>{program.genres.map(function(ele){return ele.name}).join(', ')}</span></p>
+                { program.genres.length > 0 ? <p><span>장르: </span><span>{program.genres.map(function(ele){return ele.name}).join(', ')}</span></p> : null }
               </div>
               <div className='info__credits'>
                 {credits && credits.crew.filter(ele=>ele.job==="Director").length > 0 ? 
@@ -181,7 +182,7 @@ if( !program ) return null;
         <p>{(program.release_date).slice(0,4)}</p>
         <span>•</span>
         <p>{Math.floor(program.runtime/60)}시간 {Math.floor(program.runtime%60).toString().padStart(2, '0')}분</p>
-        <span>•</span>
+        {program.genres.length > 0 ? <span>•</span> : null}
         <p>{program.genres.map(function(ele){return ele.name}).join(', ')}</p>
       </div>
     )
@@ -193,7 +194,7 @@ if( !program ) return null;
         <p>{(program.first_air_date).slice(0,4)}</p>
         <span>•</span>
         <p>총 시즌 {program.number_of_seasons}</p>
-        <span>•</span>
+        {program.genres.length > 0 ? <span>•</span> : null}
         <p>{program.genres.map(function(ele){return ele.name}).join(', ')}</p>
       </div>
     )
@@ -206,7 +207,6 @@ if( !program ) return null;
         <div className='main__container'>
           <h1 className='main__title'>{program.title || program.name}</h1>
             { mediaType === 'movie' ? <MainContentMovie/> : <MainContentTv/> }
-          {/* <p className='main__description'>{program.overview}</p> */}
         </div>
         <div className='detail__tap'>
           <ul className='tap__list'>

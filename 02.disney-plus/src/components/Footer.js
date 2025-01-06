@@ -10,7 +10,7 @@ function Footer() {
     <FooterContainer>
       <FooterWrapper>
         <Logo>
-          <img alt='Disney Plus Logo' src='/images/logo.svg'/>
+          <img alt='Disney Plus Logo' src='/svg/logo.svg'/>
         </Logo>
         <InfoList>
           <li>디즈니+ 이용 약관</li>
@@ -52,6 +52,7 @@ const FooterContainer = styled.footer`
   height: 100%;
   background-color: #0e0b14;
   color: #ccc;
+  z-index: 2;
 `;
 
 const FooterWrapper = styled.div`

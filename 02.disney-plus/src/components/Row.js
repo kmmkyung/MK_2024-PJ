@@ -17,9 +17,7 @@ function Row(props) {
   // useCallback
   const fetchMovieData = useCallback( async () => {
     const response = await axiosInstance.get(props.fetchUrl);    
-    setMovies(response.data.results);
-    console.log(response.data);
-    
+    setMovies(response.data.results);    
   },[props.fetchUrl]); // props.fetchUrl이 바뀔때 다시 실행
 
   // effect
