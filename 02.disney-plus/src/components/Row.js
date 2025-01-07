@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
 import axiosInstance from '../api/axios';
-import '../css/Row.css';
+import style from '../css/Row.module.css';
 import MovieModal from './MovieModal';
 
 function Row(props) {
@@ -49,11 +49,11 @@ function Row(props) {
       sliderRef.current.scrollBy({ left: -sliderRef.current.offsetWidth/1.5, behavior: "smooth" });
     }
   };
-
+  
   // 드래그 이벤트
   function noSelectDrag(){
-    const rowId = document.querySelector('#'+sliderRef.current.getAttribute('id'));      
-    const rowPoster = rowId.querySelectorAll('.row__poster')
+    const rowId = document.querySelector('#'+sliderRef.current.getAttribute('id'));
+    const rowPoster = rowId.querySelectorAll(`.${style.movie__wrap}`)
     rowPoster.forEach(function(ele){
       if( isDragging ){
         ele.classList.add('noSelect')
@@ -63,6 +63,7 @@ function Row(props) {
       }
     })
   }
+  
 
   function handleMouseDown(event){
     isDragging = true;
@@ -97,28 +98,30 @@ function Row(props) {
 
   // render
   return (
-    <div className='row'>
-      <h2 className='slider__title'>{props.title}</h2>
-      <div className='slider'>
-        <div className='slider__arrow-left arrow__wrap' onClick={()=>handleSlide('left')}>
-          <span className='arrow' >{'<'}</span>
+    <div className={style.row}>
+      <h2 className={style.slider__title}>{props.title}</h2>
+      <div className={style.slider}>
+        <div className={`${style['slider__arrow-left']} ${style.arrow__wrap}`} onClick={()=>handleSlide('left')}>
+          <span className={style.arrow} >{'<'}</span>
         </div>
-        <div className='row__posters' id={props.id} ref={sliderRef}
-        onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}
+        <div className={style.row__posters} id={props.id} ref={sliderRef}
+        // onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}
         onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}
         >
-          {movies.map(function(ele){
-            return <div className='row__poster' key={ele.id}>
-              <div className='poster__wrap' >
-                <img className='poster__img' src={`https://image.tmdb.org/t/p/original/${ele.backdrop_path}`} alt={ele.name}
-                onClick={()=>movieModalOpen(ele)}/>
-              </div>
-              <h6 className='poster-title'>{ele.name || ele.title}</h6>
-              </div>
-            })}
+        {movies.map(function(ele){
+          return <div className={style.movie__wrap} key={ele.id}>
+                  <div className={style.poster__wrap} >
+                    <img className={style.poster__img} src={`https://image.tmdb.org/t/p/original/${ele.backdrop_path}`} alt={ele.name}
+                    onClick={()=>movieModalOpen(ele)}/>
+                  </div>
+                  <div className={style.title__wrap}>
+                    <h6 className={style.movie__title}>{ele.name || ele.title}</h6>
+                  </div>
+                </div>
+              })}
         </div>
-        <div className='slider__arrow-right arrow__wrap' onClick={()=>handleSlide('right')}>
-          <span className='arrow' >{'>'}</span>
+        <div className={`${style['slider__arrow-right']} ${style.arrow__wrap}`} onClick={()=>handleSlide('right')}>
+          <span className={style.arrow} >{'>'}</span>
         </div>
       </div>
       {modalOpen ? <MovieModal setModalOpen={setModalOpen} movieSelected={movieSelected} mediaType={props.mediaType}></MovieModal> : null}

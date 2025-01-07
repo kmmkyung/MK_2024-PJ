@@ -43,13 +43,6 @@
   gap: min(1vw, 10px);
 }
 
-.main__description{
-  max-width: 800px;
-  margin: 40px 0;
-  font-size: clamp(1.4rem, 2vw, 1.6rem);
-  word-break: keep-all;
-}
-
 .detail__tap {
   margin-top: 190px;
 }
@@ -88,35 +81,52 @@
   margin-top: 60px;
 }
 
-.tap__content--collection, .tap__content--similar {
+.tap__content-collection, .tap__content-similar {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: min(1.5vw, 25px);
+  gap: min(2.5vw, 25px);
 }
 
-.collection__item, .similar__item {
-  cursor: pointer;
+.movie__wrap {
+  display: grid;
+}
+
+.poster__wrap {
   width: 100%;
   box-sizing: border-box;
+  border: 3px solid rgba(249, 249, 249, 0);
+  border-radius: 10px;
+  transition: all 0.6s;
+  cursor: pointer;
   overflow: hidden;
 }
 
-.collection__img, .similar__img {
-  width: 100%;
-  border-radius: 5px;
+.poster__wrap:hover {
+  transform: scale(1.05);
+  border-color: rgba(249, 249, 249, 0.8);
 }
 
-.collection__title, .similar__title {
+.poster__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+
+.title__wrap {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.movie__title {
   font-size: clamp(1.2rem, 1.2vw, 1.6rem);
-  margin: 10px 0;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
   word-break: keep-all;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
   white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
+
 
 .info__container {
   display: flex;
@@ -163,7 +173,7 @@
 
 
 @media screen and (max-width: 768px) {
-  .tap__content--collection, .tap__content--similar {
+  .tap__content-collection, .tap__content-similar {
     grid-template-columns: repeat(2, 1fr);
   }
 

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { LoadingContext } from '../context/LoadingContext';
 import axiosInstance from '../api/axios';
-import '../css/DetailPage.css';
+import style from '../css/DetailPage.module.css';
 
 function DetailPage(){
   // context
@@ -59,11 +59,12 @@ function DetailPage(){
     fetchData()
     setActiveTab(0);
   },[programId, mediaType, setIsLoading])
-
+  
   useEffect(()=>{
     function listOn(){
-      const tapList = document.querySelectorAll('.tap__list .list__item');
-      const tapContent = document.querySelectorAll('.tap__content');
+      const tapList = document.querySelectorAll(`.${style.list__item}`);
+      
+      const tapContent = document.querySelectorAll(`.${style.tap__content}`);
       tapList.forEach(function(ele,idx){
         ele.classList.remove('on')
         tapContent[idx]?.classList.remove('on')
@@ -81,13 +82,17 @@ if( !program ) return null;
     collection &&
     { name: 'collection',
       content: 
-        <div className='tap__content--collection tap__content'>
+        <div className={`${style['tap__content-collection']} ${style.tap__content}`}>
           {collection.parts.map(function (ele) {
             if (ele.backdrop_path) {
               return (
-                <div className='collection__item' key={ele.id} onClick={() => { navigate(`/detail/${ele.id}`, { state: { data: ele } }); }}>
-                  <img className='collection__img' src={`https://image.tmdb.org/t/p/original/${ele.backdrop_path}`} alt={ele.name} />
-                  <h6 className='collection__title'>{ele.title}</h6>
+                <div className={style.movie__wrap} key={ele.id}>
+                  <div className={style.poster__wrap}>
+                    <img className={style.poster__img} src={`https://image.tmdb.org/t/p/original/${ele.backdrop_path}`} alt={ele.name} onClick={() => { navigate(`/detail/${ele.id}`, { state: { data: ele } }); }}/>
+                  </div>
+                  <div className={style.title__wrap}>
+                    <h6 className={style.movie__title}>{ele.title}</h6>
+                  </div>
                 </div>
               );
             }
@@ -98,13 +103,17 @@ if( !program ) return null;
     similar &&  {
       name: 'similar',
       content: 
-        <div className='tap__content--similar tap__content'>
+        <div className={`${style['tap__content-similar']} ${style.tap__content}`}>
           {similar.results.map(function (ele) {
             if (ele.backdrop_path) {
               return (
-                <div className='similar__item' key={ele.id} onClick={() => { navigate(`/detail/${ele.id}`, { state: { data: { ...ele, media_type: mediaType } } }); }}>
-                  <img className='similar__img' src={`https://image.tmdb.org/t/p/original/${ele.backdrop_path}`} alt={ele.name} />
-                  <h6 className='similar__title'>{ele.title || ele.name}</h6>
+                <div className={style.movie__wrap} key={ele.id}>
+                  <div className={style.poster__wrap}>
+                    <img className={style.poster__img} src={`https://image.tmdb.org/t/p/original/${ele.backdrop_path}`} alt={ele.name} onClick={() => { navigate(`/detail/${ele.id}`, { state: { data: { ...ele, media_type: mediaType } } }); }}/>
+                  </div>
+                  <div className={style.title__wrap}>
+                    <h6 className={style.movie__title}>{ele.title || ele.name}</h6>
+                  </div>
                 </div>
               );
             }
@@ -115,27 +124,27 @@ if( !program ) return null;
     {
       name: 'info',
       content: 
-      <div className='tap__content--info tap__content'>
+      <div className={`${style['tap__content-info']} ${style.tap__content}`}>
         {mediaType === 'movie' ? 
-          <div className='info__container'>
-            <div className='info__left'>
-              <h2 className='info__title'>{program.title || program.name}</h2>
-              <p className='info__description'>{program.overview}</p>
+          <div className={style.info__container}>
+            <div className={style.info__left}>
+              <h2 className={style.info__title}>{program.title || program.name}</h2>
+              <p className={style.info__description}>{program.overview}</p>
             </div>
-            <div className='info__right'>
-              <div className='info__content'>
+            <div className={style.info__right}>
+              <div className={style.info__content}>
                 <p><span>공개일: </span><span>{(program.release_date).slice(0,4)}</span></p>
                 <p><span>러닝타임: </span><span>{Math.floor(program.runtime/60)}시간 {Math.floor(program.runtime%60).toString().padStart(2, '0')}분</span></p>
                 { program.genres.length > 0 ? <p><span>장르: </span><span>{program.genres.map(function(ele){return ele.name}).join(', ')}</span></p> : null }
               </div>
-              <div className='info__credits'>
+              <div className={style.info__credits}>
               {credits && credits.crew.filter(ele=>ele.job==="Director").length > 0 ? 
-                <p className='info__director'>
+                <p className={style.info__director}>
                   <span>감독: </span>
                   {credits.crew.filter(ele=>ele.job==="Director").map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
                 </p>
                 : null }
-                <p className='info__cast'>
+                <p className={style.info__cast}>
                   <span>배우: </span>
                   {credits && credits.cast.slice(0,6).map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
                 </p>
@@ -143,25 +152,25 @@ if( !program ) return null;
             </div>
           </div>
           :
-          <div className='info__container'>
-            <div className='info__left'>
-              <h2 className='info__title'>{program.title || program.name}</h2>
-              <p className='info__description'>{program.overview}</p>
+          <div className={style.info__container}>
+            <div className={style.info__left}>
+              <h2 className={style.info__title}>{program.title || program.name}</h2>
+              <p className={style.info__description}>{program.overview}</p>
             </div>
-            <div className='info__right'>
-              <div className='info__content'>
+            <div className={style.info__right}>
+              <div className={style.info__content}>
                 <p><span>공개일: </span><span>{(program.first_air_date).slice(0,4)}</span></p>
                 <p><span>총 시즌: </span><span>{program.number_of_seasons}의 시즌</span></p>
                 { program.genres.length > 0 ? <p><span>장르: </span><span>{program.genres.map(function(ele){return ele.name}).join(', ')}</span></p> : null }
               </div>
-              <div className='info__credits'>
+              <div className={style.info__credits}>
                 {credits && credits.crew.filter(ele=>ele.job==="Director").length > 0 ? 
-                <p className='info__director'>
+                <p className={style.info__director}>
                   <span>감독: </span>
                   {credits.crew.filter(ele=>ele.job==="Director").map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
                 </p>
                 : null }
-                <p className='info__cast'>
+                <p className={style.info__cast}>
                   <span>배우: </span>
                   {credits && credits.cast.slice(0,6).map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
                 </p>
@@ -178,7 +187,7 @@ if( !program ) return null;
   // component
   function MainContentMovie(){
     return (
-      <div className='main__content'>
+      <div className={style.main__content}>
         <p>{(program.release_date).slice(0,4)}</p>
         <span>•</span>
         <p>{Math.floor(program.runtime/60)}시간 {Math.floor(program.runtime%60).toString().padStart(2, '0')}분</p>
@@ -190,7 +199,7 @@ if( !program ) return null;
 
   function MainContentTv(){
     return (
-      <div className='main__content'>
+      <div className={style.main__content}>
         <p>{(program.first_air_date).slice(0,4)}</p>
         <span>•</span>
         <p>총 시즌 {program.number_of_seasons}</p>
@@ -201,20 +210,20 @@ if( !program ) return null;
   }
 
   return (
-    <section className='detail__container'>
-      <div className='detail__bg' style={{backgroundImage:`url('https://image.tmdb.org/t/p/original/${program.backdrop_path}')`}}></div>
-      <div className='detail__wrap'>
-        <div className='main__container'>
-          <h1 className='main__title'>{program.title || program.name}</h1>
+    <section className={style.detail__container}>
+      <div className={style.detail__bg} style={{backgroundImage:`url('https://image.tmdb.org/t/p/original/${program.backdrop_path}')`}}></div>
+      <div className={style.detail__wrap}>
+        <div className={style.main__container}>
+          <h1 className={style.main__title}>{program.title || program.name}</h1>
             { mediaType === 'movie' ? <MainContentMovie/> : <MainContentTv/> }
         </div>
-        <div className='detail__tap'>
-          <ul className='tap__list'>
+        <div className={style.detail__tap}>
+          <ul className={style.tap__list}>
             { taps.map(function(ele,idx){
-              return <li className={`list__item ${activeTab === idx ? 'on':''}`} key={idx} onClick={()=>setActiveTab(idx)}>{ele.name}</li>})
+              return <li className={`${style.list__item} ${activeTab === idx ? style.on : ''}`} key={idx} onClick={()=>setActiveTab(idx)}>{ele.name}</li>})
             }
           </ul>
-          <div className='tap__contents'>
+          <div className={style.tap__contents}>
             {/* 내용 */}
             {taps[activeTab].content}
             </div>

@@ -1,5 +1,5 @@
 .row {
-  margin: 80px 0;
+  margin: min(5vw,80px) 0;
 }
 
 .slider__title {
@@ -11,6 +11,7 @@
 .slider {
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .slider:hover .arrow__wrap {
@@ -44,26 +45,34 @@
   display: flex;
   overflow-x: scroll;
   padding: 20px 0 20px 20px;
+  gap: min(2.5vw, 25px);
 }
 
 .row__posters::-webkit-scrollbar {
   display: none;
 }
 
-.row__poster.noSelect {
+/* .movie__wrap.noSelect{
   -ms-user-select: none;
   -moz-user-select: -moz-none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   user-select: none;
   pointer-events: none;
+} */
+
+.movie__wrap {
+  display: grid;
 }
 
 .poster__wrap {
-  margin-right: 20px;
+  width: min(40vw,350px);
+  box-sizing: border-box;
   border: 3px solid rgba(249, 249, 249, 0);
+  border-radius: 10px;
   transition: transform 0.6s;
-  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
 }
 
 .poster__wrap:hover{
@@ -72,15 +81,24 @@
 }
 
 .poster__img {
-  max-height: 160px;
-  object-fit: contain;
-  border-radius: 4px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
   vertical-align: bottom;
 }
 
-.poster-title{
-  font-size: clamp(1.2rem, 2vw, 1.4rem);
-  margin: 12px 0 0 0;
+.title__wrap {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.movie__title{
+  font-size: clamp(1.2rem, 1.2vw, 1.6rem);
+  word-break: keep-all;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .slider__arrow-right {
@@ -97,14 +115,8 @@
   transform: scale(1.5);
 }
 
-@media screen and (max-width: 1200px) {
+/* @media screen and (max-width: 1200px) {
   .poster__img {
-    max-height: 150px;
+    max-height: 120px;
   }
-}
-
-@media screen and (max-width:420px) {
-  .poster__img {
-    max-height: 180px;
-  }
-}
+} */

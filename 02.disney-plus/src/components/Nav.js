@@ -130,6 +130,7 @@ const Header = styled.header`
     background-repeat: no-repeat;
     background-position: center;
     transition: all 0.2s 0.2s;
+    cursor: pointer;
   }
 
   &.on {

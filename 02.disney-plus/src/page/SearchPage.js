@@ -2,7 +2,7 @@ import axiosInstance from '../api/axios';
 import React, { useEffect } from 'react'
 import { useLocation, useNavigate, useOutletContext } from'react-router-dom';
 import { useDebounce } from '../hooks/useDebounce';
-import '../css/SearchPage.css';
+import style from '../css/SearchPage.module.css';
 
 function SearchPage(){
   // state
@@ -23,7 +23,8 @@ function SearchPage(){
   async function fetchSearchMovie(searchTerm){
     try {
       const response = await axiosInstance.get(`/search/multi?include_adult=false&query=${searchTerm}`)
-      setSearchResults(response.data.results);
+      const filterResponse = response.data.results.filter((ele)=>ele.backdrop_path && ele.backdrop_path !== null)
+      setSearchResults(filterResponse);
     }
     catch (error) {
       console.error(error);
@@ -35,32 +36,30 @@ function SearchPage(){
     setIsSearchActive(false);
   }
 
-  if(searchResults.filter((ele)=>ele.backdrop_path && ele.backdrop_path !== null).length > 0){
+  if(searchResults.length > 0){
     return (
-      <section className='search__container'>
-        <div className='movie__container'>
+      <section className={style.search__container}>
+        <div className={style.search__wrap}>
         {searchResults.map(function(ele){
-          if(ele.backdrop_path && ele.backdrop_path !== null){
             const movieImageUrl = "https://image.tmdb.org/t/p/w500/" + ele.backdrop_path;
             return(
-                <div className='movie' key={ele.id}>
-                  <div className='movie__column-poster' onClick={()=>{handleMovieClick(ele)}}>
-                    <img src={movieImageUrl} alt='movie' className='movie__poster'/>
-                    <p className='movie__title'>{ ele.title || ele.name }</p>
+                <div className={style.movie__wrap} key={ele.id}>
+                  <div className={style.poster__wrap}>
+                    <img src={movieImageUrl} alt='movie' className={style.poster__img} onClick={()=>{handleMovieClick(ele)}}/>
+                  </div>
+                  <div className={style.title__wrap}>
+                    <p className={style.movie__title}>{ ele.title || ele.name }</p>
                   </div>
                 </div>
-            )
-          }
-          return null;
-        })}
+            )})}
         </div>
       </section>
     )
   }
   else {
     return (
-      <section className='no-results'>
-        <div className='no-results__text'>
+      <section className={style['no-results']}>
+        <div className={style['no-results__text']}>
           <p>"{searchTerm}" 에 대한 검색 결과 없음</p>
         </div>
       </section>
