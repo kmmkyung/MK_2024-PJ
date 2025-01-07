@@ -16,11 +16,12 @@ import CompanyPage from './page/CompanyPage';
 
 function Layout(){
   let [ searchResults, setSearchResults ] = useState([]);
+  const [ isSearchActive, setIsSearchActive ] = useState(false);
 
   return (
     <>
-      <Nav searchResults = {searchResults}></Nav>
-      <Outlet context = {{searchResults, setSearchResults}}/>
+      <Nav searchResults = {searchResults} isSearchActive={isSearchActive} setIsSearchActive={setIsSearchActive}></Nav>
+      <Outlet context = {{searchResults, setSearchResults, setIsSearchActive}}/>
       <Footer></Footer>
     </>
   )

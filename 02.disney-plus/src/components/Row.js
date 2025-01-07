@@ -121,7 +121,7 @@ function Row(props) {
           <span className='arrow' >{'>'}</span>
         </div>
       </div>
-      {modalOpen ? <MovieModal setModalOpen={setModalOpen} movieSelected={movieSelected}></MovieModal> : null}
+      {modalOpen ? <MovieModal setModalOpen={setModalOpen} movieSelected={movieSelected} mediaType={props.mediaType}></MovieModal> : null}
     </div>
   )
 }

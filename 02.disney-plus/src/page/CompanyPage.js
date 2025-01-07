@@ -1,16 +1,17 @@
 import axiosInstance from '../api/axios';
 import React, { useEffect, useState } from 'react'
-import { useParams, useLocation } from'react-router-dom';
+import { useParams, useLocation, useNavigate } from'react-router-dom';
 import '../css/CompanyPage.css';
 
 
 function CompanyPage() {
   const { companyName } = useParams();
   const location = useLocation();
+  const navigate = useNavigate();
   const company = location.state.company
   
   // state
-  let [ program, setProgram ] = useState();
+  let [ program, setProgram ] = useState([]);
 
   // effect
   useEffect(()=>{
@@ -41,21 +42,38 @@ function CompanyPage() {
     fetchData()
   },[companyName, company])
 
+  // function
+  function handleNavigate(ele) {
+    console.log(ele);
+    
+    navigate(`/detail/${ele.id}`, { state: { data: {...ele, media_type: company.mediaType}}}) 
+  }
+
   return (
     <section className='company__section'>
       <div className='company__container'>
         <div className='company__info'>
-          <div className='info__wrap--bg' >
+          <div className='info__wrap--bg'>
             <video className='info__video' autoPlay muted loop>
               <source src={company.video} type='video/mp4'/>
             </video>
             <div className='info__bgImg' style={{'backgroundImage':`url(${company.backgroundImg})`}}></div>
           </div>
           <div className='info__wrap--logo'>
-            <img className='info__logo' src={company.logo} alt=''/>
+            <img className='info__logo' src={company.logo} alt='company logo'/>
           </div>
         </div>
         <div className='company__content'>
+          {program.map(function (ele) {
+          
+              return (
+                <div className='content__item' key={ele.id} onClick={()=>{handleNavigate(ele)}}>
+                  <img className='item__img' src={`https://image.tmdb.org/t/p/original/${ele.backdrop_path}`} alt={ele.name} />
+                  <h6 className='item__title'>{ele.title || ele.name}</h6>
+                </div>
+              );
+          })}
+
         </div>
       </div>
       <div className='company__bg'></div>

@@ -7,7 +7,7 @@ import '../css/SearchPage.css';
 function SearchPage(){
   // state
   const navigate = useNavigate();
-  const { searchResults, setSearchResults } = useOutletContext();
+  const { searchResults, setSearchResults, setIsSearchActive } = useOutletContext();
 
   // use effect
   let query = new URLSearchParams(useLocation().search); // ?movieTitle=검색어
@@ -30,6 +30,11 @@ function SearchPage(){
     }
   }
 
+  function handleMovieClick(ele) {
+    navigate(`/detail/${ele.id}`, { state: { data: ele } });
+    setIsSearchActive(false);
+  }
+
   if(searchResults.filter((ele)=>ele.backdrop_path && ele.backdrop_path !== null).length > 0){
     return (
       <section className='search__container'>
@@ -39,7 +44,7 @@ function SearchPage(){
             const movieImageUrl = "https://image.tmdb.org/t/p/w500/" + ele.backdrop_path;
             return(
                 <div className='movie' key={ele.id}>
-                  <div className='movie__column-poster' onClick={()=>{navigate(`/detail/${ele.id}`,{state:{data:ele}})} }>
+                  <div className='movie__column-poster' onClick={()=>{handleMovieClick(ele)}}>
                     <img src={movieImageUrl} alt='movie' className='movie__poster'/>
                     <p className='movie__title'>{ ele.title || ele.name }</p>
                   </div>

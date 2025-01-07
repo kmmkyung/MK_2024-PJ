@@ -68,7 +68,7 @@ const Container = styled.div`
   }
 
   @media screen and (max-width: 420px) {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 `
 

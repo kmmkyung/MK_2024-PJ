@@ -2,29 +2,31 @@ import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from'styled-components'
 
-function Nav({searchResults}) {
+function Nav({searchResults, isSearchActive, setIsSearchActive}) {
   // state
   const [ isHeaderVisible, setIsHeaderVisible] = useState(false);
-  const [ isSearchActive, setIsSearchActive ] = useState(false);
   const [ searchValue, setSearchValue ] = useState('');
   const pathName = useLocation().pathname;
   const navigate = useNavigate();
 
   // effect
-  useEffect(() => { // 검색어 갱신이 되면
+  // 검색어 갱신되면 검색창 상태 초기화
+  useEffect(() => {
       document.querySelector('.shadow')?.classList.add('searchEnd');
       document.querySelector('body').style.overflow = 'auto';
       window.scrollTo(0, 0);
       setIsHeaderVisible(false)
   }, [searchResults]);
 
+  // 검색창 닫힘 + 검색내용 없음 + search 페이지일 경우 main으로 이동 
   useEffect(() => {
-    if (!isSearchActive && !searchValue && window.location.pathname === '/search') { // search페이지에서 검색모드, 검색어가 없으면 Main이동
+    if (!isSearchActive && !searchValue && window.location.pathname === '/search') {
       setIsHeaderVisible(false)
       navigate(`/main`);
     }
   }, [isSearchActive, searchValue, navigate]);
 
+  // 스크롤시 nav 배경색 바꿈
   useEffect(()=>{
     function handleScroll(){
       if(window.scrollY > 50 && !isSearchActive ){ setIsHeaderVisible(true); }

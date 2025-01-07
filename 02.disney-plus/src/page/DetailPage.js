@@ -28,7 +28,7 @@ function DetailPage(){
         const programMedia = mediaType === 'movie' ? `/movie/${programId}` : `/tv/${programId}`;
         const response = await axiosInstance.get(programMedia);
         setProgram(response.data);
-        console.log(response.data);
+        // console.log(response.data);
 
         const creditsMedia = mediaType === 'movie' ? `/movie/${programId}/credits` : `/tv/${programId}/credits`;
         const responseCredits = await axiosInstance.get(creditsMedia);
