@@ -29,7 +29,7 @@ function Nav({searchResults, isSearchActive, setIsSearchActive}) {
   // 스크롤시 nav 배경색 바꿈
   useEffect(()=>{
     function handleScroll(){
-      if(window.scrollY > 50 && !isSearchActive ){ setIsHeaderVisible(true); }
+      if(window.scrollY > 200 && !isSearchActive ){ setIsHeaderVisible(true); }
       else{ setIsHeaderVisible(false); }
     }
     
@@ -110,7 +110,7 @@ const Header = styled.header`
   right: 0;
   height: 70px;
   background-color: ${props =>  props.$isHeaderVisible ? "#090b13" : "transparent"};
-  z-index: 3;
+  z-index: 5;
   transition: background-color 0.3s;
 
   .header__wrap{

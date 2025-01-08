@@ -10,9 +10,9 @@ html, body, h1, h2, h3, h4, h5, h6, p, ul, ol, button, form, input{
 
 
 body {
-  background-color: #040714;
+  background-color: #1A1D29;
   color: #f9f9f9;
-  font-family: Avenir-Roman, sans-serif;
+  font-family: "Noto Sans KR", "Roboto", sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -40,8 +40,4 @@ button{
 a:focus, button:focus, input:focus{
   border: none;
   outline: none;
-}
-
-h1, h2, h3, h4, h5, h6, p, span{
-  font-family: "Noto Sans KR", "Roboto", sans-serif;
 }

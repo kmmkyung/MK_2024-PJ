@@ -1,6 +1,8 @@
 import axiosInstance from '../api/axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams, useLocation, useNavigate } from'react-router-dom';
+import { LoadingContext } from '../context/LoadingContext';
+import { useScrollBgOpacity } from '../hooks/useScrollBgColor';
 import style from '../css/CompanyPage.module.css';
 
 
@@ -10,41 +12,68 @@ function CompanyPage() {
   const navigate = useNavigate();
   const company = location.state.company
   
+  // context
+  const { setIsLoading } = useContext(LoadingContext);
+
   // state
   let [ program, setProgram ] = useState([]);
-
+  let [ moreButtonClick, setMoreButtonClick ] = useState(false);
+  let [ filterResponse, setFilterResponse ] = useState([]);
+  
   // effect
   useEffect(()=>{
+    const { mediaType, standard, companyId } = company;
     async function fetchData(){
-      const { mediaType, standard, companyId } = company;
-      let searchResult = [];
+      // 링크
+      function buildUrl(companyId, pageNumber){
+        return `/discover/${mediaType}?${standard}=${companyId}&sort_by=release_date.desc&page=${pageNumber}`
+      }
 
+      // response 데이터 필터링
+      function splitResponses(responsePageAll) {
+        const validResults = responsePageAll.filter((ele) => ele.backdrop_path);
+        return [validResults.slice(0, 20), validResults.slice(20)];
+      }
+
+      let responsePageAll
       if(companyId.length === 1) {
-        const response = await axiosInstance.get(`/discover/${mediaType}?${standard}=${companyId[0]}&sort_by=release_date.desc`)
-        const filterResponse = response.data.results.filter((ele)=>ele.backdrop_path && ele.backdrop_path !== null)
-        searchResult = filterResponse;     
+        const responsePage1 = await axiosInstance.get(buildUrl(companyId[0],1))
+        const responsePage2 = await axiosInstance.get(buildUrl(companyId[0],2))
+        responsePageAll = [...responsePage1.data.results, ...responsePage2.data.results]
       }
       else{
         const responses = await Promise.all(
           companyId.map( async function(ele){
-            const response = await axiosInstance.get(`/discover/${mediaType}?${standard}=${ele}&sort_by=release_date.desc`)
+            const response = await axiosInstance.get(buildUrl(ele,1))
             return response.data.results;
           })
         )
-        const filterResponse = responses.flat().filter((ele)=>ele.backdrop_path && ele.backdrop_path !== null)
-        .sort((first, last) => new Date(last.release_date) - new Date(first.release_date))
-        .slice(0,20)
-        searchResult = filterResponse;      
+        responsePageAll = responses.flat().filter((ele)=>ele.backdrop_path && ele.backdrop_path !== null)
       }
-      setProgram(searchResult)
-      console.log(searchResult);
+      const splitData = splitResponses(responsePageAll);
+      setFilterResponse(splitData);
+      setProgram(splitData[0]);
     }
     fetchData()
-  },[companyName, company])
+  },[company, companyName])
+
+  useEffect(()=>{
+    let setTimeId;
+    if(moreButtonClick){
+      setIsLoading(true);
+      setTimeId = setTimeout(()=>{
+        setProgram((prev)=> [...prev, ...filterResponse[1]])
+        setIsLoading(false);
+      },500)
+    }
+    return () => { clearTimeout(setTimeId) };
+  },[moreButtonClick])
+
+  const backgroundImg = document.querySelector(`.${style['info__wrap-bg']}`)
+  useScrollBgOpacity(backgroundImg)
 
   // function
   function handleNavigate(ele) {
-    console.log(ele);
     navigate(`/detail/${ele.id}`, { state: { data: {...ele, media_type: company.mediaType}}}) 
   }
 
@@ -67,15 +96,17 @@ function CompanyPage() {
           {program.map(function (ele) {
               return (
                 <div className={style.movie__wrap} key={ele.id}>
-                  <div className={style.content__item}>
-                    <img className={style.item__img} src={`https://image.tmdb.org/t/p/original/${ele.backdrop_path}`} alt={ele.name} onClick={()=>{ handleNavigate(ele) }}/>
+                  <div className={style.poster__wrap}>
+                    <img className={style.poster__img} src={`https://image.tmdb.org/t/p/original/${ele.backdrop_path}`} alt={ele.name} onClick={()=>{ handleNavigate(ele) }}/>
                   </div>
-                    <h6 className={style.item__title}>{ele.title || ele.name}</h6>
+                  <div className={style.title__wrap}>
+                    <h6 className={style.movie__title}>{ele.title || ele.name}</h6>
+                  </div>
                 </div>
               );
           })}
-
         </div>
+        {!moreButtonClick ? <button className={style.button__more} onClick={()=>setMoreButtonClick(true)}>More</button> : null}
       </div>
     </section>
   )

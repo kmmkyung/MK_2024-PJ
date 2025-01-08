@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { LoadingContext } from '../context/LoadingContext';
 import axiosInstance from '../api/axios';
+import { useScrollBgOpacity } from '../hooks/useScrollBgColor';
 import style from '../css/DetailPage.module.css';
 
 function DetailPage(){
@@ -75,8 +76,6 @@ function DetailPage(){
     listOn()
   },[programId, collection, similar, activeTab])
 
-if( !program ) return null;
-
   // tap data
   const taps = [
     collection &&
@@ -121,7 +120,7 @@ if( !program ) return null;
           })}
         </div>
     },
-    {
+    program && {
       name: 'info',
       content: 
       <div className={`${style['tap__content-info']} ${style.tap__content}`}>
@@ -183,6 +182,8 @@ if( !program ) return null;
   ].filter(Boolean);
 
   // function
+  const backgroundImg = document.querySelector(`.${style.detail__bg}`)
+  useScrollBgOpacity(backgroundImg)
 
   // component
   function MainContentMovie(){
@@ -209,28 +210,34 @@ if( !program ) return null;
     )
   }
 
-  return (
-    <section className={style.detail__container}>
-      <div className={style.detail__bg} style={{backgroundImage:`url('https://image.tmdb.org/t/p/original/${program.backdrop_path}')`}}></div>
-      <div className={style.detail__wrap}>
-        <div className={style.main__container}>
-          <h1 className={style.main__title}>{program.title || program.name}</h1>
-            { mediaType === 'movie' ? <MainContentMovie/> : <MainContentTv/> }
+  if(program){
+    return (
+      <section className={style.detail__container}>
+        <div className={style.detail__bg} style={{backgroundImage:`url('https://image.tmdb.org/t/p/original/${program.backdrop_path}')`}}></div>
+        <div className={style.detail__wrap}>
+          <div className={style.main__container}>
+            <h1 className={style.main__title}>{program.title || program.name}</h1>
+              { mediaType === 'movie' ? <MainContentMovie/> : <MainContentTv/> }
+          </div>
+          <div className={style.detail__tap}>
+            <ul className={style.tap__list}>
+              { taps.map(function(ele,idx){
+                return <li className={`${style.list__item} ${activeTab === idx ? style.on : ''}`} key={idx} onClick={()=>setActiveTab(idx)}>{ele.name}</li>})
+              }
+            </ul>
+            <div className={style.tap__contents}>
+              {/* 내용 */}
+              { taps[activeTab].content}
+              </div>
+          </div>
         </div>
-        <div className={style.detail__tap}>
-          <ul className={style.tap__list}>
-            { taps.map(function(ele,idx){
-              return <li className={`${style.list__item} ${activeTab === idx ? style.on : ''}`} key={idx} onClick={()=>setActiveTab(idx)}>{ele.name}</li>})
-            }
-          </ul>
-          <div className={style.tap__contents}>
-            {/* 내용 */}
-            {taps[activeTab].content}
-            </div>
-        </div>
-      </div>
-    </section>
-  )
+      </section>
+    )
+  }
+  else {
+    return null; // program이 null일 때는 아무것도 렌더링하지 않음
+  }
+
 }
 
 
