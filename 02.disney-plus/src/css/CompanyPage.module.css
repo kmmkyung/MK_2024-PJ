@@ -42,17 +42,10 @@
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 2s;
 }
-
-.company__bg-scroll {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  /* background-color: #ffffff5e; */
-}
-
 
 .info__wrap-logo {
   position: relative;
@@ -62,7 +55,17 @@
   justify-content: center;
   height: calc( 30vw - 7px);
   padding: 0 100px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 2s 0.5s;
 }
+
+.end .info__bgImg,
+.end .info__wrap-logo  {
+  opacity: 1;
+  visibility: visible;
+}
+
 
 .info__logo {
   width: 100%;
@@ -103,7 +106,6 @@
   object-fit: cover;
   vertical-align: bottom;
 }
-
 
 .title__wrap {
   width: 100%;

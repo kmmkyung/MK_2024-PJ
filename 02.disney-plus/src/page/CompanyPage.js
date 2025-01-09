@@ -19,6 +19,7 @@ function CompanyPage() {
   let [ program, setProgram ] = useState([]);
   let [ moreButtonClick, setMoreButtonClick ] = useState(false);
   let [ filterResponse, setFilterResponse ] = useState([]);
+  let [ videoEnded , setVideoEnded] = useState(false);
   
   // effect
   useEffect(()=>{
@@ -77,16 +78,19 @@ function CompanyPage() {
     navigate(`/detail/${ele.id}`, { state: { data: {...ele, media_type: company.mediaType}}}) 
   }
 
+  function videoEndedFn(){
+    setVideoEnded(true);
+  }
+
   return (
     <section className={style.company__section}>
       <div className={style.company__container}>
-        <div className={style.company__info}>
+        <div className={`${style.company__info} ${videoEnded? style.end : ''}`}>
           <div className={style['info__wrap-bg']}>
-            <video className={style.info__video} autoPlay muted loop>
+            <video className={style.info__video} autoPlay muted onEnded={videoEndedFn} >
               <source src={company.video} type='video/mp4'/>
             </video>
-            <div className={style.info__bgImg} style={{'backgroundImage':`url(${company.backgroundImg})`}}></div>
-            <div className={style['company__bg-scroll']}></div>
+            <div className={style.info__bgImg} style={{'backgroundImage':`url(${company.backgroundImg})`}} ></div>
           </div>
           <div className={style['info__wrap-logo']}>
             <img className={style.info__logo} src={company.logo} alt='company logo'/>

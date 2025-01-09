@@ -10,24 +10,27 @@ import Row from '../components/Row';
 
 function MainPage(){
   return(
-    <Container>
+  <Main>
     <Banner></Banner>
-    <Category></Category>
-    <Row title="Trending Now" id="TN" fetchUrl={requests.fetchTrending}></Row>
-    <Row title="Top Rated" id="TR" mediaType='movie' fetchUrl={requests.fetchTopRated}></Row>
-    <Row title="Now Movies" id="TM" mediaType='movie' fetchUrl={requests.fetchNowPlaying}></Row>
-    <Row title="Action Movies" id="AM" mediaType='movie' fetchUrl={requests.fetchActionMovies}></Row>
-    <Row title="Comedy Movies" id="CM" mediaType='movie' fetchUrl={requests.fetchComedyMovies}></Row>
-  </Container>
+    <Container>
+      <Category></Category>
+      <Row title="Trending Now" id="TN" fetchUrl={requests.fetchTrending}></Row>
+      <Row title="Top Rated" id="TR" mediaType='movie' fetchUrl={requests.fetchTopRated}></Row>
+      <Row title="Now Movies" id="TM" mediaType='movie' fetchUrl={requests.fetchNowPlaying}></Row>
+      <Row title="Action Movies" id="AM" mediaType='movie' fetchUrl={requests.fetchActionMovies}></Row>
+      <Row title="Comedy Movies" id="CM" mediaType='movie' fetchUrl={requests.fetchComedyMovies}></Row>
+    </Container>
+  </Main>
   )
 }
 
 export default MainPage;
 
-const Container = styled.main`
-  min-height: calc(100vh - 250px);
-  overflow-x: hidden;
-  padding: 70px calc(3.5vw + 5px);
+const Main = styled.main`
+  padding: 100px 0;
   background: url("/images/home-background.png") center center / cover no-repeat fixed;
+`
+  const Container = styled.main`
+  padding: 0 calc(3.5vw + 5px);
   }
 `;

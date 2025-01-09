@@ -1,4 +1,4 @@
-.row {
+a.row {
   margin: min(5vw,80px) 0;
 }
 
@@ -51,15 +51,6 @@
 .row__posters::-webkit-scrollbar {
   display: none;
 }
-
-/* .movie__wrap.noSelect{
-  -ms-user-select: none;
-  -moz-user-select: -moz-none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  user-select: none;
-  pointer-events: none;
-} */
 
 .movie__wrap {
   display: grid;
@@ -114,9 +105,3 @@
 .arrow:hover {
   transform: scale(1.5);
 }
-
-/* @media screen and (max-width: 1200px) {
-  .poster__img {
-    max-height: 120px;
-  }
-} */

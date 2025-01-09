@@ -8,9 +8,6 @@ function Row(props) {
   let [ movies, setMovies ] = useState([]); // 영화 정보
   let sliderRef = useRef(0); // row__posters 요소 참조
   let touchStartX = useRef(0); // 터치 시작 위치
-  let dragStartX = useRef(0); // 드래그 시작 위치
-  let scrollLeft = useRef(0); // 스크롤 위치
-  let isDragging = false; // 드래그 중
   let [ modalOpen, setModalOpen ] = useState(false); // 모달
   let [ movieSelected, setMovieSelected ] = useState({}); // 선택된 영화
   
@@ -50,47 +47,6 @@ function Row(props) {
     }
   };
   
-  // 드래그 이벤트
-  function noSelectDrag(){
-    const rowId = document.querySelector('#'+sliderRef.current.getAttribute('id'));
-    const rowPoster = rowId.querySelectorAll(`.${style.movie__wrap}`)
-    rowPoster.forEach(function(ele){
-      if( isDragging ){
-        ele.classList.add('noSelect')
-      }
-      else {
-        ele.classList.remove('noSelect')
-      }
-    })
-  }
-  
-
-  function handleMouseDown(event){
-    isDragging = true;
-    dragStartX.current = event.pageX - sliderRef.current.scrollLeft; // 드래그 시작 위치 (슬라이드 좌측 + / 슬라이드 우측 - 값)
-    scrollLeft.current = sliderRef.current.scrollLeft; // 스크롤 위치    
-    sliderRef.current.style.cursor = "grabbing"; // 드래그 중 커서
-    sliderRef.current.style.scrollBehavior = "auto"; // 부드러운 스크롤 제거
-  };
-  
-  function handleMouseMove(event){
-    if(!isDragging){ return }
-    noSelectDrag()
-    event.preventDefault();
-    const currentX = event.pageX; // 현재 마우스 위치
-    const moveX = currentX - dragStartX.current; // 드래그한 거리
-
-    sliderRef.current.scrollLeft = scrollLeft.current + (scrollLeft.current - moveX);
-  }
-
-  function handleMouseUp(){
-    isDragging = false;
-    sliderRef.current.style.cursor = "grab";
-    sliderRef.current.style.scrollBehavior = "smooth";
-    noSelectDrag()
-    scrollLeft.current = sliderRef.current.scrollLeft;
-  }
-
   function movieModalOpen(movie){
     setModalOpen(true);
     setMovieSelected(movie);
@@ -105,8 +61,7 @@ function Row(props) {
           <span className={style.arrow} >{'<'}</span>
         </div>
         <div className={style.row__posters} id={props.id} ref={sliderRef}
-        // onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}
-        onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}
+        onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} 
         >
         {movies.map(function(ele){
           return <div className={style.movie__wrap} key={ele.id}>

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import { useNavigate } from'react-router-dom';
 import style from '../css/MovieModal.module.css';
 
@@ -10,20 +10,25 @@ function MovieModal(props){
   //state
   const [closing, setClosing] = useState(false);
 
-  // useEffect
-  useEffect(()=>{
-    refModalBg.current.addEventListener('click',()=>{
-      modalClose();
-    })
-  },[])
-
   //function
-  function modalClose(){
+  const modalClose = useCallback(() => {
     setClosing(true);
     setTimeout(() => {
       props.setModalOpen(false);
-    }, 450); 
-  }
+    }, 450);
+  }, [props]);
+
+  // useEffect
+  useEffect(()=>{
+    const refModalBgEl = refModalBg.current
+    refModalBgEl.addEventListener('click',modalClose)
+    refModalBgEl.addEventListener('touchstart',modalClose)
+    
+    return ()=>{
+      refModalBgEl.removeEventListener('click',modalClose)
+      refModalBgEl.removeEventListener('touchstart',modalClose)
+    }
+  },[modalClose])
 
   function handleMovieClick(){
     if(props.mediaType){

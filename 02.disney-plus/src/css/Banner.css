@@ -1,23 +1,110 @@
 .banner {
   width: 100%;
-  position: relative;
+  aspect-ratio: 1/0.28;
+  padding-bottom: 40px;
+  overflow: hidden;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  overflow: visible !important;
+}
+
+.swiper-slide {
   box-shadow: rgba(0, 0, 0, 0.69) 0px 26px 30px -10px, rgba(0, 0, 0, 0.73) 0px 16px 10px -10px;
-  border-radius: 10px;
-  aspect-ratio: 3/1;
+  border-radius: 20px;
+  overflow: hidden; 
+  background-position: center;
+  background-size: 120%;
+  transition: all 0.6s;
+}
+
+.swiper-slide.swiper-slide-active {
+  background-size: 105%;
+}
+
+.swiper-pagination {
+  bottom: -28px !important;
+}
+
+.swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active{
+  background: #fff;
+}
+
+.swiper-button-prev {
+  color: transparent !important;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0));
+  height: 100%;
+  top: 0;
+  margin: 0;
+  left: 0;
+  width: 8vw;
+  transition: all 0.4s;
+}
+
+.swiper-button-next {
+  color: transparent !important;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  height: 100%;
+  top: 0;
+  right: 0;
+  margin: 0;
+  width: 8vw;
+  transition: all 0.4s;
+}
+
+.swiper-button-prev:hover, .swiper-button-next:hover {
+  color: #fff !important;
+}
+
+.swiper-button-prev:after, .swiper-button-next:after {
+  font-size: clamp(1.6rem, 3vw, 4rem) !important;
 }
 
 .banner__contents {
-  color: #fff;
-  padding: 0 40px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: min(5vw,80px);
+  box-sizing: border-box;
+}
+
+.banner__contents::after{
+  transition: all 0.4s;
+  content: '';
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 3px solid rgba(246, 246, 246, 0);;
+  border-radius: 20px;
+  box-sizing: border-box;
+  background: radial-gradient(farthest-side at 65% 25%, transparent, rgba(26, 29, 41, 0.3));
+}
+
+.banner__contents:hover::after{
+  border: 3px solid rgba(255, 255, 255, 0.8);
+}
+
+.banner__wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .banner__title {
-  font-size: clamp(1.8rem, 6vw, 4rem);
+  font-size: clamp(1.6rem, 3vw, 4rem);
   font-weight: 800;
-  padding-bottom: 1.4rem;
 }
 
 .banner__description {
@@ -26,6 +113,8 @@
   font-size: clamp(1.2em, 1.8vw, 1.6rem);
   font-weight: 500;
   max-width: 500px;
+  margin-top: 1.4rem;
+
   word-break: keep-all;
 
   overflow: hidden;
@@ -35,15 +124,14 @@
   -webkit-box-orient: vertical;
 }
 
-@media screen and (max-width: 1500px) { /* 1500px 이햐 */
+
+@media screen and (max-width: 768px) {
   .banner {
     aspect-ratio: 1/0.5;
   }
-}
 
-@media screen and (max-width: 768px) {
-  .banner__contents {
-    padding: 0 20px;
+  .banner__wrap {
+    justify-content: end;
   }
 
   .banner__description {

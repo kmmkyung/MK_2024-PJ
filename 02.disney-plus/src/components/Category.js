@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import styled from'styled-components';
+import styled from 'styled-components';
 import companiesData from '../data/companiesData';
 function Category() {
   // state
@@ -57,7 +57,6 @@ function Category() {
 export default Category;
 
 const Container = styled.div`
-  margin-top: 30px;
   padding: 30px 0 26px;
   display: grid;
   gap: 25px;
