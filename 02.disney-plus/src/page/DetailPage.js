@@ -20,6 +20,7 @@ function DetailPage(){
   let [ similar, setSimilar ] = useState();
   let [ credits, setCredits ] = useState();
   let [ activeTab, setActiveTab ] = useState(0);
+  let [ sectionMovieId, setSectionMovieId ] = useState(true);
   
   // function
   async function noSearchFetchMediaData(id) {
@@ -53,29 +54,26 @@ function DetailPage(){
           responseMedia = await axiosInstance.get(programMedia);
         }
         
-        setProgram(responseMedia.data);
-        
+        if(responseMedia){
+          setProgram(responseMedia.data)
+          const creditsMedia = (responseMedia.data.media_type || locationData.media_type) === 'movie' ? `/movie/${programId}/credits` : `/tv/${programId}/credits`;
+          const responseCredits = await axiosInstance.get(creditsMedia);
+          if(responseCredits.data.cast.length > 0){ setCredits(responseCredits.data);}
+          else setCredits(null);
 
-        const creditsMedia = (responseMedia.data.media_type || locationData.media_type) === 'movie' ? `/movie/${programId}/credits` : `/tv/${programId}/credits`;
-        const responseCredits = await axiosInstance.get(creditsMedia);
-        if(responseCredits.data.cast.length > 0){
-          setCredits(responseCredits.data);
+          const mediaSimilar = (responseMedia.data.media_type || locationData.media_type) === 'movie' ? `/movie/${programId}/similar` : `/tv/${programId}/similar`;
+          const responseSimilar = await axiosInstance.get(mediaSimilar);
+          if(responseSimilar.data.results.length > 0){ setSimilar(responseSimilar.data);}
+          else setSimilar(null);
+          
+          if(responseMedia.data.belongs_to_collection !== null && responseMedia.data.belongs_to_collection){
+            const collectionId = responseMedia.data.belongs_to_collection.id;
+            const responseCollection = await axiosInstance.get(`/collection/${collectionId}`);
+            setCollection(responseCollection.data);
+          }
+          else setCollection(null);
         }
-        else setCredits(null);
-
-        const mediaSimilar = (responseMedia.data.media_type || locationData.media_type) === 'movie' ? `/movie/${programId}/similar` : `/tv/${programId}/similar`;
-        const responseSimilar = await axiosInstance.get(mediaSimilar);
-        if(responseSimilar.data.results.length > 0){
-          setSimilar(responseSimilar.data);
-        }
-        else setSimilar(null);
-        
-        if(responseMedia.data.belongs_to_collection !== null && responseMedia.data.belongs_to_collection){
-          const collectionId = responseMedia.data.belongs_to_collection.id;
-          const responseCollection = await axiosInstance.get(`/collection/${collectionId}`);
-          setCollection(responseCollection.data);
-        }
-        else setCollection(null);
+        else { setSectionMovieId(false); setProgram(null);}
       }
       catch(err){
         console.log(err);
@@ -122,7 +120,17 @@ function DetailPage(){
                 </div>
               );
             }
-            return null;
+            else {
+              return (
+                <div className={style.movie__wrap} key={ele.id}>
+                  <div className={`${style.poster__wrap} ${style.noPoster__wrap}`} onClick={() => { navigate(`/detail/${ele.id}`, { state: { data: ele } }); }}>
+                  </div>
+                  <div className={style.title__wrap}>
+                    <h6 className={style.movie__title}>{ele.title}</h6>
+                  </div>
+                </div>
+              );
+            };
           })}
         </div>
     },  
@@ -266,7 +274,7 @@ function DetailPage(){
       </section>
     )
   }
-  else {
+  else if(!sectionMovieId) {
     return (
       <section className={style.no__program}>
         <p>존재하지 않는 프로그램입니다.</p>

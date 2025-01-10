@@ -101,6 +101,15 @@
   overflow: hidden;
 }
 
+.noPoster__wrap {
+  aspect-ratio: 1/0.6;
+  background-color: #000;
+  box-sizing: border-box;
+  border-radius: 10px;
+  transition: all 0.6s;
+  cursor: pointer;
+}
+
 .poster__wrap:hover {
   transform: scale(1.05);
   border-color: rgba(249, 249, 249, 0.8);
