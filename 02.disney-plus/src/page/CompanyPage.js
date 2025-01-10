@@ -1,16 +1,17 @@
 import axiosInstance from '../api/axios';
 import React, { useContext, useEffect, useState } from 'react'
-import { useParams, useLocation, useNavigate } from'react-router-dom';
+import { useParams, useNavigate } from'react-router-dom';
 import { LoadingContext } from '../context/LoadingContext';
 import { useScrollBgOpacity } from '../hooks/useScrollBgColor';
 import style from '../css/CompanyPage.module.css';
+import companiesData from '../data/companiesData';
+
 
 
 function CompanyPage() {
   const { companyName } = useParams();
-  const location = useLocation();
   const navigate = useNavigate();
-  const company = location.state.company
+  const company = companiesData.find((item) => item.companyName === companyName);  
   
   // context
   const { setIsLoading } = useContext(LoadingContext);
@@ -68,7 +69,7 @@ function CompanyPage() {
       },500)
     }
     return () => { clearTimeout(setTimeId) };
-  },[moreButtonClick])
+  },[moreButtonClick,filterResponse,setIsLoading])
 
   const backgroundImg = document.querySelector(`.${style['info__wrap-bg']}`)
   useScrollBgOpacity(backgroundImg)

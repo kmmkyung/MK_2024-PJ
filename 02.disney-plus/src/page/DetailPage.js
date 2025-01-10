@@ -10,45 +10,72 @@ function DetailPage(){
   const { setIsLoading } = useContext(LoadingContext);
 
   // state
+  let programId = useParams().programId;
   const navigate = useNavigate();
   const location = useLocation();
-  const mediaType = location.state.data.media_type;
 
-  let programId = useParams().programId;
+  const locationData = location.state?.data;
   let [ program, setProgram ] = useState();
   let [ collection, setCollection ] = useState();
   let [ similar, setSimilar ] = useState();
   let [ credits, setCredits ] = useState();
   let [ activeTab, setActiveTab ] = useState(0);
   
+  // function
+  async function noSearchFetchMediaData(id) {
+    try {
+      const programMediaMovie = await axiosInstance.get(`/movie/${id}`);
+      programMediaMovie.data.media_type = 'movie'
+      return programMediaMovie
+    } catch (movieError) {
+      console.error('영화 데이터 요청 없음:', movieError.message);
+    }
+    try {
+      const programMediaTv = await axiosInstance.get(`/tv/${id}`);
+      programMediaTv.data.media_type = 'tv'
+      return programMediaTv
+    } catch (tvError) {
+      console.error('TV 데이터 요청 없음:', tvError.message);
+    }
+  }
+
   // effect
   useEffect(()=>{
     async function fetchData(){
+      let responseMedia, programMedia
       try{
         setIsLoading(true); // 로딩시작
-        const programMedia = mediaType === 'movie' ? `/movie/${programId}` : `/tv/${programId}`;
-        const response = await axiosInstance.get(programMedia);
-        setProgram(response.data);
-        // console.log(response.data);
+        if(!locationData){ // 주소창에 쳐서 들어온 경우
+          responseMedia = await noSearchFetchMediaData(programId)
+        }
+        else{
+          programMedia = locationData.media_type === 'movie' ? `/movie/${programId}` : `/tv/${programId}`;
+          responseMedia = await axiosInstance.get(programMedia);
+        }
+        
+        setProgram(responseMedia.data);
+        
 
-        const creditsMedia = mediaType === 'movie' ? `/movie/${programId}/credits` : `/tv/${programId}/credits`;
+        const creditsMedia = (responseMedia.data.media_type || locationData.media_type) === 'movie' ? `/movie/${programId}/credits` : `/tv/${programId}/credits`;
         const responseCredits = await axiosInstance.get(creditsMedia);
-        setCredits(responseCredits.data);
+        if(responseCredits.data.cast.length > 0){
+          setCredits(responseCredits.data);
+        }
+        else setCredits(null);
 
-        const mediaSimilar = mediaType === 'movie' ? `/movie/${programId}/similar` : `/tv/${programId}/similar`;
+        const mediaSimilar = (responseMedia.data.media_type || locationData.media_type) === 'movie' ? `/movie/${programId}/similar` : `/tv/${programId}/similar`;
         const responseSimilar = await axiosInstance.get(mediaSimilar);
         if(responseSimilar.data.results.length > 0){
           setSimilar(responseSimilar.data);
-        }        
-
-        if(response.data.belongs_to_collection !== null && response.data.belongs_to_collection){
-          const collectionId = response.data.belongs_to_collection.id;
+        }
+        else setSimilar(null);
+        
+        if(responseMedia.data.belongs_to_collection !== null && responseMedia.data.belongs_to_collection){
+          const collectionId = responseMedia.data.belongs_to_collection.id;
           const responseCollection = await axiosInstance.get(`/collection/${collectionId}`);
           setCollection(responseCollection.data);
         }
-        else{
-          setCollection(null);
-        }
+        else setCollection(null);
       }
       catch(err){
         console.log(err);
@@ -59,7 +86,7 @@ function DetailPage(){
     }
     fetchData()
     setActiveTab(0);
-  },[programId, mediaType, setIsLoading])
+  },[locationData, programId, setIsLoading])
   
   useEffect(()=>{
     function listOn(){
@@ -108,7 +135,7 @@ function DetailPage(){
               return (
                 <div className={style.movie__wrap} key={ele.id}>
                   <div className={style.poster__wrap}>
-                    <img className={style.poster__img} src={`https://image.tmdb.org/t/p/original/${ele.backdrop_path}`} alt={ele.name} onClick={() => { navigate(`/detail/${ele.id}`, { state: { data: { ...ele, media_type: mediaType } } }); }}/>
+                    <img className={style.poster__img} src={`https://image.tmdb.org/t/p/original/${ele.backdrop_path}`} alt={ele.name} onClick={() => { navigate(`/detail/${ele.id}`, { state: { data: { ...ele, media_type: program.media_type || locationData.media_type } } }); }}/>
                   </div>
                   <div className={style.title__wrap}>
                     <h6 className={style.movie__title}>{ele.title || ele.name}</h6>
@@ -124,8 +151,8 @@ function DetailPage(){
       name: 'info',
       content: 
       <div className={`${style['tap__content-info']} ${style.tap__content}`}>
-        {mediaType === 'movie' ? 
-          <div className={style.info__container}>
+        { program?.media_type === 'movie' || locationData?.media_type === 'movie' ? 
+          (<div className={style.info__container}>
             <div className={style.info__left}>
               <h2 className={style.info__title}>{program.title || program.name}</h2>
               <p className={style.info__description}>{program.overview}</p>
@@ -144,14 +171,17 @@ function DetailPage(){
                 </p>
                 : null }
                 <p className={style.info__cast}>
+                  {credits ? <>
                   <span>배우: </span>
                   {credits && credits.cast.slice(0,6).map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
-                </p>
+                  </>
+                  : null}
+                  </p>
               </div>`
             </div>
-          </div>
+          </div>)
           :
-          <div className={style.info__container}>
+          (<div className={style.info__container}>
             <div className={style.info__left}>
               <h2 className={style.info__title}>{program.title || program.name}</h2>
               <p className={style.info__description}>{program.overview}</p>
@@ -170,12 +200,14 @@ function DetailPage(){
                 </p>
                 : null }
                 <p className={style.info__cast}>
-                  <span>배우: </span>
-                  {credits && credits.cast.slice(0,6).map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
-                </p>
+                  {credits ? <>
+                    <span>배우: </span>{credits.cast.slice(0,6).map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
+                  </>
+                  : null}
+                  </p>
               </div>
             </div>
-          </div>
+          </div>)
         }
       </div>
     }
@@ -217,7 +249,7 @@ function DetailPage(){
         <div className={style.detail__wrap}>
           <div className={style.main__container}>
             <h1 className={style.main__title}>{program.title || program.name}</h1>
-              { mediaType === 'movie' ? <MainContentMovie/> : <MainContentTv/> }
+              { program?.media_type === 'movie' || locationData?.media_type === 'movie' ? <MainContentMovie/> : <MainContentTv/> }
           </div>
           <div className={style.detail__tap}>
             <ul className={style.tap__list}>
@@ -235,7 +267,11 @@ function DetailPage(){
     )
   }
   else {
-    return null; // program이 null일 때는 아무것도 렌더링하지 않음
+    return (
+      <section className={style.no__program}>
+        <p>존재하지 않는 프로그램입니다.</p>
+      </section>
+    )
   }
 
 }

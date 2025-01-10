@@ -1,15 +1,13 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import companiesData from '../data/companiesData';
 function Category() {
   // state
   const navigate = useNavigate();
   
   // function
   function handleNavigate(companyName){
-    const company = companiesData.find((item) => item.companyName === companyName);
-    navigate(`/company/${companyName}`,{state: {company:company}});
+    navigate(`/company/${companyName}`);
   }
 
   return (

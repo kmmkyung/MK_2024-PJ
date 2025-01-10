@@ -53,35 +53,38 @@ function Row(props) {
   }
 
   // render
-  return (
-    <div className={style.row}>
-      <h2 className={style.slider__title}>{props.title}</h2>
-      <div className={style.slider}>
-        <div className={`${style['slider__arrow-left']} ${style.arrow__wrap}`} onClick={()=>handleSlide('left')}>
-          <span className={style.arrow} >{'<'}</span>
-        </div>
-        <div className={style.row__posters} id={props.id} ref={sliderRef}
-        onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} 
-        >
-        {movies.map(function(ele){
-          return <div className={style.movie__wrap} key={ele.id}>
-                  <div className={style.poster__wrap} >
-                    <img className={style.poster__img} src={`https://image.tmdb.org/t/p/original/${ele.backdrop_path}`} alt={ele.name}
-                    onClick={()=>movieModalOpen(ele)}/>
+  if(movies){
+    return (
+      <div className={style.row}>
+        <h2 className={style.slider__title}>{props.title}</h2>
+        <div className={style.slider}>
+          <div className={`${style['slider__arrow-left']} ${style.arrow__wrap}`} onClick={()=>handleSlide('left')}>
+            <span className={style.arrow} >{'<'}</span>
+          </div>
+          <div className={style.row__posters} id={props.id} ref={sliderRef}
+          onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} 
+          >
+          {movies.map(function(ele){
+            return <div className={style.movie__wrap} key={ele.id}>
+                    <div className={style.poster__wrap} >
+                      <img className={style.poster__img} src={`https://image.tmdb.org/t/p/original/${ele.backdrop_path}`} alt={ele.name}
+                      onClick={()=>movieModalOpen(ele)}/>
+                    </div>
+                    <div className={style.title__wrap}>
+                      <h6 className={style.movie__title}>{ele.name || ele.title}</h6>
+                    </div>
                   </div>
-                  <div className={style.title__wrap}>
-                    <h6 className={style.movie__title}>{ele.name || ele.title}</h6>
-                  </div>
-                </div>
-              })}
+                })}
+          </div>
+          <div className={`${style['slider__arrow-right']} ${style.arrow__wrap}`} onClick={()=>handleSlide('right')}>
+            <span className={style.arrow} >{'>'}</span>
+          </div>
         </div>
-        <div className={`${style['slider__arrow-right']} ${style.arrow__wrap}`} onClick={()=>handleSlide('right')}>
-          <span className={style.arrow} >{'>'}</span>
-        </div>
+        {modalOpen ? <MovieModal setModalOpen={setModalOpen} movieSelected={movieSelected} mediaType={props.mediaType}></MovieModal> : null}
       </div>
-      {modalOpen ? <MovieModal setModalOpen={setModalOpen} movieSelected={movieSelected} mediaType={props.mediaType}></MovieModal> : null}
-    </div>
-  )
+    )
+  }
+  else return null;
 }
 
 export default Row;

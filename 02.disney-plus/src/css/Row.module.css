@@ -105,3 +105,12 @@ a.row {
 .arrow:hover {
   transform: scale(1.5);
 }
+
+
+.fd{
+  margin-bottom: 12px;
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  background-color: #0063e5;
+}

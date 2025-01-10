@@ -171,6 +171,17 @@
   display: block;
 }
 
+.no__program {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no__program p {
+  font-size: clamp(1.2rem, 1.2vw, 1.6rem);
+}
 
 @media screen and (max-width: 768px) {
   .tap__content-collection, .tap__content-similar {
