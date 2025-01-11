@@ -1,3 +1,7 @@
+.detail__container{
+  min-height: 100vh;
+}
+
 .detail__bg {
   position: fixed;
   height: 100vh;
@@ -93,6 +97,7 @@
 
 .poster__wrap {
   width: 100%;
+  aspect-ratio: 1 / 0.57;
   box-sizing: border-box;
   border: 3px solid rgba(249, 249, 249, 0);
   border-radius: 10px;
@@ -101,14 +106,6 @@
   overflow: hidden;
 }
 
-.noPoster__wrap {
-  aspect-ratio: 1/0.6;
-  background-color: #000;
-  box-sizing: border-box;
-  border-radius: 10px;
-  transition: all 0.6s;
-  cursor: pointer;
-}
 
 .poster__wrap:hover {
   transform: scale(1.05);

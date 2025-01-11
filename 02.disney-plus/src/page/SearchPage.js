@@ -1,5 +1,5 @@
 import axiosInstance from '../api/axios';
-import React, { useEffect } from 'react'
+import React, { useEffect, useCallback } from 'react'
 import { useLocation, useNavigate, useOutletContext } from'react-router-dom';
 import { useDebounce } from '../hooks/useDebounce';
 import style from '../css/SearchPage.module.css';
@@ -9,18 +9,8 @@ function SearchPage(){
   const navigate = useNavigate();
   const { searchResults, setSearchResults, setIsSearchActive } = useOutletContext();
 
-  // use effect
-  let query = new URLSearchParams(useLocation().search); // ?movieTitle=검색어
-  const searchTerm = query.get('movieTitle'); // 검색어
-  const deBouncedSearchTerm = useDebounce(searchTerm, 1000);
-  useEffect(()=>{
-    if(deBouncedSearchTerm){
-      fetchSearchMovie(deBouncedSearchTerm)
-    }
-  },[deBouncedSearchTerm])
-
   // function
-  async function fetchSearchMovie(searchTerm){
+  const fetchSearchMovie = useCallback(async (searchTerm) => {
     try {
       const response = await axiosInstance.get(`/search/multi?include_adult=false&query=${searchTerm}`)
       const filterResponse = response.data.results.filter((ele)=>ele.backdrop_path && ele.backdrop_path !== null)
@@ -29,12 +19,22 @@ function SearchPage(){
     catch (error) {
       console.error(error);
     }
-  }
+  }, [setSearchResults]);
 
   function handleMovieClick(ele) {
     navigate(`/detail/${ele.id}`, { state: { data: ele } });
     setIsSearchActive(false);
   }
+
+  // use effect
+  let query = new URLSearchParams(useLocation().search); // ?movieTitle=검색어
+  const searchTerm = query.get('movieTitle'); // 검색어
+  const deBouncedSearchTerm = useDebounce(searchTerm, 500);
+  useEffect(()=>{
+    if(deBouncedSearchTerm){
+      fetchSearchMovie(deBouncedSearchTerm)
+    }
+  },[deBouncedSearchTerm, fetchSearchMovie])
 
   if(searchResults.length > 0){
     return (

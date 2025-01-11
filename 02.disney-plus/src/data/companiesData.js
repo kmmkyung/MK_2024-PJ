@@ -6,6 +6,7 @@ const companiesData = [
     companyId: [2],
     video: '/videos/company-disney.mp4',
     logo: '/images/company-disney.png',
+    backgroundImg: '/images/company-disney-bg.png',
   },
   {
     companyName:'pixar',

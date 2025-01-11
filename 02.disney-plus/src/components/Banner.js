@@ -15,23 +15,19 @@ function Banner() {
 
   // state
   let [ movie, setMovie ] = useState([]);
+  const [isFetched, setIsFetched] = useState(false);
 
   // function
   const fetchDate = useCallback(
     async() =>{
+      if (isFetched) return;
+      setIsFetched(true);
+
       // 현재 상영중인 여러영화 정보 가져오기
       const response = await axiosInstance.get(requests.fetchNowPlaying)
-
-      // 가져온 여러 영화 중 랜덤한 영화 5개 ID를 가져오기
-      let newArr = [...response.data.results]
-      for(let i = 0; i < newArr.length; i++ ){
-        const randomNumber = Math.floor(Math.random() * (i + 1));
-        [newArr[i], newArr[randomNumber]] = [newArr[randomNumber],newArr[i]];
-      }
-      const movieID = newArr.slice(0, 8).map(item => item.id)
+      const movieID = response.data.results.slice(0, 6).map(item => item.id)
   
       // 영화의 상세 정보 가져오기
-      
       const movieDetailArr = await Promise.all(
         movieID.map(async function(ele){
           const movieDetailResponse = await axiosInstance.get(`movie/${ele}`,{params:{ append_to_response: 'videos' }});
@@ -39,7 +35,7 @@ function Banner() {
         })
       )      
       setMovie(movieDetailArr)
-    },[])
+    },[isFetched])
 
     function handleNavigate(ele){
       navigate(`/detail/${ele.id}`,{state: {data:{...ele, media_type:'movie'}}});
@@ -58,9 +54,9 @@ function Banner() {
   }
 
   // render 
-  if(movie.length > 0){
-    return (
-        <div className='banner'>
+  return (
+    <div className='banner'>
+      { movie.length > 0 ? 
         <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={20}
@@ -74,8 +70,7 @@ function Banner() {
             slidesPerView: 1.2,
             spaceBetween: 50
           }
-        }}
-        >
+        }}>
         {movie.map(function(ele){ 
           return <SwiperSlide key={ele.id} style={cssBanner(ele)} onClick={()=>handleNavigate(ele)}>
           <div className='banner__contents'>
@@ -87,9 +82,9 @@ function Banner() {
           </SwiperSlide>
         })}
         </Swiper>
-        </div>
-      )
-    }
+        : null}
+      </div>
+    )
   }
 
 

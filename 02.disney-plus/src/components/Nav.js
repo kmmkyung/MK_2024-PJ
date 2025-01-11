@@ -258,7 +258,7 @@ const DropDown = styled.div`
   position: absolute;
   border-radius: 4px;
   box-shadow: rgb(0 0 0 / 50%) 0px 0px 18px 0;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   top: 50px;
   left: 50%;
   padding: 10px;
@@ -271,6 +271,10 @@ const DropDown = styled.div`
   transition: all 0.4s 0.2s;
   visibility: hidden;
   font-size: 1.0rem;
+  
+  @media (max-width: 480px){
+    width: 100%;
+  }
 `
 
 const UserWarp = styled.div`

@@ -3,7 +3,7 @@
 }
 
 .company__container {
-  margin-top: 70px;
+  margin-top: min(10vw,70px);
 }
 
 .company__info {
@@ -73,11 +73,11 @@
 }
 
 .company__content {
-  padding: 70px 0;
+  padding: min(10vw,70px) 0;
   position: relative;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: min(2.5vw, 25px);
 }
 
@@ -86,6 +86,7 @@
 }
 
 .poster__wrap {
+  aspect-ratio: 1 / 0.57;
   width: 100%;
   box-sizing: border-box;
   border: 3px solid rgba(249, 249, 249, 0);
@@ -102,7 +103,6 @@
 
 .poster__img {
   width: 100%;
-  height: 100%;
   object-fit: cover;
   vertical-align: bottom;
 }

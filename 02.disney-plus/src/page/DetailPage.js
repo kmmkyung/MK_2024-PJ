@@ -54,8 +54,10 @@ function DetailPage(){
           responseMedia = await axiosInstance.get(programMedia);
         }
         
+        console.log(responseMedia.data);
         if(responseMedia){
           setProgram(responseMedia.data)
+        
           const creditsMedia = (responseMedia.data.media_type || locationData.media_type) === 'movie' ? `/movie/${programId}/credits` : `/tv/${programId}/credits`;
           const responseCredits = await axiosInstance.get(creditsMedia);
           if(responseCredits.data.cast.length > 0){ setCredits(responseCredits.data);}
@@ -68,8 +70,9 @@ function DetailPage(){
           
           if(responseMedia.data.belongs_to_collection !== null && responseMedia.data.belongs_to_collection){
             const collectionId = responseMedia.data.belongs_to_collection.id;
-            const responseCollection = await axiosInstance.get(`/collection/${collectionId}`);
-            setCollection(responseCollection.data);
+            const responseCollection = await axiosInstance.get(`/collection/${collectionId}`);            
+            const responseCollectionFiler = responseCollection.data.parts.filter((ele)=>{ return ele.backdrop_path !== null})            
+            setCollection(responseCollectionFiler);
           }
           else setCollection(null);
         }
@@ -107,8 +110,7 @@ function DetailPage(){
     { name: 'collection',
       content: 
         <div className={`${style['tap__content-collection']} ${style.tap__content}`}>
-          {collection.parts.map(function (ele) {
-            if (ele.backdrop_path) {
+          {collection.map(function (ele) {
               return (
                 <div className={style.movie__wrap} key={ele.id}>
                   <div className={style.poster__wrap}>
@@ -119,18 +121,6 @@ function DetailPage(){
                   </div>
                 </div>
               );
-            }
-            else {
-              return (
-                <div className={style.movie__wrap} key={ele.id}>
-                  <div className={`${style.poster__wrap} ${style.noPoster__wrap}`} onClick={() => { navigate(`/detail/${ele.id}`, { state: { data: ele } }); }}>
-                  </div>
-                  <div className={style.title__wrap}>
-                    <h6 className={style.movie__title}>{ele.title}</h6>
-                  </div>
-                </div>
-              );
-            };
           })}
         </div>
     },  
@@ -250,9 +240,10 @@ function DetailPage(){
     )
   }
 
-  if(program){
-    return (
-      <section className={style.detail__container}>
+  return (
+    <section className={style.detail__container}>
+    { program ? 
+      <>
         <div className={style.detail__bg} style={{backgroundImage:`url('https://image.tmdb.org/t/p/original/${program.backdrop_path}')`}}></div>
         <div className={style.detail__wrap}>
           <div className={style.main__container}>
@@ -271,17 +262,15 @@ function DetailPage(){
               </div>
           </div>
         </div>
-      </section>
-    )
-  }
-  else if(!sectionMovieId) {
-    return (
-      <section className={style.no__program}>
+      </>
+    : null }
+    { !sectionMovieId ? 
+      <div className={style.no__program}>
         <p>존재하지 않는 프로그램입니다.</p>
-      </section>
-    )
-  }
-
+      </div>
+    : null }
+    </section>
+  )
 }
 
 

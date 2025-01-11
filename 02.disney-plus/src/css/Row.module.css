@@ -57,6 +57,7 @@ a.row {
 }
 
 .poster__wrap {
+  aspect-ratio: 1 / 0.57;
   width: min(40vw,350px);
   box-sizing: border-box;
   border: 3px solid rgba(249, 249, 249, 0);

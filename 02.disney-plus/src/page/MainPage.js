@@ -10,16 +10,16 @@ import Row from '../components/Row';
 function MainPage(){
     return(
       <Main>
-      <Banner></Banner>
-      <Container>
-        <Category></Category>
-        <Row title="Trending Now" id="TN" fetchUrl={requests.fetchTrending}></Row>
-        <Row title="Top Rated" id="TR" mediaType='movie' fetchUrl={requests.fetchTopRated}></Row>
-        <Row title="Now Movies" id="TM" mediaType='movie' fetchUrl={requests.fetchNowPlaying}></Row>
-        <Row title="Action Movies" id="AM" mediaType='movie' fetchUrl={requests.fetchActionMovies}></Row>
-        <Row title="Comedy Movies" id="CM" mediaType='movie' fetchUrl={requests.fetchComedyMovies}></Row>
-      </Container>
-    </Main>
+        <Banner></Banner>
+        <Container>
+          <Category></Category>
+          <Row title="Trending Now" id="TN" fetchUrl={requests.fetchTrending}></Row>
+          <Row title="Top Rated" id="TR" mediaType='movie' fetchUrl={requests.fetchTopRated}></Row>
+          <Row title="Now Movies" id="TM" mediaType='movie' fetchUrl={requests.fetchNowPlaying}></Row>
+          <Row title="Action Movies" id="AM" mediaType='movie' fetchUrl={requests.fetchActionMovies}></Row>
+          <Row title="Comedy Movies" id="CM" mediaType='movie' fetchUrl={requests.fetchComedyMovies}></Row>
+        </Container>
+      </Main>
   )
 }
 

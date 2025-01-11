@@ -10,12 +10,15 @@ function Row(props) {
   let touchStartX = useRef(0); // 터치 시작 위치
   let [ modalOpen, setModalOpen ] = useState(false); // 모달
   let [ movieSelected, setMovieSelected ] = useState({}); // 선택된 영화
+  const [isFetched, setIsFetched] = useState(false);
   
   // useCallback
   const fetchMovieData = useCallback( async () => {
+    if (isFetched) return;
+    setIsFetched(true)
     const response = await axiosInstance.get(props.fetchUrl);    
     setMovies(response.data.results);    
-  },[props.fetchUrl]); // props.fetchUrl이 바뀔때 다시 실행
+  },[props.fetchUrl, isFetched]); // props.fetchUrl이 바뀔때 다시 실행
 
   // effect
   useEffect(()=>{
@@ -24,14 +27,16 @@ function Row(props) {
 
   // function
   // 클릭 이벤트 슬라이드 이동
-  function handleSlide(direction){
-    if(sliderRef.current){
-      const slider = sliderRef.current;
-      const sliderMove = direction === 'left' ? -slider.offsetWidth/1.5 : slider.offsetWidth/1.5;
+  function handleSlide(direction) {
+    const slider = sliderRef.current;
+    if (direction === "right" && slider.scrollWidth - slider.scrollLeft > slider.clientWidth) {
+      const sliderMove = slider.offsetWidth / 1.5;
+      slider.scrollBy({ left: sliderMove, behavior: "smooth" });
+    } else if (direction === "left" && slider.scrollLeft > 0) {
+      const sliderMove = -slider.offsetWidth / 1.5;
       slider.scrollBy({ left: sliderMove, behavior: "smooth" });
     }
   }
-
   // 터치 이벤트
   function handleTouchStart(event){
     touchStartX.current = event.targetTouches[0].clientX
@@ -40,9 +45,10 @@ function Row(props) {
   function handleTouchEnd(event){
     const touchEndX = event.changedTouches[0].clientX;
     const diffX = touchStartX.current - touchEndX;
-    if (diffX > 100) { // 왼쪽으로 이동
+    const slider = sliderRef.current;
+    if (diffX > 100  && slider.scrollWidth - slider.scrollLeft > slider.clientWidth ) {
       sliderRef.current.scrollBy({ left: sliderRef.current.offsetWidth/1.5, behavior: "smooth" });
-    } else if (diffX < -100) { // 오른쪽으로 이동
+    } else if (diffX < -100  && slider.scrollLeft > 0 ) {
       sliderRef.current.scrollBy({ left: -sliderRef.current.offsetWidth/1.5, behavior: "smooth" });
     }
   };

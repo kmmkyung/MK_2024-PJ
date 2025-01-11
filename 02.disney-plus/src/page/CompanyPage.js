@@ -21,43 +21,63 @@ function CompanyPage() {
   let [ moreButtonClick, setMoreButtonClick ] = useState(false);
   let [ filterResponse, setFilterResponse ] = useState([]);
   let [ videoEnded , setVideoEnded] = useState(false);
-  
+  const [isFetched, setIsFetched] = useState(false);
+
   // effect
   useEffect(()=>{
     const { mediaType, standard, companyId } = company;
     async function fetchData(){
-      // 링크
-      function buildUrl(companyId, pageNumber){
-        return `/discover/${mediaType}?${standard}=${companyId}&sort_by=release_date.desc&page=${pageNumber}`
-      }
+      if (isFetched) return;
+      setIsFetched(true)
+      
+      try{
+        setIsLoading(true);
+        function buildUrl(companyId, pageNumber){
+          return `/discover/${mediaType}?${standard}=${companyId}&sort_by=release_date.desc&page=${pageNumber}`
+        }
 
-      // response 데이터 필터링
-      function splitResponses(responsePageAll) {
-        const validResults = responsePageAll.filter((ele) => ele.backdrop_path);
-        return [validResults.slice(0, 20), validResults.slice(20)];
-      }
+        function splitResponses(responsePageAll) {
+          const validResults = responsePageAll.filter((ele) => ele.backdrop_path);
+          return [validResults.slice(0, 20), validResults.slice(20)];
+        }
 
-      let responsePageAll
-      if(companyId.length === 1) {
-        const responsePage1 = await axiosInstance.get(buildUrl(companyId[0],1))
-        const responsePage2 = await axiosInstance.get(buildUrl(companyId[0],2))
-        responsePageAll = [...responsePage1.data.results, ...responsePage2.data.results]
+        let responsePageAll;
+        if(companyId.length === 1) {
+          const responsePage1 = await axiosInstance.get(buildUrl(companyId[0],1))
+          const responsePage2 = await axiosInstance.get(buildUrl(companyId[0],2))
+          responsePageAll = [...responsePage1.data.results, ...responsePage2.data.results]
+        }
+        else{
+          const responses = await Promise.all(
+            companyId.map( async function(ele){
+              const response = await axiosInstance.get(buildUrl(ele,1))
+              return response.data.results;
+            })
+          )
+          responsePageAll = responses.flat().filter((ele)=>ele.backdrop_path && ele.backdrop_path !== null)
+        }
+        const splitData = splitResponses(responsePageAll);
+        setFilterResponse(splitData);
+        setProgram(splitData[0]);
       }
-      else{
-        const responses = await Promise.all(
-          companyId.map( async function(ele){
-            const response = await axiosInstance.get(buildUrl(ele,1))
-            return response.data.results;
-          })
-        )
-        responsePageAll = responses.flat().filter((ele)=>ele.backdrop_path && ele.backdrop_path !== null)
+      catch(err){
+        console.log(err);
       }
-      const splitData = splitResponses(responsePageAll);
-      setFilterResponse(splitData);
-      setProgram(splitData[0]);
+      finally{
+        setIsLoading(false); // 로딩끝
+      }
     }
     fetchData()
-  },[company, companyName])
+  },[company, companyName, setIsLoading, isFetched])
+
+  useEffect(() => {
+    const videoElement = document.querySelector(`.${style.info__video}`);
+    if (videoElement) {
+      videoElement.oncanplaythrough = () => {
+        videoElement.play();
+      };
+    }
+  }, []);
 
   useEffect(()=>{
     let setTimeId;
@@ -88,7 +108,7 @@ function CompanyPage() {
       <div className={style.company__container}>
         <div className={`${style.company__info} ${videoEnded? style.end : ''}`}>
           <div className={style['info__wrap-bg']}>
-            <video className={style.info__video} autoPlay muted onEnded={videoEndedFn} >
+            <video className={style.info__video} autoPlay muted preload="auto" onEnded={videoEndedFn} >
               <source src={company.video} type='video/mp4'/>
             </video>
             <div className={style.info__bgImg} style={{'backgroundImage':`url(${company.backgroundImg})`}} ></div>
