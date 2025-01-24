@@ -31,5 +31,4 @@ const Main = styled.main`
 `
   const Container = styled.main`
   padding: 0 calc(3.5vw + 5px);
-  }
 `;
