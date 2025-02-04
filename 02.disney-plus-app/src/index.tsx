@@ -6,18 +6,21 @@ import Router from './router/Router';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 import GlobalStyle from './GlobalStyle';
+import { RecoilRoot } from 'recoil';
 
 const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle/>
-        <RouterProvider router={Router}/>
-      </ThemeProvider>
-    </QueryClientProvider>
+    <RecoilRoot>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle/>
+          <RouterProvider router={Router}/>
+        </ThemeProvider>
+      </QueryClientProvider>
+    </RecoilRoot>
   </React.StrictMode>
 );
 

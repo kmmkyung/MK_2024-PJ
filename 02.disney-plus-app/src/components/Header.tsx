@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
+import { isSearchIngState } from "../atoms";
 
 type navType = {
   $navColor: boolean;
-  $search: string;
 }
 
 const HeaderEl = styled.header<navType>`
@@ -16,30 +17,6 @@ const HeaderEl = styled.header<navType>`
   background-color: ${props =>  props.$navColor ? props.theme.color.headerColor : "transparent"};
   z-index: 5;
   transition: background-color 0.3s;
-
-  &.on {
-    background-color: #090b13;
-
-    ${props => props.$search}{
-        transition-delay: 0.4s;
-        opacity: 1;
-        visibility: visible;
-      }
-      
-      .menu__logo {
-      opacity: 0;
-      }
-
-      .menu__search--icon {
-        opacity: 0;
-      }
-
-      .search__icon--search,
-      .search__input {
-        transition-delay: 0.2s;
-        transform: translate(0, 0);
-      }
-  }
 `;
 
 const HeaderWrap = styled.div`
@@ -156,12 +133,15 @@ const SearchWrap = styled.div`
   position: relative;
 `;
 
-const SearchIcon  = styled.img`
+const SearchIcon  = styled.div`
   width: 10px;
   height: 10px;
   padding: 20px;
-  transition: all 0.4s;
+  transition: all 0.6s;
   transform: translate(10vw, 0);
+  background-image: url('/svg/search.svg');
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 
 const SearchInput  = styled.input`
@@ -173,21 +153,52 @@ const SearchInput  = styled.input`
   color: #fff;
   width: 100%;
   height: 80%;
-  transition: all 0.4s;
+  transition: all 0.6s;
   transform: translate(10vw, 0);
   font-size: ${props => props.theme.fontSize.m};
 `;
 
-const CloseIcon = styled.img`
+const CloseIcon = styled.div`
   width: 10px;
   height: 10px;
   padding: 20px;
   cursor: pointer;
   margin-right: 60px;
+  background-image: url('/svg/close.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+
+const HeaderElClass = styled(HeaderEl)`
+  &.searchOn {
+    background-color: #090b13;
+    
+    ${Search}{
+      transition-delay: 0.4s;
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    ${MenuLogo} {
+    opacity: 0;
+    }
+
+    ${MenuSearch} {
+      opacity: 0;
+    }
+
+    ${SearchIcon},
+    ${SearchInput} {
+      transition-delay: 0.2s;
+      transform: translate(0, 0);
+    }
+  }
 `;
 
 function Header( ){
   const navigate = useNavigate();
+  const searchInput = useRef<HTMLInputElement>(null);
+  const [ isSearching, setIsSearching ] = useRecoilState(isSearchIngState);
   const [ isNavVisible, setIsNavVisible] = useState(false);
   const [ searchValue, setSearchValue ] = useState('');
 
@@ -205,42 +216,53 @@ function Header( ){
   },[]);
 
   // function
-  function searchIconClick(){
+  const bodyEl = document.querySelector('body') as HTMLHeadElement
 
+  function searchIconClick(){
+    setIsSearching(true);
+    setSearchValue('');
+    if(bodyEl){
+      bodyEl.style.overflow = 'hidden'
+    }
+    setTimeout(() => {
+      if (searchInput.current) {
+        searchInput.current.focus();
+      }
+    }, 1000);
+  }
+
+  function noSearching(){
+    setIsSearching(false);
+    setSearchValue('');
+    if(bodyEl){
+      bodyEl.style.overflow = 'auto'
+    }
   }
 
   return (
-    <HeaderEl $navColor={isNavVisible} $search={Search} // className={isSearchActive ? "on" : ""}
-    >
-    <HeaderWrap>
-      <Menu>
-        <MenuLogo onClick={()=>navigate('/')}></MenuLogo>
-        <MenuRight>
-          <MenuSearch onClick={searchIconClick}></MenuSearch>
-          <UserWarp>
-            <UserImg/>
-            <DropDown>Sign Out</DropDown>
-          </UserWarp>
-        </MenuRight>
-      </Menu>
+    <HeaderElClass $navColor={isNavVisible} className={isSearching ? "searchOn" : ""} >
+      <HeaderWrap>
+        <Menu>
+          <MenuLogo onClick={()=>navigate('/')}></MenuLogo>
+          <MenuRight>
+            <MenuSearch onClick={searchIconClick}></MenuSearch>
+            <UserWarp>
+              <UserImg/>
+              <DropDown>Sign Out</DropDown>
+            </UserWarp>
+          </MenuRight>
+        </Menu>
 
-      <Search>
-        <SearchShadow
-        // onClick={()=>handleCloseIconClick()}
-        ></SearchShadow>
-        <SearchWrap>
-          <SearchIcon src='/svg/search.svg' alt='search-icon'></SearchIcon>
-          <SearchInput type='text' placeholder='영화를 검색해 주세요'
-          value={searchValue}
-          // onChange={inputValue}
-          ></SearchInput>
-          <CloseIcon src='/svg/close.svg' alt='close-icon'
-          //  onClick={()=>handleCloseIconClick()}
-            ></CloseIcon>
-        </SearchWrap>
-      </Search>
-    </HeaderWrap>
-  </HeaderEl>
+        <Search>
+          <SearchShadow onClick={noSearching} className={isSearching ? "" : "searchEnd"} ></SearchShadow>
+          <SearchWrap>
+            <SearchIcon/>
+            <SearchInput ref={searchInput} type='text' placeholder='영화를 검색해 주세요'></SearchInput>
+            <CloseIcon onClick={noSearching}/>
+          </SearchWrap>
+        </Search>
+      </HeaderWrap>
+    </HeaderElClass>
   )
 }
 
