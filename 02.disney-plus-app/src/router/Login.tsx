@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { motion, AnimatePresence } from "motion/react"
+import { motion } from "motion/react"
 
 const Section = styled.section`
   width: 100%;
@@ -41,14 +41,9 @@ const LoginBox = styled(motion.div)`
   >p {
     font-size: ${props => props.theme.fontSize.m};
   }
-
-  @media screen and (max-width: 768px){
-    flex-basis: 80%;
-  }
 `;
 
 const InputBox = styled.div`
-  
   form{
     display: flex;
     flex-direction: column;
@@ -91,7 +86,7 @@ const InputBox = styled.div`
     font-size: ${props => props.theme.fontSize.m};
   }
 
-  a{
+  a {
     font-size: ${props => props.theme.fontSize.m};
     text-decoration: underline;
     color: ${props => props.theme.color.pointColor};
@@ -111,7 +106,12 @@ const OtherLogin = styled.div`
     gap: 10px;
     border-radius: 50px;
     cursor: pointer;
+    transition: all 0.4s;
     font-size: ${props => props.theme.fontSize.m};
+
+    &:hover{
+      border: 1px solid #000;
+    }
 
     img {
       width: 20px;
@@ -144,9 +144,9 @@ const CaptionLogo = styled.div`
 `;
 
 const accountVariants = {
-  leftHidden: { opacity: 0, x: 100 , transition: { duration: 2 }},
-  rightHidden: { opacity: 0, x: -100 , transition: { duration: 2 }},
-  visible: { opacity: 1, x: 0, transition: { duration: 2 } },
+  leftHidden: { opacity: 0, x: 100},
+  rightHidden: { opacity: 0, x: -100},
+  visible: { opacity: 1, x: 0, transition:{duration:1}}
 }
 
 function Login(){
@@ -154,11 +154,8 @@ function Login(){
 
   return (
     <Section>
-      <AnimatePresence>
-        <Logo initial='leftHidden' animate='visible' exit='leftHidden' variants={accountVariants} src="/svg/disney-white.svg"/>
-      </AnimatePresence>
-      <motion.div>
-      <LoginBox layoutId="loginBox" layout="position" initial='rightHidden' animate='visible' exit='rightHidden' variants={accountVariants} >
+      <Logo initial='leftHidden' animate='visible' variants={accountVariants}  src="/svg/disney-white.svg"/>
+      <LoginBox layoutId="loginBox" initial='rightHidden' animate='visible' variants={accountVariants} transition={{ease:'linear', layout:{duration: 0.5}}}  >
         <h2>이메일을 입력하세요</h2>
         <p>Disney 계정으로 디즈니+에 로그인하세요.</p>
         <InputBox>
@@ -168,7 +165,7 @@ function Login(){
             <input type="submit" value={isLogin ? 'Loading' : 'Log In'}/>
           </form>
           <span>아직 Disney 계정이 없으신가요?</span>
-          <Link to ="/createAccount">Create Disney &rarr;</Link>
+          <Link to={'/createAccount'}>Create Disney &rarr;</Link>
         </InputBox>
         <OtherLogin>
           <button className="googleBtn">
@@ -195,7 +192,6 @@ function Login(){
           </CaptionLogo>
         </CaptionBox>
       </LoginBox>
-      </motion.div>
     </Section>
   )
 }
