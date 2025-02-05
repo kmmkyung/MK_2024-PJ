@@ -1,10 +1,16 @@
 import styled from "styled-components";
-import { IGetMovie } from "../type";
+import { IMovie } from "../type";
 import { makeImagePath } from "../utils";
+import { useRef, useState } from "react";
+import MovieModal from "./MovieModal";
 
 const RowMovieWrap = styled.div`
   padding: 0 3.5vw;
   margin: min(5vw,80px) 0;
+  
+  &:last-child{
+    margin: 0;
+  }
 `;
 
 const Title = styled.h2`
@@ -118,36 +124,74 @@ const SliderContainer = styled(SliderContainerEl)`
 `;
 
 interface RowMovieProps {
-  title:string,
-  movieData : IGetMovie,
+  title:string;
+  movieData : IMovie[];
+  id: string;
+  mediaType?: string;
 }
 
-function RowMovie({movieData, title}:RowMovieProps){
-  const results = movieData.results;
+function RowMovie({movieData, title, id, mediaType}:RowMovieProps){
+  let sliderRef = useRef<HTMLDivElement>(null);
+  let touchStartX = useRef(0); // 터치 시작 위치
+  let [ modalOpen, setModalOpen ] = useState(false); // 모달
+  let [ movieSelected, setMovieSelected ] = useState<IMovie>(); // 선택된 영화
+
+  // function
+  // 클릭 이벤트 슬라이드 이동
+  function slideClickMove(direction: string) {
+    const slider = sliderRef.current;
+    if (slider && direction === "right" && slider.scrollWidth - slider.scrollLeft > slider.clientWidth) {
+      const sliderMove = slider.offsetWidth / 1.5;
+      slider.scrollBy({ left: sliderMove, behavior: "smooth" });
+    } else if (slider && direction === "left" && slider.scrollLeft > 0) {
+      const sliderMove = -slider.offsetWidth / 1.5;
+      slider.scrollBy({ left: sliderMove, behavior: "smooth" });
+    }
+  }
+  // 터치 이벤트
+  function slideTouchStart(event:React.TouchEvent<HTMLDivElement>){
+    touchStartX.current = event.targetTouches[0].clientX
+  };
+  function slideTouchEnd(event:React.TouchEvent<HTMLDivElement>){
+    const touchEndX = event.changedTouches[0].clientX;
+    const diffX = touchStartX.current - touchEndX;
+    const slider = sliderRef.current;
+    if (slider && diffX > 100  && slider.scrollWidth - slider.scrollLeft > slider.clientWidth ) {
+      slider.scrollBy({ left: slider.offsetWidth/1.5, behavior: "smooth" });
+    } else if (slider && diffX < -100  && slider.scrollLeft > 0 ) {
+      slider.scrollBy({ left: -slider.offsetWidth/1.5, behavior: "smooth" });
+    }
+  };
+
+  function movieModalOpen(movie:IMovie){
+    setModalOpen(true);
+    setMovieSelected(movie);
+  }
 
   return (
-    <RowMovieWrap>
+    <RowMovieWrap id={id}>
       <Title>{title}</Title>
       <SliderContainer>
         <ArrowWrap className='arrow-left'>
-          <span className='arrow' >{'<'}</span>
+          <span onClick={()=>slideClickMove('left')} className='arrow' >{'<'}</span>
         </ArrowWrap>
-        <Slider>
-          { results.map( ele => { return (
+        <Slider ref={sliderRef} onTouchStart={slideTouchStart} onTouchEnd={slideTouchEnd} >
+          { movieData?.map( ele => { return (
             <SliderWrap key={ele.id}>
               <SliderPosterWrap>
-                <Poster $bgPhoto={makeImagePath(ele.backdrop_path)} />
+                <Poster $bgPhoto={makeImagePath(ele.backdrop_path)} onClick={()=>movieModalOpen(ele)} />
               </SliderPosterWrap>
               <SliderTitleWrap>
-                <h6>{ ele.title }</h6>
+                <h6>{ ele.title || ele.name }</h6>
               </SliderTitleWrap>
             </SliderWrap>
           )})}
         </Slider>
         <ArrowWrap className='arrow-right'>
-          <span className='arrow' >{'>'}</span>
+          <span onClick={()=>slideClickMove('right')} className='arrow' >{'>'}</span>
         </ArrowWrap>
       </SliderContainer>
+      {modalOpen && movieSelected ? <MovieModal setModalOpen={setModalOpen} mediaType={mediaType} movieSelected={movieSelected}></MovieModal> : null}
     </RowMovieWrap>
   )
 }

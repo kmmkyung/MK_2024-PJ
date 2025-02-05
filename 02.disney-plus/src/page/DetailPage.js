@@ -71,7 +71,7 @@ function DetailPage(){
           if(responseMedia.data.belongs_to_collection !== null && responseMedia.data.belongs_to_collection){
             const collectionId = responseMedia.data.belongs_to_collection.id;
             const responseCollection = await axiosInstance.get(`/collection/${collectionId}`);            
-            const responseCollectionFiler = responseCollection.data.parts.filter((ele)=>{ return ele.backdrop_path !== null})            
+            const responseCollectionFiler = responseCollection.data.parts.filter((ele)=>{ return ele.backdrop_path !== null})
             setCollection(responseCollectionFiler);
           }
           else setCollection(null);

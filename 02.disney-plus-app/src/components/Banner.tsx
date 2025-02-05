@@ -8,8 +8,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { makeImagePath } from "../utils";
 import { IMovie } from "../type";
+import { useNavigate } from "react-router-dom";
 
-const BannerContent = styled.div `
+
+const BannerContainerEL = styled.div `
   width: 100%;
   aspect-ratio: 1/0.28;
   padding-bottom: 40px;
@@ -30,7 +32,6 @@ const BannerContent = styled.div `
   border-radius: 20px;
   overflow: hidden; 
   background-position: center;
-  background-size: 124%;
   transition: all 0.6s;
   position: relative;
   }
@@ -51,10 +52,6 @@ const BannerContent = styled.div `
   .swiper-slide:hover::after{
     border: 3px solid rgba(255, 255, 255, 0.8);
   } 
-
-  .swiper-slide.swiper-slide-active {
-    background-size: 110%;
-  }
 
   .swiper-pagination {
     bottom: -28px !important;
@@ -95,20 +92,31 @@ const BannerContent = styled.div `
   }
 
   .swiper-button-prev:after, .swiper-button-next:after {
-    font-size: clamp(1.6rem, 3vw, 4rem) !important;
+    font-size: ${props=> props.theme.fontSize.l} !important;
   }
 `;
 
-const BannerContainer= styled.div<{$bgPhoto:string}> `
-  background-image: radial-gradient(farthest-side at 65% 25%, transparent, rgba(26, 29, 41, 0.3)),url(${props => props.$bgPhoto});
-  background-size: cover;
-  background-position: center;
+const SlideItem= styled.div<{$bgPhoto: string;}>`
   width: 100%;
   height: 100%;
   position: relative;
   padding: min(5vw,80px);
   box-sizing: border-box;
+  background-image: radial-gradient(farthest-side at 65% 25%, transparent, rgba(26, 29, 41, 0.3)),url(${props => props.$bgPhoto});
+  background-size: cover;
+  background-position: center;
+  background-size: 124%;
+  transition: all 0.6s;
 `;
+
+const BannerContainer = styled(BannerContainerEL)`
+  .swiper-slide.swiper-slide-active{
+    ${SlideItem}{
+      background-size: 110%;
+    }
+  }
+`;
+
 
 const BannerWrap  = styled.div`
   position: relative;
@@ -151,12 +159,19 @@ const BannerOverview  = styled.p`
 `;
 
 interface BannerProps {
-  bannerMovieData : IMovie[]
+  bannerMovieData : IMovie[];
 }
 
 function Banner({bannerMovieData}:BannerProps) {
+  const navigate = useNavigate();
+
+  function detailPageMove(ele:IMovie){
+    navigate(`/detail/${ele.id}`,{state: {data:{...ele, media_type:'movie'}}});
+  }
+
+  
   return (
-    (<BannerContent>
+    (<BannerContainer>
       {bannerMovieData ?
       <Swiper
         modules={[Navigation, Pagination]}
@@ -167,21 +182,21 @@ function Banner({bannerMovieData}:BannerProps) {
         navigation
         pagination={{ clickable: true }}
         breakpoints={{
-          640: {slidesPerView:1.4, spaceBetween: 50, centeredSlides:true }
+          640: {slidesPerView:1.3, spaceBetween: 50, centeredSlides:true }
         }}>
         {bannerMovieData?.map(function(ele){ 
-          return <SwiperSlide key={ele.id}>
-            <BannerContainer $bgPhoto={makeImagePath(ele.backdrop_path)}>
+          return <SwiperSlide key={ele.id} onClick={()=>detailPageMove(ele)}>
+            <SlideItem $bgPhoto={makeImagePath(ele.backdrop_path)}>
               <BannerWrap>
                 <BannerTitle>{ele.title}</BannerTitle>
                 <BannerOverview>{ele.overview}</BannerOverview>
               </BannerWrap>
-            </BannerContainer>
+            </SlideItem>
           </SwiperSlide>
         })}
       </Swiper>
     : null}
-    </BannerContent>)
+    </BannerContainer>)
   )
 }
 

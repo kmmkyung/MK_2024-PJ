@@ -40,6 +40,7 @@ const CopyRight = styled.p`
 `;
 
 const Address = styled.address`
+  font-style: normal;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

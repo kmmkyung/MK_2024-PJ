@@ -8,7 +8,7 @@ import RowMovie from "../components/RowMovie";
 import Loader from "../components/Loader";
 
 const HomeWrap = styled.main`
-  padding: 100px 0;
+  padding: 80px 0;
   background: url('/images/home-background.png') center center / cover no-repeat fixed;
   min-height: 100vh;
 `;
@@ -19,55 +19,63 @@ const useQueries = () => {
     queryFn: getBannerMovie,
     select: (data) => data.results.slice(0, 6)
   })
-  const trendingMovie = useQuery<IGetMovie>({
-    queryKey: ['trendingMovie'],
-    queryFn: getTrending
+  const trendingNow = useQuery<IGetMovie, Error, IMovie[]>({
+    queryKey: ['trendingNow'],
+    queryFn: getTrending,
+    select: (data) => data.results.filter(ele=> ele.backdrop_path !== null)
   })
-  const nowPlayMovie = useQuery<IGetMovie>({
+  const nowPlayMovie = useQuery<IGetMovie, Error, IMovie[]>({
     queryKey: ['nowPlayMovie'],
-    queryFn: getNowPlayMovie
+    queryFn: getNowPlayMovie,
+    select: (data) => data.results.filter(ele=> ele.backdrop_path !== null)
   })
-  const topRatedMovie = useQuery<IGetMovie>({
+  const topRatedMovie = useQuery<IGetMovie,Error, IMovie[]>({
     queryKey: ['topRatedMovie'],
-    queryFn: getTopRated
+    queryFn: getTopRated,
+    select: (data) => data.results.filter(ele=> ele.backdrop_path !== null)
   })
-  const actionMovie = useQuery<IGetMovie>({
+  const actionMovie = useQuery<IGetMovie, Error, IMovie[]>({
     queryKey: ['actionMovie'],
-    queryFn: getActionMovie
+    queryFn: getActionMovie,
+    select: (data) => data.results.filter(ele=> ele.backdrop_path !== null)
   })
-  const comedyMovie = useQuery<IGetMovie>({
+  const comedyMovie = useQuery<IGetMovie, Error, IMovie[]>({
     queryKey: ['comedyMovie'],
-    queryFn: getComedyMovie
+    queryFn: getComedyMovie,
+    select: (data) => data.results.filter(ele=> ele.backdrop_path !== null)
   })
-  const romanceMovie = useQuery<IGetMovie>({
-    queryKey: ['comedyMovie'],
-    queryFn: getRomanceMovie
+  const romanceMovie = useQuery<IGetMovie, Error, IMovie[]>({
+    queryKey: ['romanceMovie'],
+    queryFn: getRomanceMovie,
+    select: (data) => data.results.filter(ele=> ele.backdrop_path !== null)
   })
-  return [ bannerMovie, trendingMovie, nowPlayMovie, topRatedMovie, actionMovie, comedyMovie, romanceMovie ];
+  return [ bannerMovie, trendingNow, nowPlayMovie, topRatedMovie, actionMovie, comedyMovie, romanceMovie ];
 }
 function Home (){
   const [
     {data: bannerMovieData, isLoading: bannerLoading},
-    {data: trendingMovieData, isLoading: trendingMovieLoading},
-    {data: nowPlayMovieData, isLoading: nowPlayMovieLoading},
+    {data: trendingNowData, isLoading: trendingNowLoading}, // mid o
+    {data: nowPlayMovieData, isLoading: nowPlayMovieLoading}, 
     {data: topRatedMovieData, isLoading: topRatedMovieLoading},
     {data: actionMovieData, isLoading: actionMovieLoading},
     {data: comedyMovieData, isLoading: comedyMovieLoading},
     {data: romanceMovieData, isLoading: romanceMovieLoading},
   ] = useQueries();  
+  console.log(bannerMovieData,trendingNowData);
   
+
   return (
     <HomeWrap>
-      {bannerLoading && nowPlayMovieLoading && trendingMovieLoading && topRatedMovieLoading && actionMovieLoading && comedyMovieLoading && romanceMovieLoading ? <Loader/> :
+      {bannerLoading && trendingNowLoading && nowPlayMovieLoading && topRatedMovieLoading && actionMovieLoading && comedyMovieLoading && romanceMovieLoading ? <Loader/> :
       <>
         <Banner bannerMovieData={bannerMovieData as IMovie[]}/>
         <Companies/>
-        <RowMovie title='Trending Now' movieData={trendingMovieData as IGetMovie}/>
-        <RowMovie title='Now Movies' movieData={nowPlayMovieData as IGetMovie}/>
-        <RowMovie title='Top Rated' movieData={topRatedMovieData as IGetMovie}/>
-        <RowMovie title='Action Movies' movieData={actionMovieData as IGetMovie}/>
-        <RowMovie title='Comedy Movies' movieData={comedyMovieData as IGetMovie}/>
-        <RowMovie title='Romance Movies' movieData={romanceMovieData as IGetMovie}/>
+        <RowMovie id='trendingNow' title='Trending Now' movieData={trendingNowData as IMovie[]}/>
+        <RowMovie id='nowMovies' title='Now Movies' mediaType='movie' movieData={nowPlayMovieData as IMovie[]}/>
+        <RowMovie id='topRated' title='Top Rated' mediaType='movie' movieData={topRatedMovieData as IMovie[]}/>
+        <RowMovie id='actionMovies' title='Action Movies' mediaType='movie' movieData={actionMovieData as IMovie[]}/>
+        <RowMovie id='comedyMovies' title='Comedy Movies' mediaType='movie' movieData={comedyMovieData as IMovie[]}/>
+        <RowMovie id='romanceMovies' title='Romance Movies' movieData={romanceMovieData as IMovie[]}/>
       </>
       }
     </HomeWrap>
