@@ -13,7 +13,7 @@ export interface IMovie {
   adult: boolean;
   backdrop_path: string;
   media_type?: string;
-  genre_ids:number[]
+  genre_ids?:number[]
   id: number;
   original_language: string;
   original_title: string;
@@ -31,7 +31,7 @@ export interface IMovie {
 
 export interface IDetailMovie {
   config: {}
-  data : IDetailMovieData | IDetailTvData
+  data : IDetailMovieData[] | IDetailTvData[]
   headers: {} 
   request: {}
   status: number
@@ -179,6 +179,22 @@ export interface ICredits {
       profile_path: string | null;
     }[]
   id: number;
+}
+
+export interface ISimilar {
+  page: number;
+  results: IMovie[]
+  total_pages: number;
+  total_results: number;
+}
+
+export interface ICollection{
+  backdrop_path: string;
+  id: number;
+  name: string;
+  overview: string;
+  parts: IMovie[]
+  poster_path: string
 }
 
 export interface ISearchForm {

@@ -190,7 +190,7 @@ function DetailPage(){
                 <p><span>총 시즌: </span><span>{program.number_of_seasons}의 시즌</span></p>
                 { program.genres.length > 0 ? <p><span>장르: </span><span>{program.genres.map(function(ele){return ele.name}).join(', ')}</span></p> : null }
               </div>
-              <div className={style.info__credits}>
+              <div className={`style.info__credits`}>
                 {credits && credits.crew.filter(ele=>ele.job==="Director").length > 0 ? 
                 <p className={style.info__director}>
                   <span>감독: </span>

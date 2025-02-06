@@ -14,7 +14,7 @@ const RowMovieWrap = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: ${props => props.theme.fontSize.m};
+  font-size: ${props => props.theme.fontSize.l};
   color: #fff;
 `;
 

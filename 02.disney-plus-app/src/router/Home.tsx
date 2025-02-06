@@ -61,9 +61,7 @@ function Home (){
     {data: comedyMovieData, isLoading: comedyMovieLoading},
     {data: romanceMovieData, isLoading: romanceMovieLoading},
   ] = useQueries();  
-  console.log(bannerMovieData,trendingNowData);
   
-
   return (
     <HomeWrap>
       {bannerLoading && trendingNowLoading && nowPlayMovieLoading && topRatedMovieLoading && actionMovieLoading && comedyMovieLoading && romanceMovieLoading ? <Loader/> :
@@ -75,7 +73,7 @@ function Home (){
         <RowMovie id='topRated' title='Top Rated' mediaType='movie' movieData={topRatedMovieData as IMovie[]}/>
         <RowMovie id='actionMovies' title='Action Movies' mediaType='movie' movieData={actionMovieData as IMovie[]}/>
         <RowMovie id='comedyMovies' title='Comedy Movies' mediaType='movie' movieData={comedyMovieData as IMovie[]}/>
-        <RowMovie id='romanceMovies' title='Romance Movies' movieData={romanceMovieData as IMovie[]}/>
+        <RowMovie id='romanceMovies' title='Romance Movies' mediaType='movie' movieData={romanceMovieData as IMovie[]}/>
       </>
       }
     </HomeWrap>

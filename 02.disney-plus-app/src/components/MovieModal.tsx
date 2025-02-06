@@ -98,7 +98,7 @@ const ModalCloseBtn = styled.button`
   right: 20px;
   z-index: 999;
   cursor: pointer;
-  color: #fff;
+  color: #000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -116,7 +116,7 @@ const ModalCloseBtn = styled.button`
 
   &:hover{
     background-color: rgba(255, 255, 255, 0.6);
-    color: #000;
+    color: #fff;
   }
 `;
 
@@ -139,7 +139,7 @@ const ModalDetailBtn = styled.button`
   padding: 10px 20px;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
-  color: #fff;
+  color: #000;
   font-size: ${props => props.theme.fontSize.s};
   box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),
               0px 5px 8px 0px rgba(0,0,0,0.14),
@@ -148,7 +148,7 @@ const ModalDetailBtn = styled.button`
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.6);
-    color: #000;
+    color: #fff;
   }
 `;
 

@@ -53,20 +53,20 @@ export async function getLinkSearchData(programId:string) {
   return null;
 }
 
-export async function getSearchProgram(locationData:IMovie, programId:string){
+export async function getSearchProgram(locationData:IDetailMovieData | IDetailTvData, programId:string){
   const programMedia = locationData.media_type === 'movie' ? `/movie/${programId}` : `/tv/${programId}`;
   const response = await axiosInstance.get(programMedia)
   return response.data;
 }
 
-export async function getProgramCredits(locationData:IMovie, programId:string, linkSearchProgram:IDetailMovieData | IDetailTvData){
+export async function getProgramCredits(locationData:IDetailMovieData | IDetailTvData, programId:string, linkSearchProgram:IDetailMovieData | IDetailTvData){
   const mediaType = linkSearchProgram?.media_type || locationData?.media_type;
   const creditsMedia = mediaType === 'movie' ? `/movie/${programId}/credits` : `/tv/${programId}/credits`;
   const response = await axiosInstance.get(creditsMedia)
   return response.data.cast.length > 0 ? response.data : null;
 }
 
-export async function getProgramSimilar(locationData:IMovie, programId:string, linkSearchProgram:IDetailMovieData | IDetailTvData){
+export async function getProgramSimilar(locationData:IDetailMovieData | IDetailTvData, programId:string, linkSearchProgram:IDetailMovieData | IDetailTvData){
   const mediaType = linkSearchProgram?.media_type || locationData?.media_type;
   const mediaSimilar = mediaType === 'movie' ? `/movie/${programId}/similar` : `/tv/${programId}/similar`;
   const response = await axiosInstance.get(mediaSimilar);
@@ -74,9 +74,10 @@ export async function getProgramSimilar(locationData:IMovie, programId:string, l
 }
 
 export async function getProgramCollection(linkSearchProgram:IDetailMovieData) {
-  if(linkSearchProgram.belongs_to_collection){
+  if(linkSearchProgram.belongs_to_collection && linkSearchProgram.belongs_to_collection !== null){
     const collectionId = linkSearchProgram.belongs_to_collection.id;
     const response = await axiosInstance.get(`/collection/${collectionId}`);
     return response.data
   }
+  else return null;
 }
