@@ -1,4 +1,4 @@
-import { IDetailMovie, IDetailMovieData, IDetailTvData, IMovie } from "../type";
+import { IDetailMovieData, IDetailTvData } from "../type";
 import axiosInstance from "./axios"
 import requests from './request';
 
@@ -74,10 +74,18 @@ export async function getProgramSimilar(locationData:IDetailMovieData | IDetailT
 }
 
 export async function getProgramCollection(linkSearchProgram:IDetailMovieData) {
-  if(linkSearchProgram.belongs_to_collection && linkSearchProgram.belongs_to_collection !== null){
-    const collectionId = linkSearchProgram.belongs_to_collection.id;
-    const response = await axiosInstance.get(`/collection/${collectionId}`);
+  if(linkSearchProgram.belongs_to_collection){
+    console.log('o');
+
+    const collectionId = linkSearchProgram.belongs_to_collection?.id;
+    const response = await axiosInstance.get(`/collection/${collectionId}`);  
     return response.data
   }
-  else return null;
+  console.log('x');
+  return null;
+}
+
+export async function getSearchKeyWordProgram(keyWord:string){
+  const response = await axiosInstance.get(`/search/multi?include_adult=false&query=${keyWord}`)
+  return response.data
 }

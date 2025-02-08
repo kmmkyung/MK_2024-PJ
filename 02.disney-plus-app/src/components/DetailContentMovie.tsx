@@ -20,11 +20,11 @@ interface DetailContentMovieProps {
 function DetailContentMovie ({searchProgramData}:DetailContentMovieProps){
   return (
     <MovieMain>
-      <MovieRelease>{(searchProgramData.release_date).slice(0,4)}</MovieRelease>
+      <MovieRelease>{(searchProgramData?.release_date)?.slice(0,4)}</MovieRelease>
       <span className="dot">•</span>
-      <MovieRuntime>{Math.floor(searchProgramData.runtime/60)}시간 {Math.floor(searchProgramData.runtime%60).toString().padStart(2, '0')}분</MovieRuntime>
-      {searchProgramData.genres.length > 0 ? <span className="dot">•</span> : null}
-      <MovieGenres>{searchProgramData.genres.map(function(ele){return ele.name}).join(', ')}</MovieGenres>
+      <MovieRuntime>{Math.floor(searchProgramData?.runtime/60)}시간 {Math.floor(searchProgramData?.runtime%60).toString().padStart(2, '0')}분</MovieRuntime>
+      {searchProgramData?.genres.length > 0 ? <span className="dot">•</span> : null}
+      <MovieGenres>{searchProgramData?.genres.map(function(ele){return ele.name}).join(', ')}</MovieGenres>
     </MovieMain>
   )
 }

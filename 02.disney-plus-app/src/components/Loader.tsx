@@ -22,7 +22,7 @@ const LoadCircle = styled.div`
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  background: conic-gradient(from 0deg, ${props => props.theme.color.pointColor} 35%, #fff, transparent 70%);
+  background: conic-gradient(from 0deg, transparent 35%, #fff, ${props => props.theme.color.pointColor} 70%);
   mask: radial-gradient(transparent 55%, #fff 56%);
   animation: ${LoadCircleFrames} 1s linear infinite;
 `;

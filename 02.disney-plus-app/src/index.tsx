@@ -7,6 +7,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 import GlobalStyle from './GlobalStyle';
 import { RecoilRoot } from 'recoil';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 const queryClient = new QueryClient();
 
@@ -15,6 +16,7 @@ root.render(
   <React.StrictMode>
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={true} />
         <ThemeProvider theme={theme}>
           <GlobalStyle/>
           <RouterProvider router={Router}/>

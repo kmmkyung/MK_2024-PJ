@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { isSearchIngState } from "../atoms";
+import { isSearchIngState, searchKeywordState, searchKeyWordResultsState } from "../atoms";
 
 type navType = {
   $navColor: boolean;
@@ -195,12 +195,15 @@ const HeaderElClass = styled(HeaderEl)`
   }
 `;
 
-function Header( ){
+function Header(){
   const navigate = useNavigate();
+  const pathName = useLocation().pathname;
   const searchInput = useRef<HTMLInputElement>(null);
+  const searchShadow = useRef<HTMLDivElement>(null);
   const [ isSearching, setIsSearching ] = useRecoilState(isSearchIngState);
+  const [ searchKeyword, setSearchKeyword ] = useRecoilState(searchKeywordState);
+  const searchKeyWordResults  = useRecoilValue(searchKeyWordResultsState);
   const [ isNavVisible, setIsNavVisible] = useState(false);
-  const [ searchValue, setSearchValue ] = useState('');
 
   // 스크롤시 nav 배경색 바꿈
   useEffect(()=>{
@@ -220,7 +223,7 @@ function Header( ){
 
   function searchIconClick(){
     setIsSearching(true);
-    setSearchValue('');
+    setSearchKeyword('');
     if(bodyEl){
       bodyEl.style.overflow = 'hidden'
     }
@@ -233,11 +236,36 @@ function Header( ){
 
   function noSearching(){
     setIsSearching(false);
-    setSearchValue('');
+    setSearchKeyword('');
     if(bodyEl){
       bodyEl.style.overflow = 'auto'
     }
   }
+
+  function programSearching(event:React.ChangeEvent<HTMLInputElement>){
+    if(event.currentTarget.value){
+      setSearchKeyword(event.currentTarget.value);
+      navigate(`/search?searchKeyWord=${event.currentTarget.value}`);
+    }
+    else{
+      setSearchKeyword('');
+      navigate(`/search`);
+    }
+  }
+
+  // 검색어 갱신되면 검색화면, 검색창 상태 초기화
+  useEffect(()=>{
+    searchShadow.current?.classList.add('searchEnd')
+    if(bodyEl){ bodyEl.style.overflow = 'auto'}
+    window.scrollTo(0, 0);
+  },[searchKeyWordResults, bodyEl])
+
+  // 검색창 닫힘  + search 페이지일 경우 main으로 이동 
+  useEffect(()=>{
+    if(!isSearching && pathName === '/search'){
+      navigate(`/`);
+    }
+  },[isSearching, pathName, isNavVisible, navigate])
 
   return (
     <HeaderElClass $navColor={isNavVisible} className={isSearching ? "searchOn" : ""} >
@@ -254,10 +282,10 @@ function Header( ){
         </Menu>
 
         <Search>
-          <SearchShadow onClick={noSearching} className={isSearching ? "" : "searchEnd"} ></SearchShadow>
+          <SearchShadow ref={searchShadow} onClick={noSearching} className={isSearching ? "" : "searchEnd"} />
           <SearchWrap>
             <SearchIcon/>
-            <SearchInput ref={searchInput} type='text' placeholder='영화를 검색해 주세요'></SearchInput>
+            <SearchInput ref={searchInput} type='text' placeholder='프로그램을 검색해 주세요' value={searchKeyword} onChange={programSearching}></SearchInput>
             <CloseIcon onClick={noSearching}/>
           </SearchWrap>
         </Search>

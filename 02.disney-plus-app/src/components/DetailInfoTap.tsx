@@ -2,80 +2,188 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { ICredits, IDetailMovieData, IDetailTvData, IMovie } from '../type';
 import { makeImagePath } from '../utils';
+import { JSX } from 'react';
 
 const CollectionContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: min(2.5vw, 25px);
+
+  @media screen and (max-width: 768px){
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const CollectionContent = styled.div`
+  display: grid;
 `;
 
 const CollectionImgWrap = styled.div`
+  width: 100%;
+  aspect-ratio: 1 / 0.57;
+  box-sizing: border-box;
+  border: 3px solid rgba(249, 249, 249, 0);
+  border-radius: 10px;
+  transition: all 0.6s;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover{
+    transform: scale(1.05);
+    border-color: rgba(249, 249, 249, 0.8);
+  }
 `;
 
 const CollectionImg = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
 `;
 
 const CollectionTitleWrap = styled.div`
+  width: 100%;
+  overflow: hidden;
+  margin-top: 10px; 
 `;
 
 const CollectionTitle = styled.h6`
+  font-size: ${props => props.theme.fontSize.m};
+  color: #fff;
+  word-break: keep-all;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;
 
 const SimilarContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: min(2.5vw, 25px);
+
+  @media screen and (max-width: 768px){
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const SimilarContent = styled.div`
+  display: grid;
 `;
 
 const SimilarImgWrap = styled.div`
+  width: 100%;
+  aspect-ratio: 1 / 0.57;
+  box-sizing: border-box;
+  border: 3px solid rgba(249, 249, 249, 0);
+  border-radius: 10px;
+  transition: all 0.6s;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover{
+    transform: scale(1.05);
+    border-color: rgba(249, 249, 249, 0.8);
+  }
 `;
 
 const SimilarImg = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
 `;
 
 const SimilarTitleWrap = styled.div`
+  width: 100%;
+  overflow: hidden;
+  margin-top: 10px;
 `;
 
 const SimilarTitle = styled.h6`
+  font-size: ${props => props.theme.fontSize.m};
+  color: #fff;
+  word-break: keep-all;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;
 
-const InfoContainer = styled.div`
-`;
+const InfoContainer = styled.div``;
 
 const InfoWrap = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 50px;
+  color: #fff;
+
+  @media screen and (max-width: 768px){
+    flex-direction: column;
+  }
 `;
 
 const InfoLeft = styled.div`
+  flex: 1;
 `;
 
 const InfoTitle = styled.h2`
+  font-size: ${props => props.theme.fontSize.l};
 `;
 
 const InfoDescription = styled.p`
+  font-size: ${props => props.theme.fontSize.m};
+  margin-top: 20px;
+  line-height: 1.5;
+  word-break: keep-all;
 `;
 
 const InfoRight = styled.div`
+  flex: 1;
+  font-size: ${props => props.theme.fontSize.s};
+  display: flex;
+  gap: 20px;
+  width: 100%;
 `;
 
 const InfoContent = styled.div`
+  flex: 1;
 `;
 
 const InfoRelease = styled.p`
+  span {
+    display: block;
+  }
 `;
 
 const InfoRuntime = styled.p`
+  margin-top: 20px;
+  span {
+    display: block;
+  }
 `;
 
 const InfoGenres = styled.p`
+  margin-top: 20px;
+  span {
+    display: block;
+  }
 `;
 
 const InfoCredits = styled.div`
+  flex: 1;
 `;
 
 const InfoDirector = styled.p`
+  span {
+    display: block;
+  }
 `;
 
 const InfoCast = styled.p`
+  margin-top: 20px;
+  span {
+    display: block;
+    line-height: 1.4;
+  }
 `;
 
 
@@ -83,11 +191,11 @@ interface detailInfoTapDataProps{
   searchProgramData: IDetailMovieData | IDetailTvData,
   locationData: IDetailMovieData | IDetailTvData,
   creditsData: ICredits,
-  similarData: IMovie[],
-  collectionData: IMovie[],
+  similarData: IMovie[] | null,
+  collectionData: IMovie[] | null,
 }
 
-function DetailInfoTap({searchProgramData, locationData, creditsData, similarData, collectionData}:detailInfoTapDataProps){
+function DetailInfoTap({searchProgramData, locationData, creditsData, similarData, collectionData }:detailInfoTapDataProps){
   const navigate = useNavigate();
 
   function collectionDetailPageMove(movie:IMovie){
@@ -95,19 +203,14 @@ function DetailInfoTap({searchProgramData, locationData, creditsData, similarDat
   }
 
   function similarDetailPageMove(movie:IMovie){
-    navigate(`/detail/${movie.id}`,{ state: {data: { ...movie, media_type: searchProgramData.media_type || locationData.media_type}}})
+    navigate(`/detail/${movie.id}`,{ state: {data: { ...movie, media_type: searchProgramData?.media_type || locationData?.media_type}}});
   }
 
-  function typeMovieOrTv() {
-    if (searchProgramData.media_type === 'movie' || locationData.media_type === 'movie') {
-      return searchProgramData as IDetailMovieData;
-    } else {
-      return searchProgramData as IDetailTvData;
-    }
-  }
-  const programData = typeMovieOrTv();
-
-  return [
+  function isMovieData(data: IDetailMovieData | IDetailTvData): data is IDetailMovieData {
+    return data?.media_type === 'movie' || locationData.media_type === 'movie';
+  }  
+  
+  const taps = [
     collectionData && {
       name: 'collection',
       content: (
@@ -146,83 +249,87 @@ function DetailInfoTap({searchProgramData, locationData, creditsData, similarDat
       name: 'info',
       content: (
         <InfoContainer>
-          { programData.media_type === 'movie' ?
+          { isMovieData(searchProgramData) ?
           <InfoWrap>
             <InfoLeft>
-              <InfoTitle>{programData.title}</InfoTitle>
-              <InfoDescription></InfoDescription>
+              <InfoTitle>{searchProgramData.title}</InfoTitle>
+              <InfoDescription>{searchProgramData.overview}</InfoDescription>
             </InfoLeft>
             <InfoRight>
               <InfoContent>
                 <InfoRelease>
                   <span>공개일: </span>
+                  <span>{searchProgramData.release_date.slice(0,4)}</span>
                 </InfoRelease>
                 <InfoRuntime>
                   <span>러닝타임: </span>
+                  <span>{Math.floor(searchProgramData.runtime/60)}시간 {Math.floor(searchProgramData.runtime%60).toString().padStart(2,'0')}분</span>
                 </InfoRuntime>
                 { searchProgramData.genres.length > 0 ?
-                <InfoGenres><span>장르: </span>
+                <InfoGenres>
+                  <span>장르: </span>
+                  <span>{searchProgramData.genres.map(function(ele){return ele.name}).join(', ')}</span>
                 </InfoGenres>
                 : null}
-                <InfoCredits>
-                  { creditsData.crew.filter(ele=>ele.job==="Director").length > 0 ? 
-                  <InfoDirector>
-                    <span>감독: </span>
-                    {creditsData.crew.filter(ele=>ele.job==="Director").map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
-                  </InfoDirector>
-                  : null}
-                  <InfoCast>
-                    { creditsData ? <>
-                    <span>배우: </span>
-                    { creditsData.cast.slice(0,6).map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
-                    </>
-                    : null}
-                  </InfoCast>
-                </InfoCredits>
               </InfoContent>
+              <InfoCredits>
+                { creditsData?.crew?.filter(ele=>ele.job==="Director").length > 0 ? 
+                <InfoDirector>
+                  <span>감독: </span>
+                  {creditsData?.crew.filter(ele=>ele.job==="Director").map(function(ele){return<span key={ele.id}>{ele.name}</span>})}
+                </InfoDirector>
+                : null}
+                <InfoCast>
+                  <span>배우: </span>
+                  { creditsData?.cast.slice(0,6).map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
+                </InfoCast>
+              </InfoCredits>
             </InfoRight>
           </InfoWrap>
           :
           <InfoWrap>
             <InfoLeft>
-              <InfoTitle></InfoTitle>
-              <InfoDescription></InfoDescription>
+              <InfoTitle>{searchProgramData.name}</InfoTitle>
+              <InfoDescription>{searchProgramData.overview}</InfoDescription>
             </InfoLeft>
             <InfoRight>
               <InfoContent>
                 <InfoRelease>
                   <span>공개일: </span>
+                  <span>{searchProgramData.first_air_date?.slice(0,4)}</span>
                 </InfoRelease>
                 <InfoRuntime>
                   <span>총 시즌: </span>
+                  <span>{searchProgramData.number_of_seasons}의 시즌</span>
                 </InfoRuntime>
                 { searchProgramData.genres.length > 0 ?
-                <InfoGenres><span>장르: </span>
+                <InfoGenres>
+                  <span>장르: </span>
+                  <span>{searchProgramData.genres.map(function(ele){return ele.name}).join(', ')}</span>
                 </InfoGenres>
                 : null}
-                <InfoCredits>
-                  { creditsData.crew.filter(ele=>ele.job==="Director").length > 0 ? 
-                  <InfoDirector>
-                    <span>감독: </span>
-                    {creditsData.crew.filter(ele=>ele.job==="Director").map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
-                  </InfoDirector>
-                  : null}
-                  <InfoCast>
-                    { creditsData ? <>
-                    <span>배우: </span>
-                    { creditsData.cast.slice(0,6).map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
-                    </>
-                    : null}
-                  </InfoCast>
-                </InfoCredits>
               </InfoContent>
+              <InfoCredits>
+                { creditsData?.crew.filter(ele=>ele.job==="Director").length > 0 ? 
+                <InfoDirector>
+                  <span>감독: </span>
+                  {creditsData.crew.filter(ele=>ele.job==="Director").map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
+                </InfoDirector>
+                : null}
+                <InfoCast>
+                  <span>배우: </span>
+                  { creditsData?.cast.slice(0,6).map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
+                </InfoCast>
+              </InfoCredits>
             </InfoRight>
           </InfoWrap>
           }
         </InfoContainer>
       )
     }
-  ].filter(Boolean);
+  ]
+
+  return taps.filter(Boolean) as { name: string; content: JSX.Element }[]
 }
 
 export default DetailInfoTap;

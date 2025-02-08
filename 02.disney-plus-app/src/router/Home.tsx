@@ -22,27 +22,27 @@ const useQueries = () => {
   const trendingNow = useQuery<IGetMovie, Error, IMovie[]>({
     queryKey: ['trendingNow'],
     queryFn: getTrending,
-    select: (data) => data.results.filter(ele=> ele.backdrop_path !== null)
+    select: (data) => data.results.filter(ele=> ele.backdrop_path !== null && ele.backdrop_path)
   })
   const nowPlayMovie = useQuery<IGetMovie, Error, IMovie[]>({
     queryKey: ['nowPlayMovie'],
     queryFn: getNowPlayMovie,
-    select: (data) => data.results.filter(ele=> ele.backdrop_path !== null)
+    select: (data) => data.results.filter(ele=> ele.backdrop_path !== null && ele.backdrop_path)
   })
   const topRatedMovie = useQuery<IGetMovie,Error, IMovie[]>({
     queryKey: ['topRatedMovie'],
     queryFn: getTopRated,
-    select: (data) => data.results.filter(ele=> ele.backdrop_path !== null)
+    select: (data) => data.results.filter(ele=> ele.backdrop_path !== null && ele.backdrop_path)
   })
   const actionMovie = useQuery<IGetMovie, Error, IMovie[]>({
     queryKey: ['actionMovie'],
     queryFn: getActionMovie,
-    select: (data) => data.results.filter(ele=> ele.backdrop_path !== null)
+    select: (data) => data.results.filter(ele=> ele.backdrop_path !== null && ele.backdrop_path)
   })
   const comedyMovie = useQuery<IGetMovie, Error, IMovie[]>({
     queryKey: ['comedyMovie'],
     queryFn: getComedyMovie,
-    select: (data) => data.results.filter(ele=> ele.backdrop_path !== null)
+    select: (data) => data.results.filter(ele=> ele.backdrop_path !== null && ele.backdrop_path)
   })
   const romanceMovie = useQuery<IGetMovie, Error, IMovie[]>({
     queryKey: ['romanceMovie'],

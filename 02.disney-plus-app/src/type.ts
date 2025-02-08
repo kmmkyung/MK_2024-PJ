@@ -9,6 +9,13 @@ export interface IGetMovie {
   total_pages: number;
   total_results: number;
 }
+export interface ISearchKeyWord {
+  page: number;
+  results: IMovie[]
+  total_pages: number;
+  total_results: number;
+}
+
 export interface IMovie {
   adult: boolean;
   backdrop_path: string;
@@ -47,7 +54,7 @@ export interface IDetailMovieData {
   homepage: string | null;
   id: number;
   imdb_id: string;
-  origin_country: [string]
+  origin_country: string[]
   original_language: string;
   original_title: string;
   overview: string;
@@ -71,14 +78,13 @@ export interface IDetailMovieData {
 export interface IDetailTvData {
   adult: boolean;
   backdrop_path: string;
-  created_by: [{credit_id: string
+  created_by: {credit_id: string
     gender: number
     id: number
     name: string
     original_name: string
-    profile_path: string | null}
-  ]
-  episode_run_time: [number]
+    profile_path: string | null}[]
+  episode_run_time: number[]
   first_air_date: string
   genres: {id: number, name: string}[]
   homepage: string | null;
@@ -120,7 +126,7 @@ export interface IDetailTvData {
     } | null;
   number_of_episodes: number;
   number_of_seasons: number;
-  origin_country: [string];
+  origin_country: string[];
   original_language: string;
   original_name: string;
   overview: string;
@@ -146,7 +152,6 @@ export interface IDetailTvData {
   vote_count: number;
   media_type?: string;
 }
-
 
 export interface ICredits {
   cast:
@@ -196,11 +201,6 @@ export interface ICollection{
   parts: IMovie[]
   poster_path: string
 }
-
-export interface ISearchForm {
-  keyWord: string;
-}
-
 
 
 

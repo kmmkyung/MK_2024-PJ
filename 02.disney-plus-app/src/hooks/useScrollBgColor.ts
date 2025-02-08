@@ -1,8 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
-export function useScrollBgOpacity(element:HTMLDivElement|null){
+export function useScrollBgOpacity(){
+  const ref = useRef<HTMLDivElement | null>(null);
+
   useEffect(()=>{
-    if (!element) return;
+    if (!ref) return;
     function scrollBgChange(){
       const scrollNow = window.scrollY; // 현재 스크롤
       const documentHeight = document.documentElement.scrollHeight; // 전체 페이지 높이
@@ -12,13 +14,14 @@ export function useScrollBgOpacity(element:HTMLDivElement|null){
       // 스크롤 위치
       const scrollPercentage = (Math.min( (maxScroll-scrollNow) / maxScroll, 1)).toFixed(3);
       const opacityPercentage = scrollPercentage;
-      if (element) {
-        element.style.opacity = opacityPercentage;
+      if (ref.current) {
+        ref.current.style.opacity = opacityPercentage;
       }
     }
     window.addEventListener('scroll', scrollBgChange);
     return ()=>{
       window.removeEventListener('scroll', scrollBgChange);
     }
-  },[element]);
+  },[]);
+  return ref;
 }
