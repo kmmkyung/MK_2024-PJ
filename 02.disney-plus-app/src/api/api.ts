@@ -1,4 +1,4 @@
-import { IDetailMovieData, IDetailTvData } from "../type";
+import { IDetailMovieData, IDetailTvData, ISearchKeyWord } from "../type";
 import axiosInstance from "./axios"
 import requests from './request';
 
@@ -37,20 +37,32 @@ export async function getRomanceMovie(){
   return response.data;
 }
 
+export async function getSearchKeyWordProgram(keyWord:string){
+  const response = await axiosInstance.get(`/search/multi?include_adult=false&query=${keyWord}`)
+  return response.data
+}
+
 export async function getLinkSearchData(programId:string) {
-  const [programMediaMovie, programMediaTv] = await Promise.all([
-    axiosInstance.get(`/movie/${programId}`),
-    axiosInstance.get(`/tv/${programId}`)
-  ]);
-  if(programMediaMovie.data){
-    programMediaMovie.data.media_type = 'movie'
-    return programMediaMovie.data
+  try {
+    const programMediaMovie = axiosInstance.get(`/movie/${programId}`);
+    const programMediaTv = axiosInstance.get(`/tv/${programId}`);
+    const [movieResponse, tvResponse] = await Promise.all([programMediaMovie, programMediaTv]);
+
+    // 영화 데이터가 있으면
+    if (movieResponse && movieResponse.data) {
+      movieResponse.data.media_type = 'movie';
+      return movieResponse.data;
+
+    }
+    // TV 데이터가 있으면
+    else if (tvResponse && tvResponse.data) {
+      tvResponse.data.media_type = 'tv';
+      return tvResponse.data;
+    }
+    return null;
+  } catch (error) {
+    return null;
   }
-  if(programMediaTv.data){
-    programMediaTv.data.media_type = 'tv'
-    return programMediaTv.data
-  }
-  return null;
 }
 
 export async function getSearchProgram(locationData:IDetailMovieData | IDetailTvData, programId:string){
@@ -59,33 +71,44 @@ export async function getSearchProgram(locationData:IDetailMovieData | IDetailTv
   return response.data;
 }
 
-export async function getProgramCredits(locationData:IDetailMovieData | IDetailTvData, programId:string, linkSearchProgram:IDetailMovieData | IDetailTvData){
-  const mediaType = linkSearchProgram?.media_type || locationData?.media_type;
+export async function getProgramCredits(locationData:IDetailMovieData | IDetailTvData, programId:string, searchProgram:IDetailMovieData | IDetailTvData){
+  const mediaType = searchProgram?.media_type || locationData?.media_type;
   const creditsMedia = mediaType === 'movie' ? `/movie/${programId}/credits` : `/tv/${programId}/credits`;
   const response = await axiosInstance.get(creditsMedia)
   return response.data.cast.length > 0 ? response.data : null;
 }
 
-export async function getProgramSimilar(locationData:IDetailMovieData | IDetailTvData, programId:string, linkSearchProgram:IDetailMovieData | IDetailTvData){
-  const mediaType = linkSearchProgram?.media_type || locationData?.media_type;
+export async function getProgramSimilar(locationData:IDetailMovieData | IDetailTvData, programId:string, searchProgram:IDetailMovieData | IDetailTvData){
+  const mediaType = searchProgram?.media_type || locationData?.media_type;
   const mediaSimilar = mediaType === 'movie' ? `/movie/${programId}/similar` : `/tv/${programId}/similar`;
   const response = await axiosInstance.get(mediaSimilar);
   return response.data.results.length > 0 ? response.data : null;
 }
 
-export async function getProgramCollection(linkSearchProgram:IDetailMovieData) {
-  if(linkSearchProgram.belongs_to_collection){
-    console.log('o');
-
-    const collectionId = linkSearchProgram.belongs_to_collection?.id;
+export async function getProgramCollection(searchProgram:IDetailMovieData) {
+  if(searchProgram.belongs_to_collection){
+    const collectionId = searchProgram.belongs_to_collection?.id;
     const response = await axiosInstance.get(`/collection/${collectionId}`);  
     return response.data
   }
-  console.log('x');
   return null;
 }
 
-export async function getSearchKeyWordProgram(keyWord:string){
-  const response = await axiosInstance.get(`/search/multi?include_adult=false&query=${keyWord}`)
-  return response.data
+export async function getCompanyData(mediaType:string, standard:string, tmdbCompanyId:number[], pageNumber:number){
+  if (tmdbCompanyId.length > 1) {
+    const responses = await Promise.all(
+      tmdbCompanyId.map(async (ele) => {
+        const response = await axiosInstance.get(`/discover/${mediaType}?${standard}=${ele}&sort_by=release_date.desc&page=${pageNumber}`);
+        return response.data.results
+      })
+    );
+    const resultObj = {results:responses.flat().slice(0,20)}
+    return resultObj
+  }
+  
+
+  else{
+    const response = await axiosInstance.get(`/discover/${mediaType}?${standard}=${tmdbCompanyId}&sort_by=release_date.desc&page=${pageNumber}`)
+    return response.data
+  }
 }

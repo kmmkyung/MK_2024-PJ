@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { isSearchIngState, searchKeywordState, searchKeyWordResultsState } from "../atoms";
+import { auth } from "../firebase";
 
 type navType = {
   $navColor: boolean;
@@ -244,6 +245,7 @@ function Header(){
 
   function programSearching(event:React.ChangeEvent<HTMLInputElement>){
     if(event.currentTarget.value){
+      searchShadow.current?.classList.remove('searchEnd')
       setSearchKeyword(event.currentTarget.value);
       navigate(`/search?searchKeyWord=${event.currentTarget.value}`);
     }
@@ -253,6 +255,12 @@ function Header(){
     }
   }
 
+  // userLogout
+  function userLogout(){
+    auth.signOut();
+    navigate('/login');
+  }
+
   // 검색어 갱신되면 검색화면, 검색창 상태 초기화
   useEffect(()=>{
     searchShadow.current?.classList.add('searchEnd')
@@ -260,12 +268,12 @@ function Header(){
     window.scrollTo(0, 0);
   },[searchKeyWordResults, bodyEl])
 
-  // 검색창 닫힘  + search 페이지일 경우 main으로 이동 
+  // 검색창 닫힘 + 검색어 없음 + search 페이지일 경우 main으로 이동 
   useEffect(()=>{
-    if(!isSearching && pathName === '/search'){
+    if(!isSearching && !searchKeyword && pathName === '/search'){
       navigate(`/`);
     }
-  },[isSearching, pathName, isNavVisible, navigate])
+  },[isSearching, pathName, navigate, searchKeyword])
 
   return (
     <HeaderElClass $navColor={isNavVisible} className={isSearching ? "searchOn" : ""} >

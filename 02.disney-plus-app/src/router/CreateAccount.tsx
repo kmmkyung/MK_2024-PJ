@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { motion } from "motion/react"
 import { useState } from "react";
+import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth'
+import { auth } from "../firebase";
 
 const Section = styled.section`
   width: 100%;
@@ -12,6 +14,7 @@ const Section = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 `;
 
 const LoginBox = styled(motion.div)`
@@ -38,7 +41,6 @@ const LoginBox = styled(motion.div)`
 `;
 
 const InputBox = styled.div`
-  
   form{
     display: flex;
     flex-direction: column;
@@ -49,6 +51,7 @@ const InputBox = styled.div`
       border: none;
       padding: 20px;
       font-size: ${props => props.theme.fontSize.m};
+      box-sizing: border-box;
     }
 
     input:active{
@@ -89,13 +92,56 @@ const InputBox = styled.div`
   }
 `;
 
+const ErrorMessage = styled.p`
+  text-align: center;
+  color: tomato;
+  font-size: ${props => props.theme.fontSize.m};
+  margin-top: 10px;
+`;
+
 const accountVariants = {
   hidden: { opacity: 0},
   visible: { opacity: 1},
 }
 
 function CreateAccount(){
+  const navigate = useNavigate();
   const [ isLogin, setIsLogin ] = useState(false);
+  const [ email, setEmail ] = useState('');
+  const [ password, setPassword ] = useState('');
+  const [ name, setName ] = useState('');
+  const [ error, setError ] = useState('');
+
+  function onChange(event:React.ChangeEvent<HTMLInputElement>){
+    const { target:{name, value}} = event;
+    if(name === 'name'){
+      setName(value);
+    }
+    else if(name === 'password'){
+      setPassword(value)
+    }
+    else if(name === 'email'){
+      setEmail(value)
+    }
+  }
+
+  async function createAccount(event:React.FormEvent<HTMLFormElement>){
+    event.preventDefault()
+    if(isLogin || name === '' || email === '' || password === '') return;
+    try {
+      setIsLogin(true)
+      const credentials = await createUserWithEmailAndPassword(auth, email, password)
+      await updateProfile(credentials.user, {
+        displayName: name
+      })
+    }
+    catch(event){
+
+    }
+    finally{
+      setIsLogin(false)
+    }
+  }
 
   return (
     <Section>
@@ -103,12 +149,13 @@ function CreateAccount(){
         <h2>계정을 생성해주세요</h2>
         <p>Disney 계정에 대한 내용을 입력해주세요.</p>
         <InputBox>
-          <form>
-            <input type="email" placeholder="이메일"/>
-            <input type="password" placeholder="비밀번호"/>
-            <input type="text" placeholder="닉네임"/>
-            <input type="submit" value={isLogin ? 'Loading' : 'Log In'}/>
+          <form onSubmit={createAccount}>
+            <input type="email" placeholder="이메일" value={email} onChange={onChange} required/>
+            <input type="password" placeholder="비밀번호" value={password} onChange={onChange} required/>
+            <input type="text" placeholder="닉네임" value={name} onChange={onChange} required/>
+            <input type="submit" value={isLogin ? 'Loading' : '계정 생성하기'}/>
           </form>
+          {error !== '' ? <ErrorMessage>sadf</ErrorMessage> : null }
           <span>Disney 계정이 있으신가요?</span>
           <Link to ="/login">Disney Login &rarr;</Link>
         </InputBox>

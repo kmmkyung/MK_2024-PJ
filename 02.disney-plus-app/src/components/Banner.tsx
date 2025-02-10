@@ -97,6 +97,7 @@ const BannerContainerEL = styled.div `
 `;
 
 const SlideItem= styled.div<{$bgPhoto: string;}>`
+  cursor: pointer;
   width: 100%;
   height: 100%;
   position: relative;

@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useLocation, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { getLinkSearchData, getSearchProgram, getProgramCredits, getProgramSimilar, getProgramCollection } from "../api/api";
@@ -7,7 +7,7 @@ import Loader from "../components/Loader";
 import DetailContentTv from "../components/DetailContentTv";
 import DetailContentMovie from "../components/DetailContentMovie";
 import { makeImagePath } from "../utils";
-import { JSX, useEffect, useRef, useState } from "react";
+import { JSX, useEffect, useState } from "react";
 import { useScrollBgOpacity } from "../hooks/useScrollBgColor";
 import DetailInfoTap from "../components/DetailInfoTap";
 
@@ -110,20 +110,25 @@ function useQueries(){
     queryKey: ["credits", programId],
     queryFn: () => getProgramCredits(locationData, programId, searchProgram.data as IDetailMovieData | IDetailTvData),
     enabled: !!programId,
-  })
+  });
+
   const similar = useQuery<ISimilar, Error, IMovie[] | null>({
     queryKey: ["similar", programId],
     queryFn: () => getProgramSimilar(locationData, programId, searchProgram.data as IDetailMovieData | IDetailTvData),
     select: (data) => data.results.filter(ele=> ele.backdrop_path !== null &&  ele.backdrop_path),
     enabled: !!programId,
-  })
+  });
+
   const collection = useQuery<ICollection, Error, IMovie[] | null>({
     queryKey: ["collection", programId],
     queryFn: () => getProgramCollection(searchProgram.data as IDetailMovieData),
-    select: (data) => data.parts?.filter(ele=> ele.backdrop_path !== null && ele.backdrop_path),
+    select: (data) => {
+      if(data){ return data.parts?.filter(ele=> ele.backdrop_path !== null && ele.backdrop_path)}
+      else return null;
+    },
     enabled: !!searchProgram.data,
-  })
-  
+  });
+
   return {searchProgram, credits, similar, collection};
 } 
 
@@ -134,26 +139,23 @@ function Detail(){
   const [ activeTab, setActiveTab ] = useState(0);
   const [tapsLoading, setTapsLoading] = useState(true);
   
-  // const queryClient = useQueryClient();
   const { searchProgram, credits, similar, collection}  = useQueries()
   const searchProgramLoading = searchProgram.isLoading;
   const creditsLoading = credits.isLoading;
   const similarLoading = similar.isLoading;
   const collectionLoading = collection.isLoading;
-  console.log(collection.data);
-
   const taps:{name:string, content:JSX.Element}[] = DetailInfoTap({
     searchProgramData: searchProgram.data!,
     locationData,
     creditsData: credits.data!,
     similarData: similar.data || null,
     collectionData: collection.data || null,
-  });
+  });  
 
-  // useEffect(() => {
-  //   taps? setTapsLoading(false) : setTapsLoading(true);
-  //   setActiveTab(0);
-  // }, []);
+  useEffect(() => {
+    taps? setTapsLoading(false) : setTapsLoading(true);
+    setActiveTab(0);
+  }, [searchProgram.data]);
 
 
   return (

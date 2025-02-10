@@ -5,13 +5,16 @@ import CreateAccount from "./CreateAccount";
 import Home from "./Home";
 import Detail from "./Detail";
 import Search from "./Search";
+import Company from "./Company";
+import ProtectedRoute from "./ProtectedRoute";
 
 const Router = createBrowserRouter([
-  {path:'/', element: <App/>,
+  {path:'/', element: (<ProtectedRoute><App/></ProtectedRoute>),
     children: [
       {path:'', element: <Home/>},
       {path:'/search', element: <Search/>},
-      {path:'/detail/:programId', element: <Detail/>}
+      {path:'/detail/:programId', element: <Detail/>},
+      {path:'/company/:companyId', element: <Company/>}
     ]
   },
   {path:'/login', element: <Login/>},

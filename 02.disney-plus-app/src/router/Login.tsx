@@ -13,7 +13,8 @@ const Section = styled.section`
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  
+  box-sizing: border-box;
+
   @media screen and (max-width: 768px){
     flex-direction: column;
   }
@@ -33,6 +34,7 @@ const LoginBox = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  box-sizing: border-box;
 
   h2 {
     font-size: ${props => props.theme.fontSize.l};
@@ -45,15 +47,17 @@ const LoginBox = styled(motion.div)`
 
 const InputBox = styled.div`
   form{
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
-
+    
     input {
       width: 100%;
       border: none;
       padding: 20px;
       font-size: ${props => props.theme.fontSize.m};
+      box-sizing: border-box;
     }
 
     input:active{

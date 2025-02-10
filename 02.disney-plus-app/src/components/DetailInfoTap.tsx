@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { ICredits, IDetailMovieData, IDetailTvData, IMovie } from '../type';
 import { makeImagePath } from '../utils';
-import { JSX } from 'react';
+import { JSX, useEffect, useMemo } from 'react';
 
 const CollectionContainer = styled.div`
   display: grid;
@@ -198,6 +198,10 @@ interface detailInfoTapDataProps{
 function DetailInfoTap({searchProgramData, locationData, creditsData, similarData, collectionData }:detailInfoTapDataProps){
   const navigate = useNavigate();
 
+  const programMovieData = searchProgramData as IDetailMovieData;
+  const programTvData = searchProgramData as IDetailTvData;
+
+
   function collectionDetailPageMove(movie:IMovie){
     navigate(`/detail/${movie.id}`, { state: {data: movie} })
   }
@@ -206,10 +210,6 @@ function DetailInfoTap({searchProgramData, locationData, creditsData, similarDat
     navigate(`/detail/${movie.id}`,{ state: {data: { ...movie, media_type: searchProgramData?.media_type || locationData?.media_type}}});
   }
 
-  function isMovieData(data: IDetailMovieData | IDetailTvData): data is IDetailMovieData {
-    return data?.media_type === 'movie' || locationData.media_type === 'movie';
-  }  
-  
   const taps = [
     collectionData && {
       name: 'collection',
@@ -249,21 +249,21 @@ function DetailInfoTap({searchProgramData, locationData, creditsData, similarDat
       name: 'info',
       content: (
         <InfoContainer>
-          { isMovieData(searchProgramData) ?
+          {searchProgramData.media_type === 'movie' || locationData.media_type === 'movie' ? 
           <InfoWrap>
             <InfoLeft>
-              <InfoTitle>{searchProgramData.title}</InfoTitle>
-              <InfoDescription>{searchProgramData.overview}</InfoDescription>
+              <InfoTitle>{programMovieData.title}</InfoTitle>
+              <InfoDescription>{programMovieData.overview}</InfoDescription>
             </InfoLeft>
             <InfoRight>
               <InfoContent>
                 <InfoRelease>
                   <span>공개일: </span>
-                  <span>{searchProgramData.release_date.slice(0,4)}</span>
+                  <span>{programMovieData.release_date.slice(0,4)}</span>
                 </InfoRelease>
                 <InfoRuntime>
                   <span>러닝타임: </span>
-                  <span>{Math.floor(searchProgramData.runtime/60)}시간 {Math.floor(searchProgramData.runtime%60).toString().padStart(2,'0')}분</span>
+                  <span>{Math.floor(programMovieData.runtime/60)}시간 {Math.floor(programMovieData.runtime%60).toString().padStart(2,'0')}분</span>
                 </InfoRuntime>
                 { searchProgramData.genres.length > 0 ?
                 <InfoGenres>
@@ -279,33 +279,35 @@ function DetailInfoTap({searchProgramData, locationData, creditsData, similarDat
                   {creditsData?.crew.filter(ele=>ele.job==="Director").map(function(ele){return<span key={ele.id}>{ele.name}</span>})}
                 </InfoDirector>
                 : null}
+                {creditsData?.cast ? 
                 <InfoCast>
                   <span>배우: </span>
                   { creditsData?.cast.slice(0,6).map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
                 </InfoCast>
+              : null }
               </InfoCredits>
             </InfoRight>
           </InfoWrap>
           :
           <InfoWrap>
             <InfoLeft>
-              <InfoTitle>{searchProgramData.name}</InfoTitle>
-              <InfoDescription>{searchProgramData.overview}</InfoDescription>
+              <InfoTitle>{programTvData.name}</InfoTitle>
+              <InfoDescription>{programTvData.overview}</InfoDescription>
             </InfoLeft>
             <InfoRight>
               <InfoContent>
                 <InfoRelease>
                   <span>공개일: </span>
-                  <span>{searchProgramData.first_air_date?.slice(0,4)}</span>
+                  <span>{programTvData.first_air_date?.slice(0,4)}</span>
                 </InfoRelease>
                 <InfoRuntime>
                   <span>총 시즌: </span>
-                  <span>{searchProgramData.number_of_seasons}의 시즌</span>
+                  <span>{programTvData.number_of_seasons}의 시즌</span>
                 </InfoRuntime>
-                { searchProgramData.genres.length > 0 ?
+                { programTvData.genres.length > 0 ?
                 <InfoGenres>
                   <span>장르: </span>
-                  <span>{searchProgramData.genres.map(function(ele){return ele.name}).join(', ')}</span>
+                  <span>{programTvData.genres.map(function(ele){return ele.name}).join(', ')}</span>
                 </InfoGenres>
                 : null}
               </InfoContent>
@@ -316,10 +318,12 @@ function DetailInfoTap({searchProgramData, locationData, creditsData, similarDat
                   {creditsData.crew.filter(ele=>ele.job==="Director").map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
                 </InfoDirector>
                 : null}
+                {creditsData?.cast ? 
                 <InfoCast>
                   <span>배우: </span>
                   { creditsData?.cast.slice(0,6).map(function(ele){return <span key={ele.id}>{ele.name}</span>})}
                 </InfoCast>
+              : null }
               </InfoCredits>
             </InfoRight>
           </InfoWrap>

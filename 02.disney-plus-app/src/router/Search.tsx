@@ -15,7 +15,7 @@ const SearchSection = styled.section`
   padding: 80px 3.5vw;
   margin-top: 20px;
   box-sizing: border-box;
-  background: url("images/home-background.png") center center / cover no-repeat fixed;
+  background: url("/images/home-background.png") center center / cover no-repeat fixed;
 `;
 
 const SearchWrap = styled.div`
@@ -102,7 +102,7 @@ function Search(){
   useEffect(()=>{
     const keyWordTimeOut = setTimeout(function(){
       setSearchKeyWordResults(searchKeyword)
-    }, 2000)
+    }, 1500)
     return ()=>{
       clearTimeout(keyWordTimeOut);
     }
@@ -118,18 +118,16 @@ function Search(){
     }
   }, [isSearching, searchResultsData, setSearchKeyWordResults]);
 
-
   function movieDetailMove(program:IMovie) {
     navigate(`/detail/${program.id}`, { state: { data: program } });
     setIsSearching(false);
   }
 
-
   return (
     <SearchSection>
       {isLoading? <Loader/> :
       <>
-          {data && data?.length > 0 ? 
+        {data && data?.length > 0 ? 
           <SearchWrap>
             {data?.map(ele=>{
               return <SearchItem key={ele.id}>
@@ -141,7 +139,7 @@ function Search(){
                 </ItemTitleWrap>
             </SearchItem>})}
           </SearchWrap>
-        :
+          :
           <SearchNoResults>
             { searchKeyWordResults ?
             <p>"{searchKeyWordResults}" 에 대한 검색 결과 없음</p> : null

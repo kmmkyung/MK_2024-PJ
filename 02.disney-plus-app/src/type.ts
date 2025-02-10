@@ -24,7 +24,7 @@ export interface IMovie {
   id: number;
   original_language: string;
   original_title: string;
-  overview:string;
+  overview: string;
   popularity: number; 
   poster_path: string;
   release_date?: string;
@@ -198,9 +198,43 @@ export interface ICollection{
   id: number;
   name: string;
   overview: string;
-  parts: IMovie[]
-  poster_path: string
+  parts: IMovie[];
+  poster_path: string;
 }
 
+export interface ISeason{
+  air_date: string;
+  episodes: {
+    air_date: string,
+    episode_number: number,
+    episode_type: string,
+    guest_stars: []
+    id: number,
+    name: string,
+    overview: string ,
+    production_code: string,
+    runtime: number,
+    season_number: number,
+    show_id: number,
+    still_path: string,
+    vote_average: number,
+    vote_count: number,
+  }
+  id: number;
+  name: string;
+  overview: string;
+  poster_path: string;
+  season_number: number;
+  vote_average: number;
+  _id: string;
+}
 
-
+export interface companyData {
+  companyName: string;
+  mediaType: string;
+  standard: string;
+  tmdbCompanyId: number[];
+  video: string;
+  logo: string;
+  backgroundImg: string;
+}
