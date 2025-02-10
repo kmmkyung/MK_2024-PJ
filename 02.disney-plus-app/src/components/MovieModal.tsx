@@ -197,15 +197,20 @@ function MovieModal({setModalOpen, movieSelected, mediaType}: MovieModalProps){
   const navigate = useNavigate()
   const refModalBg = useRef<HTMLDivElement>(null);
   const [ modalClosing, setModalClosing ] = useState(false);
+  const bodyEl = document.querySelector('body') as HTMLHeadElement
 
   function modalClose(){
     setModalClosing(true);
     setTimeout(() => {
       setModalOpen(false);
+      if(bodyEl){
+        bodyEl.style.overflow = 'auto'
+      }
     }, 450);
   }
 
   function movieDetailPage(){
+    if(bodyEl){ bodyEl.style.overflow = 'auto' }
     if(mediaType){
       navigate(`/detail/${movieSelected.id}`,{ state: { data: {...movieSelected, media_type: mediaType} }})
     }

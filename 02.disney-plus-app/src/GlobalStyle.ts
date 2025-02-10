@@ -34,6 +34,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     overflow-x: hidden;
     font-family: "Noto Sans KR", "Roboto", sans-serif;
+    background-color: ${props => props.theme.color.bgColor};
   }
   
   body::-webkit-scrollbar {

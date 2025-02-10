@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { isSearchIngState, searchKeywordState, searchKeyWordResultsState } from "../atoms";
+import { isSearchIngState, searchKeywordState, searchKeyWordResultsState, userDataState } from "../atoms";
 import { auth } from "../firebase";
+import Loader from "./Loader";
 
 type navType = {
   $navColor: boolean;
@@ -67,27 +68,30 @@ const UserImg = styled.img`
   padding: 10px;
 `
 
+const NoUserImg = styled.div`
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  background-color: ${props => props.theme.color.pointColor};
+`
+
 const DropDown = styled.div`
   position: absolute;
   border-radius: 4px;
   box-shadow: rgb(0 0 0 / 50%) 0px 0px 18px 0;
-  letter-spacing: 2px;
-  top: 50px;
-  left: 50%;
+  top: 60px;
+  right: 0;
   padding: 10px;
-  transform: translateX(-50%);
-  box-sizing: border-box;
   text-align: center;
+  transform-origin: top right;
   background-color: #000;
-  width: min(10vw, 100px);
   opacity: 0;
-  transition: all 0.4s 0.2s;
   visibility: hidden;
-  font-size: 1.0rem;
-  
-  @media (max-width: 480px){
-    width: 100%;
-  }
+  transition: all 0.4s 0.2s;
+  font-size: ${props => props.theme.fontSize.s};
+  color: #fff;
+  cursor: pointer;
 `
 
 const UserWarp = styled.div`
@@ -205,6 +209,9 @@ function Header(){
   const [ searchKeyword, setSearchKeyword ] = useRecoilState(searchKeywordState);
   const searchKeyWordResults  = useRecoilValue(searchKeyWordResultsState);
   const [ isNavVisible, setIsNavVisible] = useState(false);
+  const userData = useRecoilValue(userDataState)
+  const userName = userData?.displayName;
+  const userImg = userData?.photoURL
 
   // 스크롤시 nav 배경색 바꿈
   useEffect(()=>{
@@ -276,6 +283,8 @@ function Header(){
   },[isSearching, pathName, navigate, searchKeyword])
 
   return (
+    <>
+    { userData ?
     <HeaderElClass $navColor={isNavVisible} className={isSearching ? "searchOn" : ""} >
       <HeaderWrap>
         <Menu>
@@ -283,8 +292,10 @@ function Header(){
           <MenuRight>
             <MenuSearch onClick={searchIconClick}></MenuSearch>
             <UserWarp>
-              <UserImg/>
-              <DropDown>Sign Out</DropDown>
+              { Boolean(userImg) ?
+                <UserImg src={userImg || ''} alt="user"/> : <NoUserImg/>
+              }
+              <DropDown onClick={userLogout}>{userName} LogOut</DropDown>
             </UserWarp>
           </MenuRight>
         </Menu>
@@ -299,6 +310,8 @@ function Header(){
         </Search>
       </HeaderWrap>
     </HeaderElClass>
+  : <Loader/> }
+  </> 
   )
 }
 

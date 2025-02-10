@@ -4,6 +4,7 @@ import { motion } from "motion/react"
 import { useState } from "react";
 import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth'
 import { auth } from "../firebase";
+import { FirebaseError } from "firebase/app";
 
 const Section = styled.section`
   width: 100%;
@@ -110,10 +111,15 @@ function CreateAccount(){
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
   const [ name, setName ] = useState('');
-  const [ error, setError ] = useState('');
+  const [ isError, setIsError ] = useState('');
+  const errors = [
+    {"Firebase: Error (auth/email-already-in-use)." : '이미 존재하는 이메일입니다'},
+    {"Firebase: Password should be at least 6 characters (auth/weak-password)." : '비밀번호를 6자리 이상 입력해주세요'},
+    {"Firebase: Error (auth/invalid-email)." : '정확한 이메일을 입력해 주세요'},
+  ];
 
   function onChange(event:React.ChangeEvent<HTMLInputElement>){
-    const { target:{name, value}} = event;
+    const { target:{name, value} } = event;
     if(name === 'name'){
       setName(value);
     }
@@ -127,6 +133,7 @@ function CreateAccount(){
 
   async function createAccount(event:React.FormEvent<HTMLFormElement>){
     event.preventDefault()
+    setIsError('')
     if(isLogin || name === '' || email === '' || password === '') return;
     try {
       setIsLogin(true)
@@ -134,9 +141,16 @@ function CreateAccount(){
       await updateProfile(credentials.user, {
         displayName: name
       })
+      navigate('/')
     }
-    catch(event){
-
+    catch(error:any) {
+      if(error instanceof FirebaseError){
+        const findError = errors.find(err => Object.keys(err)[0] === error.message);
+        if (findError) {
+          setIsError(Object.values(findError)[0]);
+        }
+        setIsLogin(false)
+      }
     }
     finally{
       setIsLogin(false)
@@ -150,12 +164,12 @@ function CreateAccount(){
         <p>Disney 계정에 대한 내용을 입력해주세요.</p>
         <InputBox>
           <form onSubmit={createAccount}>
-            <input type="email" placeholder="이메일" value={email} onChange={onChange} required/>
-            <input type="password" placeholder="비밀번호" value={password} onChange={onChange} required/>
-            <input type="text" placeholder="닉네임" value={name} onChange={onChange} required/>
+            <input name="email" type="email" placeholder="이메일" value={email} onChange={onChange} required/>
+            <input name='password' type="password" placeholder="비밀번호" value={password} onChange={onChange} required/>
+            <input name="name" type="text" placeholder="닉네임" value={name} onChange={onChange} required/>
             <input type="submit" value={isLogin ? 'Loading' : '계정 생성하기'}/>
           </form>
-          {error !== '' ? <ErrorMessage>sadf</ErrorMessage> : null }
+          {isError !== '' ? <ErrorMessage>{isError}</ErrorMessage> : null }
           <span>Disney 계정이 있으신가요?</span>
           <Link to ="/login">Disney Login &rarr;</Link>
         </InputBox>

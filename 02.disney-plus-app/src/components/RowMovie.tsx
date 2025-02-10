@@ -164,6 +164,10 @@ function RowMovie({movieData, title, id, mediaType}:RowMovieProps){
   };
 
   function movieModalOpen(movie:IMovie){
+    const bodyEl = document.querySelector('body') as HTMLHeadElement
+    if(bodyEl){
+      bodyEl.style.overflow = 'hidden'
+    }
     setModalOpen(true);
     setMovieSelected(movie);
   }

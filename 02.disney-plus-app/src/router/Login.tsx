@@ -1,7 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { motion } from "motion/react"
+import { GithubAuthProvider, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { auth } from "../firebase";
+import { FirebaseError } from "firebase/app";
+import { useRecoilState } from "recoil";
+import { userDataState } from "../atoms";
 
 const Section = styled.section`
   width: 100%;
@@ -127,14 +132,6 @@ const OtherLogin = styled.div`
   }
 `;
 
-const CaptionBox = styled.div`
-  font-size: ${props => props.theme.fontSize.s};
-  
-  p {
-    margin-top: 10px;
-  }
-`;
-
 const CaptionLogo = styled.div`
   margin-top: 20px;
   display: flex;
@@ -147,6 +144,13 @@ const CaptionLogo = styled.div`
   }
 `;
 
+const ErrorMessage = styled.p`
+  text-align: center;
+  color: tomato;
+  font-size: ${props => props.theme.fontSize.m};
+  margin-top: 10px;
+`;
+
 const accountVariants = {
   leftHidden: { opacity: 0, x: 100},
   rightHidden: { opacity: 0, x: -100},
@@ -154,7 +158,77 @@ const accountVariants = {
 }
 
 function Login(){
-  const [ isLogin, setIsLogin ] = useState(false);
+  const navigate = useNavigate();
+  const [ isLoading, setIsLoading ] = useState(false);
+  const [ email, setEmail] = useState('');
+  const [ password, setPassword] = useState('');
+  const [ isError, setIsError ] = useState('');
+  const [ userData, setUserData ] = useRecoilState(userDataState)
+  const errors: { [key: string]: string }[] = [
+    {"auth/invalid-credential" : '이메일 / 비밀번호를 확인해주세요'},
+    {"auth/account-exists-with-different-credential" : '이미 다른 방식으로 가입된 계정입니다. 해당 로그인 방법을 사용하세요.'}
+  ]
+
+  function onChange(event: React.ChangeEvent<HTMLInputElement>){
+    const {target:{name,value}} = event;
+      if(name === 'email'){
+      setEmail(value);
+    }
+    else if(name === 'password'){
+      setPassword(value);
+    }
+  }
+
+  async function onSubmit(event: React.FormEvent<HTMLFormElement>){
+    event.preventDefault();
+    setIsError('');
+    if(isLoading ||  email === '' || password === '') return;
+    try {
+      setIsLoading(true);
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate('/')
+    }
+    catch(error:any) {
+      if(error instanceof FirebaseError){
+        const findError = errors.find(err => Object.keys(err)[0] === error.message);
+        if (findError) {
+          setIsError(Object.values(findError)[0]);
+        }
+        setIsLoading(false)
+      }
+    }
+    finally{
+      setIsLoading(false)
+    }
+  }
+
+  async function githubLogin(){
+    const githubProvider = new GithubAuthProvider();
+    try{
+      await signInWithPopup(auth,githubProvider)
+      navigate('/');
+    }
+    catch (error: any) {
+      if (error instanceof FirebaseError){
+      const errorMessage = errors.find((err)=> Object.keys(err)[0] === error.code )!
+      errorMessage ? setIsError(Object.values(errorMessage)[0]) : setIsError("GitHub 로그인 중 오류가 발생했습니다.");
+      }
+    }
+  }
+
+  async function googleLogin() {
+    const googleProvider = new GoogleAuthProvider();
+    try {
+      await signInWithPopup(auth, googleProvider);
+      navigate('/');
+    }
+    catch (error: any) {
+      if (error instanceof FirebaseError){
+        const errorMessage = errors.find((err)=> Object.keys(err)[0] === error.code )!
+        errorMessage ? setIsError(Object.values(errorMessage)[0]) : setIsError("Google 로그인 중 오류가 발생했습니다.");
+      }
+    } 
+  }
 
   return (
     <Section>
@@ -163,38 +237,35 @@ function Login(){
         <h2>이메일을 입력하세요</h2>
         <p>Disney 계정으로 디즈니+에 로그인하세요.</p>
         <InputBox>
-          <form>
-            <input type="email" placeholder="이메일"/>
-            <input type="password" placeholder="비밀번호"/>
-            <input type="submit" value={isLogin ? 'Loading' : 'Log In'}/>
+          <form onSubmit={onSubmit}>
+            <input name="email" type="email" placeholder="이메일" value={email} required onChange={onChange}/>
+            <input name='password' type="password" placeholder="비밀번호" value={password} required onChange={onChange}/>
+            <input type="submit" value={isLoading ? 'Loading' : 'Log In'}/>
           </form>
+          {isError !== '' ? <ErrorMessage>{isError}</ErrorMessage> : null }
           <span>아직 Disney 계정이 없으신가요?</span>
           <Link to={'/createAccount'}>Create Disney &rarr;</Link>
         </InputBox>
         <OtherLogin>
-          <button className="googleBtn">
+          <button className="googleBtn" onClick={googleLogin}>
             <img src="/svg/google-logo.svg" alt="google" />
             <span>Google 계정으로 로그인</span>
           </button>
-          <button className="githubBtn">
+          <button className="githubBtn" onClick={githubLogin}>
             <img src="/svg/github-logo.svg" alt="github" />
             <span>Github 계정으로 로그인</span>
           </button>
         </OtherLogin>
-        <CaptionBox>
-          <h6>디즈니+는 The Walt Disney Family of Companies의 계열사입니다</h6>
-          <p>MyDisney 계정으로 디즈니+, ESPN, Walt Disney World, 기타 다른 서비스 등 The Walt Disney Family of Companies의 다양한 서비스에 간편하게 로그인해 보세요.</p>
-          <CaptionLogo>
-            <img src="/svg/login-disney.svg" alt="disney" />
-            <img src="/svg/login-abc.svg" alt="abc" />
-            <img src="/svg/login-espn.svg" alt="espn" />
-            <img src="/svg/login-marvel.svg" alt="marvel" />
-            <img src="/svg/login-starwars.svg" alt="starwars" />
-            <img src="/svg/login-hulu.svg" alt="hulu" />
-            <img src="/svg/login-netgeo.svg" alt="netgeo" />
-            <img src="/svg/login-starplus.svg" alt="starplus" />
-          </CaptionLogo>
-        </CaptionBox>
+        <CaptionLogo>
+          <img src="/svg/login-disney.svg" alt="disney" />
+          <img src="/svg/login-abc.svg" alt="abc" />
+          <img src="/svg/login-espn.svg" alt="espn" />
+          <img src="/svg/login-marvel.svg" alt="marvel" />
+          <img src="/svg/login-starwars.svg" alt="starwars" />
+          <img src="/svg/login-hulu.svg" alt="hulu" />
+          <img src="/svg/login-netgeo.svg" alt="netgeo" />
+          <img src="/svg/login-starplus.svg" alt="starplus" />
+        </CaptionLogo>
       </LoginBox>
     </Section>
   )
