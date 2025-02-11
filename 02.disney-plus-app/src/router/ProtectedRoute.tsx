@@ -1,21 +1,20 @@
 import { Navigate } from "react-router-dom";
 import { auth } from "../firebase"
 import { onAuthStateChanged } from "firebase/auth";
-import { userDataState } from "../atoms";
-import { useSetRecoilState } from "recoil";
+import { useState } from "react";
 
 export default function ProtectedRoute({children}:{children:React.ReactNode}){
-  const setUserData = useSetRecoilState(userDataState)
-  onAuthStateChanged(auth, (user) =>{
-    setUserData({
-      uid: user?.uid ?? '',
-      email: user?.email ?? null,
-      displayName: user?.displayName ?? null,
-      photoURL: user?.photoURL ?? null,
+  const [isAuthData, setIsAuthData] = useState<boolean | null>(null);
+    onAuthStateChanged(auth, (user) => { 
+      if (user === null) {
+        setIsAuthData(false);
+      }
+      else{
+        setIsAuthData(true);
+      }
     });
-    if(!user){
-      return <Navigate to='/login' />
-    }
-  })
-  return <>{children}</>
+  if (isAuthData === false) {
+    return <Navigate to='/login' />; 
+  }
+  return <>{children}</>;
 }

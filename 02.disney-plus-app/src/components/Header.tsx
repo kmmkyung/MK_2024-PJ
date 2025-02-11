@@ -209,7 +209,7 @@ function Header(){
   const [ searchKeyword, setSearchKeyword ] = useRecoilState(searchKeywordState);
   const searchKeyWordResults  = useRecoilValue(searchKeyWordResultsState);
   const [ isNavVisible, setIsNavVisible] = useState(false);
-  const userData = useRecoilValue(userDataState)
+  const [ userData, setUserData ] = useRecoilState(userDataState);
   const userName = userData?.displayName;
   const userImg = userData?.photoURL
 
@@ -264,6 +264,7 @@ function Header(){
 
   // userLogout
   function userLogout(){
+    setUserData(null)
     auth.signOut();
     navigate('/login');
   }
@@ -284,7 +285,6 @@ function Header(){
 
   return (
     <>
-    { userData ?
     <HeaderElClass $navColor={isNavVisible} className={isSearching ? "searchOn" : ""} >
       <HeaderWrap>
         <Menu>
@@ -293,7 +293,7 @@ function Header(){
             <MenuSearch onClick={searchIconClick}></MenuSearch>
             <UserWarp>
               { Boolean(userImg) ?
-                <UserImg src={userImg || ''} alt="user"/> : <NoUserImg/>
+                <UserImg src={userImg} alt="user"/> : <NoUserImg/>
               }
               <DropDown onClick={userLogout}>{userName} LogOut</DropDown>
             </UserWarp>
@@ -310,7 +310,6 @@ function Header(){
         </Search>
       </HeaderWrap>
     </HeaderElClass>
-  : <Loader/> }
   </> 
   )
 }

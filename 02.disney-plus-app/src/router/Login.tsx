@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { motion } from "motion/react"
-import { GithubAuthProvider, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { browserLocalPersistence, browserSessionPersistence, getRedirectResult, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, setPersistence, signInWithEmailAndPassword, signInWithPopup, signInWithRedirect } from "firebase/auth";
 import { auth } from "../firebase";
 import { FirebaseError } from "firebase/app";
 import { useRecoilState } from "recoil";
@@ -185,12 +185,16 @@ function Login(){
     if(isLoading ||  email === '' || password === '') return;
     try {
       setIsLoading(true);
-      await signInWithEmailAndPassword(auth, email, password);
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      setUserData({
+        displayName: result.user.displayName || '',
+        photoURL: result.user.photoURL || ''
+      })
       navigate('/')
     }
     catch(error:any) {
       if(error instanceof FirebaseError){
-        const findError = errors.find(err => Object.keys(err)[0] === error.message);
+        const findError = errors.find(err => Object.keys(err)[0] === error.code);
         if (findError) {
           setIsError(Object.values(findError)[0]);
         }
@@ -205,7 +209,11 @@ function Login(){
   async function githubLogin(){
     const githubProvider = new GithubAuthProvider();
     try{
-      await signInWithPopup(auth,githubProvider)
+      const result = await signInWithPopup(auth,githubProvider)
+      setUserData({
+        displayName: result.user.displayName || '',
+        photoURL: result.user.photoURL || ''
+      })
       navigate('/');
     }
     catch (error: any) {
@@ -216,19 +224,25 @@ function Login(){
     }
   }
 
-  async function googleLogin() {
-    const googleProvider = new GoogleAuthProvider();
-    try {
-      await signInWithPopup(auth, googleProvider);
-      navigate('/');
-    }
-    catch (error: any) {
-      if (error instanceof FirebaseError){
-        const errorMessage = errors.find((err)=> Object.keys(err)[0] === error.code )!
-        errorMessage ? setIsError(Object.values(errorMessage)[0]) : setIsError("Google 로그인 중 오류가 발생했습니다.");
-      }
-    } 
-  }
+  // async function googleLogin() {
+  //   const googleProvider = new GoogleAuthProvider();
+  //   try {
+  //       const result = await signInWithPopup(auth, googleProvider);
+  //       setUserData({
+  //         displayName: result.user.displayName || '',
+  //         photoURL: result.user.photoURL || '',
+  //       });
+  //       navigate('/');
+  //   } catch (error: any) {
+  //     if (error instanceof FirebaseError) {
+  //       const errorMessage = errors.find((err) => Object.keys(err)[0] === error.code);
+  //       errorMessage
+  //         ? setIsError(Object.values(errorMessage)[0])
+  //         : setIsError("Google 로그인 중 오류가 발생했습니다.");
+  //     }
+  //   }
+  // }
+  
 
   return (
     <Section>
@@ -247,10 +261,10 @@ function Login(){
           <Link to={'/createAccount'}>Create Disney &rarr;</Link>
         </InputBox>
         <OtherLogin>
-          <button className="googleBtn" onClick={googleLogin}>
+          {/* <button className="googleBtn" onClick={googleLogin}>
             <img src="/svg/google-logo.svg" alt="google" />
             <span>Google 계정으로 로그인</span>
-          </button>
+          </button> */}
           <button className="githubBtn" onClick={githubLogin}>
             <img src="/svg/github-logo.svg" alt="github" />
             <span>Github 계정으로 로그인</span>

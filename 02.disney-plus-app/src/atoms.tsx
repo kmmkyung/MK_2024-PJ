@@ -1,5 +1,6 @@
 import { atom } from "recoil";
-
+import { recoilPersist } from "recoil-persist";
+const { persistAtom } = recoilPersist();
 // 검색여부
 export const isSearchIngState = atom({
   key: 'searching',
@@ -18,15 +19,9 @@ export const searchKeyWordResultsState = atom<string | null>({
   default: null
 })
 
-interface UserData {
-  uid: string;
-  email: string | null;
-  displayName: string | null;
-  photoURL: string | null;
-}
-
 // 로그인정보
-export const userDataState = atom<UserData | null>({
+export const userDataState = atom<{ displayName: string, photoURL: string } | null >({
   key: 'userData',
-  default: null
+  default: null,
+  effects_UNSTABLE:[persistAtom]
 })
