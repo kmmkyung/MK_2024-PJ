@@ -1,5 +1,5 @@
-import FormInput from "@/components/FormInput";
 import FormButton from "@/components/FormButton";
+import FormInput from "@/components/FormInput";
 import SocialLogin from "@/components/SocialLogin";
 
 export default function CreateAccount(){
