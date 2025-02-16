@@ -2,6 +2,7 @@ import FormButton from "@/components/FormButton";
 import FormInput from "@/components/FormInput";
 import SocialLogin from "@/components/SocialLogin";
 
+
 export default function CreateAccount(){
   return (
   <section className="flex flex-col gap-10 p-10">
@@ -16,7 +17,7 @@ export default function CreateAccount(){
       <FormInput type="password" placeholder="Confirm Password" required errors={[]}/>
       <FormButton loading={false} text='Create account'></FormButton>
     </form>
-    <SocialLogin />
+    <SocialLogin/>
   </section>
   )
 }

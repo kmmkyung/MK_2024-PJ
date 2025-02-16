@@ -12,7 +12,7 @@ export default function SocialLogin(){
           <span>Continue with Github</span>
         </Link>
         <Link className="primary-link flex items-center justify-center gap-2" href='/sms'>
-          <span><ChatBubbleOvalLeftEllipsisIcon className="size-5"/></span>
+          <span><ChatBubbleOvalLeftEllipsisIcon className="size-6"/></span>
           <span>Continue with SNS</span>
         </Link>
       </div>
