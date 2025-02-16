@@ -2,9 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
 @layer base {
   a{
     @apply text-primary;
+  }
+  /* html {
+    font-size: 62.5%;
+  } */
+}
+
+@layer components {
+  .primary-btn {
+    @apply w-full h-10 bg-primary text-white rounded-md font-semibold hover:bg-primaryHover transition-colors
+  }
+  .primary-link {
+    @apply block w-full h-10 leading-10 text-center bg-primary text-white rounded-md font-semibold hover:bg-primaryHover transition-colors
   }
 }

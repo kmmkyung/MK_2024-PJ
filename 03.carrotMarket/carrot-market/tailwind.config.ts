@@ -16,6 +16,9 @@ export default {
       textColor: {
         primary: "#f97316",
         primaryHover: '#fb923c'
+      },
+      ringColor: {
+        primary: "#f97316",
       }
     }
   },
