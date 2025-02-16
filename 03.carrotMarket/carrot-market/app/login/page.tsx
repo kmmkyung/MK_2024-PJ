@@ -1,10 +1,17 @@
+"use client"
+
 import FormButton from "@/components/FormButton";
 import FormInput from "@/components/FormInput";
 import SocialLogin from "@/components/SocialLogin";
 import { HomeIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
+import { onFormSubmit } from "./action";
+import { useActionState } from "react";
 
 export default function Login(){
+
+  const [state, formAction] = useActionState(onFormSubmit, null)
+
   return (
   <section className="flex flex-col gap-10 p-10">
     <div className="flex items-center justify-between">
@@ -16,10 +23,10 @@ export default function Login(){
         <HomeIcon className="size-6 hover:text-primary transition-colors"/>
       </Link>
     </div>
-    <form className="flex flex-col gap-3">
-      <FormInput type="email" placeholder="Email" required errors={[]}/>
-      <FormInput type="password" placeholder="Password" required errors={[]}/>
-      <FormButton loading={false} text='Create account'></FormButton>
+    <form action={formAction} className="flex flex-col gap-3">
+      <FormInput name="email" type="email" placeholder="Email" required errors={state?.errors ?? []}/>
+      <FormInput name="password" type="password" placeholder="Password" required errors={state?.errors ?? []}/>
+      <FormButton text='Create account'></FormButton>
     </form>
     <SocialLogin />
   </section>

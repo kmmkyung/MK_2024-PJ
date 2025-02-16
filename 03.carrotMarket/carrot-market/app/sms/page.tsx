@@ -16,9 +16,9 @@ export default function SmsLogin(){
       </Link>
     </div>
     <form className="flex flex-col gap-3">
-      <FormInput type="number" placeholder="Phone number" required errors={[]}/>
-      <FormInput type="number" placeholder="인증번호를 입력해 주세요" required errors={[]}/>
-      <FormButton loading={false} text='로그인하기'></FormButton>
+      <FormInput name="phoneNumber" type="number" placeholder="Phone number" required errors={[]}/>
+      <FormInput name="verification" type="number" placeholder="인증번호를 입력해 주세요" required errors={[]}/>
+      <FormButton text='로그인하기'></FormButton>
     </form>
   </section>
   )
