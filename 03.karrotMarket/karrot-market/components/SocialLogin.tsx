@@ -6,7 +6,7 @@ export default function SocialLogin(){
   return (
     <>
       <div className="w-full h-px bg-neutral-500"></div>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 *:text-sm">
         <Link className="primary-link flex items-center justify-center gap-2" href='/github/start'>
           <GithubIcon />
           <span>Continue with Github</span>

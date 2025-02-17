@@ -1,9 +1,31 @@
-import FormButton from "@/components/FormButton";
-import FormInput from "@/components/FormInput";
+"use client"
+
+import Button from "@/components/Button";
+import Input from "@/components/Input";
 import { HomeIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
+import { useActionState, useState } from "react";
+import { smsLogin } from "./action";
+
+const initialState = {
+  token: false,
+  phoneNumber: ''
+}
 
 export default function SmsLogin(){
+
+  const [state, formData] = useActionState(smsLogin, initialState);
+  const { phoneNumber } = state || {};
+  const [countryCode, setCountryCode] = useState("+82");
+
+  // const phoneNumberInput = document.querySelector('.phoneNumberBox input') as HTMLInputElement;
+  function selectChange(event:React.ChangeEvent<HTMLSelectElement>){
+    setCountryCode(event.target.value)
+    // if(phoneNumberInput){
+    //   phoneNumberInput.value = event.target.value
+    // }
+  }
+
   return (
   <section className="flex flex-col gap-10 p-10">
     <div className="flex items-center justify-between">
@@ -15,10 +37,22 @@ export default function SmsLogin(){
         <HomeIcon className="size-6 hover:text-primary transition-colors"/>
       </Link>
     </div>
-    <form className="flex flex-col gap-3">
-      <FormInput name="phoneNumber" type="number" placeholder="Phone number" required errors={[]}/>
-      <FormInput name="verification" type="number" placeholder="인증번호를 입력해 주세요" required errors={[]}/>
-      <FormButton text='로그인하기'></FormButton>
+    <form action={formData} className="flex flex-col gap-3">
+      <div className="relative phoneNumberBox">
+        <select className="absolute w-[120px] bg-transparent border-none bg-[auto_1rem] pr-6 focus:ring-0 bg-[url(/arrow-down.svg)]" onChange={selectChange}>
+          <option value="+82">🇰🇷 Korea</option>
+          <option value="+81">🇯🇵 Japan</option>
+        </select>
+        <Input style={{paddingLeft:'125px'}} name="phoneNumber" type="text"
+        defaultValue={phoneNumber? phoneNumber.toString() : countryCode }
+        required />
+      </div>
+      {
+        state?.token ?
+        <Input name="token" type="number" minLength={1000000} max={999999} placeholder="인증번호를 입력해 주세요" required/>
+        : null
+      }
+      <Button text='로그인하기'></Button>
     </form>
   </section>
   )
