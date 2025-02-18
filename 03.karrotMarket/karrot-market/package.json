@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@types/matter-js": "^0.19.8",
     "framer-motion": "^12.4.3",
+    "matter-js": "^0.20.0",
     "next": "15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

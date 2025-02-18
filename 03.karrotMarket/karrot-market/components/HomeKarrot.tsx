@@ -35,7 +35,7 @@ export default function HomeKarrot(){
         <motion.p className="text-sm bg-primaryHover rounded-md p-2 text-right" variants={pOrangeChatVariants} >YES!! I'm Karrot 🙆‍♀️</motion.p>
         <motion.p className="text-sm bg-primaryHover rounded-md p-2 text-right" variants={pOrangeChatVariants} >🥕</motion.p>
       </div>
-      <motion.p className="border-white border-4 rounded-full px-4 py-2 mt-2" variants={spanVariants}>Buy & Sell locally</motion.p>
+      <motion.p className="border-white border-4 rounded-full px-4 py-2 mt-2 bg-neutral-900" variants={spanVariants}>Buy & Sell locally</motion.p>
     </motion.div>
   )
 }

@@ -8,7 +8,7 @@ interface ISmsLogin {
   token: boolean;
 }
 
-const phoneSchema = z.string().trim().refine((phone)=>validator.isMobilePhone(phone,['ja-JP','ko-KR']));
+const phoneSchema = z.string().trim().refine((phone)=>validator.isMobilePhone(phone,['ja-JP','ko-KR']),'잘못된 번호 형식입니다');
 const tokenSchema = z.coerce.number().min(100000).max(999999)
 
 export async function smsLogin(prevState: ISmsLogin, formData:FormData){
@@ -16,8 +16,12 @@ export async function smsLogin(prevState: ISmsLogin, formData:FormData){
   const token = formData.get('token');
   if(!prevState.token){
     const result = phoneSchema.safeParse(phoneNumber);
-    console.log(phoneNumber);
-    if(!result.success){ return { token: false, phoneNumber } }
-    else{ return { token: true, phoneNumber } }
+    if(!result.success){ return { token: false, phoneNumber, error:result.error.flatten() } }
+    else{ return { token: true } }
+  }
+  else{
+    const result = tokenSchema.safeParse(token);
+    if(!result.success){ return { token: true , error:result.error.flatten()} }
+    else{ redirect('/') }
   }
 }

@@ -15,7 +15,7 @@ export default function CreateAccount(){
   const { errors, data } = state || {};
 
   return (
-  <section className="flex flex-col gap-10 p-10">
+  <section className="flex flex-col gap-10 p-10 max-w-screen-sm mx-auto">
     <div className="flex items-center justify-between">
       <div className="flex flex-col gap-2 *:font-medium">
         <h2 className="text-2xl">안녕하세요!</h2>
