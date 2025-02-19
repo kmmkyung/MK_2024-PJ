@@ -3,8 +3,6 @@
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import SocialLogin from "@/components/SocialLogin";
-import { HomeIcon } from "@heroicons/react/24/solid";
-import Link from "next/link";
 import { useActionState } from "react";
 import { createAccount } from "./action";
 import { PASSWORD_MAX_LENGTH, PASSWORD_MIN_LENGTH } from "@/lib/constants";
@@ -15,15 +13,10 @@ export default function CreateAccount(){
   const { errors, data } = state || {};
 
   return (
-  <section className="flex flex-col gap-10 p-10 max-w-screen-sm mx-auto">
-    <div className="flex items-center justify-between">
-      <div className="flex flex-col gap-2 *:font-medium">
-        <h2 className="text-2xl">안녕하세요!</h2>
-        <h2 className="text-xl">Fill in the form below to join!</h2>
-      </div>
-      <Link href='/' className="text-white">
-        <HomeIcon className="size-6 hover:text-primary transition-colors"/>
-      </Link>
+  <section className="flex flex-col gap-10 p-10 pt-20 max-w-screen-sm mx-auto">
+    <div className="flex flex-col gap-2 *:font-medium">
+      <h2 className="sm:text-2xl text-lg">안녕하세요!</h2>
+      <h2 className="sm:text-xl text-base">Fill in the form below to join!</h2>
     </div>
     <form action={formAction} className="flex flex-col gap-3">
       <Input name="username" type="text" placeholder="2~10자 닉네임을 입력해주세요" minLength={2} maxLength={10} required errors={errors?.fieldErrors.username} defaultValue={data?.username?.toString()}/>
