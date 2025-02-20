@@ -66,6 +66,7 @@ export async function createAccount(prevState:any, formData:FormData){
     return { errors: result.error.flatten(), data }
   }
   else {
+    // user, email 고유한지 찾기 checkUserName, checkUserEmail function
     // 비밀번호 hash
     const hashedPassword = await bcrypt.hash(result.data.password, 12) // 데이터, 알고리즘을 얼마나 돌릴것인가 횟수
     
