@@ -15,7 +15,7 @@ export default function NoLoginNav(){
       <p className="sm:text-lg text-sm pointer-events-none bg-lime-500 px-3 py-1 rounded-2xl dark:text-black">🐰 Click the screen on desktop!</p>
       :
       <Link href='/'>
-        <HomeIcon className="fill-black dark:fill-white size-6 hover:text-primary transition-colors"/>
+        <HomeIcon className="text-black dark:text-white size-6 hover:text-primary transition-colors"/>
       </Link>
       }
       <ul className="flex items-center gap-2">
