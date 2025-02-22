@@ -25,7 +25,7 @@ const pOrangeChatVariants = {
 
 export default function HomeKarrot(){
   return (
-    <motion.div className="absolute top-1/2 -translate-y-1/2 *:font-medium flex flex-col items-center gap-2" variants={parentVariants} initial="initial" animate="animate">
+    <motion.div className="pointer-events-none absolute top-1/2 -translate-y-1/2 *:font-medium flex flex-col items-center gap-2" variants={parentVariants} initial="initial" animate="animate">
       <motion.span className="sm:text-9xl text-8xl" variants={spanVariants} >🥕</motion.span>
       <div className="flex flex-col items-start gap-1 min-w-[200px]">
         <motion.span className="text-xs bg-slate-300 text-black rounded-md p-2 " variants={pGrayChatVariants} >Hi :)</motion.span>
