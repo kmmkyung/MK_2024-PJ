@@ -37,7 +37,6 @@ export default function HomeMatter() {
     // 엔진 구동 및 렌더 실행
     Matter.Runner.run(runner, engine);
     Render.run(render);
-
     document.body.addEventListener('mousedown', ()=>{
       isClick = true
     })
@@ -52,7 +51,7 @@ export default function HomeMatter() {
         const carrot = Bodies.rectangle( event.clientX-15, event.clientY, 30, 30, {
           render: {
             sprite: {
-              texture: "/carrot.png",
+              texture: "/image/carrot.png",
               xScale: 0.3, 
               yScale: 0.3 
             }
@@ -63,7 +62,7 @@ export default function HomeMatter() {
         const rabbit = Bodies.rectangle( event.clientX+15, event.clientY, 30, 30, {
           render: {
             sprite: {
-              texture: "/rabbit.png",
+              texture: "/image/rabbit.png",
               xScale: 0.3, 
               yScale: 0.3 
             }
