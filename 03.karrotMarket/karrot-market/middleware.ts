@@ -11,7 +11,8 @@ const publicOnlyUrls:Routes = {
   '/sms' : true,
   '/create-account' : true,
   '/github/start': true,
-  '/github/complete': true
+  '/github/complete': true,
+  '/github/error': true
 }
 
 export async function middleware(request: NextRequest){
@@ -24,7 +25,7 @@ export async function middleware(request: NextRequest){
   }
   else {
     if(exists) {
-      return NextResponse.redirect(new URL('/products', request.url))
+      return NextResponse.redirect(new URL('/profile', request.url))
     }
   }
 }

@@ -2,10 +2,9 @@
 
 import { PASSWORD_MAX_LENGTH, PASSWORD_MIN_LENGTH, PASSWORD_REGEX, PASSWORD_REGEX_ERROR } from "@/lib/constants";
 import db from "@/lib/db";
-import { redirect } from "next/navigation";
 import { z } from "zod";
 import bcrypt from "bcrypt"
-import getSession from "@/lib/session";
+import userLogin from "@/lib/userLogin";
 
 async function checkEmail(email:string){
   const user = await db.user.findUnique({
@@ -41,10 +40,7 @@ export async function login(prevState:any, formData:FormData){
     })
     const passwordOK = await bcrypt.compare(result.data.password, user!.password ?? '') // 사용자가 입력한 값, 데이터베이스 해쉬값
     if(passwordOK){
-      const session = await getSession();
-      session.id = user!.id
-      await session.save();
-      redirect('/profile')
+      await userLogin(user!.id)
     }
     else {
       return { fieldErrors:{password: ['올바른 비밀번호가 아닙니다'], email:[]}, data }

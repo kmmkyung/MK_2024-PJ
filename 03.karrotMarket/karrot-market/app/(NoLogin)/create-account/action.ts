@@ -4,8 +4,7 @@ import { PASSWORD_MAX_LENGTH, PASSWORD_MIN_LENGTH, PASSWORD_REGEX, PASSWORD_REGE
 import db from "@/lib/db";
 import { z } from "zod";
 import bcrypt from "bcrypt"
-import { redirect } from "next/navigation";
-import getSession from "@/lib/session";
+import userLogin from "@/lib/userLogin";
 
 
 function passwordCheck({password, confirmPassword}:{password:string,confirmPassword:string}){
@@ -108,9 +107,6 @@ export async function createAccount(prevState:any, formData:FormData){
     })
 
     // 로그인(쿠키받기)
-    const session = await getSession()
-    session.id = user.id
-    await session.save()
-    redirect('/login')
+    await userLogin(user.id)
   }
 }
