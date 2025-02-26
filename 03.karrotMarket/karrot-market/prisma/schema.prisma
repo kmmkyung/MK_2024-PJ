@@ -14,6 +14,8 @@ model User {
   password String?
   phone String? @unique
   github_id String? @unique
+  google_id String? @unique
+  kakao_id String? @unique
   avatar String? @default("/carrot.png")
   updated_at DateTime @updatedAt
   SMSToken SMSToken[]
@@ -21,9 +23,13 @@ model User {
 
 model SMSToken {
   id Int @id @default(autoincrement())
-  token String @unique
+  token Int @unique
   created_at DateTime @default(now()) 
   updated_at DateTime @updatedAt
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId Int
   }
+
+  // npx prisma migrate dev
+
+  // npx prisma studio

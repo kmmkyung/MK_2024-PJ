@@ -16,6 +16,9 @@
     @apply w-full h-10 bg-primary text-white rounded-md font-semibold hover:bg-primaryHover transition-colors
   }
   .primary-link {
-    @apply block w-full h-10 leading-10 text-center bg-primary text-white rounded-md font-semibold hover:bg-primaryHover transition-colors
+    @apply block w-full h-10 leading-10 text-center bg-primary text-white rounded-md font-semibold hover:bg-primaryHover transition-colors duration-300
+  }
+  .custom-link {
+    @apply block w-full h-10 leading-10 text-center rounded-md font-semibold transition-all duration-300
   }
 }

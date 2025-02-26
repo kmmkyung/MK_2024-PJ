@@ -47,7 +47,8 @@ const formSchema = z.object({
   password: z.string({required_error: "비밀번호를 입력해 주세요"}).min(PASSWORD_MIN_LENGTH,'4자 이상 입력해주세요').max(PASSWORD_MAX_LENGTH,'20자 이하 입력해주세요')
   .regex(PASSWORD_REGEX,PASSWORD_REGEX_ERROR),
   confirmPassword: z.string({required_error: "비밀번호를 입력해 주세요"}).min(PASSWORD_MIN_LENGTH,'4자 이상 입력해주세요').max(PASSWORD_MAX_LENGTH,'20자 이하 입력해주세요')
-}).superRefine(async(data, ctx) => {
+})
+.superRefine(async(data, ctx) => {
   const user = await db.user.findUnique({
     where: { username: data.username },
     select: { id: true }

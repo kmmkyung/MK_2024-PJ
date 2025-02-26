@@ -1,11 +1,11 @@
 import { redirect } from "next/navigation";
 
 export function GET(){
-  const baseURL = 'https://github.com/login/oauth/authorize'
+  const baseURL = 'https://kauth.kakao.com/oauth/authorize'
   const params = {
-    client_id : process.env.GITHUB_CLIENT_ID!,
-    scope: 'read:user, user:email',
-    allow_signup: 'true'
+    client_id : process.env.KAKAO_REST_KEY!,
+    redirect_uri: 'http://localhost:3000/kakao/complete',
+    response_type:'code',
   };
 
   const formattedParams = new URLSearchParams(params).toString();

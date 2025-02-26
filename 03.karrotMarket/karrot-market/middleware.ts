@@ -12,7 +12,13 @@ const publicOnlyUrls:Routes = {
   '/create-account' : true,
   '/github/start': true,
   '/github/complete': true,
-  '/github/error': true
+  '/github/error': true,
+  '/google/start': true,
+  '/google/complete': true,
+  '/google/error': true,
+  '/kakao/start': true,
+  '/kakao/complete': true,
+  '/kakao/error': true
 }
 
 export async function middleware(request: NextRequest){
