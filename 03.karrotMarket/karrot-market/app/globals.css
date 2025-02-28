@@ -21,4 +21,7 @@
   .custom-link {
     @apply block w-full h-10 leading-10 text-center rounded-md font-semibold transition-all duration-300
   }
+  .default-textColor {
+    @apply text-neutral-800 dark:text-neutral-200
+  }
 }

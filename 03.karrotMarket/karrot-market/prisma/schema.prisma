@@ -19,6 +19,7 @@ model User {
   avatar String? @default("/carrot.png")
   updated_at DateTime @updatedAt
   SMSToken SMSToken[]
+  Product Product[]
 }
 
 model SMSToken {
@@ -30,7 +31,30 @@ model SMSToken {
   userId Int
   }
 
-
+enum CategoryType {
+  Furniture
+  Electronics
+  Home_Garden
+  Baby_Kids
+  Fashion
+  Health_Beauty
+  Hobbies
+  Books_Music
+  Pet
+  Other
+}
+model Product {
+  id Int @id @default(autoincrement())
+  title String
+  price Float
+  description String
+  photo String
+  created_at DateTime @default(now()) 
+  updated_at DateTime @updatedAt
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId Int
+  category CategoryType
+}
 
   // npx prisma migrate dev
   // npx prisma studio

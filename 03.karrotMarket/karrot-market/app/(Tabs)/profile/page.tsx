@@ -26,11 +26,11 @@ export default async function Profile(){
   }
 
   return (
-    <div>
+    <section className="pt-[60px]">
       <h1>welcome {user?.username}</h1>
       <form action={logOut}>
         <button>Logout</button>
       </form>
-    </div>
+    </section>
   )
 }

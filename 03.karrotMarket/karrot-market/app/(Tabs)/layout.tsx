@@ -1,4 +1,5 @@
-import NoLoginNav from "@/components/NoLoginNav";
+import TabBar from "@/components/TabBar";
+import TabsNav from "@/components/TabsNav";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,8 +13,9 @@ export const metadata: Metadata = {
 export default function layout({children}: Readonly<{children: React.ReactNode;}>) {
   return (
     <>
-      <NoLoginNav/>
+    <TabsNav/>
       {children}
+      <TabBar className="block md:hidden" />
     </>
   );
 }
