@@ -30,6 +30,7 @@ model SMSToken {
   userId Int
   }
 
-  // npx prisma migrate dev
 
+
+  // npx prisma migrate dev
   // npx prisma studio
