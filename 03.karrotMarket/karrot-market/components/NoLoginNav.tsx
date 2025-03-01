@@ -18,9 +18,9 @@ export default function NoLoginNav(){
         <HomeIcon className="text-black dark:text-white size-6 hover:text-primary transition-colors"/>
       </Link>
       }
-      <ul className="flex items-center gap-2">
-        <li><ThemeToggleButton/></li>
-      </ul>
+      <div className="flex items-center gap-2">
+        <ThemeToggleButton/>
+      </div>
     </div>
   </nav>
   )

@@ -18,7 +18,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 interface ComponentProps{
-  className?: string;
+  className: string;
 }
 
 export default function TabBar({className}:ComponentProps){

@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 export default function layout({children}: Readonly<{children: React.ReactNode;}>) {
   return (
     <>
-    <TabsNav/>
-      {children}
+      <TabsNav/>
+        {children}
       <TabBar className="block md:hidden" />
     </>
   );

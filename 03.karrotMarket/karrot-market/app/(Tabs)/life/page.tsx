@@ -1,5 +1,6 @@
 export default function Life(){
-  return <div>
-    
-  </div>
+  return (
+    <section className="pt-[60px]">
+    </section>
+  )
 }

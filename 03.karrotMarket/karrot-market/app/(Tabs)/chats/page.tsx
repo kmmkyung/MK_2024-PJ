@@ -1,6 +1,6 @@
 export default function Chats(){
   return (
-    <div>
-    </div>
+    <section className="pt-[60px]">
+    </section>
   )
 }
