@@ -24,4 +24,13 @@
   .default-textColor {
     @apply text-neutral-800 dark:text-neutral-200
   }
+  .default-textSize {
+    @apply text-sm md:text-xl
+  }
+  .setting-page {
+    @apply pt-[60px] px-10 md:max-w-screen-xl mx-auto
+  }
+  .setting-nav{
+    @apply fixed z-50
+  }
 }

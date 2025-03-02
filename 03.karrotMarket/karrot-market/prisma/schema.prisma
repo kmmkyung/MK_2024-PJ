@@ -16,7 +16,7 @@ model User {
   github_id String? @unique
   google_id String? @unique
   kakao_id String? @unique
-  avatar String? @default("/carrot.png")
+  avatar String? @default("/image/rabbit.png")
   updated_at DateTime @updatedAt
   SMSToken SMSToken[]
   Product Product[]
@@ -43,6 +43,7 @@ enum CategoryType {
   Pet
   Other
 }
+
 model Product {
   id Int @id @default(autoincrement())
   title String

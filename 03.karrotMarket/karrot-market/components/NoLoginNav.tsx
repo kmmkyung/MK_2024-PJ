@@ -9,7 +9,7 @@ export default function NoLoginNav(){
   const pathName = usePathname();
 
   return (
-  <nav className="fixed z-50">
+  <nav className="setting-nav">
     <div className="flex w-screen items-center justify-between px-5 h-[60px]">
       {pathName ==='/' ? 
       <p className="sm:text-lg text-sm pointer-events-none bg-lime-500 px-3 py-1 rounded-2xl dark:text-black">🐰 Click the screen on desktop!</p>

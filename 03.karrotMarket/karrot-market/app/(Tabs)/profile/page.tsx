@@ -26,7 +26,7 @@ export default async function Profile(){
   }
 
   return (
-    <section className="pt-[60px]">
+    <section className="setting-page">
       <h1>welcome {user?.username}</h1>
       <form action={logOut}>
         <button>Logout</button>
