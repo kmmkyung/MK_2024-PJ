@@ -3,12 +3,31 @@ export function formatToWon(price: number){
 }
 
 export function formatToTimeAgo(date:string){
-  const dayInMs = 1000*60*60*24
-  const time = new Date(date).getTime();
-  const nowTime = new Date().getTime();
-  const diff = Math.round((time - nowTime)/dayInMs);
+  const minute = 1000 * 60;
+  const hour = minute * 60;
+  const day = hour * 24
+  const month = day * 30
 
+  const dataTime = new Date(date).getTime();
+  const nowTime = new Date().getTime();
+  const diff = (dataTime - nowTime);
+  const diffAbs = Math.abs(diff);
+  
   const formatter = new Intl.RelativeTimeFormat('ko') // -3을 3일전 3을 3일로 바꿈
 
-  return formatter.format(diff,"days")
+  if(diffAbs < minute){
+    return formatter.format(Math.round(diff/1000), 'seconds')
+  }
+  else if(diffAbs < hour){
+    return formatter.format(Math.round(diff/minute), 'minutes')
+  }
+  else if(diffAbs < day){
+    return formatter.format(Math.round(diff/hour), 'hours')
+  }
+  else if(diffAbs < month){
+    return formatter.format(Math.round(diff/day), 'days')
+  }
+  else{
+    return formatter.format(Math.round(diff/month), 'months')
+  }
 }

@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import ThemeToggleButton from "./ThemeToggleButton";
 import Link from "next/link";
 
-export default function productDetailNav(){
+export default function ProductDetailNav(){
   const pathName = usePathname();
 
   return (
