@@ -10,11 +10,11 @@ interface IListProduct{
   id: number,
 }
 
-export default function ListProduct({title, price, created_at, photo, id}:IListProduct) {
+export default function ProductListItem({title, price, created_at, photo, id}:IListProduct) {
   return (
     <Link className="flex gap-5" href={`products/${id}`}>
       <div className="relative rounded-md overflow-hidden size-28 bg-neutral-100">
-        <Image src={photo} alt={title} fill className="object-cover"/>
+        <Image src={photo} alt={title} fill className="object-cover object-center"/>
       </div>
       <div className="flex flex-col">
         <h6 className="text-lg default-textColor">{title}</h6>

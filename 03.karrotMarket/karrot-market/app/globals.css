@@ -13,7 +13,7 @@
 
 @layer components {
   .primary-btn {
-    @apply w-full h-10 bg-primary text-white rounded-md font-semibold hover:bg-primaryHover transition-colors
+    @apply w-full h-10 bg-primary text-white rounded-md font-semibold hover:bg-primaryHover transition-colors disabled:bg-neutral-400 disabled:text-neutral-300 disabled:cursor-not-allowed
   }
   .primary-link {
     @apply block w-full h-10 leading-10 text-center bg-primary text-white rounded-md font-semibold hover:bg-primaryHover transition-colors duration-300
@@ -31,6 +31,6 @@
     @apply pt-[60px] px-10 md:max-w-screen-xl mx-auto
   }
   .setting-nav{
-    @apply fixed z-50
+    @apply fixed z-50 bg-white dark:bg-neutral-900
   }
 }

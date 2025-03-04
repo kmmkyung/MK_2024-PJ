@@ -46,12 +46,12 @@ export default async function ProductDetail({params}:{ params: {id:string}}){
     <section className="setting-page flex flex-col gap-5 md:flex-row relative h-screen">
       <div className="md:w-1/2">
         <div className="relative aspect-square">
-          <Image fill src={product.photo} alt={product.title}/>
+          <Image className="object-cover object-center rounded-lg" fill src={product.photo} alt={product.title}/>
         </div>
-        <div className="flex items-center gap-2 mt-2">
+        <div className="flex items-center gap-2 my-5">
           <div className="size-10 rounded-full overflow-hidden flex items-center justify-center">
             {product.user.avatar !== null ? <Image width={40} height={40} src={product.user.avatar} alt={product.user.username}/> :
-              <Image className="object-cover" width={40} height={40} src="/image/rabbit.png" alt="default avatar"/>}
+              <Image width={40} height={40} src="/image/rabbit.png" alt="default avatar"/>}
           </div>
           <h3 className="text-sm md:text-xl">{product.user.username}</h3>
         </div>
@@ -60,15 +60,17 @@ export default async function ProductDetail({params}:{ params: {id:string}}){
         <h1 className="">{product.title}</h1>
         <p className="">{product.description}</p>
       </div>
-      <div className="fixed w-full bottom-0 left-0 px-10 py-5 flex items-center justify-between">
-        <span className="font-semibold text-xl">{formatToWon(product.price)}원</span>
-        {isOwner ?
-        <form action={deleteUserProduct}>
-          <button className="custom-link bg-red-600 hover:bg-red-500 text-neutral-200 w-auto px-5">
-            삭제하기
-          </button>
-        </form>
-      : <Link className="primary-link w-auto px-5" href="/chats">채팅하기</Link>}
+      <div className="fixed w-full bottom-0 left-0 py-5 bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700 border-t">
+        <div className="md:max-w-screen-xl mx-auto px-10 flex items-center justify-between">
+          <span className="font-semibold text-xl">{formatToWon(product.price)}원</span>
+          {isOwner ?
+          <form action={deleteUserProduct}>
+            <button className="custom-link bg-red-600 hover:bg-red-500 text-neutral-200 w-auto px-5">
+              삭제하기
+            </button>
+          </form>
+        : <Link className="primary-link w-auto px-5" href="/chats">채팅하기</Link>}
+        </div>
       </div>
     </section> 
   )

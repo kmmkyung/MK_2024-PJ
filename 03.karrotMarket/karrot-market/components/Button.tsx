@@ -11,6 +11,6 @@ export default function Button({text, ...rest}:IButtonProps & ButtonHTMLAttribut
   const { pending } = useFormStatus();
 
   return (
-    <button disabled={pending} {...rest} className="text-sm primary-btn disabled:bg-neutral-400 disabled:text-neutral-300 disabled:cursor-not-allowed" type="submit">{pending? '🥕Loading🥕' : text}</button>
+    <button disabled={pending} {...rest} className="text-sm primary-btn" type="submit">{pending? '🥕Loading🥕' : text}</button>
   )
 }
