@@ -53,12 +53,12 @@ export default async function ProductDetail({params}:{ params: {id:string}}){
             {product.user.avatar !== null ? <Image width={40} height={40} src={product.user.avatar} alt={product.user.username}/> :
               <Image width={40} height={40} src="/image/rabbit.png" alt="default avatar"/>}
           </div>
-          <h3 className="text-sm md:text-xl">{product.user.username}</h3>
+          <h3 className="default-textSize">{product.user.username}</h3>
         </div>
       </div>
       <div className="flex flex-col gap-2 md:w-1/2">
-        <h1 className="">{product.title}</h1>
-        <p className="">{product.description}</p>
+        <h1 className="default-textSize">{product.title}</h1>
+        <p className="text-sm">{product.description}</p>
       </div>
       <div className="fixed w-full bottom-0 left-0 py-5 bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700 border-t">
         <div className="md:max-w-screen-xl mx-auto px-10 flex items-center justify-between">

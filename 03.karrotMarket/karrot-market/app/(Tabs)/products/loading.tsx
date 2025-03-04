@@ -1,8 +1,9 @@
 export default function Loading(){
 
   return (
-    <div className="p-5 animate-pulse flex flex-col gap-5 pt-[60px]">
-    {[...Array(10)].map((_,idx) => {
+    <section className="setting-page animate-pulse">
+      <div className="flex flex-col gap-5 py-5">
+    {[...Array(5)].map((_,idx) => {
       return <div className="flex gap-5" key={idx}>
       <div className="bg-neutral-400 dark:bg-neutral-700 rounded-md size-28"></div>
       <div className="*:rounded-md flex flex-col gap-2">
@@ -13,5 +14,6 @@ export default function Loading(){
     </div>
     })}
     </div>
+    </section>
   )
 }
