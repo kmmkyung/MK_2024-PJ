@@ -1,6 +1,29 @@
 "use server"
 
-export async function uploadProduct(formData: FormData){
+import { z } from "zod";
+import fs from "fs/promises"
+import db from "@/lib/db";
+import { CategoryType } from "@prisma/client";
+import getSession from "@/lib/session";
+import { redirect } from "next/navigation";
+
+const categoryEnum = z.nativeEnum(CategoryType)
+
+const productSchema  = z.object({
+  photo: z.string().min(1, "상품 사진은 필수입니다"),
+  title: z.string({
+    required_error: "게시물 제목은 필수입니다"
+  }).trim().min(1,"게시물 제목은 필수입니다"),
+  price: z.coerce.number({
+    required_error: "상품 가격은 필수입니다"
+  }).min(1,"상품 가격은 필수입니다"),
+  description: z.string({
+    required_error: "상품 설명은 필수입니다"
+  }).trim().min(1,"상품 설명은 필수입니다"),
+  category: categoryEnum
+})
+
+export async function uploadProduct(_:any, formData: FormData){
   const data = {
     photo: formData.get('photo'),
     title: formData.get('title'),
@@ -10,4 +33,40 @@ export async function uploadProduct(formData: FormData){
   }
   console.log(data);
   
+  if(data.photo instanceof File){
+    const photoData = await data.photo.arrayBuffer()
+    await fs.appendFile(`./public/${data.photo.name}`,
+      Buffer.from(photoData)
+    )
+    data.photo = `/${data.photo.name}`
+  }
+  const result = productSchema.safeParse(data)
+  if(!result.success){
+    console.log(result.error.flatten());
+    
+    return result.error.flatten();
+  }
+  else {
+    const session = await getSession()
+    if(session.id){
+      const product = await db.product.create({
+        data: {
+          photo: result.data.photo,
+          title: result.data.title,
+          price: result.data.price,
+          description: result.data.description,
+          category: result.data.category,
+          user: {
+            connect: {
+              id: session.id
+            }
+          }
+        },
+        select: {
+          id: true
+        }
+      });
+      redirect(`/products/${product.id}`)
+    }
+  }
 }

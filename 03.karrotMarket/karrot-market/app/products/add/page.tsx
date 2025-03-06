@@ -3,7 +3,7 @@
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import { PhotoIcon } from "@heroicons/react/24/solid";
-import { useState } from "react";
+import { useActionState, useState } from "react";
 import { uploadProduct } from "./actions";
 
 export default function AddProduct(){
@@ -22,21 +22,24 @@ export default function AddProduct(){
     setPreview(url)
   }
 
+  const [ state, action ] = useActionState(uploadProduct, null)
+
   return (
     <section className="setting-page">
-      <form action={uploadProduct} className="flex flex-col gap-5 md:flex-row">
+      <form action={action} className="flex flex-col gap-5 md:flex-row">
         <div className="md:w-1/2">
-          <label htmlFor="photo" className="border-2 border-neutral-400 aspect-square flex flex-col items-center justify-center *:text-neutral-400 rounded-2xl border-dashed cursor-pointer bg-center bg-cover"
+          <label htmlFor="photo" className="border-2 border-neutral-400 aspect-square flex flex-col items-center justify-center text-neutral-400 rounded-2xl border-dashed cursor-pointer bg-center bg-cover"
           style={{backgroundImage:`url(${preview})`}}
           >
           {preview === ""?
           <>
             <PhotoIcon className="size-20"/>
-            <div className="text-sm default-textColor">사진을 추가해 주세요</div>
+            <div className="text-sm text-neutral-400">사진을 추가해 주세요</div>
+            <p className="text-sm text-red-500">상품 사진은 필수입니다</p>
           </> : null
           }
           </label>
-          <input onChange={onImageChange} className="hidden" type="file" id="photo" name="photo" accept="image/*"/>
+          <input onChange={onImageChange} required className="hidden" type="file" id="photo" name="photo" accept="image/*"/>
         </div>
         <div className="md:w-1/2 flex flex-col gap-3">
           <select name="category" required defaultValue="" className="text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all">
@@ -52,9 +55,12 @@ export default function AddProduct(){
             <option value="Pet">Pet</option>
             <option value="Other">Other</option>
           </select>
-          <Input name="title" placeholder="제목" type="text" required/>
-          <Input name="price" placeholder="가격을 입력해 주세요" type="number" required/>
-          <textarea name="description" placeholder="게시글 내용을 작성해 주세요" className="h-40 text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all" required/>
+          <Input name="title" placeholder="제목" type="text" required errors={state?.fieldErrors.title}/>
+          <Input name="price" placeholder="가격을 입력해 주세요" type="number" required errors={state?.fieldErrors.price}/>
+          <textarea name="description" placeholder="게시글 내용을 작성해 주세요" required className="h-40 text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all" />
+            {state?.fieldErrors.description && state.fieldErrors.description.map((ele,idx)=>{
+          return <p key={idx} className="text-red-500 mt-3 text-sm">{ele}</p>
+        })}
           <Button text="작성 완료"/>
         </div>
       </form>

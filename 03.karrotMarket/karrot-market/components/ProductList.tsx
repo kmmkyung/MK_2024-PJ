@@ -13,7 +13,7 @@ export default function ProductList({initialProducts}:IProductList) {
   const [products, setProducts] = useState(initialProducts);
   const [page, setPage] = useState(0);
   const [lastPage, setLastPage] = useState(false);
-  const trigger = useRef<HTMLSpanElement>(null);
+  const trigger = useRef<HTMLDivElement>(null);
 
   useEffect(()=>{
     const observer = new IntersectionObserver(
@@ -44,10 +44,15 @@ export default function ProductList({initialProducts}:IProductList) {
 
   return (
     <div className="py-5 flex flex-col gap-5">
-      {products.map((product)=>{
+      {products.map((product)=>{        
         return <ProductListItem key={product.id} {...product}/>
       })}
-      {!lastPage? <span ref={trigger} className="text-sm text-white bg-primary w-fit mx-auto p-2 rounded-md">{isLoading?"🥕Loading🥕":"Load More"}</span> : null}
+      {!lastPage && !isLoading? 
+      <div ref={trigger} className="mx-auto size-[50] rounded-full gradient animate-spin bg-orange-500" style={{
+      background: `conic-gradient(from 0deg, transparent 35%, #f97316 70%)`,
+      maskImage: `radial-gradient(transparent 55%, #fff 56%)`,
+    }}/>
+      : <div className="h-[70]"/>}
     </div>
   )
 }

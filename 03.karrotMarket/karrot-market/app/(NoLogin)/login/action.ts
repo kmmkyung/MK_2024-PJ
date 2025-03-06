@@ -49,4 +49,3 @@ export async function login(prevState:any, formData:FormData){
 }
 
 
-// test 유저 test@gmail.com / test1@Gmail

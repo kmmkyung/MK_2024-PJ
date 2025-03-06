@@ -22,17 +22,12 @@ export default {
         primary: "#f97316",
       },
       animation : {
-        homeGrayChat: 'homeGrayChat 1s 1s linear forwards',
-        homeOrangeChat: 'homeOrangeChat 1s 0.8s linear forwards'
+        loaderAn: 'loader 1s linear infinite',
       },
       keyframes: {
-        homeGrayChat: {
-          "0%": {visibility:'hidden', opacity:'0', transform:'translateX(-15%)'},
-          "100%": {visibility:'visible', opacity:'1', transform:'translateX(0%)'}
-        },
-        homeOrangeChat: {
-          "0%": {opacity:'0', transform:'translateX(15%)'},
-          "100%": {visibility:'visible', opacity:'1', transform:'translateX(0%)'}
+        loader: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" }
         },
       }
     }
