@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 export const categories = [
-  "ALL",
   "Furniture",
   "Electronics",
   "Home_Garden",
@@ -16,25 +16,25 @@ export const categories = [
   "Other",
 ];
 
-export default function Category(){
-  const router = useRouter();
-  const searchParams = useSearchParams(); // 현재 query string
-  const pathname = usePathname();
-
-  function onClick(category: string){
-    const params = new URLSearchParams(searchParams)
-    
-    params.set("category", category);
-    router.push(`${pathname}?${params.toString()}`);
-  }
+export default function Category() {
+  const searchParams = useSearchParams();  
+  const category = searchParams?.get("category");
+  const categoryAmpersand = categories.map((ele)=> ele.replace('_','&'))
 
   return (
     <div className="relative w-full">
-      <ul className="flex items-center overflow-x-hidden gap-5 *:text-sm *:text-center *:whitespace-nowrap">
-        {categories.map((ele,idx)=> {
-          return <li key={idx} onClick={()=>onClick(ele)}>{ele}</li>
-        })}
+      <ul className="flex items-center overflow-x-hidden gap-5 text-sm text-center whitespace-nowrap">
+          <li className={`border-b-2 ${ category === null ? "border-b-orange-500" : "border-transparent" }`}>
+            <Link href={`/products`} className={`${ category === null  ? "text-primary font-bold border-b-orange-500" : "default-textColor" }`}>ALL</Link>
+          </li>
+        {categoryAmpersand.map((ele, idx) => (
+          <li key={idx} className={`border-b-2 ${ categories[idx] === category ? "border-b-orange-500" : "border-transparent" }`}>
+            <Link href={`/products/?category=${categories[idx]}`} className={`${ categories[idx] === category ? "text-primary font-bold border-b-orange-500" : "default-textColor" }`}>
+            {ele}
+            </Link>
+          </li>
+        ))}
       </ul>
     </div>
-  )
+  );
 }
