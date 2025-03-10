@@ -61,7 +61,7 @@ export default function ProductList({ initialProducts }: IProductList) {
   }, [page, products, searchParamsCategory]);
 
   return (
-    <div className="py-5 flex flex-col gap-5">
+    <div className="py-5 flex flex-col gap-5 mt-[55]">
       {products.map((product) => (
         <ProductListItem key={product.id} {...product} />
       ))}

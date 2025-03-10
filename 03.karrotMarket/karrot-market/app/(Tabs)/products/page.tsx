@@ -27,17 +27,19 @@ export default async function Products({searchParams}:IProducts) {
   const initialProducts = await getInitialProducts(categoryEnum);
 
   return (
-    <section className="setting-page">
-      <Category />
+    <section className="relative">
+    <Category/>
+    <div className="setting-page">
       {
-      initialProducts.length > 0 ? (
-        <ProductList initialProducts={initialProducts} />
-      ) : (
-        <p>물건이 없습니다.</p>
-      )}
+        initialProducts.length > 0 ? (
+          <ProductList initialProducts={initialProducts} />
+        ) : (
+          <p>물건이 없습니다.</p>
+        )}
       <Link href="/products/add" className="bg-primary flex items-center justify-center rounded-full size-10 fixed bottom-20 right-10 transition-colors hover:bg-primaryHover">
         <PlusIcon className="size-6 text-white" />
       </Link>
+    </div>
     </section>
   );
 }
