@@ -29,12 +29,12 @@ export default async function Products({searchParams}:IProducts) {
   return (
     <section className="relative">
     <Category/>
-    <div className="setting-page">
+    <div className="setting-page h-screen">
       {
         initialProducts.length > 0 ? (
           <ProductList initialProducts={initialProducts} />
         ) : (
-          <p>물건이 없습니다.</p>
+          <div className="pt-[50] h-full flex items-center justify-center">아직 등록된 물건이 없습니다</div>
         )}
       <Link href="/products/add" className="bg-primary flex items-center justify-center rounded-full size-10 fixed bottom-20 right-10 transition-colors hover:bg-primaryHover">
         <PlusIcon className="size-6 text-white" />

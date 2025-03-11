@@ -70,7 +70,7 @@ export default function Category() {
 
   return (
     <>
-    <div ref={pcCategory} className="absolute top-[60] z-10 h-[55] w-full bg-neutral-50 dark:bg-neutral-950">
+    <div ref={pcCategory} className="absolute top-[60] z-10 h-[50] w-full bg-neutral-50 dark:bg-neutral-950">
       <ul className="pc-category flex items-center justify-center overflow-x-hidden gap-5 whitespace-nowrap md:max-w-screen-xl mx-auto p-2">
         <li className={`${ category === null ? "border-orange-500 border-[1px] rounded-full" : "border-transparent" }`}>
           <Link href={`/products`} className={`px-4 py-2 block text-xs ${ category === null  ? "text-primary font-bold" : "default-textColor" }`}>ALL</Link>
@@ -85,8 +85,8 @@ export default function Category() {
       </ul>
     </div>
     <div ref={mobileCategory} className="absolute top-[60] z-10 w-full bg-neutral-50 dark:bg-neutral-950">
-      <div className="h-[40] flex items-center justify-between mx-3 cursor-pointer" onClick={setMobileCategoryClick}>
-        <span className="pl-3 text-xs font-bold default-textColor">{ nowCategory }</span>
+      <div className="h-[50] flex items-center justify-between mx-3 cursor-pointer" onClick={setMobileCategoryClick}>
+        <span className="pl-3 text-xs font-bold default-textColor tracking-wider">{ nowCategory }</span>
         <div >
         {mobileCategoryOn?
         <XMarkIcon className="text-black dark:text-white size-6 hover:text-primary transition-colors"/>

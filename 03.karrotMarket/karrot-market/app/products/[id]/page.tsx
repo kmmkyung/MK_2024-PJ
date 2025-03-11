@@ -1,6 +1,6 @@
 import db from "@/lib/db";
 import getSession from "@/lib/session";
-import { formatToWon } from "@/lib/utils";
+import { formatToTimeAgo, formatToWon } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
@@ -43,7 +43,7 @@ export default async function ProductDetail({params}:{ params: {id:string}}){
   }
 
   return (
-    <section className="setting-page flex flex-col gap-5 md:flex-row relative h-screen">
+    <section className="setting-page flex align-top flex-col md:gap-5 md:flex-row relative">
       <div className="md:w-1/2">
         <div className="relative aspect-square">
           <Image className="object-cover object-center rounded-lg" fill src={product.photo} alt={product.title}/>
@@ -53,15 +53,30 @@ export default async function ProductDetail({params}:{ params: {id:string}}){
             {product.user.avatar !== null ? <Image width={40} height={40} src={product.user.avatar} alt={product.user.username}/> :
               <Image width={40} height={40} src="/image/rabbit.png" alt="default avatar"/>}
           </div>
-          <h3 className="default-textSize">{product.user.username}</h3>
+          <h3 className="text-sm">{product.user.username}</h3>
         </div>
       </div>
-      <div className="flex flex-col gap-2 md:w-1/2">
-        <h1 className="default-textSize">{product.title}</h1>
-        <p className="text-sm">{product.description}</p>
+      <div className="aspect-auto pt-5 pb-[140] md:mb-[80] md:pt-0 md:aspect-square md:pb-0 md:justify-between flex flex-col md:w-1/2 border-neutral-300 dark:border-neutral-700 border-t md:border-none">
+        <div>
+          <h1 className="text-2xl font-semibold">{product.title}</h1>
+          <p className="mt-2 text-xs text-neutral-400">{product.category}<span className="mx-2">•</span>{formatToTimeAgo(product.created_at.toString())}</p>
+          <p className="font-semibold text-xl mt-5 md:block hidden">{formatToWon(product.price)}원</p>
+          <p className="text-sm mt-5">{product.description}</p>
+        </div>
+        <div className="md:block hidden mt-10">
+        {isOwner ?
+          <form action={deleteUserProduct}>
+            <button className="custom-link bg-red-600 hover:bg-red-500 text-neutral-200 px-5">
+              삭제하기
+            </button>
+          </form>
+        : <Link className="primary-link w-full px-5" href="/chats">채팅하기</Link>}
+        </div>
       </div>
-      <div className="fixed w-full bottom-0 left-0 py-5 bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700 border-t">
-        <div className="md:max-w-screen-xl mx-auto px-10 flex items-center justify-between">
+
+      {/* mobile */}
+      <div className="box-border md:hidden block fixed w-full bottom-0 left-0 h-[80] bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700 border-t">
+        <div className="md:max-w-screen-xl mx-auto px-10 h-full flex items-center justify-between">
           <span className="font-semibold text-xl">{formatToWon(product.price)}원</span>
           {isOwner ?
           <form action={deleteUserProduct}>
