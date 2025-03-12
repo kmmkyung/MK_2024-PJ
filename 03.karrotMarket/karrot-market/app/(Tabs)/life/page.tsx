@@ -1,6 +1,6 @@
 export default function Life(){
   return (
-    <section className="setting-page">
+    <section className="setting-page">life
     </section>
   )
 }
