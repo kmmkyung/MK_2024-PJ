@@ -29,7 +29,7 @@ export default async function Products({searchParams}:IProducts) {
   return (
     <section className="relative">
     <Category/>
-    <div className="setting-page h-screen">
+    <div className="setting-page min-h-screen">
       {
         initialProducts.length > 0 ? (
           <ProductList initialProducts={initialProducts} />
