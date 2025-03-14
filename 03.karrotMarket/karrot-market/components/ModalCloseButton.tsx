@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 export default function ModalCloseButton(){
   const router = useRouter();
 
-  function onCloseClick(){
+  function onCloseClick(){    
     router.back();
   }
 

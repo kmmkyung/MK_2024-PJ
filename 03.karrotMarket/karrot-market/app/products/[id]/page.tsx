@@ -23,7 +23,6 @@ async function getIsOwner(userId:number){
   return false;
 }
 
-
 export default async function ProductDetail({params}:{ params: {id:string}}){
   const {id} = await params
   const numberId = Number(id)
@@ -50,8 +49,7 @@ export default async function ProductDetail({params}:{ params: {id:string}}){
         </div>
         <div className="flex items-center gap-2 my-5">
           <div className="size-10 rounded-full overflow-hidden flex items-center justify-center">
-            {product.user.avatar !== null ? <Image width={40} height={40} src={product.user.avatar} alt={product.user.username}/> :
-              <Image width={40} height={40} src="/image/rabbit.png" alt="default avatar"/>}
+            <Image width={40} height={40} src={product.user.avatar!} alt={product.user.username}/>
           </div>
           <h3 className="text-sm">{product.user.username}</h3>
         </div>

@@ -11,6 +11,12 @@
   } */
 }
 
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: none; 
+  }
+}
+
 @layer components {
   .primary-btn {
     @apply w-full h-10 bg-primary text-white rounded-md font-semibold hover:bg-primaryHover transition-colors disabled:bg-neutral-400 disabled:text-neutral-300 disabled:cursor-not-allowed

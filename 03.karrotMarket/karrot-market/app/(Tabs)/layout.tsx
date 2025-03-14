@@ -15,7 +15,7 @@ export default function layout({children}: Readonly<{children: React.ReactNode;}
     <>
       <TabsNav/>
         {children}
-      <TabBar className="block md:hidden" />
+      <TabBar className="block md:hidden"/>
     </>
   );
 }

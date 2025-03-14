@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} text-neutral-800 dark:text-neutral-200 dark:bg-neutral-900 antialiased`}>
+      <body className={`${roboto.className} text-neutral-800 dark:text-neutral-200 dark:bg-neutral-900 antialiased overflow-y-scroll`}>
         <ThemeProvider>
           {children}
         </ThemeProvider>
