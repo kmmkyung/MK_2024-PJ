@@ -75,7 +75,7 @@ export default function ProductList({ initialProducts }: IProductList) {
             maskImage: `radial-gradient(transparent 55%, #fff 56%)`,
           }}
         />
-      ) : null }
+      ) : <div className="pb-[60]"/> }
     </div>
   );
 }
