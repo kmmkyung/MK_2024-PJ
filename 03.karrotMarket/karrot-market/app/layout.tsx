@@ -1,6 +1,15 @@
 import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "@/components/ThemeProvider";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: {
+    template:"%s | 🥕Karrot",
+    default: "🥕Karrot Market"
+  },
+  description: "Sell and Buy all the things",
+};
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

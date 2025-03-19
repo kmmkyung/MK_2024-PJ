@@ -1,4 +1,5 @@
 import { formatToTimeAgo, formatToWon } from "@/lib/utils"
+import { CategoryType } from "@prisma/client"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -8,11 +9,13 @@ interface IListProduct{
   created_at: Date,  
   photo: string,
   id: number,
+  category:CategoryType
 }
 
-export default function ProductListItem({title, price, created_at, photo, id}:IListProduct) {
+export default function ProductListItem({title, price, created_at, photo, id, category}:IListProduct) {
+
   return (
-    <Link className="flex gap-5" href={`products/${id}`}>
+    <Link className="flex gap-5" href={`/products/${id}`}>
       <div className="relative rounded-md overflow-hidden size-28 bg-neutral-100">
         <Image src={photo} alt={title} fill className="object-cover object-center"/>
       </div>

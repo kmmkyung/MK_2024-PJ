@@ -4,6 +4,7 @@ import { PlusIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { CategoryType, Prisma } from "@prisma/client";
 import { getInitialProducts } from "./actions";
+import { unstable_cache as nextCache } from "next/cache";
 
 export type InitialProducts = Prisma.PromiseReturnType<typeof getInitialProducts>
 
@@ -19,24 +20,34 @@ interface IProducts{
   }
 }
 
+export const metadata = {
+  title:"Product"
+}
+
 export default async function Products({searchParams}:IProducts) {
-  
   const params = await searchParams;
   const category = params.category;
   const categoryEnum = getCategoryEnum(category as CategoryType | null)
-  const initialProducts = await getInitialProducts(categoryEnum);
+  // const initialProducts = await getInitialProducts(categoryEnum);
+
+  const cachedGetProducts = await nextCache(
+    async () => {return await getInitialProducts(categoryEnum)},
+    [`products-${categoryEnum}`]
+  );
+
+  const initialProducts = await cachedGetProducts();
 
   return (
     <section className="relative">
     <Category/>
-    <div className="setting-page min-h-screen">
+    <div className="setting-page h-screen">
       {
         initialProducts.length > 0 ? (
           <ProductList initialProducts={initialProducts} />
         ) : (
-          <div className="pt-[50] h-full flex items-center justify-center">아직 등록된 물건이 없습니다</div>
+          <div className="pt-[50] w-full h-full flex items-center justify-center">아직 등록된 물건이 없습니다</div>
         )}
-      <Link href="/products/add" className="bg-primary flex items-center justify-center rounded-full size-10 fixed bottom-20 md:bottom-10 right-10 transition-colors hover:bg-primaryHover">
+      <Link href="/product/add" className="bg-primary flex items-center justify-center rounded-full size-10 fixed bottom-20 md:bottom-10 right-10 transition-colors hover:bg-primaryHover">
         <PlusIcon className="size-6 text-white" />
       </Link>
     </div>

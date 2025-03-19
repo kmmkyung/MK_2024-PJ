@@ -14,58 +14,58 @@ interface IProductList {
 export default function ProductList({ initialProducts }: IProductList) {
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState(initialProducts);
-  const [page, setPage] = useState(0);
   const [lastPage, setLastPage] = useState(false);
   const searchParamsCategory = useSearchParams().get('category');
   const trigger = useRef<HTMLDivElement>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const [cursor, setCursor] = useState<number | null>(
+    initialProducts.length > 0 ? initialProducts[initialProducts.length - 1].id : null
+  );
 
   useEffect(() => {
     setProducts(initialProducts);
-    setPage(0);
+    setCursor(
+      initialProducts.length > 0 ? initialProducts[initialProducts.length - 1].id : null
+    );
     setLastPage(false);
   }, [initialProducts, searchParamsCategory]);
 
   useEffect(() => {
-    // 기존 observer가 있으면 해제
     if (observerRef.current) {
       observerRef.current.disconnect();
     }
-
-    // 새 observer 생성
+    
     observerRef.current = new IntersectionObserver(async (entries) => {
       const entry = entries[0];
-
       if (entry.isIntersecting) {
         observerRef.current?.disconnect();
         setIsLoading(true);
-
-        const newProducts = await getMoreProducts(page + 1, searchParamsCategory as CategoryType | null);
-
+  
+        const newProducts = await getMoreProducts(cursor, searchParamsCategory as CategoryType | null);
+  
         if (newProducts.length > 0) {
           setProducts((prev) => [...prev, ...newProducts]);
-          setPage((prev) => prev + 1);
+          // 마지막 상품 id 업데이트
+          setCursor(newProducts[newProducts.length - 1].id);
         } else {
           setLastPage(true);
         }
-
         setIsLoading(false);
       }
     });
-
+  
     if (trigger.current) {
       observerRef.current.observe(trigger.current);
     }
   
     return () => observerRef.current?.disconnect();
-  }, [page, products, searchParamsCategory]);
+  }, [cursor, searchParamsCategory]);
 
   return (
     <div className="py-5 flex flex-col gap-5 mt-[55]">
-      {products.map((product) => (
-        <ProductListItem key={product.id} {...product} />
-      ))}
-
+      {products.map((product) => {
+        return <ProductListItem key={product.id} {...product} />
+      })}
       {!lastPage && !isLoading ? (
         <div
           ref={trigger}
@@ -75,9 +75,7 @@ export default function ProductList({ initialProducts }: IProductList) {
             maskImage: `radial-gradient(transparent 55%, #fff 56%)`,
           }}
         />
-      ) : (
-        <div className="h-[70]" />
-      )}
+      ) : null }
     </div>
   );
 }

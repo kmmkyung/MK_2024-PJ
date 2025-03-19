@@ -10,7 +10,7 @@ export default function ModalCloseBg(){
   }
 
   return (
-    <div className="absolute w-full h-full left-0 top-0 bg-opacity-80 bg-black" onClick={onCloseClick}>
+    <div className="absolute w-full h-full bg-opacity-80 bg-black" onClick={onCloseClick}>
     </div>
   )
 }
