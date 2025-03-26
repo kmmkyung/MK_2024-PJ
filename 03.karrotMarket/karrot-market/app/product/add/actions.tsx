@@ -6,6 +6,7 @@ import db from "@/lib/db";
 import { CategoryType } from "@prisma/client";
 import getSession from "@/lib/session";
 import { redirect } from "next/navigation";
+import { revalidateTag } from "next/cache";
 
 const categoryEnum = z.nativeEnum(CategoryType)
 
@@ -23,7 +24,7 @@ const productSchema  = z.object({
   category: categoryEnum
 })
 
-export async function uploadProduct(_:any, formData: FormData){
+export async function uploadProduct(_: unknown, formData: FormData){
   const data = {
     photo: formData.get('photo'),
     title: formData.get('title'),
@@ -31,19 +32,16 @@ export async function uploadProduct(_:any, formData: FormData){
     description: formData.get('description'),
     category: formData.get('category'),
   }
-  console.log(data);
   
   if(data.photo instanceof File){
     const photoData = await data.photo.arrayBuffer()
-    await fs.appendFile(`./public/${data.photo.name}`,
+    await fs.appendFile(`./public/product/${data.photo.name}`,
       Buffer.from(photoData)
     )
-    data.photo = `/${data.photo.name}`
+    data.photo = `/product/${data.photo.name}`
   }
   const result = productSchema.safeParse(data)
   if(!result.success){
-    console.log(result.error.flatten());
-    
     return result.error.flatten();
   }
   else {
@@ -66,6 +64,7 @@ export async function uploadProduct(_:any, formData: FormData){
           id: true
         }
       });
+      revalidateTag('products')
       redirect(`/products/${product.id}`)
     }
   }

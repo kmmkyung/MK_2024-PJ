@@ -15,7 +15,7 @@ interface IListProduct{
 export default function ProductListItem({title, price, created_at, photo, id, category}:IListProduct) {
 
   return (
-    <Link className="flex gap-5" href={`/products/${id}`}>
+    <Link className="flex gap-5" href={`/products/${id}?category=${category}`}>
       <div className="relative rounded-md overflow-hidden size-28 bg-neutral-100">
         <Image src={photo} alt={title} fill className="object-cover object-center"/>
       </div>

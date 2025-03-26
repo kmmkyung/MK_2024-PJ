@@ -14,10 +14,8 @@ function getCategoryEnum(category: string | null): CategoryType | null {
   }
   return category as CategoryType;
 }
-interface IProducts{
-  searchParams:{
-    category: string
-  }
+interface IProducts {
+  searchParams: Promise<{ category: string }>;
 }
 
 export const metadata = {
@@ -33,7 +31,7 @@ export default async function Products({searchParams}:IProducts) {
   const cachedGetProducts = await nextCache(
     async () => {return await getInitialProducts(categoryEnum)},
     [`products-${categoryEnum}`],
-    { revalidate: 60}
+    { tags: ['products']}
   );
 
   const initialProducts = await cachedGetProducts();

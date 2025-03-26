@@ -81,7 +81,7 @@ const formSchema = z.object({
   message:'비밀번호를 동일하게 입력해주세요'
 });
 
-export async function createAccount(prevState:any, formData:FormData){
+export async function createAccount(prevState: unknown, formData: FormData) {
   const data = {
     username:formData.get('username'),
     email:formData.get('email'),

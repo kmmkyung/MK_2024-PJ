@@ -11,8 +11,6 @@ export default function ProductsLayout({
   modal: React.ReactNode;
 }) {
   const modalSegment = useSelectedLayoutSegment('modal');
-  console.log(modalSegment);
-  
 
   function blockScroll(){
     document.body.style.overflowY = 'hidden';

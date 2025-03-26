@@ -5,7 +5,10 @@ import getSession from "@/lib/session";
 import { formatToTimeAgo, formatToWon } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
+import { JSX } from "react";
+import ProductOwnerButton from "@/components/ProductOwnerButton";
+
 
 async function getProduct(id:number) {
   const product = db.product.findUnique({
@@ -23,9 +26,10 @@ async function getIsOwner(userId:number){
   return false;
 }
 
-export default async function Modal({params}:{params:{id:string}}){
-
+export default async function ModalPage({params}:{ params: Promise<{id:string}>}): Promise<JSX.Element>{
+  
   const {id} = await params;
+  console.log(id);
   const numberId = Number(id);
   if(isNaN(numberId)) return notFound();
 
@@ -34,25 +38,17 @@ export default async function Modal({params}:{params:{id:string}}){
 
   const isOwner = await getIsOwner(product.userId);
 
-  async function deleteUserProduct(){
-    'use server'
-    await db.product.delete({
-      where: {id:numberId}
-    })
-    redirect('/products')
-  }
-
   return (
     <>
-    <div className="absolute z-[51] w-full h-full px-20 py-20 flex justify-center items-center md:px-10">
-    <ModalCloseBg/>
-    <ModalCloseButton/>
+      <div className="fixed z-[51] w-full h-full px-10 py-20 flex justify-center items-center">
+        <ModalCloseBg/>
+        <ModalCloseButton/>
         <div className="relative rounded-lg overflow-hidden max-w-[1000px] w-full h-full no-scrollbar overflow-y-scroll md:overflow-y-visible flex md:flex-row flex-col">
-            <div className="relative w-full h-full aspect-square md:aspect-auto basis-1/2">
-              <Image className="object-cover object-center" fill src={product.photo} alt={product.title}/>
-            </div>
-            <div className="basis-1/2">
-              <div className="bg-white dark:bg-neutral-900 h-[calc(100vh-160px)] w-full md:h-full p-5">
+          <div className="relative w-full h-full aspect-square md:aspect-auto basis-1/2">
+            <Image className="object-cover object-center" fill src={product.photo} alt={product.title}/>
+          </div>
+          <div className="basis-1/2">
+            <div className="bg-white dark:bg-neutral-900 h-[calc(100vh-160px)] w-full md:h-full p-5">
               <div>
                 <div className="flex items-center gap-2 pb-5 border-neutral-300 dark:border-neutral-700 border-b">
                   <div className="size-8 rounded-full overflow-hidden flex items-center justify-center">
@@ -69,17 +65,13 @@ export default async function Modal({params}:{params:{id:string}}){
               </div>
               <div className="mt-10">
               {isOwner ?
-                <form action={deleteUserProduct}>
-                  <button className="custom-link text-white bg-red-600 hover:bg-red-500 px-5">
-                    삭제하기
-                  </button>
-                </form>
+              <ProductOwnerButton numberId={numberId}/>
               : <Link className="primary-link w-full px-5" href="/chats">채팅하기</Link>}
               </div>
             </div>
           </div>
         </div>
-    </div>
+      </div>
     </>
   )
 }

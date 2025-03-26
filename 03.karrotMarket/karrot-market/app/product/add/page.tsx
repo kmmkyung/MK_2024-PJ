@@ -57,10 +57,13 @@ export default function AddProduct(){
           </select>
           <Input name="title" placeholder="제목" type="text" required errors={state?.fieldErrors.title}/>
           <Input name="price" placeholder="가격을 입력해 주세요" type="number" required errors={state?.fieldErrors.price}/>
-          <textarea name="description" placeholder="게시글 내용을 작성해 주세요" required className="h-40 text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all" />
+          <div>
+
+          <textarea name="description" placeholder="게시글 내용을 작성해 주세요" required className="align-middle h-40 text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all" />
             {state?.fieldErrors.description && state.fieldErrors.description.map((ele,idx)=>{
-          return <p key={idx} className="text-red-500 mt-3 text-sm">{ele}</p>
-        })}
+              return <p key={idx} className="text-red-500 mt-3 text-sm">{ele}</p>
+            })}
+            </div>
           <Button text="작성 완료"/>
         </div>
       </form>

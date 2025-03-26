@@ -3,7 +3,9 @@ import getSession from "@/lib/session";
 import { formatToTimeAgo, formatToWon } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
+import { ChatBubbleOvalLeftEllipsisIcon } from "@heroicons/react/24/solid";
+import ProductOwnerButton from "@/components/ProductOwnerButton";
 
 async function getProduct(id:number){
   const product= await db.product.findUnique({
@@ -23,7 +25,7 @@ async function getIsOwner(userId:number){
   return false;
 }
 
-export async function generateMetadata({params}:{ params: {id:string}}){
+export async function generateMetadata({params}:{ params: Promise<{id:string}>}){
   const {id} = await params
   const product = await getProduct(Number(id));
   return {
@@ -31,7 +33,7 @@ export async function generateMetadata({params}:{ params: {id:string}}){
   }
 }
 
-export default async function ProductDetail({params}:{ params: {id:string}}){
+export default async function ProductDetail({params}:{ params: Promise<{id:string}>}){
   const {id} = await params
   const numberId = Number(id)
   if(isNaN(numberId)) return notFound();
@@ -40,14 +42,6 @@ export default async function ProductDetail({params}:{ params: {id:string}}){
   if(!product) return notFound();
 
   const isOwner = await getIsOwner(product.userId);
-
-  async function deleteUserProduct(){
-    'use server'
-    await db.product.delete({
-      where: {id:numberId}
-    })
-    redirect('/products')
-  }
 
   return (
     <section className="setting-page flex align-top flex-col md:gap-5 md:flex-row relative">
@@ -71,11 +65,7 @@ export default async function ProductDetail({params}:{ params: {id:string}}){
         </div>
         <div className="md:block hidden mt-10">
         {isOwner ?
-          <form action={deleteUserProduct}>
-            <button className="custom-link bg-red-600 hover:bg-red-500 text-neutral-200 px-5">
-              삭제하기
-            </button>
-          </form>
+            <ProductOwnerButton numberId={numberId}/>
         : <Link className="primary-link w-full px-5" href="/chats">채팅하기</Link>}
         </div>
       </div>
@@ -85,14 +75,20 @@ export default async function ProductDetail({params}:{ params: {id:string}}){
         <div className="md:max-w-screen-xl mx-auto px-10 h-full flex items-center justify-between">
           <span className="font-semibold text-xl">{formatToWon(product.price)}원</span>
           {isOwner ?
-          <form action={deleteUserProduct}>
-            <button className="custom-link bg-red-600 hover:bg-red-500 text-neutral-200 w-auto px-5">
-              삭제하기
-            </button>
-          </form>
-        : <Link className="primary-link w-auto px-5" href="/chats">채팅하기</Link>}
+            <ProductOwnerButton numberId={numberId}/>
+        : <Link className="primary-link w-auto px-4 flex justify-center items-center" href="/chats">
+            <ChatBubbleOvalLeftEllipsisIcon className="size-5 text-white"/>
+          </Link>}
         </div>
       </div>
     </section> 
   )
 }
+
+// export const dynamicParams = true;
+// export async function generateStaticParams(){
+//   const products = await db.product.findMany({
+//     select: {id: true}
+//   })
+//   return products.map(ele => ({id: ele.id+""}))
+// }

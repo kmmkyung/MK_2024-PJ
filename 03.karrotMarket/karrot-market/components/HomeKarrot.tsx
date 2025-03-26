@@ -28,11 +28,11 @@ export default function HomeKarrot(){
     <motion.div className="pointer-events-none absolute top-1/2 -translate-y-1/2 *:font-medium flex flex-col items-center gap-2" variants={parentVariants} initial="initial" animate="animate">
       <motion.span className="sm:text-9xl text-8xl" variants={spanVariants} >🥕</motion.span>
       <div className="flex flex-col items-start gap-1 min-w-[200px]">
-        <motion.span className="text-xs bg-slate-300 text-black rounded-md p-2 " variants={pGrayChatVariants} >Hi :)</motion.span>
+        <motion.span className="text-xs bg-slate-300 text-black rounded-md p-2 " variants={pGrayChatVariants} >Hi</motion.span>
         <motion.p className="text-xs bg-slate-300 text-black rounded-md p-2" variants={pGrayChatVariants} >👀 Are you Karrot...?</motion.p>
       </div>
       <div className="flex flex-col items-end gap-1 w-full">
-        <motion.p className="text-sm text-white bg-primaryHover rounded-md p-2 text-right" variants={pOrangeChatVariants} >YES!! I'm Karrot 🙆‍♀️</motion.p>
+        <motion.p className="text-sm text-white bg-primaryHover rounded-md p-2 text-right" variants={pOrangeChatVariants} >YES!! I am Karrot 🙆‍♀️</motion.p>
         <motion.p className="text-sm bg-primaryHover rounded-md p-2 text-right" variants={pOrangeChatVariants} >🥕</motion.p>
       </div>
       <motion.p className="border-4 rounded-full px-4 py-2 mt-2 border-neutral-900 dark:bg-neutral-900 dark:border-white" variants={spanVariants}>Buy & Sell locally</motion.p>
