@@ -3,13 +3,7 @@
 import { useLayoutEffect } from 'react';
 import { useSelectedLayoutSegment } from 'next/navigation';
 
-export default function ProductsLayout({
-  children,
-  modal,
-}: {
-  children: React.ReactNode;
-  modal: React.ReactNode;
-}) {
+export default function ProductsLayout({ children,  modal }: { children: React.ReactNode; modal: React.ReactNode;}){
   const modalSegment = useSelectedLayoutSegment('modal');
 
   function blockScroll(){
@@ -21,12 +15,14 @@ export default function ProductsLayout({
     document.body.style.overflowY = 'scroll';
     document.body.style.touchAction = '';
   };
-
+  
   useLayoutEffect(() => {
     if (modalSegment !== null) {
-      blockScroll();  // 모달 열린 상태
-    } else { allowScroll(); }
-
+      blockScroll();
+    }
+    else {
+      allowScroll();
+    }
     return () => {
       allowScroll();
     };

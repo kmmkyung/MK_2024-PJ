@@ -7,7 +7,6 @@ export async function getAccessToken(code:string){
     redirect_uri: 'http://localhost:3000/kakao/complete',
     code: code,
     grant_type: 'authorization_code',
-    // scope: 'profile_image'
   }).toString();
 
   accessTokenURL = `${accessTokenURL}?${accessTokenParams}`;

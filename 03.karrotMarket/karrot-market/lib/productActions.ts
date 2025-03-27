@@ -2,11 +2,16 @@
 
 import { revalidateTag } from "next/cache"
 import db from "./db"
+import fs from "fs/promises"
 
 export async function deleteProduct(numberId:number){
-  await db.product.delete({
+  const deletedProduct = await db.product.delete({
     where: {id:numberId},
     select: {photo:true}
   })
+  console.log(deletedProduct.photo);
+  if(deletedProduct.photo){
+    await fs.unlink(`public${deletedProduct.photo}`)
+  }
   revalidateTag('products')
 }

@@ -14,7 +14,7 @@ export async function getInitialProducts(category: CategoryType | null ) {
       id: true,
       category: true
     },
-    take: 2,
+    take: 5,
     orderBy: [
       { created_at: "desc" },
       { id: "desc" },
@@ -55,7 +55,7 @@ export async function getMoreProducts(cursorId: number | null, category: Categor
       id: true,
       category: true
     },
-    take: 2,
+    take: 5,
     orderBy: [
       { created_at: "desc" },
       { id: "desc" },

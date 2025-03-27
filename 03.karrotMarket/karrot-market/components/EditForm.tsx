@@ -1,6 +1,6 @@
 "use client"
 
-import { updateProduct } from "@/app/products/[id]/edit/actions";
+import { updateProduct } from "@/app/(AddAndEdit)/products/[id]/edit/actions";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import { PhotoIcon } from "@heroicons/react/24/solid";
@@ -45,10 +45,6 @@ export default function EditForm(props:IAddAndEditProps){
     setPreview(url)
   }
 
-  const handleChange = (setter: React.Dispatch<React.SetStateAction<any>>) => (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setter(event.target.value);
-  };
-
   async function onSubmit(){
     const formData = new FormData();
     formData.append("id", id.toString());
@@ -64,7 +60,6 @@ export default function EditForm(props:IAddAndEditProps){
     const product = await updateProduct(formData);
     if (product?.fieldErrors) {
       setErrors(product.fieldErrors);
-      console.log(product.fieldErrors.title); 
     }
     else{
       setErrors(null);
@@ -72,7 +67,7 @@ export default function EditForm(props:IAddAndEditProps){
   }
 
   return (
-    <section className="setting-page">
+    <section className="setting-page pt-20">
       <form action={onSubmit} className="flex flex-col gap-5 md:flex-row">
         <div className="md:w-1/2">
           <label htmlFor="photo" className="border-2 border-neutral-400 aspect-square flex flex-col items-center justify-center text-neutral-400 rounded-2xl border-dashed cursor-pointer bg-center bg-cover"
@@ -89,7 +84,7 @@ export default function EditForm(props:IAddAndEditProps){
           <input onChange={onImageChange} className="hidden" type="file" id="photo" name="photo" accept="image/*" />
         </div>
         <div className="md:w-1/2 flex flex-col gap-3">
-          <select name="category" required value={category} onChange={handleChange(setCategory)} className="text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all">
+          <select name="category" required value={category} onChange={(event)=>setCategory(event.target.value as CategoryType)} className="text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all">
             <option value="" disabled>카테고리를 선택하세요</option>
             <option value="Furniture">Furniture</option>
             <option value="Electronics">Electronics</option>
@@ -102,15 +97,15 @@ export default function EditForm(props:IAddAndEditProps){
             <option value="Pet">Pet</option>
             <option value="Other">Other</option>
           </select>
-          <Input name="title" placeholder="제목" type="text" value={title} required onChange={handleChange(setTitle)} errors={errors?.title}/>
-          <Input name="price" placeholder="가격을 입력해 주세요" type="number" value={price} required onChange={handleChange(setPrice)} errors={errors?.price}/>
+          <Input name="title" placeholder="제목" type="text" value={title} required onChange={(event)=>setTitle(event.target.value)} errors={errors?.title}/>
+          <Input name="price" placeholder="가격을 입력해 주세요" type="number" value={price} required onChange={(event)=>setPrice(Number(event.target.value))} errors={errors?.price}/>
           <div>
-            <textarea name="description" placeholder="게시글 내용을 작성해 주세요" value={description} required onChange={handleChange(setDescription)} className="align-middle h-40 text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all" />
+            <textarea name="description" placeholder="게시글 내용을 작성해 주세요" value={description} required onChange={event=>setDescription(event.target.value)} className="align-middle h-40 text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all" />
             {errors?.description && errors.description.map((ele,idx)=>{
               return <p key={idx} className="text-red-500 mt-3 text-sm">{ele}</p>
             })}
           </div>
-          <Button text="작성 완료"/>
+          <Button text="수정 완료"/>
         </div>
       </form>
     </section>

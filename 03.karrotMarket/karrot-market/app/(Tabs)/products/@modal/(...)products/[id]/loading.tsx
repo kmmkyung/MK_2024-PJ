@@ -3,7 +3,7 @@ import ModalCloseBg from "@/components/ModalCloseBg";
 export default function Loading(){
   return (
     <>
-    <div className="absolute z-[51] w-full h-full px-20 py-20 flex justify-center items-center md:px-10">
+    <div className="fixed top-0 left-0 z-[51] w-full h-full px-20 py-20 flex justify-center items-center md:px-10">
       <ModalCloseBg/>
       <div className="relative rounded-lg overflow-hidden max-w-[1000px] w-full h-full no-scrollbar overflow-y-scroll md:overflow-y-visible flex md:flex-row flex-col">
         <div className="w-full h-full aspect-square md:aspect-auto basis-1/2 bg-neutral-400 dark:bg-neutral-700"></div>

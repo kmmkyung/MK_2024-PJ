@@ -14,8 +14,8 @@ export default function CreateAccount(){
   const { errors, data } = state || {};
 
   return (
-    <>
-      <section className="flex flex-col gap-10 p-10 pt-20 max-w-screen-sm mx-auto">
+  <>
+    <section className="flex flex-col gap-10 p-10 pt-20 max-w-screen-sm mx-auto">
       <div className="flex flex-col gap-2 *:font-medium">
         <h2 className="sm:text-2xl text-lg">안녕하세요!</h2>
         <h2 className="sm:text-xl text-base">Fill in the form below to join!</h2>

@@ -9,7 +9,7 @@ export default function ProductOwnerButton({numberId}:{numberId:number}){
   const router = useRouter();
   const pathname = usePathname();
 
-  async function onDelete(){
+  async function onDelete(){    
     const confirmDelete = confirm("정말 삭제하시겠습니까?");
     if (!confirmDelete) return;
     await deleteProduct(numberId)

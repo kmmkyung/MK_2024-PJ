@@ -6,6 +6,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChatBubbleOvalLeftEllipsisIcon } from "@heroicons/react/24/solid";
 import ProductOwnerButton from "@/components/ProductOwnerButton";
+import { unstable_cache as nextCache } from "next/cache";
 
 async function getProduct(id:number){
   const product= await db.product.findUnique({
@@ -18,6 +19,10 @@ async function getProduct(id:number){
   })
   return product
 }
+const cachedGetProducts = nextCache(
+  getProduct, ["product-detail"],{
+    tags: ["product-detail"]
+  })
 
 async function getIsOwner(userId:number){
   const session = await getSession();
@@ -38,20 +43,22 @@ export default async function ProductDetail({params}:{ params: Promise<{id:strin
   const numberId = Number(id)
   if(isNaN(numberId)) return notFound();
 
-  const product = await getProduct(numberId);
+  
+  const product = await cachedGetProducts(numberId);
+
   if(!product) return notFound();
 
   const isOwner = await getIsOwner(product.userId);
 
   return (
-    <section className="setting-page flex align-top flex-col md:gap-5 md:flex-row relative">
+    <section className="setting-page pt-20 flex align-top flex-col md:gap-5 md:flex-row relative">
       <div className="md:w-1/2">
         <div className="relative aspect-square">
-          <Image className="object-cover object-center rounded-lg" fill src={product.photo} alt={product.title}/>
+          <Image className="object-cover object-center rounded-lg" fill priority sizes="600px 600px" src={product.photo} alt={product.title}/>
         </div>
         <div className="flex items-center gap-2 my-5">
           <div className="size-10 rounded-full overflow-hidden flex items-center justify-center">
-            <Image width={40} height={40} src={product.user.avatar!} alt={product.user.username}/>
+            <Image width={40} height={40} sizes="40px" src={product.user.avatar!} alt={product.user.username}/>
           </div>
           <h3 className="text-sm">{product.user.username}</h3>
         </div>

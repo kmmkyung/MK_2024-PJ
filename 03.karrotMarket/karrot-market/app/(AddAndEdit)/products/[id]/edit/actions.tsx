@@ -83,6 +83,7 @@ export async function updateProduct(formData: FormData){
         }
       });
       revalidateTag('products')
+      revalidateTag('product-detail')
       redirect(`/products/${product.id}`)
     }
   }

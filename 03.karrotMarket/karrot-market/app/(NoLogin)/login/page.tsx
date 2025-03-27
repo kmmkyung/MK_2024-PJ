@@ -18,8 +18,8 @@ export default function Login(){
       <h2 className="sm:text-xl text-base">Login with email and password!</h2>
     </div>
     <form action={formAction} className="flex flex-col gap-3">
-      <Input name="email" defaultValue={state?.data?.email?.toString()} type="email" placeholder="Email" required errors={state?.errors?.fieldErrors.email}/>
-      <Input name="password" type="password" defaultValue={state?.data.password?.toString()} placeholder="Password" minLength={PASSWORD_MIN_LENGTH} maxLength={PASSWORD_MAX_LENGTH} required errors={state?.fieldErrors?.password}/>
+      <Input name="email" defaultValue={state?.data?.email?.toString()} type="email" placeholder="Email" required autoComplete="email" errors={state?.errors?.fieldErrors.email}/>
+      <Input name="password" type="password" defaultValue={state?.data.password?.toString()} placeholder="Password" minLength={PASSWORD_MIN_LENGTH} maxLength={PASSWORD_MAX_LENGTH} required autoComplete="current-password" errors={state?.fieldErrors?.password}/>
       <Button text='Login'></Button>
     </form>
     <SocialLogin />
