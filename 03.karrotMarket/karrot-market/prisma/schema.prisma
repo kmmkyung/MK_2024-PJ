@@ -19,7 +19,10 @@ model User {
   avatar String? @default("/image/rabbit.png")
   updated_at DateTime @updatedAt
   SMSToken SMSToken[]
-  Product Product[]
+  product Product[]
+  post Post[]
+  comment Comment[]
+  like Like[]
 }
 
 model SMSToken {
@@ -56,6 +59,42 @@ model Product {
   userId Int
   category CategoryType
 }
+
+model Post {
+  id Int @id @default(autoincrement())
+  title String
+  description String?
+  views Int @default(0)
+  created_at DateTime @default(now()) 
+  updated_at DateTime @updatedAt
+  userId Int
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  comment Comment[]
+  like Like[]
+}
+
+model Comment {
+  id Int @id @default(autoincrement())
+  payload String
+  created_at DateTime @default(now()) 
+  updated_at DateTime @updatedAt
+  userId Int
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  postId Int
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+}
+
+model Like {
+  @@id(name: "id",[userId, postId])
+  created_at DateTime @default(now()) 
+  updated_at DateTime @updatedAt
+
+  userId Int
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  postId Int
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+}
+
 
   // npx prisma migrate dev
   // npx prisma studio

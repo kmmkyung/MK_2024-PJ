@@ -1,9 +1,9 @@
-import NoLoginNav from "@/components/NoLoginNav";
+import NavNoLogin from "@/components/NavNoLogin";
 
 export default function layout({children}: Readonly<{children: React.ReactNode;}>) {
   return (
     <>
-      <NoLoginNav/>
+      <NavNoLogin/>
       {children}
     </>
   );

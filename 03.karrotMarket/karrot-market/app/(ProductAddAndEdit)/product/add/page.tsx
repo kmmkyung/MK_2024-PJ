@@ -5,7 +5,6 @@ import Input from "@/components/Input";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 import { useActionState, useState } from "react";
 import { uploadProduct } from "./actions";
-import ProductNav from "@/components/ProductNav";
 
 export default function AddProduct(){
   const [preview, setPreview] = useState('')
@@ -27,7 +26,6 @@ export default function AddProduct(){
 
   return (
     <>
-    <ProductNav/>
     <section className="setting-page pt-20">
       <form action={action} className="flex flex-col gap-5 md:flex-row">
         <div className="md:w-1/2">

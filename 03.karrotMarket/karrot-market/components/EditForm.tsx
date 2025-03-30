@@ -1,6 +1,6 @@
 "use client"
 
-import { updateProduct } from "@/app/(AddAndEdit)/products/[id]/edit/actions";
+import { updateProduct } from "@/app/(ProductAddAndEdit)/products/[id]/edit/actions";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import { PhotoIcon } from "@heroicons/react/24/solid";
