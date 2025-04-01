@@ -1,15 +1,21 @@
 export default function Loading(){
   return (
     <section className="setting-page animate-pulse">
-      <div className="flex flex-col gap-5 py-5">
-    {[...Array(5)].map((_,idx) => {
-      return <div className="flex gap-5" key={idx}>
-      <div className="*:rounded-md flex flex-col gap-2">
-        <div className="bg-neutral-400 dark:bg-neutral-700 h-4 w-20"></div>
-        <div className="bg-neutral-400 dark:bg-neutral-700 h-4 w-40"></div>
-        <div className="flex gap-2 *:rounded-md">
-          <div className="bg-neutral-400 dark:bg-neutral-700 h-4 w-5"></div>
-          <div className="bg-neutral-400 dark:bg-neutral-700 h-4 w-5"></div>
+      <div className="flex flex-col py-5">
+    {[...Array(2)].map((_,idx) => {
+      return <div className="flex gap-5 w-full bg-neutral-100 p-5 mb-5 rounded-lg" key={idx}>
+      <div className="*:rounded-md flex flex-col w-full">
+        <div className="flex justify-between">
+          <div className="*:rounded-md">
+            <div className="bg-neutral-400 dark:bg-neutral-700 h-7 w-20"></div>
+            <div className="bg-neutral-400 dark:bg-neutral-700 h-5 w-40 mt-2"></div>
+          </div>
+          <div className="rounded-md bg-neutral-400 dark:bg-neutral-700 h-4 w-10"></div>
+        </div>
+        <div className="flex justify-end mt-5 gap-5 *:rounded-md">
+          <div className="bg-neutral-400 dark:bg-neutral-700 h-6 w-10"></div>
+          <div className="bg-neutral-400 dark:bg-neutral-700 h-6 w-10"></div>
+          <div className="bg-neutral-400 dark:bg-neutral-700 h-6 w-10"></div>
         </div>
       </div>
     </div>

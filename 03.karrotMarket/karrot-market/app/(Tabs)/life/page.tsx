@@ -16,7 +16,8 @@ export default async function Life(){
       <div className="my-5">
       {posts.map((ele)=>{
         return (
-          <Link href={`/post/${ele.id}`} key={ele.id} className="pb-5 mb-5 border-b border-neutral-500 default-textColor flex flex-col last:pb-0 last:border-b-0">
+          <div className="bg-neutral-100 shadow-lg shadow-neutral-200/50 rounded-lg p-5 mb-5 dark:bg-neutral-800 dark:shadow-neutral-800/50" key={ele.id}>
+          <Link href={`/post/${ele.id}`} className="default-textColor flex flex-col">
             <div className="flex justify-between">
               <div>
                 <h2 className="text-lg font-semibold">{ele.title}</h2>
@@ -30,6 +31,7 @@ export default async function Life(){
               <p className="flex items-center gap-2"><HandThumbUpIcon className="size-4"/>{ele._count.like}</p>
             </div>
           </Link>
+          </div>
         )
       })}
       </div>
