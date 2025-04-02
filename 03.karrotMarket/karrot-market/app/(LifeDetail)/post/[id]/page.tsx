@@ -1,25 +1,11 @@
 import notFound from "@/app/not-found";
-import db from "@/lib/db";
 import { formatToTimeAgo } from "@/lib/utils";
 import Image from "next/image";
-
-async function getPost(id:number) {
-  try{
-    const post = await db.post.update({
-      where: { id: id },
-      data:{ views: {increment: 1} },
-      include : {
-        user: { select: {username:true, avatar:true} },
-        _count: { select: {comment:true, like:true} }
-      },
-    })
-    return post;
-  }
-  catch(error){
-    console.error(error)
-    return null;
-  }
-}
+import { EyeIcon } from "@heroicons/react/24/solid";
+import { ChatBubbleBottomCenterTextIcon, HandThumbUpIcon, ChevronLeftIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
+import ThemeToggleButton from "@/components/ThemeToggleButton";
+import { dislikePost, getIsLiked, getPost, likePost } from "./actions";
 
 export default async function Post({params}:{params:{id:number}}){
   const {id} = await params
@@ -29,9 +15,20 @@ export default async function Post({params}:{params:{id:number}}){
   const post = await getPost(numberId);
   if(!post) return notFound();
 
+  const isLiked = await getIsLiked(numberId);
+
   return (
-  <section className="setting-page">
-    <div className="shadow-md rounded-lg">
+    <>
+    <nav className="setting-nav">
+    <div className="flex w-screen items-center justify-between px-5 h-[60px]">
+      <Link className="default-textColor" href="/life">
+        <ChevronLeftIcon className="size-6 p-2 box-content"/>
+      </Link>
+      <ThemeToggleButton/>
+    </div>
+  </nav>
+  <section className="setting-page pt-20">
+    <div className="bg-neutral-100 shadow-lg shadow-neutral-200/50 rounded-lg p-5 dark:bg-neutral-800 dark:shadow-neutral-800/50">
       <div className="flex gap-5 items-center">
         <div className="size-10 rounded-full overflow-hidden flex items-center justify-center">
           <Image width={40} height={40} sizes="40px" src={post.user.avatar!} alt={post.user.username}/>
@@ -41,7 +38,23 @@ export default async function Post({params}:{params:{id:number}}){
           <span className="text-xs text-neutral-500">{formatToTimeAgo(post.created_at.toString())}</span>
         </div>
       </div>
+      <div>
+        <h2 className="text-lg font-semibold mt-5">{post.title}</h2>
+        <p className="text-sm text-neutral-500 mt-2">{post.description}</p>
+      </div>
+      <div className="flex justify-between mt-5 gap-4 text-neutral-500">
+        <p className="flex items-center gap-1 text-xs p-2 rounded-full bg-white dark:bg-black"><EyeIcon className="size-3"/>{post.views}</p>
+        <form action={isLiked ? dislikePost.bind(null, numberId) : likePost.bind(null, numberId)}>
+          <button className={`box-border p-2 rounded-full border transition-all
+          ${isLiked ? "bg-primary text-white border-primary" : "border-neutral-500"}`}>
+            <p className="flex items-center gap-1 text-xs">
+              <HandThumbUpIcon className="size-3"/>{post._count.like}
+            </p>
+          </button>
+        </form>
+      </div>
     </div>
   </section>
+  </>
   )
 }

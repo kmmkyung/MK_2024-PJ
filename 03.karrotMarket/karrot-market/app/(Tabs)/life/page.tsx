@@ -25,10 +25,10 @@ export default async function Life(){
               </div>
               <span className="text-sm text-neutral-500">{formatToTimeAgo(ele.created_at.toString())}</span>
             </div>
-            <div className="flex justify-end mt-5 gap-5 text-neutral-500">
-              <p className="flex items-center gap-2"><EyeIcon className="size-4"/>{ele.views}</p>
-              <p className="flex items-center gap-2"><ChatBubbleBottomCenterTextIcon className="size-4"/>{ele._count.comment}</p>
-              <p className="flex items-center gap-2"><HandThumbUpIcon className="size-4"/>{ele._count.like}</p>
+            <div className="flex justify-end mt-5 gap-4 text-neutral-500">
+              <p className="flex items-center gap-1 text-xs"><EyeIcon className="size-3"/>{ele.views}</p>
+              <p className="flex items-center gap-1 text-xs"><ChatBubbleBottomCenterTextIcon className="size-3"/>{ele._count.comment}</p>
+              <p className="flex items-center gap-1 text-xs"><HandThumbUpIcon className="size-3"/>{ele._count.like}</p>
             </div>
           </Link>
           </div>

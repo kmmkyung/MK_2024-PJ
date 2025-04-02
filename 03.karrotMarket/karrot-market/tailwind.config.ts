@@ -18,6 +18,11 @@ export default {
         primary: "#f97316",
         primaryHover: '#fb923c'
       },
+      borderColor: {
+        primary: "#f97316",
+        primaryHover: '#fb923c'
+      }
+      ,
       ringColor: {
         primary: "#f97316",
       },
