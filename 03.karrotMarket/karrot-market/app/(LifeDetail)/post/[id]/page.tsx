@@ -1,21 +1,21 @@
 import notFound from "@/app/not-found";
 import { formatToTimeAgo } from "@/lib/utils";
 import Image from "next/image";
-import { EyeIcon } from "@heroicons/react/24/solid";
-import { ChatBubbleBottomCenterTextIcon, HandThumbUpIcon, ChevronLeftIcon } from "@heroicons/react/24/outline";
+import { EyeIcon, HandThumbUpIcon as SolidHandThumbUpIcon } from "@heroicons/react/24/solid";
+import { ChatBubbleBottomCenterTextIcon, HandThumbUpIcon as OutlineHandThumbUpIcon, ChevronLeftIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
-import { dislikePost, getIsLiked, getPost, likePost } from "./actions";
+import { cachedPost, cachedLikeStatus, dislikePost, likePost } from "./actions";
 
 export default async function Post({params}:{params:{id:number}}){
   const {id} = await params
   const numberId = Number(id)
   if(isNaN(numberId)) return notFound();
 
-  const post = await getPost(numberId);
+  const post = await cachedPost(numberId);
   if(!post) return notFound();
 
-  const isLiked = await getIsLiked(numberId);
+  const {isLiked, likeCount} = await cachedLikeStatus(numberId);
 
   return (
     <>
@@ -48,7 +48,8 @@ export default async function Post({params}:{params:{id:number}}){
           <button className={`box-border p-2 rounded-full border transition-all
           ${isLiked ? "bg-primary text-white border-primary" : "border-neutral-500"}`}>
             <p className="flex items-center gap-1 text-xs">
-              <HandThumbUpIcon className="size-3"/>{post._count.like}
+              {isLiked ? <SolidHandThumbUpIcon className="size-3"/> : <OutlineHandThumbUpIcon className="size-3"/>}
+              {likeCount}
             </p>
           </button>
         </form>
