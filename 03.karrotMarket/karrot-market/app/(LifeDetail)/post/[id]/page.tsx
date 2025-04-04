@@ -6,6 +6,7 @@ import { ChatBubbleBottomCenterTextIcon, HandThumbUpIcon as OutlineHandThumbUpIc
 import Link from "next/link";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 import { cachedPost, cachedLikeStatus, dislikePost, likePost } from "./actions";
+import LikeButton from "@/components/LikeButton";
 
 export default async function Post({params}:{params:{id:number}}){
   const {id} = await params
@@ -44,7 +45,7 @@ export default async function Post({params}:{params:{id:number}}){
       </div>
       <div className="flex justify-between mt-5 gap-4 text-neutral-500">
         <p className="flex items-center gap-1 text-xs p-2 rounded-full bg-white dark:bg-black"><EyeIcon className="size-3"/>{post.views}</p>
-        <form action={isLiked ? dislikePost.bind(null, numberId) : likePost.bind(null, numberId)}>
+        {/* <form action={isLiked ? dislikePost.bind(null, numberId) : likePost.bind(null, numberId)}>
           <button className={`box-border p-2 rounded-full border transition-all
           ${isLiked ? "bg-primary text-white border-primary" : "border-neutral-500"}`}>
             <p className="flex items-center gap-1 text-xs">
@@ -52,7 +53,8 @@ export default async function Post({params}:{params:{id:number}}){
               {likeCount}
             </p>
           </button>
-        </form>
+        </form> */}
+        <LikeButton isLiked={isLiked} likeCount={likeCount} postId={numberId}/>
       </div>
     </div>
   </section>

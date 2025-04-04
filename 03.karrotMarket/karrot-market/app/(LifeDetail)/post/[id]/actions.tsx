@@ -16,13 +16,12 @@ async function getPost(id:number) {
     })
     return post;
   }
-  catch(event){
-    console.log(event)
-    return null;
+  catch(e){
   }
 }
 
-export const cachedPost = nextCache(getPost,["post-detail"],{tags:["post-detail"]})
+export const cachedPost = nextCache(getPost,["post-detail"],{tags:["post-detail"],revalidate: 60,
+})
 
 async function getLikeStatus(postId:number, userId:number){
   const isLiked = await db.like.findUnique({
@@ -46,6 +45,7 @@ export async function cachedLikeStatus(postId:number){
   }
 
 export async function likePost(postId:number){
+  // await new Promise((r) => setTimeout(r, 10000)); 
   const session = await getSession();
   try{
     await db.like.create({
@@ -53,13 +53,12 @@ export async function likePost(postId:number){
     });
     revalidateTag(`like-status-${postId}`)
   }
-  catch(event){
-    console.log(event)
-    return null;
+  catch(e){
   }
 }
 
 export async function dislikePost(postId:number){
+  // await new Promise((r) => setTimeout(r, 10000));
   const session = await getSession();
   await db.like.delete({
     where: {
