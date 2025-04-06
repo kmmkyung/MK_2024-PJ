@@ -3,6 +3,7 @@
 import db from "@/lib/db";
 import getSession from "@/lib/session"
 import { unstable_cache as nextCache, revalidateTag } from "next/cache";
+import { z } from "zod";
 
 async function getPost(id:number) {
   try{
@@ -10,6 +11,7 @@ async function getPost(id:number) {
       where: { id: id },
       data:{ views: {increment: 1} },
       include : {
+        comment: { select: {id:true, payload:true, userId:true, created_at:true}},
         user: { select: {username:true, avatar:true} },
         _count: { select: {comment:true} }
       },
@@ -20,7 +22,7 @@ async function getPost(id:number) {
   }
 }
 
-export const cachedPost = nextCache(getPost,["post-detail"],{tags:["post-detail"],revalidate: 60,
+export const cachedPost = nextCache(getPost,["post-detail"],{tags:["post-detail"],revalidate: 30,
 })
 
 async function getLikeStatus(postId:number, userId:number){
@@ -67,4 +69,25 @@ export async function dislikePost(postId:number){
   })
   revalidateTag(`like-status-${postId}`)
 }
-  
+
+
+// comment
+const commentSchema = z.string().min(1).max(1000);
+
+export async function addComment(formData:FormData){
+  const comment = formData.get("comment")
+  const result = commentSchema.safeParse(comment)
+}
+export async function getComments(postId:number){
+  const comments = await db.comment.findMany({
+    where: {
+      postId: postId
+    },
+    // select:{ payload:true, created_at:true, userId:true },
+    include: {
+      user: { select: { username: true, avatar: true } }
+    },
+    orderBy: { created_at: "desc" }
+  });
+  return comments;
+}

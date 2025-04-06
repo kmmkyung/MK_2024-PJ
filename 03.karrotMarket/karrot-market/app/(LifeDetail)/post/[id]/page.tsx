@@ -1,12 +1,13 @@
 import notFound from "@/app/not-found";
 import { formatToTimeAgo } from "@/lib/utils";
 import Image from "next/image";
-import { EyeIcon, HandThumbUpIcon as SolidHandThumbUpIcon } from "@heroicons/react/24/solid";
-import { ChatBubbleBottomCenterTextIcon, HandThumbUpIcon as OutlineHandThumbUpIcon, ChevronLeftIcon } from "@heroicons/react/24/outline";
+import { EyeIcon } from "@heroicons/react/24/solid";
+import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
-import { cachedPost, cachedLikeStatus, dislikePost, likePost } from "./actions";
+import { cachedPost, cachedLikeStatus, getComments } from "./actions";
 import LikeButton from "@/components/LikeButton";
+import PostInput from "@/components/PostInput";
 
 export default async function Post({params}:{params:{id:number}}){
   const {id} = await params
@@ -18,6 +19,8 @@ export default async function Post({params}:{params:{id:number}}){
 
   const {isLiked, likeCount} = await cachedLikeStatus(numberId);
 
+  const postComment = await getComments(numberId)
+
   return (
     <>
     <nav className="setting-nav">
@@ -28,7 +31,7 @@ export default async function Post({params}:{params:{id:number}}){
       <ThemeToggleButton/>
     </div>
   </nav>
-  <section className="setting-page pt-20">
+  <section className={`setting-page pt-20 ${postComment.length>0?"mb-[80]":""}`}>
     <div className="bg-neutral-100 shadow-lg shadow-neutral-200/50 rounded-lg p-5 dark:bg-neutral-800 dark:shadow-neutral-800/50">
       <div className="flex gap-5 items-center">
         <div className="size-10 rounded-full overflow-hidden flex items-center justify-center">
@@ -45,17 +48,9 @@ export default async function Post({params}:{params:{id:number}}){
       </div>
       <div className="flex justify-between mt-5 gap-4 text-neutral-500">
         <p className="flex items-center gap-1 text-xs p-2 rounded-full bg-white dark:bg-black"><EyeIcon className="size-3"/>{post.views}</p>
-        {/* <form action={isLiked ? dislikePost.bind(null, numberId) : likePost.bind(null, numberId)}>
-          <button className={`box-border p-2 rounded-full border transition-all
-          ${isLiked ? "bg-primary text-white border-primary" : "border-neutral-500"}`}>
-            <p className="flex items-center gap-1 text-xs">
-              {isLiked ? <SolidHandThumbUpIcon className="size-3"/> : <OutlineHandThumbUpIcon className="size-3"/>}
-              {likeCount}
-            </p>
-          </button>
-        </form> */}
         <LikeButton isLiked={isLiked} likeCount={likeCount} postId={numberId}/>
       </div>
+      <PostInput commentCount={post._count.comment} comment={postComment}/>
     </div>
   </section>
   </>

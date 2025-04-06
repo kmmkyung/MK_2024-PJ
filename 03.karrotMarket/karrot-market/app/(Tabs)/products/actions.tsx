@@ -4,7 +4,6 @@ import db from "@/lib/db";
 import { CategoryType } from "@prisma/client";
 
 export async function getInitialProducts(category: CategoryType | null ) {
-  console.log('hit!!!!');
   const products = await db.product.findMany({
     select: {
       title: true,
