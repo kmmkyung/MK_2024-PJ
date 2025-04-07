@@ -3,7 +3,7 @@ import ProductList from "@/components/ProductList";
 import { PlusIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { CategoryType, Prisma } from "@prisma/client";
-import { getInitialProducts } from "./actions";
+import { getInitialProducts } from "./action";
 import { unstable_cache as nextCache } from "next/cache";
 
 export type InitialProducts = Prisma.PromiseReturnType<typeof getInitialProducts>

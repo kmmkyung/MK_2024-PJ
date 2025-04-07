@@ -1,5 +1,5 @@
 import EditForm from "@/components/EditForm";
-import { getEditProduct } from "./actions";
+import { getEditProduct } from "./action";
 import notFound from "@/app/not-found";
 
 export async function generateMetadata({params}:{ params: Promise<{id:string}>}){

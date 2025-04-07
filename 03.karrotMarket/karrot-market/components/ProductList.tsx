@@ -3,7 +3,7 @@
 import { InitialProducts } from "@/app/(Tabs)/products/page";
 import ProductListItem from "./ProductListItem";
 import { useEffect, useRef, useState } from "react";
-import { getMoreProducts } from "@/app/(Tabs)/products/actions";
+import { getMoreProducts } from "@/app/(Tabs)/products/action";
 import { useSearchParams } from "next/navigation";
 import { CategoryType } from "@prisma/client";
 

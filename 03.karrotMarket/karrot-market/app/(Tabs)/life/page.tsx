@@ -1,5 +1,5 @@
 import Link from "next/link";
-import getPosts from "./actions";
+import getPosts from "./action";
 import { formatToTimeAgo } from "@/lib/utils";
 import { EyeIcon } from "@heroicons/react/24/solid";
 import { ChatBubbleBottomCenterTextIcon, HandThumbUpIcon } from "@heroicons/react/24/outline";

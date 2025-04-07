@@ -11,7 +11,6 @@ const initialState = {
   phoneNumber: '',
 }
 
-
 export default function SmsLogin(){
 
   const [state, formData] = useActionState(smsLogin, initialState);
