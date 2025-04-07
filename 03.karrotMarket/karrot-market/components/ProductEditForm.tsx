@@ -18,7 +18,7 @@ interface IAddAndEditProps{
   id: number;
 }
 
-export default function EditForm(props:IAddAndEditProps){
+export default function ProductEditForm(props:IAddAndEditProps){
   const editProduct = props.editProduct;
   const id = props.id;
 

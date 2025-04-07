@@ -1,6 +1,12 @@
+"use client"
+
 import { formatToTimeAgo } from "@/lib/utils";
 import { ChatBubbleBottomCenterTextIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import { useOptimistic } from "react";
+import { Prisma } from "@prisma/client";
+import { getComments } from "@/app/(LifeDetail)/post/[id]/action";
+
 
 interface IPostInput {
   comment?:{
@@ -16,8 +22,15 @@ interface IPostInput {
   commentCount:number;
 }
 
+export type InitialComment = Prisma.PromiseReturnType<typeof getComments>
+
+
 export default function PostCommentList(props:IPostInput){
-  const {comment} = props
+  const {comment} = props;
+
+  const [state, reducerFn] = useOptimistic(comment,(previousState:[], newComment:InitialComment)=>{
+    return [ ...previousState, newComment ]
+  })
 
   return (
     <div className="mt-10 pt-10 border-t border-neutral-300 dark:border-neutral-700">

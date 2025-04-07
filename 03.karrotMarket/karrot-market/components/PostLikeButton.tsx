@@ -11,7 +11,7 @@ interface LikeButtonProps {
   postId: number;
 }
 
-export default function LikeButton({isLiked, likeCount, postId}:LikeButtonProps){
+export default function PostLikeButton({isLiked, likeCount, postId}:LikeButtonProps){
 
   const [state, reducerFn] = useOptimistic({isLiked, likeCount}, (previousState)=>{
     return {isLiked:!previousState.isLiked,

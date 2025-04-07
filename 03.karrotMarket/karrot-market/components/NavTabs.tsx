@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import ThemeToggleButton from "./ThemeToggleButton";
 import Link from "next/link";
 
-export default function TabsNav(){
+export default function NavTabs(){
   const pathName = usePathname();
 
   return (

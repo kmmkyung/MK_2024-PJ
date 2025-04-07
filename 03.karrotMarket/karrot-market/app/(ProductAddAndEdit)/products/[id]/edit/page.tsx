@@ -1,4 +1,4 @@
-import EditForm from "@/components/EditForm";
+import ProductEditForm from "@/components/ProductEditForm";
 import { getEditProduct } from "./action";
 import notFound from "@/app/not-found";
 
@@ -18,6 +18,6 @@ export default async function Edit({params}: {params:{id:string}}){
   }
 
   return (
-    <EditForm id={Number(id)} editProduct={editProduct!}/>
+    <ProductEditForm id={Number(id)} editProduct={editProduct!}/>
   )
 }

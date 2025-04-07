@@ -70,11 +70,10 @@ export async function dislikePost(postId:number){
   revalidateTag(`like-status-${postId}`)
 }
 
-
 // comment
-const commentSchema = z.string().min(1).max(1000);
+const commentSchema = z.string().min(1,'1글자 이상 입력해주세요').max(200,'200자 이하 입력해주세요');
 
-export async function addComment(prevState:{postId:number} , formData: FormData){
+export async function addComment(formData: FormData, postId:number){
   const comment = formData.get("comment");
   const result = commentSchema.safeParse(comment);
   if(!result.success){
@@ -83,11 +82,11 @@ export async function addComment(prevState:{postId:number} , formData: FormData)
   else {
     const session = await getSession();
     if(session.id){
-      const newComment = await db.comment.create({
+      await db.comment.create({
         data : {
           payload: result.data,
           created_at: new Date(),
-          post: { connect: { id: prevState.postId } },
+          post: { connect: { id: postId } },
           user: { connect: { id: session.id } }
         },
         select: {
@@ -98,9 +97,6 @@ export async function addComment(prevState:{postId:number} , formData: FormData)
           user: { select: { username: true, avatar: true } }
         }
       })
-      console.log(newComment);
-      
-      return newComment;
     }
   }
 }
