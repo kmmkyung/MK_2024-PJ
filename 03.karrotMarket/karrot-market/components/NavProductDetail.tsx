@@ -3,7 +3,6 @@ import ThemeToggleButton from "./ThemeToggleButton";
 import Link from "next/link";
 
 export default function NavProductDetail(){
-
   return (
   <nav className="setting-nav">
     <div className="flex w-screen items-center justify-between px-5 h-[60px]">

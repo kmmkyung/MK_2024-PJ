@@ -23,7 +23,7 @@ export default function ProductOwnerButton({numberId}:{numberId:number}){
     <>
       <div className="md:block hidden w-full">
         <div className="flex justify-center items-center gap-2">
-          <Link href={`/products/${numberId}/edit`} className="custom-link bg-lime-500 hover:bg-lime-400 flex justify-center items-center px-4">
+          <Link href={`/product/${numberId}/edit`} className="custom-link bg-lime-500 hover:bg-lime-400 flex justify-center items-center px-4">
             <PencilSquareIcon className="size-5 text-white"/>
             <span className="text-white">수정</span>
           </Link>
@@ -37,7 +37,7 @@ export default function ProductOwnerButton({numberId}:{numberId:number}){
       </div>
       <div className="md:hidden block">
         <div className="flex justify-center items-center gap-2">
-          <Link href={`/products/${numberId}/edit`} className="custom-link bg-lime-500 hover:bg-lime-400 flex justify-center items-center px-4">
+          <Link href={`/product/${numberId}/edit`} className="custom-link bg-lime-500 hover:bg-lime-400 flex justify-center items-center px-4">
             <PencilSquareIcon className="size-5 text-white"/>
           </Link>
           <form action={onDelete} className="w-full">

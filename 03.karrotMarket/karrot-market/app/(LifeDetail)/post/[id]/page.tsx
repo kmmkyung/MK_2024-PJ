@@ -2,11 +2,11 @@ import notFound from "@/app/not-found";
 import { formatToTimeAgo } from "@/lib/utils";
 import Image from "next/image";
 import { EyeIcon } from "@heroicons/react/24/solid";
-import { cachedPost, cachedLikeStatus, getComments } from "./action";
+import { cachedPost, cachedLikeStatus, cachedGetComments } from "./action";
 import PostLikeButton from "@/components/PostLikeButton";
 import PostCommentList from "@/components/PostCommentList";
-import PostCommentForm from "@/components/PostCommentForm";
 import NavPostDetail from "@/components/NavPostDetail";
+import { getUser } from "@/lib/getUser";
 
 export default async function Post({params}:{params:{id:number}}){
   const {id} = await params
@@ -18,32 +18,33 @@ export default async function Post({params}:{params:{id:number}}){
 
   const {isLiked, likeCount} = await cachedLikeStatus(numberId);
 
-  const postComment = await getComments(numberId)
+  const postComments = await cachedGetComments(numberId);
+
+  const user = await getUser();
 
   return (
     <>
-  <NavPostDetail/>
-  <section className={`setting-page pt-20 ${postComment.length>0?"mb-[80]":""}`}>
-    <div className="bg-neutral-100 shadow-lg shadow-neutral-200/50 rounded-lg p-5 dark:bg-neutral-800 dark:shadow-neutral-800/50">
-      <div className="flex gap-2 items-center">
-          <Image className="rounded-full overflow-hidden" width={40} height={40} sizes="40px" src={post.user.avatar!} alt={post.user.username}/>
-        <div>
-          <h6 className="text-xs font-semibold">{post.user.username}</h6>
-          <span className="text-xs text-neutral-500">{formatToTimeAgo(post.created_at.toString())}</span>
+      <NavPostDetail/>
+      <section className={`setting-page pt-20 ${postComments.length>0?"mb-[80]":""}`}>
+        <div className="bg-neutral-100 shadow-lg shadow-neutral-200/50 rounded-lg p-5 dark:bg-neutral-800 dark:shadow-neutral-800/50">
+          <div className="flex gap-2 items-center">
+              <Image className="rounded-full overflow-hidden" width={40} height={40} sizes="40px" src={post.user.avatar!} alt={post.user.username}/>
+            <div>
+              <h6 className="text-xs font-semibold">{post.user.username}</h6>
+              <span className="text-xs text-neutral-500">{formatToTimeAgo(post.created_at.toString())}</span>
+            </div>
+          </div>
+          <div>
+            <h2 className="text-lg font-semibold mt-5">{post.title}</h2>
+            <p className="text-sm text-neutral-500 mt-2">{post.description}</p>
+          </div>
+          <div className="flex justify-between mt-5 gap-4 text-neutral-500">
+            <p className="flex items-center gap-1 text-xs p-2 rounded-full bg-white dark:bg-black"><EyeIcon className="size-3"/>{post.views}</p>
+            <PostLikeButton isLiked={isLiked} likeCount={likeCount} postId={numberId}/>
+          </div>
+          <PostCommentList user={user} postId={numberId} commentCount={post._count.comment} commentData={postComments}/>
         </div>
-      </div>
-      <div>
-        <h2 className="text-lg font-semibold mt-5">{post.title}</h2>
-        <p className="text-sm text-neutral-500 mt-2">{post.description}</p>
-      </div>
-      <div className="flex justify-between mt-5 gap-4 text-neutral-500">
-        <p className="flex items-center gap-1 text-xs p-2 rounded-full bg-white dark:bg-black"><EyeIcon className="size-3"/>{post.views}</p>
-        <PostLikeButton isLiked={isLiked} likeCount={likeCount} postId={numberId}/>
-      </div>
-      <PostCommentList commentCount={post._count.comment} comment={postComment}/>
-    </div>
-    <PostCommentForm postId={numberId}/>
-  </section>
-  </>
+      </section>
+    </>
   )
 }

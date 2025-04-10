@@ -22,8 +22,9 @@ async function getPost(id:number) {
   }
 }
 
-export const cachedPost = nextCache(getPost,["post-detail"],{tags:["post-detail"],revalidate: 30,
-})
+export const cachedPost = nextCache(getPost,["post-detail"],
+  {tags:["post-detail"],revalidate: 30,}
+)
 
 async function getLikeStatus(postId:number, userId:number){
   const isLiked = await db.like.findUnique({
@@ -71,18 +72,21 @@ export async function dislikePost(postId:number){
 }
 
 // comment
-const commentSchema = z.string().min(1,'1글자 이상 입력해주세요').max(200,'200자 이하 입력해주세요');
+const commentSchema = z.string().trim().min(1,'1글자 이상 입력해주세요').max(200,'200자 이하 입력해주세요');
 
 export async function addComment(formData: FormData, postId:number){
   const comment = formData.get("comment");
   const result = commentSchema.safeParse(comment);
   if(!result.success){
-    return result.error.flatten();
+    return {
+      formErrors: result.error.flatten().formErrors,
+      newComment: null
+    };
   }
   else {
     const session = await getSession();
     if(session.id){
-      await db.comment.create({
+      const newComment = await db.comment.create({
         data : {
           payload: result.data,
           created_at: new Date(),
@@ -97,6 +101,8 @@ export async function addComment(formData: FormData, postId:number){
           user: { select: { username: true, avatar: true } }
         }
       })
+      revalidateTag(`post-comment-${postId}`)
+      return {newComment, formErrors:null};
     }
   }
 }
@@ -112,4 +118,9 @@ export async function getComments(postId:number){
     orderBy: { created_at: "asc" }
   });
   return comments;
+}
+
+export async function cachedGetComments(postId:number){
+  const cachedComments = nextCache(getComments, [`post-comment-${postId}`],{tags:[`post-comment-${postId}`]});
+  return cachedComments(postId)
 }
