@@ -23,6 +23,8 @@ model User {
   post Post[]
   comment Comment[]
   like Like[]
+  chatRoom ChatRoom[]
+  message Message[]
 }
 
 model SMSToken {
@@ -95,6 +97,24 @@ model Like {
   post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
 }
 
+model ChatRoom {
+  id String @id @default(cuid())
+  users User[]
+  created_at DateTime @default(now()) 
+  updated_at DateTime @updatedAt
+  message Message[]
+}
+
+model Message {
+  id Int @id @default(autoincrement())
+  created_at DateTime @default(now()) 
+  updated_at DateTime @updatedAt
+  payload String
+  chatRoomId String
+  userId Int
+  room ChatRoom @relation(fields: [chatRoomId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+}
 
   // npx prisma migrate dev
   // npx prisma studio

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import getPosts from "./action";
 import { formatToTimeAgo } from "@/lib/utils";
-import { EyeIcon } from "@heroicons/react/24/solid";
+import { EyeIcon, PlusIcon } from "@heroicons/react/24/solid";
 import { ChatBubbleBottomCenterTextIcon, HandThumbUpIcon } from "@heroicons/react/24/outline";
 
 export const metadata = {
@@ -35,6 +35,9 @@ export default async function Life(){
         )
       })}
       </div>
+      <Link href="/post/add" className="bg-primary flex items-center justify-center rounded-full size-10 fixed bottom-20 md:bottom-10 right-5 transition-colors hover:bg-primaryHover">
+        <PlusIcon className="size-6 text-white" />
+      </Link>
     </section>
   )
 }

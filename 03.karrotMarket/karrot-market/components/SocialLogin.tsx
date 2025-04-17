@@ -1,4 +1,4 @@
-import { ChatBubbleOvalLeftEllipsisIcon } from "@heroicons/react/24/solid";
+// import { ChatBubbleOvalLeftEllipsisIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import GithubIcon from "./Icon/github-logo";
 import GoogleIcon from "./Icon/google-logo";
@@ -21,10 +21,10 @@ export default function SocialLogin(){
           <KakaoIcon />
           <span>Continue with Kakao</span>
         </Link>
-        <Link className="primary-link flex items-center justify-center gap-2" href='/sms'>
+        {/* <Link className="primary-link flex items-center justify-center gap-2" href='/sms'>
           <span><ChatBubbleOvalLeftEllipsisIcon className="size-6"/></span>
           <span>Continue with SMS</span>
-        </Link>
+        </Link> */}
       </div>
     </>
   )

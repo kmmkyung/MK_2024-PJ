@@ -4,8 +4,9 @@ import { formatToTimeAgo } from "@/lib/utils";
 import { ChatBubbleBottomCenterTextIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import PostCommentForm from "./PostCommentForm";
-import { addComment } from "@/app/(LifeDetail)/post/[id]/action";
+import { addComment, deleteComment } from "@/app/(LifeDetail)/post/[id]/action";
 import { useActionState, useOptimistic } from "react";
+import { TrashIcon } from "@heroicons/react/24/solid";
 
 interface InitialComment {
   id: number;
@@ -26,12 +27,12 @@ interface IPostInput {
     id: number;
     username: string;
     avatar: string | null;
-  }
+  };
 }
 
 export default function PostCommentList(props:IPostInput){
   const {commentData, commentCount, postId, user} = props;
-
+  
   const [commentState, reducerFn] = useOptimistic(
     commentData, (previousState, newComment: InitialComment) => {
       return [...previousState, newComment];
@@ -41,6 +42,8 @@ export default function PostCommentList(props:IPostInput){
     const result = await addComment(formData, postId);
     return result; 
   };
+
+  const [state, formAction] = useActionState(addCommendFn, null);
 
   // form action 시 실행하
   // 임시 데이터 전달해 UI업데이트 -> 서버엑션 호출 -> addCommendFn 실행
@@ -58,7 +61,11 @@ export default function PostCommentList(props:IPostInput){
     formAction(formData);
   };
 
-  const [state, formAction] = useActionState(addCommendFn, null);
+  async function onDelete(commentId:number){    
+    const confirmDelete = confirm("정말 삭제하시겠습니까?");
+    if (!confirmDelete) return;
+    await deleteComment(commentId,postId)
+  }
 
   return (
     <>
@@ -72,15 +79,24 @@ export default function PostCommentList(props:IPostInput){
         <div className="mt-5">
         {commentState.map((ele) => {
           return <div className="mb-5 last:mb-0" key={ele.id}>
-            <div className="flex items-start gap-2">
-              <Image className="rounded-full" width={40} height={40} sizes="40px" src={ele.user.avatar!} alt={ele.user.username}/>
-              <div>
-                <p className="flex flex-col items-start justify-center gap-1">
-                  <span className="text-xs font-semibold">{ele.user.username}</span>
-                  <span className="text-xs text-neutral-500">{formatToTimeAgo(ele.created_at.toString())}</span>
-                </p>
-                <p className="text-sm mt-2">{ele.payload}</p>
+            <div className="flex justify-between">
+              <div className="flex items-start gap-2">
+                <Image className="rounded-full" width={40} height={40} sizes="40px" src={ele.user.avatar!} alt={ele.user.username}/>
+                <div>
+                  <p className="flex flex-col items-start justify-center gap-1">
+                    <span className="text-xs font-semibold">{ele.user.username}</span>
+                    <span className="text-xs text-neutral-500">{formatToTimeAgo(ele.created_at.toString())}</span>
+                  </p>
+                  <p className="text-sm mt-2">{ele.payload}</p>
+                </div>
               </div>
+              { user.id === ele.userId ? 
+                <form action={()=>onDelete(ele.id)}>
+                  <button>
+                    <TrashIcon className="text-neutral-500 size-3"/>
+                  </button>
+                </form>
+              : null }
             </div>
           </div>
         })}

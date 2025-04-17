@@ -9,7 +9,6 @@ export async function deleteProduct(numberId:number){
     where: {id:numberId},
     select: {photo:true}
   })
-  console.log(deletedProduct.photo);
   if(deletedProduct.photo){
     await fs.unlink(`public${deletedProduct.photo}`)
   }

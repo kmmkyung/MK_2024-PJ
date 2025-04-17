@@ -4,27 +4,12 @@ import db from "@/lib/db";
 import getSession from "@/lib/session";
 import { formatToTimeAgo, formatToWon } from "@/lib/utils";
 import Image from "next/image";
-import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { JSX } from "react";
 import ProductOwnerButton from "@/components/ProductOwnerButton";
+import { getIsOwner, getProduct } from "./action";
 
 
-async function getProduct(id:number) {
-  const product = db.product.findUnique({
-    where: { id: id },
-    include: {
-      user: { select : { username:true, avatar: true} }
-    }
-  })
-  return product; 
-}
-
-async function getIsOwner(userId:number){
-  const session = await getSession();
-  if(session.id) return session.id === userId;
-  return false;
-}
 
 export default async function ModalPage({params}:{ params: Promise<{id:string}>}): Promise<JSX.Element>{
   
@@ -36,6 +21,20 @@ export default async function ModalPage({params}:{ params: Promise<{id:string}>}
   if(!product) return notFound();
 
   const isOwner = await getIsOwner(product.userId);
+
+  async function createChatRoom(){
+    "use server"
+    const session = await getSession();
+    const room = await db.chatRoom.create({
+      data: {
+        users : {
+          connect: [{id:product?.userId},{id:session.id}]
+        }
+      },
+      select: {id:true}
+    });
+    redirect(`/chats/${room.id}`)
+  }
 
   return (
     <>
@@ -65,7 +64,7 @@ export default async function ModalPage({params}:{ params: Promise<{id:string}>}
               <div className="mt-10">
               {isOwner ?
               <ProductOwnerButton numberId={numberId}/>
-              : <Link className="primary-link w-full px-5" href="/chats">채팅하기</Link>}
+              : <form action={createChatRoom}><button className="primary-link w-full px-5">채팅하기</button></form>}
               </div>
             </div>
           </div>

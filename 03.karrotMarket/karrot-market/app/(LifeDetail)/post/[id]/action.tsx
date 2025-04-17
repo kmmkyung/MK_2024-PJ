@@ -3,6 +3,7 @@
 import db from "@/lib/db";
 import getSession from "@/lib/session"
 import { unstable_cache as nextCache, revalidateTag } from "next/cache";
+import { redirect } from "next/navigation";
 import { z } from "zod";
 
 async function getPost(id:number) {
@@ -12,7 +13,7 @@ async function getPost(id:number) {
       data:{ views: {increment: 1} },
       include : {
         comment: { select: {id:true, payload:true, userId:true, created_at:true}},
-        user: { select: {username:true, avatar:true} },
+        user: { select: {id:true, username:true, avatar:true} },
         _count: { select: {comment:true} }
       },
     })
@@ -123,4 +124,20 @@ export async function getComments(postId:number){
 export async function cachedGetComments(postId:number){
   const cachedComments = nextCache(getComments, [`post-comment-${postId}`],{tags:[`post-comment-${postId}`]});
   return cachedComments(postId)
+}
+
+export async function deletePost(postId:number){
+  await db.post.delete({
+    where: {id:postId},
+  })
+  revalidateTag('post-detail');
+  redirect(`/life`);
+}
+
+export async function deleteComment(commentId:number, postId:number){
+  await db.comment.delete({
+    where: {id:commentId},
+  })
+  revalidateTag(`post-comment-${postId}`)
+  revalidateTag('post-detail')
 }

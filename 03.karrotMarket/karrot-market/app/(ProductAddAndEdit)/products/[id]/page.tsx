@@ -1,55 +1,37 @@
-import db from "@/lib/db";
-import getSession from "@/lib/session";
 import { formatToTimeAgo, formatToWon } from "@/lib/utils";
+import { cachedGetProducts, getIsOwner } from "../../action";
 import Image from "next/image";
-import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { ChatBubbleOvalLeftEllipsisIcon } from "@heroicons/react/24/solid";
 import ProductOwnerButton from "@/components/ProductOwnerButton";
-import { unstable_cache as nextCache } from "next/cache";
-
-async function getProduct(id:number){
-  const product= await db.product.findUnique({
-    where: { id: id },
-    include: {
-      user: {
-        select: { username:true, avatar:true }
-      }
-    }
-  })
-  return product
-}
-const cachedGetProducts = nextCache(
-  getProduct, ["product-detail"],{
-    tags: ["product-detail"]
-  })
-
-async function getIsOwner(userId:number){
-  const session = await getSession();
-  if(session.id) return session.id === userId;
-  return false;
-}
-
-export async function generateMetadata({params}:{ params: Promise<{id:string}>}){
-  const {id} = await params
-  const product = await getProduct(Number(id));
-  return {
-    title: product?.title
-  }
-}
+import getSession from "@/lib/session";
+import db from "@/lib/db";
 
 export default async function ProductDetail({params}:{ params: Promise<{id:string}>}){
   const {id} = await params
   const numberId = Number(id)
   if(isNaN(numberId)) return notFound();
-
   
   const product = await cachedGetProducts(numberId);
-
+  
   if(!product) return notFound();
-
+  
   const isOwner = await getIsOwner(product.userId);
 
+  async function createChatRoom(){
+    "use server"
+    const session = await getSession();
+    const room = await db.chatRoom.create({
+      data: {
+        users : {
+          connect: [{id:product?.userId},{id:session.id}]
+        }
+      },
+      select: {id:true}
+    });
+    redirect(`/chats/${room.id}`)
+  }
+  
   return (
     <section className="setting-page pt-20 flex align-top flex-col md:gap-5 md:flex-row relative">
       <div className="md:w-1/2">
@@ -73,7 +55,7 @@ export default async function ProductDetail({params}:{ params: Promise<{id:strin
         <div className="md:block hidden mt-10">
         {isOwner ?
             <ProductOwnerButton numberId={numberId}/>
-        : <Link className="primary-link w-full px-5" href="/chats">채팅하기</Link>}
+        : <form action={createChatRoom}><button className="primary-link w-full px-5">채팅하기</button></form>}
         </div>
       </div>
 
@@ -83,9 +65,11 @@ export default async function ProductDetail({params}:{ params: Promise<{id:strin
           <span className="font-semibold text-xl">{formatToWon(product.price)}원</span>
           {isOwner ?
             <ProductOwnerButton numberId={numberId}/>
-        : <Link className="primary-link w-auto px-4 flex justify-center items-center" href="/chats">
-            <ChatBubbleOvalLeftEllipsisIcon className="size-5 text-white"/>
-          </Link>}
+        : <form action={createChatRoom}>
+            <button className="primary-link w-auto px-4 flex justify-center items-center">
+              <ChatBubbleOvalLeftEllipsisIcon className="size-5 text-white"/>
+            </button>
+          </form>}
         </div>
       </div>
     </section> 

@@ -7,6 +7,7 @@ import PostLikeButton from "@/components/PostLikeButton";
 import PostCommentList from "@/components/PostCommentList";
 import NavPostDetail from "@/components/NavPostDetail";
 import { getUser } from "@/lib/getUser";
+import PostDelete from "@/components/PostDelete";
 
 export default async function Post({params}:{params:{id:number}}){
   const {id} = await params
@@ -21,18 +22,21 @@ export default async function Post({params}:{params:{id:number}}){
   const postComments = await cachedGetComments(numberId);
 
   const user = await getUser();
-
+  
   return (
     <>
       <NavPostDetail/>
       <section className={`setting-page pt-20 ${postComments.length>0?"mb-[80]":""}`}>
         <div className="bg-neutral-100 shadow-lg shadow-neutral-200/50 rounded-lg p-5 dark:bg-neutral-800 dark:shadow-neutral-800/50">
-          <div className="flex gap-2 items-center">
-              <Image className="rounded-full overflow-hidden" width={40} height={40} sizes="40px" src={post.user.avatar!} alt={post.user.username}/>
-            <div>
-              <h6 className="text-xs font-semibold">{post.user.username}</h6>
-              <span className="text-xs text-neutral-500">{formatToTimeAgo(post.created_at.toString())}</span>
+          <div className="flex items-center justify-between">
+            <div className="flex gap-2 items-center">
+                <Image className="rounded-full overflow-hidden" width={40} height={40} sizes="40px" src={post.user.avatar!} alt={post.user.username}/>
+              <div>
+                <h6 className="text-xs font-semibold">{post.user.username}</h6>
+                <span className="text-xs text-neutral-500">{formatToTimeAgo(post.created_at.toString())}</span>
+              </div>
             </div>
+            { user.id === post.user.id ? <PostDelete postId={numberId}/> : null }
           </div>
           <div>
             <h2 className="text-lg font-semibold mt-5">{post.title}</h2>
