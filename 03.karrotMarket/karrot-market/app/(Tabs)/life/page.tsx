@@ -5,7 +5,7 @@ import { EyeIcon, PlusIcon } from "@heroicons/react/24/solid";
 import { ChatBubbleBottomCenterTextIcon, HandThumbUpIcon } from "@heroicons/react/24/outline";
 
 export const metadata = {
-  title:"동네생활"
+  title:"Life"
 }
 
 export default async function Life(){

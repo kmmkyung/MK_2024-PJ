@@ -6,7 +6,7 @@ import { unstable_cache as nextCache, revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 
-async function getPost(id:number) {
+export async function getPost(id:number) {
   try{
     const post = await db.post.update({
       where: { id: id },

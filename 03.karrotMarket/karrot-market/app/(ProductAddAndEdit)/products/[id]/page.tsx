@@ -6,6 +6,15 @@ import { ChatBubbleOvalLeftEllipsisIcon } from "@heroicons/react/24/solid";
 import ProductOwnerButton from "@/components/ProductOwnerButton";
 import getSession from "@/lib/session";
 import db from "@/lib/db";
+import { getProduct } from "@/app/(Tabs)/products/@modal/(...)products/[id]/action";
+
+export async function generateMetadata({params}:{ params: Promise<{id:string}>}){
+  const {id} = await params
+  const product = await getProduct(Number(id));
+  return {
+    title: product?.title
+  }
+}
 
 export default async function ProductDetail({params}:{ params: Promise<{id:string}>}){
   const {id} = await params
@@ -21,15 +30,29 @@ export default async function ProductDetail({params}:{ params: Promise<{id:strin
   async function createChatRoom(){
     "use server"
     const session = await getSession();
-    const room = await db.chatRoom.create({
-      data: {
+    const isRoom = await db.chatRoom.findFirst({
+      where: {
+        productId: numberId,
         users : {
-          connect: [{id:product?.userId},{id:session.id}]
+          some: {id:session.id}
         }
-      },
-      select: {id:true}
-    });
-    redirect(`/chats/${room.id}`)
+      }
+    })
+    if(isRoom){
+      redirect(`/chats/${isRoom.id}`)
+    }
+    else{
+      const room = await db.chatRoom.create({
+        data: {
+          productId: numberId,
+          users : {
+            connect: [{id:product?.userId},{id:session.id}]
+          }
+        },
+        select: {id:true}
+      });
+      redirect(`/chats/${room.id}`)
+    }
   }
   
   return (

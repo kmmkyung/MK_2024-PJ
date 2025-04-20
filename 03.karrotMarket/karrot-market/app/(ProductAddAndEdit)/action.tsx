@@ -25,10 +25,3 @@ export async function getIsOwner(userId:number){
   if(session.id) return session.id === userId;
   return false;
 }
-export async function generateMetadata({params}:{ params: Promise<{id:string}>}){
-  const {id} = await params
-  const product = await getProduct(Number(id));
-  return {
-    title: product?.title
-  }
-}

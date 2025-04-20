@@ -1,7 +1,6 @@
 import db from "@/lib/db"
 
 export default async function getPosts(){
-  // await new Promise((resolve) => {setTimeout(resolve, 5000)})
   const posts = await db.post.findMany({
     select: {
       id: true,

@@ -2,12 +2,20 @@ import notFound from "@/app/not-found";
 import { formatToTimeAgo } from "@/lib/utils";
 import Image from "next/image";
 import { EyeIcon } from "@heroicons/react/24/solid";
-import { cachedPost, cachedLikeStatus, cachedGetComments } from "./action";
+import { cachedPost, cachedLikeStatus, cachedGetComments, getPost } from "./action";
 import PostLikeButton from "@/components/PostLikeButton";
 import PostCommentList from "@/components/PostCommentList";
-import NavPostDetail from "@/components/NavPostDetail";
+import NavLinkPageGo from "@/components/NavLinkPageGo";
 import { getUser } from "@/lib/getUser";
 import PostDelete from "@/components/PostDelete";
+
+export async function generateMetadata({params}:{ params: Promise<{id:string}>}){
+  const {id} = await params
+  const post = await getPost(Number(id));
+  return {
+    title: post?.title
+  }
+}
 
 export default async function Post({params}:{params:{id:number}}){
   const {id} = await params
@@ -25,7 +33,7 @@ export default async function Post({params}:{params:{id:number}}){
   
   return (
     <>
-      <NavPostDetail/>
+      <NavLinkPageGo/>
       <section className={`setting-page pt-20 ${postComments.length>0?"mb-[80]":""}`}>
         <div className="bg-neutral-100 shadow-lg shadow-neutral-200/50 rounded-lg p-5 dark:bg-neutral-800 dark:shadow-neutral-800/50">
           <div className="flex items-center justify-between">

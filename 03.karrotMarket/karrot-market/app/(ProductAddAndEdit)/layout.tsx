@@ -1,9 +1,9 @@
-import NavProductDetail from "@/components/NavProductDetail";
+import NavLinkPageGo from "@/components/NavLinkPageGo";
 
 export default function layout({children}: Readonly<{children: React.ReactNode;}>) {
   return (
     <>
-      <NavProductDetail/>
+      <NavLinkPageGo/>
       {children}
     </>
   );

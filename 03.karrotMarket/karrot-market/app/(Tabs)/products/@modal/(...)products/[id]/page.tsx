@@ -25,15 +25,29 @@ export default async function ModalPage({params}:{ params: Promise<{id:string}>}
   async function createChatRoom(){
     "use server"
     const session = await getSession();
-    const room = await db.chatRoom.create({
-      data: {
+    const isRoom = await db.chatRoom.findFirst({
+      where: {
+        productId: numberId,
         users : {
-          connect: [{id:product?.userId},{id:session.id}]
+          some: {id:session.id}
         }
-      },
-      select: {id:true}
-    });
-    redirect(`/chats/${room.id}`)
+      }
+    })
+    if(isRoom){
+      redirect(`/chats/${isRoom.id}`)
+    }
+    else{
+      const room = await db.chatRoom.create({
+        data: {
+          productId: numberId,
+          users : {
+            connect: [{id:product?.userId},{id:session.id}]
+          }
+        },
+        select: {id:true}
+      });
+      redirect(`/chats/${room.id}`)
+    }
   }
 
   return (
