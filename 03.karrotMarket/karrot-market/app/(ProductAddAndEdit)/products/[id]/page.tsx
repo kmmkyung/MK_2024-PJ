@@ -62,17 +62,17 @@ export default async function ProductDetail({params}:{ params: Promise<{id:strin
           <Image className="object-cover object-center rounded-lg" fill priority sizes="600px 600px" src={product.photo} alt={product.title}/>
         </div>
         <div className="flex items-center gap-2 my-5">
-          <div className="size-10 rounded-full overflow-hidden flex items-center justify-center">
+          <div className="size-8 rounded-full overflow-hidden flex items-center justify-center">
             <Image width={40} height={40} sizes="40px" src={product.user.avatar!} alt={product.user.username}/>
           </div>
           <h3 className="text-sm">{product.user.username}</h3>
         </div>
       </div>
-      <div className="aspect-auto pt-5 pb-[140] md:mb-[80] md:pt-0 md:aspect-square md:pb-0 md:justify-between flex flex-col md:w-1/2 border-neutral-300 dark:border-neutral-700 border-t md:border-none">
+      <div className="aspect-auto pt-5 pb-[90] md:mb-[70] md:pt-0 md:aspect-square md:pb-0 md:justify-between flex flex-col md:w-1/2 border-neutral-300 dark:border-neutral-700 border-t md:border-none">
         <div>
-          <h1 className="text-2xl font-semibold">{product.title}</h1>
+          <h1 className="text-lg md:text-2xl font-semibold">{product.title}</h1>
           <p className="mt-2 text-xs text-neutral-400">{product.category}<span className="mx-2">•</span>{formatToTimeAgo(product.created_at.toString())}</p>
-          <p className="font-semibold text-xl mt-5 md:block hidden">{formatToWon(product.price)}원</p>
+          <p className="text-lg md:text-xl font-semibold mt-5 md:block hidden">{formatToWon(product.price)}원</p>
           <p className="text-sm mt-5">{product.description}</p>
         </div>
         <div className="md:block hidden mt-10">
@@ -83,7 +83,7 @@ export default async function ProductDetail({params}:{ params: Promise<{id:strin
       </div>
 
       {/* mobile */}
-      <div className="box-border md:hidden block fixed w-full bottom-0 left-0 h-[80] bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700 border-t">
+      <div className="md:hidden block fixed w-full bottom-0 left-0 h-[70] bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700 border-t">
         <div className="md:max-w-screen-xl mx-auto px-10 h-full flex items-center justify-between">
           <span className="font-semibold text-xl">{formatToWon(product.price)}원</span>
           {isOwner ?

@@ -22,11 +22,11 @@ export default async function Chats(){
                     <div className="relative size-14 rounded-lg overflow-hidden aspect-square">
                       <Image src={ele.product.photo} alt="product" fill priority sizes="40px" className="object-cover object-center"/>
                     </div>
-                    <div className="relative bg-white -ml-1 size-10 rounded-full overflow-hidden outline-2 outline outline-white dark:outline-neutral-900">
+                    <div className="relative bg-white dark:bg-neutral-900 -ml-3 size-8 rounded-full overflow-hidden outline-2 outline outline-white dark:outline-neutral-900">
                       <Image src={ele.users[0].avatar!} alt="user" width={40} height={40} sizes="40px"/>
                     </div>
                   </div>
-                  <div className="absolute left-[100px] w-max">
+                  <div className="absolute left-[88px] w-max">
                   { ele.message[0] ? 
                     <p className="text-xs default-textColor">
                       {ele.users[0].username}
@@ -37,14 +37,14 @@ export default async function Chats(){
                   }
                   </div>
                 </div>
-                <div className="ml-2 w-[calc(100%-150px)]">
+                <div className="ml-3 w-[calc(100%-117px)]">
                   {ele.message[0] ? <p className="text-sm w-full text-neutral-500 overflow-hidden text-ellipsis whitespace-nowrap">{ele.message[0].payload}</p>
                   : <p className="text-sm w-full text-neutral-500 overflow-hidden text-ellipsis whitespace-nowrap">🥕대화를 시작해보세요🥕</p>}
                 </div>
               </div>
               {
                 ele._count.message ?
-                  <div className="flex-shrink-0 size-7 text-center leading-7 rounded-full bg-primary text-xs text-white">
+                  <div className="flex-shrink-0 size-6 text-center leading-6 rounded-full bg-primary text-[10px] text-white">
                     {ele._count.message > 99 ? "99+" : ele._count.message}
                   </div>
                 : null

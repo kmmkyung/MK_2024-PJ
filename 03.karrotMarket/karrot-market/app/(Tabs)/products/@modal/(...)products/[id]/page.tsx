@@ -59,7 +59,7 @@ export default async function ModalPage({params}:{ params: Promise<{id:string}>}
           <div className="relative w-full h-full aspect-square md:aspect-auto basis-1/2">
             <Image className="object-cover object-center" fill priority sizes="600px 600px" src={product.photo} alt={product.title}/>
           </div>
-          <div className="basis-1/2">
+          <div className="basis-1/2 w-full md:w-1/2">
             <div className="bg-white dark:bg-neutral-900 h-[calc(100vh-160px)] w-full md:h-full p-5">
               <div>
                 <div className="flex items-center gap-2 pb-5 border-neutral-300 dark:border-neutral-700 border-b">
@@ -68,9 +68,9 @@ export default async function ModalPage({params}:{ params: Promise<{id:string}>}
                   </div>
                   <h3 className="text-sm">{product.user.username}</h3>
                 </div>
-                <h1 className="text-2xl font-semibold mt-5">{product.title}</h1>
-                  <p className="mt-2 text-xs text-neutral-400">{product.category}<span className="mx-2">•</span>{formatToTimeAgo(product.created_at.toString())}</p>
-                  <p className="font-semibold text-xl mt-5 ">{formatToWon(product.price)}원</p>
+                <h1 className="text-lg md:text-2xl font-semibold mt-5 break-words overflow-hidden text-ellipsis whitespace-nowrap">{product.title}</h1>
+                <p className="mt-2 text-xs text-neutral-400">{product.category}<span className="mx-2">•</span>{formatToTimeAgo(product.created_at.toString())}</p>
+                <p className="text-lg md:text-xl font-semibold mt-5 ">{formatToWon(product.price)}원</p>
               </div>
               <div className="mt-5 h-[calc(100%-177px-80px-20px)] overflow-y-scroll no-scrollbar ">
                 <p className="text-sm pb-2">{product.description}</p>
