@@ -18,10 +18,28 @@ export async function getChatRooms(){
         take: 1,
         orderBy: { created_at: "desc" },
       },
+      _count: {
+        select: {
+          message: {
+            where: {
+              view: false,
+              userId: { not: session.id }
+            }
+          }
+        }
+      },
       users:{
+        where: { id: {not: session.id} },
         select:{username:true, avatar:true}
       }
     }
-  })  
+  })
+
+  chatRooms.sort((a, b) => {
+    const dateA = a.message[0] ? new Date(a.message[0].created_at).getTime() : 0;
+    const dateB = b.message[0] ? new Date(b.message[0].created_at).getTime() : 0;
+    return dateB - dateA;
+  });
+
   return chatRooms;  
 }

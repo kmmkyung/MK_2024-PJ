@@ -34,7 +34,7 @@
     @apply text-sm md:text-xl
   }
   .setting-page {
-    @apply py-[60px] px-10 md:max-w-screen-xl mx-auto
+    @apply pt-[60px] pb-[70px] px-10 md:max-w-screen-xl mx-auto
   }
   .setting-nav{
     @apply fixed z-50 bg-white dark:bg-neutral-900

@@ -10,12 +10,12 @@ export default async function ChatDetailRoom({params}:{params:{id:string}}){
   const room = await getRoom(id)
   if(!room) return notFound();
 
-  const initialMessages = await getMessages(id);
-  const session = await getSession();
   const user = await getUser();
   if(!user) return notFound();
 
-  
+  const initialMessages = await getMessages(id,user.id);
+  const session = await getSession();
+
   return (
     <section>
       <ChatMessageList userId={session.id!} user={user} chatRoomId={id} initialMessages={initialMessages}/>

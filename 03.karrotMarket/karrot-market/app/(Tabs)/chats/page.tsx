@@ -9,34 +9,46 @@ export const metadata = {
 
 export default async function Chats(){
   const chatRooms = await getChatRooms()
-  console.log(chatRooms[0].message[0].payload);
-  
+    
   return (
     <section className="setting-page">
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 my-5">
         {chatRooms.map((ele,idx)=>{
           return (
-            <Link href={`/chats/${ele.id}`} key={idx} className="outline-2 outline outline-cyan-400 py-2 flex items-center justify-between">
-              <div className="flex items-center">
-                <div className="relative size-14 rounded-lg overflow-hidden aspect-square ">
-                  <Image src={ele.product.photo} alt="product" fill priority sizes="40px" className="object-cover object-center"/>
+            <Link href={`/chats/${ele.id}`} key={idx} className="py-2 flex items-center justify-between">
+              <div className="flex items-center w-full">
+                <div className="flex items-start gap-2 relative">
+                  <div className="flex items-center">
+                    <div className="relative size-14 rounded-lg overflow-hidden aspect-square">
+                      <Image src={ele.product.photo} alt="product" fill priority sizes="40px" className="object-cover object-center"/>
+                    </div>
+                    <div className="relative bg-white -ml-1 size-10 rounded-full overflow-hidden outline-2 outline outline-white dark:outline-neutral-900">
+                      <Image src={ele.users[0].avatar!} alt="user" width={40} height={40} sizes="40px"/>
+                    </div>
+                  </div>
+                  <div className="absolute left-[100px] w-max">
+                  { ele.message[0] ? 
+                    <p className="text-xs default-textColor">
+                      {ele.users[0].username}
+                      <span className="mx-1">•</span>
+                      <span className="text-neutral-500">{formatToTimeAgo(ele.message[0]?.created_at.toString())}</span>
+                    </p>
+                    : <p className="text-xs default-textColor">{ele.users[0].username}</p>
+                  }
+                  </div>
                 </div>
-                <div className="relative -ml-1 size-10 rounded-full overflow-hidden outline-2 outline outline-white dark:outline-neutral-900">
-                  <Image src={ele.users[1].avatar!} alt="user" width={40} height={40} sizes="40px"/>
+                <div className="ml-2 w-[calc(100%-150px)]">
+                  {ele.message[0] ? <p className="text-sm w-full text-neutral-500 overflow-hidden text-ellipsis whitespace-nowrap">{ele.message[0].payload}</p>
+                  : <p className="text-sm w-full text-neutral-500 overflow-hidden text-ellipsis whitespace-nowrap">🥕대화를 시작해보세요🥕</p>}
                 </div>
               </div>
-              <div>
-              { ele.message[0] ? 
-                <p className="mt-2 text-xs text-neutral-400">
-                  {ele.users[1].username}
-                    <span className="mx-2">•</span>{formatToTimeAgo(ele.message[0]?.created_at.toString())}
-                </p>
-                : <p className="mt-2 text-xs text-neutral-400">{ele.users[1].username}</p>
+              {
+                ele._count.message ?
+                  <div className="flex-shrink-0 size-7 text-center leading-7 rounded-full bg-primary text-xs text-white">
+                    {ele._count.message > 99 ? "99+" : ele._count.message}
+                  </div>
+                : null
               }
-              </div>
-              <div>
-                {ele.message[0] ? <p>{ele.message[0].payload}</p> : null}
-              </div>
             </Link>
           )
         })}

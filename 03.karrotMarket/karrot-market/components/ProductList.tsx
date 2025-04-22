@@ -62,7 +62,7 @@ export default function ProductList({ initialProducts }: IProductList) {
   }, [cursor, searchParamsCategory]);
 
   return (
-    <div className="py-5 flex flex-col gap-5 mt-[55]">
+    <div className="flex flex-col gap-5 mt-[70]">
       {products.map((product) => {
         return <ProductListItem key={product.id} {...product} />
       })}
@@ -75,7 +75,7 @@ export default function ProductList({ initialProducts }: IProductList) {
             maskImage: `radial-gradient(transparent 55%, #fff 56%)`,
           }}
         />
-      ) : <div className="pb-[60]"/> }
+      ) : <div className="h-[70px]"/> }
     </div>
   );
 }

@@ -25,13 +25,19 @@ export async function getRoom(id:string){
 
 export type InitialChatMessages = Prisma.PromiseReturnType<typeof getMessages>
 
-export async function getMessages(chatRoomId:string){
+export async function getMessages(chatRoomId:string, userId:number){
   const messages = await db.message.findMany({
     where: { chatRoomId },
-    select: { id:true, payload:true, created_at:true, userId:true,
+    select: { id:true, payload:true, created_at:true, userId:true, view:true,
               user: { select: { avatar:true, username:true } }
     },
   })
+
+  await db.message.updateMany({
+    where: {chatRoomId, userId:{not:userId} ,view: false},
+    data: {view: true}
+  });
+
   return messages
 }
 
@@ -41,7 +47,8 @@ export async function saveMessage(payload:string, chatRoomId:string){
     data: {
       payload,
       chatRoomId,
-      userId: session.id!
+      userId: session.id!,
+      view: false
     },
     select: {id:true}
   })

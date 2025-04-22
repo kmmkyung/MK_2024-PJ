@@ -12,7 +12,7 @@ export default function NavLinkPageGo(){
   else if(pageLink === 'post'){pageLink = 'life';}
     
   return (
-  <nav className="setting-nav">
+  <nav className="setting-nav top-0">
     <div className="flex w-screen items-center justify-between px-5 h-[60px]">
       <Link className="default-textColor" href={`/${pageLink}`}>
         <ChevronLeftIcon className="size-6 p-2 box-content"/>
