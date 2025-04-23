@@ -51,7 +51,9 @@ export default async function Post({params}:{params:{id:number}}){
             <p className="text-sm text-neutral-500 mt-2 break-words">{post.description}</p>
           </div>
           <div className="flex justify-between mt-5 gap-4 text-neutral-500">
-            <p className="flex items-center gap-1 text-xs p-2 rounded-full bg-white dark:bg-black"><EyeIcon className="size-3"/>{post.views}</p>
+            <p className="flex items-center gap-1 text-xs p-2 rounded-full bg-white dark:bg-black">
+              <EyeIcon className="size-3"/>{post.views}
+            </p>
             <PostLikeButton isLiked={isLiked} likeCount={likeCount} postId={numberId}/>
           </div>
           <PostCommentList user={user} postId={numberId} commentCount={post._count.comment} commentData={postComments}/>

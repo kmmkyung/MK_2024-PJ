@@ -6,12 +6,12 @@ import { useEffect } from 'react';
 export default function BodyClassSetter() {
   const pathname = usePathname();
 
-  const pathnameBoolean = ['/','/create-account','/login'].includes(pathname);
+  const pathnameBoolean = ['/'].includes(pathname)
   const cssOverflowYHidden = "overflow-y-hidden"
-  const cssOverflowYScroll = "overflow-y-scroll"
+  const cssOverflowYScroll = "overflow-y-visible"
   
   useEffect(() => {
-    if (pathnameBoolean) {
+    if (pathnameBoolean) {      
       document.body.classList.add(cssOverflowYHidden);
     }
     else {

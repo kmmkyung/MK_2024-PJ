@@ -12,7 +12,7 @@ export default function ThemeToggleButton(){
   }
 
   return (
-    <button onClick={onClick} className="size-6 p-2 box-content">
+    <button onClick={onClick} className="cursor-pointer size-6 p-2 box-content">
       {resolvedTheme === 'dark'? <SunIcon/> : <MoonIcon/>}
     </button>
   )

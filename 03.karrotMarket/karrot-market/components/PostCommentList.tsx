@@ -87,7 +87,7 @@ export default function PostCommentList(props:IPostInput){
                     <span className="text-xs font-semibold">{ele.user.username}</span>
                     <span className="text-xs text-neutral-500">{formatToTimeAgo(ele.created_at.toString())}</span>
                   </p>
-                  <p className="text-sm mt-2">{ele.payload}</p>
+                  <p className="text-sm mt-2 break-all">{ele.payload}</p>
                 </div>
               </div>
               { user.id === ele.userId ? 

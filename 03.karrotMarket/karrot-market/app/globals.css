@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  ::-webkit-scrollbar {
+    display: none;
+  }
   a{
     @apply text-primary;
   }
-  /* html {
-    font-size: 62.5%;
-  } */
 }
 
 @layer utilities {
@@ -16,6 +16,7 @@
     scrollbar-width: none; 
   }
 }
+
 
 @layer components {
   .primary-btn {
@@ -37,6 +38,6 @@
     @apply pt-[60px] pb-[70px] px-10 md:max-w-screen-xl mx-auto
   }
   .setting-nav{
-    @apply fixed z-50 bg-white dark:bg-neutral-900
+    @apply fixed z-50 bg-white dark:bg-neutral-900 w-full
   }
 }

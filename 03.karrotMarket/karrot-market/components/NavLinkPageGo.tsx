@@ -13,7 +13,7 @@ export default function NavLinkPageGo(){
     
   return (
   <nav className="setting-nav top-0">
-    <div className="flex w-screen items-center justify-between px-5 h-[60px]">
+    <div className="flex w-full items-center justify-between px-5 h-[60px]">
       <Link className="default-textColor" href={`/${pageLink}`}>
         <ChevronLeftIcon className="size-6 p-2 box-content"/>
       </Link>

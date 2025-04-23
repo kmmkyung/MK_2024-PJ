@@ -6,6 +6,7 @@ import { InitialProducts } from "@/app/(Tabs)/products/page";
 import ProductListItem from "./ProductListItem";
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import Image from "next/image";
 
 interface IProductList {
   initialProducts: InitialProducts;
@@ -75,7 +76,10 @@ export default function ProductList({ initialProducts }: IProductList) {
             maskImage: `radial-gradient(transparent 55%, #fff 56%)`,
           }}
         />
-      ) : <div className="h-[70px]"/> }
+      ) : <div className="mb-[70px] py-5 text-center border-t border-dashed border-neutral-300 dark:border-neutral-700">
+          <Image className="mx-auto" width={30} height={30} src="/image/rabbit.png" alt="rabbit" />
+          <p className='text-xs mt-2'>더 이상 물건이 없습니다!</p>
+          </div>}
     </div>
   );
 }
