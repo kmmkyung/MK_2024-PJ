@@ -1,18 +1,23 @@
-'use client'
-
+import { Suspense } from "react";
 import SearchForm from "@/components/SearchForm";
-import { ClockIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
-import { useSearchParams } from "next/navigation";
+import SearchRecentWord from "@/components/SearchRecentWord";
+import SearchList from "@/components/SearchList";
+import Loading from "./loading";
 
-
-export default function Search() {
-  const searchParams = useSearchParams();  
-  const searchCategory = searchParams?.get("keyword");
+export default async function Search({ searchParams }: { searchParams: { keyword?: string } }) {
+  const { keyword } = await searchParams
+  const searchKeyword = keyword?.trim() || '';
 
   return (
     <section className="relative">
-      <SearchForm/>
+      <SearchForm searchKeyword={searchKeyword} />
+      {searchKeyword === "" ? (
+        <SearchRecentWord />
+      ) : (
+        <Suspense fallback={<Loading />}>
+          <SearchList searchKeyword={searchKeyword}/>
+        </Suspense>
+      )}
     </section>
-  )
+  );
 }

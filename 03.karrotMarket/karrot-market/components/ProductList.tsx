@@ -7,6 +7,7 @@ import ProductListItem from "./ProductListItem";
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
+import Spinner from "./Spinner";
 
 interface IProductList {
   initialProducts: InitialProducts;
@@ -17,7 +18,7 @@ export default function ProductList({ initialProducts }: IProductList) {
   const [products, setProducts] = useState(initialProducts);
   const [lastPage, setLastPage] = useState(false);
   const searchParamsCategory = useSearchParams().get('category');
-  const trigger = useRef<HTMLDivElement>(null);
+  const spinnerRef = useRef<HTMLDivElement>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const [cursor, setCursor] = useState<number | null>(
     initialProducts.length > 0 ? initialProducts[initialProducts.length - 1].id : null
@@ -55,8 +56,8 @@ export default function ProductList({ initialProducts }: IProductList) {
       }
     });
   
-    if (trigger.current) {
-      observerRef.current.observe(trigger.current);
+    if (spinnerRef.current) {
+      observerRef.current.observe(spinnerRef.current);
     }
   
     return () => observerRef.current?.disconnect();
@@ -68,14 +69,7 @@ export default function ProductList({ initialProducts }: IProductList) {
         return <ProductListItem key={product.id} {...product} />
       })}
       {!lastPage && !isLoading ? (
-        <div
-          ref={trigger}
-          className="mx-auto size-[50] rounded-full gradient animate-spin bg-orange-500"
-          style={{
-            background: `conic-gradient(from 0deg, transparent 35%, #f97316 70%)`,
-            maskImage: `radial-gradient(transparent 55%, #fff 56%)`,
-          }}
-        />
+        <Spinner ref={spinnerRef} />
       ) : <div className="mb-[70px] py-5 text-center border-t border-dashed border-neutral-300 dark:border-neutral-700">
           <Image className="mx-auto" width={30} height={30} src="/image/rabbit.png" alt="rabbit" />
           <p className='text-xs mt-2'>더 이상 물건이 없습니다!</p>
