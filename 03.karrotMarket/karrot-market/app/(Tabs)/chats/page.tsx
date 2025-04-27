@@ -12,7 +12,7 @@ export default async function Chats(){
     
   return (
     <section className="setting-page">
-      <div className="flex flex-col gap-5 my-5">
+      <div className="flex flex-col gap-7 my-5">
         {chatRooms.map((ele,idx)=>{
           return (
             <Link href={`/chats/${ele.id}`} key={idx} className="py-2 flex items-center justify-between">

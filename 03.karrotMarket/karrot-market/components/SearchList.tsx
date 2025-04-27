@@ -1,30 +1,30 @@
 import { searchList } from "@/app/(Tabs)/search/action";
 import { $Enums } from "@prisma/client";
 
-interface IsearchResponse {
-  searchResponse: {
-    products: {
-      id: number;
-      title: string;
-      price: number;
-      description: string;
-      photo: string;
-      created_at: Date;
-      updated_at: Date;
-      userId: number;
-      category: $Enums.CategoryType;
-    }[];
-    posts: {
-      id: number;
-      title: string;
-      description: string;
-      views: number;
-      created_at: Date;
-      updated_at: Date;
-      userId: number;
-    }[];
-  };
-}
+// interface IsearchResponse {
+//   searchResponse: {
+//     products: {
+//       id: number;
+//       title: string;
+//       price: number;
+//       description: string;
+//       photo: string;
+//       created_at: Date;
+//       updated_at: Date;
+//       userId: number;
+//       category: $Enums.CategoryType;
+//     }[];
+//     posts: {
+//       id: number;
+//       title: string;
+//       description: string;
+//       views: number;
+//       created_at: Date;
+//       updated_at: Date;
+//       userId: number;
+//     }[];
+//   };
+// }
 
 
 export default async function SearchList({ searchKeyword }: { searchKeyword: string }) {

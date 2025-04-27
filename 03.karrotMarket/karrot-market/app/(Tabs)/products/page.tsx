@@ -29,7 +29,8 @@ export default async function Products({searchParams}:IProducts) {
   // const initialProducts = await getInitialProducts(categoryEnum);
 
   const cachedGetProducts = await nextCache(
-    async () => {return await getInitialProducts(categoryEnum)},
+    async () => {
+      return await getInitialProducts(categoryEnum)},
     [`products-${categoryEnum}`],
     { tags: ['products']}
   );

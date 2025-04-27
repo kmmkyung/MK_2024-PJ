@@ -21,7 +21,9 @@ export default async function ProductDetail({params}:{ params: Promise<{id:strin
   const numberId = Number(id)
   if(isNaN(numberId)) return notFound();
   
-  const product = await cachedGetProducts(numberId);
+  const product = 
+  // await new Promise((r) => setTimeout(r, 10000));
+  await cachedGetProducts(numberId);
   
   if(!product) return notFound();
   

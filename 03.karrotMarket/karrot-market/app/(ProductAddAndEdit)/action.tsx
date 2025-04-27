@@ -5,6 +5,8 @@ import getSession from "@/lib/session";
 import { unstable_cache as nextCache } from "next/cache";
 
 async function getProduct(id:number){
+  // await new Promise((r) => setTimeout(r, 10000));
+
   const product= await db.product.findUnique({
     where: { id: id },
     include: {

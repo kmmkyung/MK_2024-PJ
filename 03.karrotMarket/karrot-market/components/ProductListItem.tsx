@@ -24,7 +24,7 @@ export default function ProductListItem({title, price, created_at, photo, id, ca
       </div>
       <div className="flex flex-col w-[calc(100%-132px)]">
         <h6 className="text-base md:text-lg default-textColor overflow-hidden text-ellipsis whitespace-nowrap">{title}</h6>
-        <p className="mt-1 text-xs md:text-sm text-neutral-500">{formatToTimeAgo(created_at.toString())}</p>
+        <p className="text-xs md:text-sm text-neutral-500 mt-1">{formatToTimeAgo(created_at.toString())}</p>
         <p className="text-sm md:text-lg font-semibold default-textColor mt-2">{formatToWon(price)}원</p>
       </div>
     </Link>

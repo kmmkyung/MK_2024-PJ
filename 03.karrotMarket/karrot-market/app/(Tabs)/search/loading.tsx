@@ -3,10 +3,9 @@ import Spinner from "@/components/Spinner";
 export default function Loading(){
 
   return (
-    <section className="setting-page animate-pulse">
-      <div className="absolute z-50">
+    <section className="setting-page h-screen">
+      <div className="flex justify-center items-center h-full">
         <Spinner/> 
-        러딩중
       </div>
     </section>
   )

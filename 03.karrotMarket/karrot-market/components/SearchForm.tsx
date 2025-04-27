@@ -17,7 +17,7 @@ export default function SearchForm({ searchKeyword }:{ searchKeyword:string }) {
   }
 
   function onSubmit(event:React.FormEvent<HTMLFormElement>){
-    event.preventDefault();
+    event.preventDefault();    
     const searchKeyword = searchWord.trim();
     if(!searchKeyword) return;
 
