@@ -18,7 +18,8 @@ export async function generateMetadata({params}:{ params: Promise<{id:string}>})
 }
 
 export default async function Post({params}:{params:{id:number}}){
-  const {id} = await params
+  // await new Promise((r) => setTimeout(r, 100000));
+  const { id } = await params
   const numberId = Number(id)
   if(isNaN(numberId)) return notFound();
 

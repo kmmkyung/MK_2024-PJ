@@ -29,8 +29,8 @@ export default function SearchRecentWord(){
   },[])
 
   return (
-    <div className="setting-page">
-      <div className="mt-[70]">
+    <div className="setting-page pt-[10]">
+      <div className="mt-[10]">
         <h6 className="text-sm font-semibold">최근 검색</h6>
         {recent.length > 0 ? 
           <ol>

@@ -1,42 +1,30 @@
 import { searchList } from "@/app/(Tabs)/search/action";
-import { $Enums } from "@prisma/client";
-
-// interface IsearchResponse {
-//   searchResponse: {
-//     products: {
-//       id: number;
-//       title: string;
-//       price: number;
-//       description: string;
-//       photo: string;
-//       created_at: Date;
-//       updated_at: Date;
-//       userId: number;
-//       category: $Enums.CategoryType;
-//     }[];
-//     posts: {
-//       id: number;
-//       title: string;
-//       description: string;
-//       views: number;
-//       created_at: Date;
-//       updated_at: Date;
-//       userId: number;
-//     }[];
-//   };
-// }
-
+import { NewspaperIcon, ShoppingCartIcon } from "@heroicons/react/24/solid";
+import SearchProductsList from "./SearchProductsList";
+import SearchPostsList from "./SearchPostsList";
 
 export default async function SearchList({ searchKeyword }: { searchKeyword: string }) {
   if(searchKeyword == "") return null;
   const searchResponse = await searchList(searchKeyword);
-  
+  const { products, posts } = searchResponse;
+
   if(searchResponse){
     return (
-      <section className="setting-page">
-        <div className="mt-[70]">
-          {searchResponse?.products.length ? <p>product 있음</p> : <p>product 없음</p>}
-          {searchResponse?.posts.length ? <p>posts 있음</p> : <p>posts 없음</p>}
+      <section className="setting-page pt-[10]">
+        <div className="mt-[10]">
+          <div>
+            <p className="text-sm font-semibold">
+              <ShoppingCartIcon className="size-5 inline mr-1"/>Product • {products.length}개
+            </p>
+            <SearchProductsList products={products} />
+          </div>
+          <div className="mt-10">
+            <p className="text-sm font-semibold">
+              <NewspaperIcon className="size-5 inline mr-1"/>
+              Post • {posts.length}개
+            </p>
+            <SearchPostsList posts={posts} />
+          </div>
         </div>
       </section>
     );

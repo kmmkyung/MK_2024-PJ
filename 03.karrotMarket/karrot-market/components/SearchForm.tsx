@@ -37,7 +37,7 @@ export default function SearchForm({ searchKeyword }:{ searchKeyword:string }) {
   },[searchKeyword])
 
   return (
-    <div className="absolute top-[60] z-10 w-full h-[50]">
+    <div className="mt-[60] w-full h-[50]">
       <div className="md:max-w-screen-xl mx-auto h-full">
         <form className="flex gap-5 items-center px-5 h-full" onSubmit={onSubmit}>
           <input name="searchWord" value={searchWord} onChange={onChange} type="text" placeholder="검색어를 입력해 주세요" min={1} max={200} required className="rounded-full bg-neutral-50 dark:bg-neutral-950 border-0 focus:ring-0 text-sm w-full"/>

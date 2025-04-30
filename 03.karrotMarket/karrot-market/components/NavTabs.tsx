@@ -8,7 +8,7 @@ export default function NavTabs(){
   const pathName = usePathname();
 
   return (
-  <nav className="setting-nav">
+  <nav className="setting-nav top-0">
     <div className="flex w-full items-center justify-between px-5 h-[60px]">
       <Link href='/products'>🥕</Link>
       <ul className="hidden md:flex items-center justify-center gap-10">

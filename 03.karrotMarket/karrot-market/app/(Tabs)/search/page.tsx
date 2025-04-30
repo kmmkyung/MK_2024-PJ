@@ -2,14 +2,14 @@ import { Suspense } from "react";
 import SearchForm from "@/components/SearchForm";
 import SearchRecentWord from "@/components/SearchRecentWord";
 import SearchList from "@/components/SearchList";
-import Loading from "./loading";
+import Loading from "./(searchLoading)/loading";
 
 export default async function Search({ searchParams }: { searchParams: { keyword?: string } }) {
   const { keyword } = await searchParams
   const searchKeyword = keyword?.trim() || '';
 
   return (
-    <section className="relative">
+    <section>
       <SearchForm searchKeyword={searchKeyword} />
       {searchKeyword === "" ? (
         <SearchRecentWord />

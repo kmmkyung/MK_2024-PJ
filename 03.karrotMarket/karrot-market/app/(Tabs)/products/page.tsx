@@ -45,7 +45,7 @@ export default async function Products({searchParams}:IProducts) {
           initialProducts.length > 0 ? (
             <ProductList initialProducts={initialProducts} />
           ) : ( 
-            <div className="pt-[50] w-full h-full flex items-center justify-center">아직 등록된 물건이 없습니다</div>
+            <p className="pt-[50] w-full h-full leading-[50] text-center text-sm">아직 등록된 물건이 없습니다</p>
           )}
         <Link href="/product/add" className="bg-primary flex items-center justify-center rounded-full size-10 fixed bottom-20 md:bottom-10 right-5 transition-colors hover:bg-primaryHover">
           <PlusIcon className="size-6 text-white" />

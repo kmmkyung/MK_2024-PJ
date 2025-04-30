@@ -4,7 +4,7 @@ import db from "@/lib/db"
 import getSession from "@/lib/session";
 
 export async function getChatRooms(){
-  await new Promise((r) => setTimeout(r, 10000));
+  // await new Promise((r) => setTimeout(r, 10000));
 
   const session = await getSession();
   const chatRooms = await db.chatRoom.findMany({
