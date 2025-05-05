@@ -8,9 +8,8 @@ export async function getRoom(id:string){
   const room = await db.chatRoom.findUnique({
     where: { id },
     include: {
-      users: {
-        select: {id :true}
-      }
+      product: { select: { photo: true } },
+      users: { select: {id :true} }
     }
   })
   if(room){
@@ -37,7 +36,6 @@ export async function getMessages(chatRoomId:string, userId:number){
     where: {chatRoomId, userId:{not:userId} ,view: false},
     data: {view: true}
   });
-
   return messages
 }
 

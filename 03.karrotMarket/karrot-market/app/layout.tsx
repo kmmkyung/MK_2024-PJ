@@ -12,19 +12,10 @@ export const metadata: Metadata = {
   description: "Sell and Buy all the things",
 };
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
-
 const roboto = Roboto({
   subsets: ["latin"],
-  weight: '400',
+  weight: ["400"],
+  style: ["normal"]
 });
 
 export default async function RootLayout({children}:Readonly<{children: React.ReactNode}>) {
