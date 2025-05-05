@@ -44,7 +44,7 @@ export async function getPost(id:number) {
 }
 
 export const cachedPost = nextCache(getPost,["post-detail"],
-  {tags:["post-detail"],revalidate: 1,}
+  {tags:["post-detail"],revalidate: 30}
 )
 
 async function getLikeStatus(postId:number, userId:number){
