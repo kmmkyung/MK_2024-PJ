@@ -15,7 +15,11 @@ export default async function getPosts(){
           like: true
         }
       }
-    }
+    },
+    orderBy: [
+      { created_at: "desc" },
+      { id: "desc" },
+    ],
   })
   return posts
   }   

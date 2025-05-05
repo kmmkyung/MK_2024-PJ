@@ -6,6 +6,26 @@ import { unstable_cache as nextCache, revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 
+export async function getPostView(id: number) {
+  try {
+    const post = await db.post.findUnique({
+      where: { id },
+      include: {
+        comment: {
+          select: { id: true, payload: true, userId: true, created_at: true },
+        },
+        user: {
+          select: { id: true, username: true, avatar: true },
+        },
+        _count: {
+          select: { comment: true, like: true },
+        },
+      },
+    });
+    return post;
+  } catch (e) {}
+}
+
 export async function getPost(id:number) {
   try{
     const post = await db.post.update({
@@ -24,7 +44,7 @@ export async function getPost(id:number) {
 }
 
 export const cachedPost = nextCache(getPost,["post-detail"],
-  {tags:["post-detail"],revalidate: 30,}
+  {tags:["post-detail"],revalidate: 1,}
 )
 
 async function getLikeStatus(postId:number, userId:number){

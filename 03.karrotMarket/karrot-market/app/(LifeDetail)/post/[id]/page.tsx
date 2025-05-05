@@ -2,7 +2,7 @@ import notFound from "@/app/not-found";
 import { formatToTimeAgo } from "@/lib/utils";
 import Image from "next/image";
 import { EyeIcon } from "@heroicons/react/24/solid";
-import { cachedPost, cachedLikeStatus, cachedGetComments, getPost } from "./action";
+import { cachedPost, cachedLikeStatus, cachedGetComments, getPostView } from "./action";
 import PostLikeButton from "@/components/PostLikeButton";
 import PostCommentList from "@/components/PostCommentList";
 import NavLinkPageGo from "@/components/NavLinkPageGo";
@@ -11,7 +11,7 @@ import PostDelete from "@/components/PostDelete";
 
 export async function generateMetadata({params}:{ params: Promise<{id:string}>}){
   const {id} = await params
-  const post = await getPost(Number(id));
+  const post = await getPostView(Number(id));
   return {
     title: post?.title
   }
