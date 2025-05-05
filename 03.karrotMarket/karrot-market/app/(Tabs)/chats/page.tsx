@@ -10,6 +10,14 @@ export const metadata = {
 export default async function Chats(){
   const chatRooms = await getChatRooms()
     
+  if(chatRooms.length === 0){
+    return <section className="setting-page h-screen">
+      <div className="h-full flex items-center justify-center">
+        <p className="text-sm">대화방이 없습니다.</p>
+      </div>
+    </section>
+  }
+
   return (
     <section className="setting-page">
       <div className="flex flex-col gap-7 my-5">

@@ -7,7 +7,6 @@ import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 import { RealtimeChannel } from "@supabase/supabase-js"
 import { supabaseClient } from "@/lib/supabaseClient"
-import { useRouter } from "next/navigation"
 
 interface ChatMessageListProps {
   initialMessages: InitialChatMessages;
@@ -38,10 +37,8 @@ interface ChatMessageListProps {
 }
 
 export default function ChatMessageList({initialMessages, userId, chatRoomId, user, room}:ChatMessageListProps){
-  const router = useRouter();
   const [messages, setMessages] = useState(initialMessages);
   const [newMessage, setNewMessage] = useState("");
-  const [isTransaction, seIsTransaction] = useState(false);
   const channel = useRef<RealtimeChannel>(null);
   const messageContainerRef = useRef<HTMLDivElement>(null);
 
@@ -102,18 +99,16 @@ export default function ChatMessageList({initialMessages, userId, chatRoomId, us
   return (
     <>
       <div ref={messageContainerRef} className="mt-[60px] h-[calc(100vh-130px)]">
-        { userId !== room.users[0].id ?
-        <div className="">
-          <Image className="size-14 rounded-lg overflow-hidden aspect-square" width={56} height={56} src={room.product.photo} alt="product"/>
-          <button onClick={()=>seIsTransaction(true)}>구매자와 거래하기</button>
+        <div className="fixed left-0 h-20 w-full border-b bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700">
+          <div className="px-10 py-3 md:max-w-screen-xl mx-auto flex items-center gap-5">
+            <Image className="size-14 rounded-lg overflow-hidden object-cover object-center" width={56} height={56} src={room.product.photo} alt="product"/>
+            { userId !== room.users[0].id ?
+              <button className="text-sm text-white rounded-md p-2 bg-primary hover:bg-primaryHover transition-colors">구매자에게 거래요청 보내기</button>
+              : <p className="text-sm">현재 거래중인 물건입니다</p>
+            }
+          </div>
         </div>
-        : 
-        <div className="">
-          <Image className="size-14 rounded-lg overflow-hidden aspect-square" width={56} height={56} src={room.product.photo} alt="product"/>
-          <button onClick={()=>seIsTransaction(true)}>판매자와 거래하기</button>
-        </div>
-        }
-        <div className="px-10 pt-3 pb-[70px] md:max-w-screen-xl mx-auto w-full flex flex-col justify-end">
+        <div className="px-10 pt-24 pb-[70px] md:max-w-screen-xl mx-auto w-full flex flex-col justify-end">
           {messages.map(ele => 
             <div key={ele.id} className={`w-full flex mb-3 ${ele.userId === userId?"justify-end":"gap-2"}`}>
               {ele.userId === userId? null :
@@ -135,9 +130,6 @@ export default function ChatMessageList({initialMessages, userId, chatRoomId, us
           </div>
         </div>
       </div>
-      {isTransaction ?
-      <div className="absolute z-50 left-1/2 top-1/2">거래가 성공했습니다!</div>
-      :null}
     </>
   )
 }

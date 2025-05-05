@@ -61,6 +61,7 @@ model Product {
   userId Int
   category CategoryType
   chatRoom ChatRoom[]
+  dealt Boolean @default(false)
 }
 
 model Post {

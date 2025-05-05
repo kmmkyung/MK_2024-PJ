@@ -28,7 +28,11 @@ export default function SearchPostsList({ posts }: IProducts) {
       <ol>
       {visiblePosts.map((post) => (
         <li key={post.id} className="first:pt-0 py-5 first:border-none border-t border-neutral-300 dark:border-neutral-700">
-          <Link className="block" href={`/post/${post.id}`}>
+          <Link className="block" href={`/post/${post.id}`}
+            onClick={() => {
+              sessionStorage.setItem('cameFromSearch', 'true');
+            }}
+          >
             <div className="flex flex-col w-full">
               <h6 className="text-base md:text-lg default-textColor overflow-hidden text-ellipsis whitespace-nowrap">{post.title}</h6>
               <p className="text-xs md:text-sm text-neutral-500 mt-1">{post.views} views • {new Date(post.created_at).toLocaleDateString()}</p>

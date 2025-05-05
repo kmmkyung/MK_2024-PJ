@@ -33,7 +33,10 @@ export default function SearchProductsList({products}:IProducts){
       <ol className="flex flex-col gap-5">
         {visibleProducts.map((product) => (
           <li key={product.id}>
-            <Link className="flex gap-5 w-full" href={`/products/${product.id}`}>
+            <Link className="flex gap-5 w-full" href={`/products/${product.id}`}
+            onClick={() => {
+              sessionStorage.setItem('cameFromSearch', 'true');
+            }}>
               <div className="relative rounded-md overflow-hidden size-28 bg-neutral-100">
                 <Image src={product.photo} alt={product.title} priority sizes="600px" fill className="object-cover object-center"/>
               </div>

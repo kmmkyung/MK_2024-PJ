@@ -3,25 +3,21 @@
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 import ThemeToggleButton from "./ThemeToggleButton";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 
 export default function NavLinkPageGo(){
   const router = useRouter();
   const pathName = usePathname();
-  const [hasHistory, setHasHistory] = useState(false);
 
-  useEffect(() => {
-    // 히스토리가 존재하는지 여부 확인
-    if (window.history.length > 1) {
-      setHasHistory(true);
-    }
-  }, []);
-
-  function handleBack(){
-    if (hasHistory && pathName !== 'product/add' && pathName !== 'post/add') router.back();
-    else {
+  function handleBack() {
+    const cameFromSearch = sessionStorage.getItem('cameFromSearch') === 'true';
+  
+    if (cameFromSearch) {
+      router.back();
+      sessionStorage.removeItem('cameFromSearch');
+    } else {
+      // 그 외에는 fallback
       let fallback = '/';
-      const link = pathName.split("/")[1];
+      const link = pathName.split('/')[1];
       if (link === 'product') fallback = '/products';
       else if (link === 'post') fallback = '/life';
       else fallback = `/${link}`;

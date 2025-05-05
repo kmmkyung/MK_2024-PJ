@@ -11,7 +11,13 @@ export async function getInitialProducts(category: CategoryType | null ) {
       created_at: true,
       photo: true,
       id: true,
-      category: true
+      category: true,
+      dealt: true,
+      _count: {
+        select: {
+          chatRoom: true,
+        }
+      }
     },
     take: 5,
     orderBy: [
@@ -20,6 +26,9 @@ export async function getInitialProducts(category: CategoryType | null ) {
     ],
     where: category ? { category } : {},
   });
+
+  console.log(products, 'initialProducts');
+  
   return products;
 }
 
@@ -52,7 +61,13 @@ export async function getMoreProducts(cursorId: number | null, category: Categor
       created_at: true,  
       photo: true,
       id: true,
-      category: true
+      category: true,
+      dealt: true,
+      _count: {
+        select: {
+          chatRoom: true,
+        }
+      }
     },
     take: 5,
     orderBy: [

@@ -54,6 +54,7 @@ export async function uploadProduct(_: unknown, formData: FormData){
           price: result.data.price,
           description: result.data.description,
           category: result.data.category,
+          dealt: false,
           user: {
             connect: {
               id: session.id
