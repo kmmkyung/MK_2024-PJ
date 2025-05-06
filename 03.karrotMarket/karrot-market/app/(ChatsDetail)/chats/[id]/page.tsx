@@ -19,9 +19,11 @@ export default async function ChatDetailRoom({params}:{params:{id:string}}){
   const session = await getSession();
 
   return (
-    <section>
+    <>
       <NavLinkPageGo/>
-      <ChatMessageList userId={session.id!} user={user} chatRoomId={id} room={room} initialMessages={initialMessages}/>
-    </section>
+      <section>
+        <ChatMessageList userId={session.id!} user={user} chatRoomId={id} room={room} initialMessages={initialMessages}/>
+      </section>
+    </>
   )
 }

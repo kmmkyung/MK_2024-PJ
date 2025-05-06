@@ -12,11 +12,15 @@ async function getProduct(id:number){
     include: {
       user: {
         select: { username:true, avatar:true }
+      },
+      _count: {
+        select: { chatRoom:true }
       }
     }
   })
   return product
 }
+
 export const cachedGetProducts = nextCache(
   getProduct, ["product-detail"],{
     tags: ["product-detail"]

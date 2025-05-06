@@ -4,13 +4,18 @@ import db from "@/lib/db";
 import getSession from "@/lib/session";
 
 export async function getProduct(id:number) {
-  const product = db.product.findUnique({
+  const product = await db.product.findUnique({
     where: { id: id },
     include: {
-      user: { select : { username:true, avatar: true} }
+      user: {
+        select: { username:true, avatar:true }
+      },
+      _count: {
+        select: { chatRoom:true }
+      }
     }
   })
-  return product; 
+  return product
 }
 
 export async function getIsOwner(userId:number){

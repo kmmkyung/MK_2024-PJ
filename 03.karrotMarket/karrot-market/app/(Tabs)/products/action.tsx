@@ -26,9 +26,6 @@ export async function getInitialProducts(category: CategoryType | null ) {
     ],
     where: category ? { category } : {},
   });
-
-  console.log(products, 'initialProducts');
-  
   return products;
 }
 

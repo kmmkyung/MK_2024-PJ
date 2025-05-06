@@ -30,14 +30,18 @@ export default async function Products({searchParams}:IProducts) {
 
   const cachedGetProducts = await nextCache(
     async () => {
-      return await getInitialProducts(categoryEnum)},
+      const products = await getInitialProducts(categoryEnum);
+      return products;
+    },
     [`products-${categoryEnum}`],
-    { tags: ['products']}
+    {
+      tags: ['products']
+    }
   );
 
   const initialProducts = await cachedGetProducts();
-  console.log(initialProducts);
-
+  console.log(initialProducts, 'initialProducts');
+  
   return (
     <section className="relative">
       <Category/>
