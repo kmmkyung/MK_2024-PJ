@@ -2,14 +2,14 @@
 
 import db from "@/lib/db"
 import getSession from "@/lib/session";
-import { Prisma } from "@prisma/client";
+import { MessageType, Prisma } from "@prisma/client";
 
 export async function getRoom(id:string){
   const room = await db.chatRoom.findUnique({
     where: { id },
     include: {
-      product: { select: { photo: true } },
-      users: { select: {id :true} }
+      product: { select: { photo: true, userId:true } },
+      users: { select: { id: true } }
     }
   })
   if(room){
@@ -27,7 +27,7 @@ export type InitialChatMessages = Prisma.PromiseReturnType<typeof getMessages>
 export async function getMessages(chatRoomId:string, userId:number){
   const messages = await db.message.findMany({
     where: { chatRoomId },
-    select: { id:true, payload:true, created_at:true, userId:true, view:true,
+    select: { id:true, payload:true, created_at:true, userId:true, view:true, type:true,
               user: { select: { avatar:true, username:true } }
     },
   })
@@ -39,14 +39,15 @@ export async function getMessages(chatRoomId:string, userId:number){
   return messages
 }
 
-export async function saveMessage(payload:string, chatRoomId:string){
+export async function saveMessage(payload:string, chatRoomId:string, type: MessageType){
   const session = await getSession();
   await db.message.create({
     data: {
       payload,
       chatRoomId,
       userId: session.id!,
-      view: false
+      view: false,
+      type
     },
     select: {id:true}
   })

@@ -25,6 +25,7 @@ model User {
   like Like[]
   chatRoom ChatRoom[]
   message Message[]
+  evaluation Evaluation[]
 }
 
 model SMSToken {
@@ -109,6 +110,11 @@ model ChatRoom {
   product Product @relation(fields: [productId], references: [id])
 }
 
+enum MessageType {
+  TEXT
+  DEAL
+}
+
 model Message {
   id Int @id @default(autoincrement())
   created_at DateTime @default(now()) 
@@ -119,6 +125,16 @@ model Message {
   room ChatRoom @relation(fields: [chatRoomId], references: [id])
   user User @relation(fields: [userId], references: [id])
   view Boolean @default(false)
+  type MessageType @default(TEXT)
+}
+
+model Evaluation{
+  id Int @id @default(autoincrement())
+  created_at DateTime @default(now()) 
+  updated_at DateTime @updatedAt
+  payload String
+  userId Int
+  users User[]
 }
 
   // npx prisma migrate dev

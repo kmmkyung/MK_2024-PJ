@@ -5,7 +5,6 @@ import { EyeIcon } from "@heroicons/react/24/solid";
 import { cachedPost, cachedLikeStatus, cachedGetComments, getPostView } from "./action";
 import PostLikeButton from "@/components/PostLikeButton";
 import PostCommentList from "@/components/PostCommentList";
-import NavLinkPageGo from "@/components/NavLinkPageGo";
 import { getUser } from "@/lib/getUser";
 import PostDelete from "@/components/PostDelete";
 
@@ -34,7 +33,6 @@ export default async function Post({params}:{params:{id:number}}){
   
   return (
     <>
-      <NavLinkPageGo/>
       <section className="setting-page pt-20">
         <div className="bg-neutral-100 shadow-lg shadow-neutral-200/50 rounded-lg p-5 dark:bg-neutral-800 dark:shadow-neutral-800/50 mb-5">
           <div className="flex items-center justify-between">
