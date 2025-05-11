@@ -40,7 +40,6 @@ export default async function Products({searchParams}:IProducts) {
   );
 
   const initialProducts = await cachedGetProducts();
-  console.log(initialProducts, 'initialProducts');
   
   return (
     <section className="relative">

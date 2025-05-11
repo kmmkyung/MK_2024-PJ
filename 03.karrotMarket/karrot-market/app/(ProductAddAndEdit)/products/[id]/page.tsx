@@ -55,7 +55,7 @@ export default async function ProductDetail({params}:{ params: Promise<{id:strin
         },
         select: {id:true}
       });
-      revalidateTag(`products`)
+      revalidateTag('products')
       revalidateTag('product-detail')
       redirect(`/chats/${room.id}`)
     }
@@ -90,7 +90,7 @@ export default async function ProductDetail({params}:{ params: Promise<{id:strin
           <div className="md:block hidden mt-3">
           {isOwner ?
             <ProductOwnerButton numberId={numberId}/>
-          : <form action={createChatRoom}><button className="primary-link w-full px-5">채팅하기</button></form>}
+          : <form action={createChatRoom}><button disabled={product.dealt} className="primary-btn w-full px-5">채팅하기</button></form>}
           </div>
         </div>
 
@@ -101,7 +101,7 @@ export default async function ProductDetail({params}:{ params: Promise<{id:strin
             {isOwner ?
               <ProductOwnerButton numberId={numberId}/>
           : <form action={createChatRoom}>
-              <button className="primary-link w-auto px-4 flex justify-center items-center">
+              <button disabled={product.dealt} className="primary-btn w-auto px-4 flex justify-center items-center">
                 <SolidChatBubbleOvalLeftEllipsisIcon className="size-5 text-white"/>
               </button>
             </form>}

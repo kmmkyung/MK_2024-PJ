@@ -29,7 +29,7 @@ interface ChatMessageListProps {
     users: {
       id: number;
     }[]
-    product: { photo: string; userId: number; };
+    product: { photo: string; userId: number; dealt: boolean };
     id: string;
     created_at: Date;
     updated_at: Date;
@@ -41,8 +41,11 @@ export default function ChatMessageList({initialMessages, userId, chatRoomId, us
   const router = useRouter();
   const [messages, setMessages] = useState(initialMessages);
   const [newMessage, setNewMessage] = useState("");
+  const [isDealt, setIsDealt] = useState(room.product.dealt);
   const channel = useRef<RealtimeChannel>(null);
   const messageContainerRef = useRef<HTMLDivElement>(null);
+  console.log(room.product.dealt);
+  
 
   function onChange(event:React.ChangeEvent<HTMLInputElement>){
     const value = event.target.value;
@@ -86,28 +89,10 @@ export default function ChatMessageList({initialMessages, userId, chatRoomId, us
     scrollTo(0,document.body.scrollHeight)
   }
 
-  useEffect(()=>{
-    scrollTo(0,document.body.scrollHeight)
-    channel.current = supabaseClient.channel(`room-${chatRoomId}`)
-    channel.current.on("broadcast",{event:"message"},(payload)=>{
-      // 상대방이 보낸 메시지 업데이트
-      setMessages(prev => [...prev, payload.payload])
-    })
-    .subscribe();
-    return () => {
-      channel.current?.unsubscribe();
-    }
-  },[chatRoomId])
-
-  async function onClick(productId:number){
-    const systemMessage = "[SYSTEM] 거래 요청합니다";
+  async function dealRequest(){
+    const systemMessage = "거래 요청합니다";
     const confirmDeal = confirm("거래 하시겠습니까?");
     if(!confirmDeal) return;
-    // const response = await fetch("/api/chatDeal", {
-    //   method: "PATCH",
-    //   body: JSON.stringify({ productId }),
-    //   headers: {"Content-Type": "application/json"}
-    // });
     setMessages(prev => [...prev,{
       id: Date.now(),
       payload: newMessage,
@@ -141,6 +126,40 @@ export default function ChatMessageList({initialMessages, userId, chatRoomId, us
     scrollTo(0,document.body.scrollHeight)
   }
   
+  async function onClickDeal(productId:number){
+    const confirmDeal = confirm("거래 하시겠습니까?");
+    if(!confirmDeal) return;
+    await fetch("/api/chatDeal", {
+      method: "PATCH",
+      body: JSON.stringify({ productId }),
+      headers: {"Content-Type": "application/json"}
+    });
+    setIsDealt(true);
+    channel.current?.send({
+      type: "broadcast",
+      event: "deal-complete",
+    });
+  }
+
+  useEffect(()=>{
+    scrollTo(0,document.body.scrollHeight)
+    channel.current = supabaseClient.channel(`room-${chatRoomId}`)
+
+    channel.current.on("broadcast",{event:"message"},(payload)=>{
+      // 상대방이 보낸 메시지 업데이트
+      setMessages(prev => [...prev, payload.payload])
+    })
+
+    channel.current.on("broadcast",{event:"deal-complete"},()=>{
+      setIsDealt(true);
+    })
+
+    channel.current.subscribe();
+
+    return () => {
+      channel.current?.unsubscribe();
+    }
+  },[chatRoomId])
 
   return (
     <>
@@ -149,7 +168,7 @@ export default function ChatMessageList({initialMessages, userId, chatRoomId, us
           <div className="px-10 py-3 md:max-w-screen-xl mx-auto flex items-center gap-5">
             <Image className="size-14 rounded-lg overflow-hidden object-cover object-center" width={56} height={56} src={room.product.photo} alt="product"/>
             { userId == room.product.userId ?
-              <button onClick={()=>onClick(room.productId)} className="text-sm text-white rounded-md p-2 bg-primary hover:bg-primaryHover transition-colors">구매자에게 거래요청 보내기</button>
+              <button disabled={isDealt} onClick={dealRequest} className="text-sm text-white rounded-md p-2 bg-primary hover:bg-primaryHover transition-colors disabled:bg-neutral-400 disabled:text-neutral-300 disabled:cursor-not-allowed">구매자에게 거래요청 보내기</button>
               : <p className="text-sm">현재 거래중인 물건입니다</p>
             }
           </div>
@@ -169,16 +188,25 @@ export default function ChatMessageList({initialMessages, userId, chatRoomId, us
               )}
 
               {ele.type === "DEAL" && (
-                <div className="p-2 rounded-md text-sm bg-yellow-100 dark:bg-yellow-900 border border-yellow-400 text-yellow-800 dark:text-yellow-200">
-                  📝 <strong>{ele.user.username}</strong> 님이 거래를 요청했습니다.
-                  <div className="mt-1 flex gap-2">
-                    <button className="px-2 py-1 bg-green-600 text-white rounded text-xs hover:bg-green-700">수락</button>
-                    <button className="px-2 py-1 bg-red-500 text-white rounded text-xs hover:bg-red-600">거절</button>
-                  </div>
+                <div className="p-2 rounded-md text-sm text-black bg-lime-500 ">
+                  <strong>{ele.user.username}</strong>님이 거래를 요청했습니다.<br/>
+                  <p className="text-xs mt-1">&quot;거래하기&quot;를 누르면 거래가 완료됩니다!</p>
+                  <button onClick={()=>onClickDeal(room.productId)} className="mt-4 w-full h-10 bg-white rounded text-xs disabled:text-neutral-300 disabled:cursor-not-allowed" disabled={ele.userId === userId ? true : false}>거래하기</button>
                 </div>
               )}
-              
                 <span className="text-xs default-textColor">{formatToTimeAgo(ele.created_at.toString())}</span>
+              </div>
+            </div>
+          )}
+          {isDealt && (
+            <div className="w-full flex justify-center my-4">
+              <div className="rounded-md py-2 px-4 text-sm bg-yellow-200 text-black">
+                거래가 완료되었습니다. 리뷰를 작성해 주세요!
+                <button
+                  className="block mx-auto my-0 mt-2 md:inline md:mt-0 md:ml-3 px-4 h-10 text-xs bg-primary text-white rounded hover:bg-primaryHover transition-colors"
+                  onClick={() => router.push(`/chats/${room.id}/review`)}>
+                  리뷰 작성하기
+                </button>
               </div>
             </div>
           )}

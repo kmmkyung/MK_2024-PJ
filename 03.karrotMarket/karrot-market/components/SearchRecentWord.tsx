@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 
 export default function SearchRecentWord(){
   const router = useRouter()
-
   const [recent, setRecent] = useState([])
 
   function onClick(ele:string){
@@ -24,7 +23,7 @@ export default function SearchRecentWord(){
 
   useEffect(()=>{
     const savedSearchWords = localStorage.getItem('searchWords');    
-    const parsed = savedSearchWords ? JSON.parse(savedSearchWords) : null;    
+    const parsed = savedSearchWords ? JSON.parse(savedSearchWords) : [];    
     setRecent(parsed)
   },[])
 

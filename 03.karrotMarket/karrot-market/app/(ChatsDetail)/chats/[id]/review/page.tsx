@@ -1,4 +1,4 @@
-export default function TransactionCompleted(){
+export default function Review(){
   return (
     <section className="setting-page pt-20">
       <div className="bg-red-200">

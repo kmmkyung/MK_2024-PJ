@@ -8,7 +8,7 @@ export async function getRoom(id:string){
   const room = await db.chatRoom.findUnique({
     where: { id },
     include: {
-      product: { select: { photo: true, userId:true } },
+      product: { select: { photo: true, userId:true, dealt:true } },
       users: { select: { id: true } }
     }
   })

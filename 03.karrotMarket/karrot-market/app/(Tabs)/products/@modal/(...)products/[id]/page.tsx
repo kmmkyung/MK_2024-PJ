@@ -89,7 +89,7 @@ export default async function ModalPage({params}:{ params: Promise<{id:string}>}
                 <div className="mt-5">
                 {isOwner ?
                 <ProductOwnerButton numberId={numberId}/>
-                : <form action={createChatRoom}><button className="primary-link w-full px-5">채팅하기</button></form>}
+                : <form action={createChatRoom}><button disabled={product.dealt} className="primary-btn w-full px-5">채팅하기</button></form>}
                 </div>
               </div>
             </div>
