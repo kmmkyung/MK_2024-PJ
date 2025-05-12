@@ -6,11 +6,8 @@ export default function Review(){
         <p className="text-center text-sm text-gray-500 mt-2">거래가 완료되었습니다.</p>
       </div>
       <div>
-        <p>
-          거래가 완료되었습니다. <br />
-          구매자에게 거래 요청을 보내주세요. <br />
-          거래 요청을 수락하면 거래가 완료됩니다.
-        </p>
+        <p className="text-center text-sm text-gray-500 mt-2">거래 후기를 작성해주세요.</p>
+        <textarea/>
       </div>
     </section>
   )
