@@ -7,6 +7,7 @@ import PostLikeButton from "@/components/PostLikeButton";
 import PostCommentList from "@/components/PostCommentList";
 import { getUser } from "@/lib/getUser";
 import PostDelete from "@/components/PostDelete";
+import AnotherUsername from "@/components/AnotherUsername";
 
 export async function generateMetadata({params}:{ params: Promise<{id:string}>}){
   const {id} = await params
@@ -37,11 +38,7 @@ export default async function Post({params}:{params:{id:number}}){
         <div className="bg-neutral-100 shadow-lg shadow-neutral-200/50 rounded-lg p-5 dark:bg-neutral-800 dark:shadow-neutral-800/50 mb-5">
           <div className="flex items-center justify-between">
             <div className="flex gap-2 items-center">
-              <Image className="rounded-full overflow-hidden size-10" width={40} height={40} sizes="40px" src={post.user.avatar!} alt={post.user.username}/>
-              <div>
-                <h6 className="text-xs font-semibold">{post.user.username}</h6>
-                <span className="text-xs text-neutral-500">{formatToTimeAgo(post.created_at.toString())}</span>
-              </div>
+              <AnotherUsername userInfo={post.user} page="life" post={post.created_at}/>
             </div>
             { user.id === post.user.id ? <PostDelete postId={numberId}/> : null }
           </div>

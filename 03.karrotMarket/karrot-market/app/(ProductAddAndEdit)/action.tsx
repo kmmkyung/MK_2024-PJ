@@ -11,7 +11,7 @@ async function getProduct(id:number){
     where: { id: id },
     include: {
       user: {
-        select: { username:true, avatar:true }
+        select: { username:true, avatar:true, id:true }
       },
       _count: {
         select: { chatRoom:true }

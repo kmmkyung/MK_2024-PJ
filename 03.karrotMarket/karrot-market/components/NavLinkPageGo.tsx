@@ -10,10 +10,16 @@ export default function NavLinkPageGo(){
 
   function handleBack() {
     const cameFromSearch = sessionStorage.getItem('cameFromSearch') === 'true';
+    const cameFromAnotherUserProfile = sessionStorage.getItem('cameFromAnotherUserProfile') === 'true';
   
-    if (cameFromSearch) {
+    if (cameFromSearch || cameFromAnotherUserProfile) {
       router.back();
-      sessionStorage.removeItem('cameFromSearch');
+      if(cameFromSearch){
+        sessionStorage.removeItem('cameFromSearch');
+      }
+      else {
+        sessionStorage.removeItem('cameFromAnotherUserProfile');
+      }
     } else {
       // 그 외에는 fallback
       let fallback = '/';

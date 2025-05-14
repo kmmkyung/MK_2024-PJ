@@ -9,6 +9,7 @@ import getSession from "@/lib/session";
 import db from "@/lib/db";
 import { getProduct } from "@/app/(Tabs)/products/@modal/(...)products/[id]/action";
 import { revalidateTag } from "next/cache";
+import AnotherUsername from "@/components/AnotherUsername";
 
 export async function generateMetadata({params}:{ params: Promise<{id:string}>}){
   const {id} = await params
@@ -69,10 +70,7 @@ export default async function ProductDetail({params}:{ params: Promise<{id:strin
             <Image className="object-cover object-center rounded-lg" fill priority sizes="600px 600px" src={product.photo} alt={product.title}/>
           </div>
           <div className="flex items-center gap-2 md:mb-0 mb-5 mt-5">
-            <div className="size-8 rounded-full overflow-hidden flex items-center justify-center">
-              <Image width={40} height={40} sizes="40px" src={product.user.avatar!} alt={product.user.username}/>
-            </div>
-            <h3 className="text-sm">{product.user.username}</h3>
+            <AnotherUsername userInfo={product.user} page="product"/>
           </div>
         </div>
         <div className="w-full md:max-h-[640] aspect-auto pt-5 md:mb-0 md:pt-0 md:aspect-square md:pb-0 md:justify-between flex flex-col md:w-1/2 border-neutral-300 dark:border-neutral-700 border-t md:border-none">
