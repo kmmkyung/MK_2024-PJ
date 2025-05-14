@@ -11,7 +11,7 @@ import { revalidateTag } from "next/cache";
 const categoryEnum = z.nativeEnum(CategoryType)
 
 const productSchema  = z.object({
-  photo: z.string().min(1, "상품 사진은 필수입니다"),
+  photo: z.string({required_error: "상품 사진은 필수입니다"}).min(1, "상품 사진은 필수입니다"),
   title: z.string({
     required_error: "게시물 제목은 필수입니다"
   }).trim().min(1,"게시물 제목은 필수입니다"),
@@ -30,19 +30,28 @@ export async function uploadProduct(_: unknown, formData: FormData){
     title: formData.get('title'),
     price: formData.get('price'),
     description: formData.get('description'),
-    category: formData.get('category'),
+    category: formData.get('category') as CategoryType,
+    existingPhoto: formData.get('existingPhoto')
   }
-  
-  if(data.photo instanceof File){
+
+  if(data.photo instanceof File && data.photo.size > 0){
     const photoData = await data.photo.arrayBuffer()
-    await fs.appendFile(`./public/product/${data.photo.name}`,
+    const timestamp = Date.now();
+    await fs.writeFile(`./public/product/${timestamp}-${data.photo.name}`,
       Buffer.from(photoData)
     )
-    data.photo = `/product/${data.photo.name}`
+    data.photo = `/product/${timestamp}-${data.photo.name}`
   }
-  const result = productSchema.safeParse(data)
+  else if (typeof data.existingPhoto === "string"){
+    data.photo = data.existingPhoto
+  }
+  else {
+    data.photo = ''
+  }
+
+  const result = await productSchema.safeParseAsync(data)
   if(!result.success){
-    return result.error.flatten();
+    return { errors: result.error.flatten(), data }
   }
   else {
     const session = await getSession()

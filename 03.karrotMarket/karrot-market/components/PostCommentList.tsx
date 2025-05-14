@@ -45,7 +45,7 @@ export default function PostCommentList(props:IPostInput){
 
   const [state, formAction] = useActionState(addCommendFn, null);
 
-  // form action 시 실행하
+  // form action 시 실행
   // 임시 데이터 전달해 UI업데이트 -> 서버엑션 호출 -> addCommendFn 실행
   function handleSubmit(formData: FormData){
     const payload = formData.get("comment");    

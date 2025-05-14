@@ -33,17 +33,21 @@ export default function ProductEditForm(props:IAddAndEditProps){
   function onImageChange(event:React.ChangeEvent<HTMLInputElement>){
     const files = event.target.files;
     if(!files) return;
-
-    const file = files[0];
-    if(!file.type.startsWith('image/')) return { error: "이미지 파일만 업로드할 수 있습니다"}
-    const fileSize = file.size / (1024*1024)
-    if( fileSize > 3) {
-      return { error: "이미지 크기가 3MD 미만 이미지를 올려주세요"}
-    }
-    setImgFile(file);
-    const url = URL.createObjectURL(file)
-    setPreview(url)
+  
+  const file = files[0];
+  if (!file.type.startsWith("image/")) {
+    window.alert("이미지 파일만 업로드할 수 있습니다");
+    return;
   }
+  const fileSize = file.size / (1024 * 1024);
+  if (fileSize > 2) {
+    window.alert("이미지 크기가 2MB 미만 이미지를 올려주세요");
+    return;
+  }
+  setImgFile(file);
+  const url = URL.createObjectURL(file)
+  setPreview(url)
+}
 
   async function onSubmit(){
     const formData = new FormData();
@@ -65,7 +69,7 @@ export default function ProductEditForm(props:IAddAndEditProps){
       setErrors(null);
     }
   }
-
+  
   return (
     <section className="setting-page pt-20">
       <form action={onSubmit} className="flex flex-col gap-5 md:flex-row">
@@ -77,7 +81,6 @@ export default function ProductEditForm(props:IAddAndEditProps){
           <>
             <PhotoIcon className="size-20"/>
             <div className="text-sm text-neutral-400">사진을 추가해 주세요</div>
-            <p className="text-sm text-red-500">상품 사진은 필수입니다</p>
           </> : null
           }
           </label>
@@ -85,7 +88,7 @@ export default function ProductEditForm(props:IAddAndEditProps){
         </div>
         <div className="md:w-1/2 flex flex-col gap-3">
           <select name="category" required value={category} onChange={(event)=>setCategory(event.target.value as CategoryType)} className="text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all">
-            <option value="" disabled>카테고리를 선택하세요</option>
+            <option value="" hidden>카테고리를 선택하세요</option>
             <option value="Furniture">Furniture</option>
             <option value="Electronics">Electronics</option>
             <option value="Home_Garden">Home_Garden</option>

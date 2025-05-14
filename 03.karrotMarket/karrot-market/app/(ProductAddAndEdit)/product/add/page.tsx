@@ -5,46 +5,59 @@ import Input from "@/components/Input";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 import { useActionState, useState } from "react";
 import { uploadProduct } from "./action";
+import { CategoryType } from "@prisma/client";
 
 export default function AddProduct(){
   const [preview, setPreview] = useState('')
+
   function onImageChange(event:React.ChangeEvent<HTMLInputElement>){
     const files = event.target.files;
     if(!files) return;
 
     const file = files[0];
-    if(!file.type.startsWith('image/')) return { error: "이미지 파일만 업로드할 수 있습니다"}
-    const fileSize = file.size / (1024*1024)
-    if( fileSize > 3) {
-      return { error: "이미지 크기가 3MD 미만 이미지를 올려주세요"}
+    if (!file.type.startsWith("image/")) {
+      window.alert("이미지 파일만 업로드할 수 있습니다");
+      return;
+    }
+    const fileSize = file.size / (1024 * 1024);
+    if (fileSize > 2) {
+      window.alert("이미지 크기가 2MB 미만 이미지를 올려주세요");
+      return;
     }
     const url = URL.createObjectURL(file)
     setPreview(url)
   }
 
   const [ state, action ] = useActionState(uploadProduct, null)
+  const { errors, data } = state || {};
+  const [category, setCategory] = useState(data?.category as CategoryType);
+  
+  function onChange(event:React.ChangeEvent<HTMLSelectElement>){
+    setCategory(event.target.value as CategoryType)
+  }
 
   return (
     <>
     <section className="setting-page pt-20">
       <form action={action} className="flex flex-col gap-5 md:flex-row">
         <div className="md:w-1/2">
-          <label htmlFor="photo" className="border-2 border-neutral-400 aspect-square flex flex-col items-center justify-center text-neutral-400 rounded-2xl border-dashed cursor-pointer bg-center bg-cover"
+          <label htmlFor="photo" className={`border-2 aspect-square flex flex-col items-center justify-center rounded-2xl border-dashed cursor-pointer bg-center bg-cover ${errors?.fieldErrors.photo ? "border-red-500": "border-neutral-400"}`}
           style={{backgroundImage:`url(${preview})`}}
           >
           {preview === ""?
           <>
-            <PhotoIcon className="size-20"/>
-            <div className="text-sm text-neutral-400">사진을 추가해 주세요</div>
-            <p className="text-sm text-red-500">상품 사진은 필수입니다</p>
+            <PhotoIcon className={`size-20 ${errors?.fieldErrors.photo ? "text-red-500":"text-neutral-400"}`}/>
+            <div className={`text-sm ${errors?.fieldErrors.photo ? "text-red-500" : "text-neutral-400"}`}>2MB 미만 이미지를 추가해 주세요</div>
           </> : null
           }
           </label>
-          <input onChange={onImageChange} required className="hidden" type="file" id="photo" name="photo" accept="image/*"/>
+          <input onChange={onImageChange} className="hidden" type="file" id="photo" name="photo" accept="image/*"/>
+          {data?.photo && <input name="existingPhoto" type="hidden" value={data?.photo.toString()} /> }
+          {errors?.fieldErrors.photo && <p className="text-red-500 mt-3 text-sm">{errors.fieldErrors.photo}</p>}
         </div>
         <div className="md:w-1/2 flex flex-col gap-3">
-          <select name="category" required defaultValue="" className="text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all">
-            <option value="" disabled>카테고리를 선택하세요</option>
+          <select key={data?.category ?? ""} name="category" defaultValue={category} required className="text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all" onChange={onChange}>
+            <option value="" hidden>카테고리를 선택하세요</option>
             <option value="Furniture">Furniture</option>
             <option value="Electronics">Electronics</option>
             <option value="Home_Garden">Home_Garden</option>
@@ -56,11 +69,11 @@ export default function AddProduct(){
             <option value="Pet">Pet</option>
             <option value="Other">Other</option>
           </select>
-          <Input name="title" placeholder="제목" type="text" required errors={state?.fieldErrors.title}/>
-          <Input name="price" placeholder="가격을 입력해 주세요" type="number" required errors={state?.fieldErrors.price}/>
+          <Input name="title" placeholder="제목" type="text" required errors={errors?.fieldErrors.title} defaultValue={data?.title?.toString()}/>
+          <Input name="price" placeholder="가격을 입력해 주세요" type="number" required errors={errors?.fieldErrors.price} defaultValue={data?.price?.toString()}/>
           <div>
-            <textarea name="description" placeholder="게시글 내용을 작성해 주세요" required className="align-middle h-40 text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all" />
-              {state?.fieldErrors.description && state.fieldErrors.description.map((ele,idx)=>{
+            <textarea name="description" placeholder="게시글 내용을 작성해 주세요" required className="align-middle h-40 text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all" defaultValue={data?.description?.toString()}/>
+              {errors?.fieldErrors.description && errors.fieldErrors.description.map((ele,idx)=>{
                 return <p key={idx} className="text-red-500 mt-3 text-sm">{ele}</p>
               })}
           </div>

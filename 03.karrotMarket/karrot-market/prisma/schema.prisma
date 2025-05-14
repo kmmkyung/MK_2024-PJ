@@ -25,7 +25,7 @@ model User {
   like Like[]
   chatRoom ChatRoom[]
   message Message[]
-  evaluation Evaluation[]
+  review Review[]
 }
 
 model SMSToken {
@@ -63,6 +63,7 @@ model Product {
   category CategoryType
   chatRoom ChatRoom[]
   dealt Boolean @default(false)
+  review Review[]
 }
 
 model Post {
@@ -128,13 +129,15 @@ model Message {
   type MessageType @default(TEXT)
 }
 
-model Evaluation{
+model Review{
   id Int @id @default(autoincrement())
   created_at DateTime @default(now()) 
   updated_at DateTime @updatedAt
   payload String
   userId Int
   users User[]
+  productId Int
+  product Product @relation(fields: [productId], references: [id])
 }
 
   // npx prisma migrate dev

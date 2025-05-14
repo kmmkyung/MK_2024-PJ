@@ -35,7 +35,7 @@ export async function getEditProduct(id:number){
       description: true,
       category: true,
     }
-  })
+  })  
   return editProduct
 }
 
