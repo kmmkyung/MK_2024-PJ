@@ -34,6 +34,7 @@ interface ChatMessageListProps {
     created_at: Date;
     updated_at: Date;
     productId: number;
+    review: { id: number; payload: string; userId: number }[]
   }
 }
 
@@ -44,8 +45,7 @@ export default function ChatMessageList({initialMessages, userId, chatRoomId, us
   const [isDealt, setIsDealt] = useState(room.product.dealt);
   const channel = useRef<RealtimeChannel>(null);
   const messageContainerRef = useRef<HTMLDivElement>(null);
-  console.log(room.product.dealt);
-  
+  const myReview = Boolean(room.review.find((ele) => ele.userId === user.id));
 
   function onChange(event:React.ChangeEvent<HTMLInputElement>){
     const value = event.target.value;
@@ -141,6 +141,15 @@ export default function ChatMessageList({initialMessages, userId, chatRoomId, us
     });
   }
 
+  function onClickReview(){
+    if(isDealt&&myReview){
+      router.push("/profile")
+    }
+    else{
+      router.push(`/chats/${room.id}/review`)
+    }
+  }
+
   useEffect(()=>{
     scrollTo(0,document.body.scrollHeight)
     channel.current = supabaseClient.channel(`room-${chatRoomId}`)
@@ -169,7 +178,7 @@ export default function ChatMessageList({initialMessages, userId, chatRoomId, us
             <Image className="size-14 rounded-lg overflow-hidden object-cover object-center" width={56} height={56} src={room.product.photo} alt="product"/>
             { userId == room.product.userId ?
               <button disabled={isDealt} onClick={dealRequest} className="text-sm text-white rounded-md p-2 bg-primary hover:bg-primaryHover transition-colors disabled:bg-neutral-400 disabled:text-neutral-300 disabled:cursor-not-allowed">구매자에게 거래요청 보내기</button>
-              : <p className="text-sm">현재 거래중인 물건입니다</p>
+              : (isDealt? <p className="text-sm">거래 완료된 물건입니다</p>:<p className="text-sm">현재 거래중인 물건입니다</p>)
             }
           </div>
         </div>
@@ -191,7 +200,9 @@ export default function ChatMessageList({initialMessages, userId, chatRoomId, us
                 <div className="p-2 rounded-md text-sm text-black bg-lime-500 ">
                   <strong>{ele.user.username}</strong>님이 거래를 요청했습니다.<br/>
                   <p className="text-xs mt-1">&quot;거래하기&quot;를 누르면 거래가 완료됩니다!</p>
-                  <button onClick={()=>onClickDeal(room.productId)} className="mt-4 w-full h-10 bg-white rounded text-xs disabled:text-neutral-300 disabled:cursor-not-allowed" disabled={ele.userId === userId ? true : false}>거래하기</button>
+                  <button onClick={()=>onClickDeal(room.productId)} className="mt-4 w-full h-10 bg-white rounded text-xs disabled:text-neutral-300 disabled:cursor-not-allowed" disabled={ele.userId === userId ? true : false || isDealt}>
+                    {isDealt? "거래 완료된 물건입니다" : "거래하기"}
+                  </button>
                 </div>
               )}
                 <span className="text-xs default-textColor">{formatToTimeAgo(ele.created_at.toString())}</span>
@@ -201,11 +212,11 @@ export default function ChatMessageList({initialMessages, userId, chatRoomId, us
           {isDealt && (
             <div className="w-full flex justify-center my-4">
               <div className="rounded-md py-2 px-4 text-sm bg-yellow-200 text-black">
-                거래가 완료되었습니다. 리뷰를 작성해 주세요!
+              { myReview ? "작성하신 리뷰가 있습니다. 마이페이지에서 확인해 주세요!" : "거래가 완료되었습니다. 리뷰를 작성해 주세요!"}
                 <button
-                  className="block mx-auto my-0 mt-2 md:inline md:mt-0 md:ml-3 px-4 h-10 text-xs bg-primary text-white rounded hover:bg-primaryHover transition-colors"
-                  onClick={() => router.push(`/chats/${room.id}/review`)}>
-                  리뷰 작성하기
+                  className="block mx-auto my-0 mt-2 md:inline md:mt-0 md:ml-3 px-4 h-10 text-xs bg-primary text-white rounded hover:bg-primaryHover transition-colors disabled:bg-neutral-400 disabled:text-neutral-300 disabled:cursor-not-allowed"
+                  onClick={onClickReview}>
+                  {myReview? "작성한 리뷰 확인하기" : "리뷰 작성하기"}
                 </button>
               </div>
             </div>

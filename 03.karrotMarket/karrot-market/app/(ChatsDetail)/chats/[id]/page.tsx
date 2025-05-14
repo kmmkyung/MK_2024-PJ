@@ -9,6 +9,8 @@ import { getUser } from "@/lib/getUser";
 export default async function ChatDetailRoom({params}:{params:{id:string}}){
   const {id} = await params;
   const room = await getRoom(id)
+  console.log(room);
+  
   if(!room) return notFound();
 
   const user = await getUser();

@@ -9,7 +9,8 @@ export async function getRoom(id:string){
     where: { id },
     include: {
       product: { select: { photo: true, userId:true, dealt:true } },
-      users: { select: { id: true } }
+      users: { select: { id: true } },
+      review: { select: { id: true, payload: true, userId: true }}
     }
   })
   if(room){

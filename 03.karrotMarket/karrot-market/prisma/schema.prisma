@@ -109,6 +109,7 @@ model ChatRoom {
   message Message[]
   productId Int
   product Product @relation(fields: [productId], references: [id])
+  review Review[]
 }
 
 enum MessageType {
@@ -138,6 +139,8 @@ model Review{
   users User[]
   productId Int
   product Product @relation(fields: [productId], references: [id])
+  chatRoomId String
+  chatRoom ChatRoom @relation(fields: [chatRoomId], references: [id])
 }
 
   // npx prisma migrate dev
