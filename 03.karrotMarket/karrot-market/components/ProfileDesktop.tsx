@@ -3,15 +3,19 @@
 import Image from "next/image";
 import { ArrowLeftStartOnRectangleIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { IUserProfile } from "@/app/(Tabs)/profile/page";
 import { logOut } from "@/app/(Tabs)/profile/action";
+import { IUserProfile, IUserProducts, IUserPosts, IUserReviews } from "@/app/(Tabs)/profile/layout";
 
 interface Props {
   user: IUserProfile;
+  userProducts: IUserProducts[];
+  userBuyProducts: IUserProducts[];
+  userPosts: IUserPosts[];
+  userReviews: IUserReviews[]
   children: React.ReactNode;
 }
 
-export default function ProfileDesktop({user, children}:Props){
+export default function ProfileDesktop({user, userProducts, userBuyProducts, userPosts, userReviews, children}:Props){
   return (
     <section className="pt-[60px] pb-[70px] h-screen md:bg-neutral-100 md:dark:bg-neutral-900">
       <div className="my-5 flex flex-col items-start md:flex-row gap-5 max-w-screen-xl mx-auto h-full px-10">
@@ -77,7 +81,7 @@ export default function ProfileDesktop({user, children}:Props){
             </div>
           </div>
         </div>
-        <main className="px-10 py-5 bg-white dark:bg-neutral-800 w-full h-full rounded-md">
+        <main className="px-10 py-10 bg-white dark:bg-neutral-800 w-full h-full rounded-md">
           {children}
         </main>
       </div>

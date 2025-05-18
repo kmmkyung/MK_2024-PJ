@@ -1,6 +1,5 @@
 export default async function Profile(){
-
   return (
-    <div></div>
+    <div>대쉬보드</div>
   )
 }
