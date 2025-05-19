@@ -27,12 +27,12 @@ export default {
         primary: "#f97316",
       },
       animation : {
-        loaderAn: 'loader 1s linear infinite',
+        gradient: 'fontColorGradient 5s linear infinite',
       },
       keyframes: {
-        loader: {
-          "0%": { transform: "rotate(0deg)" },
-          "100%": { transform: "rotate(360deg)" }
+        fontColorGradient: {
+          "0%, 100%": { backgroundPosition: "-0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
         },
       }
     }

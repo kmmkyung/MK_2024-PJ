@@ -3,7 +3,7 @@
 import { IUserPosts, IUserProducts, IUserProfile, IUserReviews } from "@/app/(Tabs)/profile/layout";
 import { createContext, useContext } from "react";
 
-interface userContextType {
+export interface userContextType {
   user: IUserProfile;
   userProducts: IUserProducts[]|[];
   userBuyProducts: IUserProducts[]|[];

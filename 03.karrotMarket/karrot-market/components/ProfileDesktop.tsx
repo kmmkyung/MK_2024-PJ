@@ -7,7 +7,7 @@ import { logOut } from "@/app/(Tabs)/profile/action";
 import { useUserContext } from "@/context/userContext";
 
 export default function ProfileDesktop({children}:{children: React.ReactNode}) {
-  const { user, userProducts, userBuyProducts, userPosts, userReviews } = useUserContext();
+  const { user } = useUserContext();
 
   return (
     <section className="pt-[60px] pb-[70px] h-screen md:bg-neutral-100 md:dark:bg-neutral-900">
@@ -15,16 +15,20 @@ export default function ProfileDesktop({children}:{children: React.ReactNode}) {
         <div className="w-full md:basis-2/5 flex-shrink-0 rounded-md overflow-hidden">
           {/* 사진 & 닉네임 */}
           <div className="setting-profileBox py-4">
-            <h1 className="font-bold text-xl md:border-b border-neutral-100 dark:border-neutral-900 pb-4">
-              <span className="text-primary">반가워요!</span> {user?.username}님
+            <h1 className="font-bold text-xl md:border-b border-neutral-100 dark:border-neutral-900 pb-4 flex gap-2">
+              <span className="flex-shrink-0
+                bg-gradient-to-r from-orange-500 via-lime-500 to-orange-500
+                bg-clip-text text-transparent animate-gradient bg-[length:200%_200%] 
+              ">반가워요!</span>
+              <span className="text-ellipsis whitespace-nowrap overflow-hidden">{user.username}님</span>
             </h1>
             <Link href={"/profile/edit"}>
               <div className="flex items-center justify-between pt-4">
-                <div className="flex items-center gap-3">
-                  <Image className="size-10 rounded-full overflow-hidden" width={40} height={40} src={user.avatar!} alt={user.username}/>
-                  <h3 className="text-base font-semibold default-textColor">{user.username}</h3>
+                <div className="flex items-center gap-3 min-w-0">
+                  <Image className="flex-shrink-0 size-10 rounded-full overflow-hidden" width={40} height={40} src={user.avatar ?? "/image/rabbit.png"} alt={user.username}/>
+                  <h3 className="text-base font-semibold default-textColor text-ellipsis whitespace-nowrap overflow-hidden">{user.username}</h3>
                 </div>
-                <ChevronRightIcon className="w-5 h-5 text-neutral-500"/>
+                <ChevronRightIcon className="flex-shrink-0 w-5 h-5 text-neutral-500"/>
               </div>
             </Link>
           </div>

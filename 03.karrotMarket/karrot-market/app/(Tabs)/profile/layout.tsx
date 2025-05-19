@@ -4,7 +4,7 @@ import ProfileMobile from "@/components/ProfileMobile";
 import ProfileDesktop from "@/components/ProfileDesktop";
 import { getUserBuyProducts, getUserPosts, getUserProducts, getUserReviews } from "./action";
 import { CategoryType } from "@prisma/client";
-import { UserContext } from "@/context/userContext";
+import UserProvider from "@/components/UserProvider";
 
 export interface IUserProfile {
   id: number;
@@ -58,16 +58,21 @@ export default async function layout({children}: Readonly<{children: React.React
   const isMobile = /mobile|android|iphone|ipad/i.test(userAgent);
 
   const user = await getUser();
-  const userProducts = await getUserProducts(user.id);
-  const userBuyProducts = await getUserBuyProducts(user.id);
-  const userPosts = await getUserPosts(user.id);
-  const userReviews = await getUserReviews(user.id);  
+  const [userProducts, userBuyProducts, userPosts, userReviews] = await Promise.all([
+    getUserProducts(user.id),
+    getUserBuyProducts(user.id),
+    getUserPosts(user.id),
+    getUserReviews(user.id),
+  ]);
+
+  const providerValue = { user, userProducts, userBuyProducts, userPosts, userReviews };
+
 
   return isMobile
-    ? <UserContext.Provider value={{user, userProducts, userBuyProducts, userPosts, userReviews}}>
+    ? <UserProvider value={providerValue}>
         <ProfileMobile>{children}</ProfileMobile>
-      </UserContext.Provider>
-    : <UserContext.Provider value={{user, userProducts, userBuyProducts, userPosts, userReviews}}>
+      </UserProvider>
+    : <UserProvider value={providerValue}>
         <ProfileDesktop>{children}</ProfileDesktop>
-      </UserContext.Provider>
+      </UserProvider>
 }
