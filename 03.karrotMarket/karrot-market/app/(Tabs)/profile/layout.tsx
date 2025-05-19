@@ -4,6 +4,7 @@ import ProfileMobile from "@/components/ProfileMobile";
 import ProfileDesktop from "@/components/ProfileDesktop";
 import { getUserBuyProducts, getUserPosts, getUserProducts, getUserReviews } from "./action";
 import { CategoryType } from "@prisma/client";
+import { UserContext } from "@/context/userContext";
 
 export interface IUserProfile {
   id: number;
@@ -63,6 +64,10 @@ export default async function layout({children}: Readonly<{children: React.React
   const userReviews = await getUserReviews(user.id);  
 
   return isMobile
-    ? <ProfileMobile user={user}>{children}</ProfileMobile>
-    : <ProfileDesktop user={user} userProducts={userProducts} userBuyProducts={userBuyProducts} userPosts={userPosts} userReviews={userReviews}>{children}</ProfileDesktop>
+    ? <UserContext.Provider value={{user, userProducts, userBuyProducts, userPosts, userReviews}}>
+        <ProfileMobile>{children}</ProfileMobile>
+      </UserContext.Provider>
+    : <UserContext.Provider value={{user, userProducts, userBuyProducts, userPosts, userReviews}}>
+        <ProfileDesktop>{children}</ProfileDesktop>
+      </UserContext.Provider>
 }

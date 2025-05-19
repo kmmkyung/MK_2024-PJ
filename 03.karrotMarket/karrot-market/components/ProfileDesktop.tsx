@@ -4,18 +4,11 @@ import Image from "next/image";
 import { ArrowLeftStartOnRectangleIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { logOut } from "@/app/(Tabs)/profile/action";
-import { IUserProfile, IUserProducts, IUserPosts, IUserReviews } from "@/app/(Tabs)/profile/layout";
+import { useUserContext } from "@/context/userContext";
 
-interface Props {
-  user: IUserProfile;
-  userProducts: IUserProducts[];
-  userBuyProducts: IUserProducts[];
-  userPosts: IUserPosts[];
-  userReviews: IUserReviews[]
-  children: React.ReactNode;
-}
+export default function ProfileDesktop({children}:{children: React.ReactNode}) {
+  const { user, userProducts, userBuyProducts, userPosts, userReviews } = useUserContext();
 
-export default function ProfileDesktop({user, userProducts, userBuyProducts, userPosts, userReviews, children}:Props){
   return (
     <section className="pt-[60px] pb-[70px] h-screen md:bg-neutral-100 md:dark:bg-neutral-900">
       <div className="my-5 flex flex-col items-start md:flex-row gap-5 max-w-screen-xl mx-auto h-full px-10">
