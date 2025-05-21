@@ -10,8 +10,8 @@ export default function ProfileDesktop({children}:{children: React.ReactNode}) {
   const { user } = useUserContext();
 
   return (
-    <section className="pt-[60px] pb-[70px] h-screen md:bg-neutral-100 md:dark:bg-neutral-900">
-      <div className="my-5 flex flex-col items-start md:flex-row gap-5 max-w-screen-xl mx-auto h-full px-10">
+    <section className="pt-[60px] pb-[70px] min-h-screen md:bg-neutral-100 md:dark:bg-neutral-900">
+      <div className="my-5 max-w-screen-xl min-h-[calc(100vh-170px)] mx-auto px-10 grid grid-cols-1 gap-5 md:grid-cols-[1fr_2fr]">
         <div className="w-full md:basis-2/5 flex-shrink-0 rounded-md overflow-hidden">
           {/* 사진 & 닉네임 */}
           <div className="setting-profileBox py-4">
@@ -71,14 +71,15 @@ export default function ProfileDesktop({children}:{children: React.ReactNode}) {
             </div>
             {/* 로그아웃 */}
             <div className="setting-profileBox pt-0">
-              <form action={logOut} className="pt-2 flex items-center justify-between border-t border-neutral-100 dark:border-neutral-900">
-                <button className="text-sm font-semibold py-3">로그아웃</button>
+              <form action={logOut} className="pt-2 border-t border-neutral-100 dark:border-neutral-900">
+                <button className="text-sm font-semibold py-3 flex items-center justify-between w-full">로그아웃
                 <ArrowLeftStartOnRectangleIcon className="w-5 h-5 text-neutral-500"/>
+                </button>
               </form>
             </div>
           </div>
         </div>
-        <main className="px-10 py-10 bg-white dark:bg-neutral-800 w-full h-full rounded-md">
+        <main className="min-h-full px-10 py-10 bg-white dark:bg-neutral-800 w-full h-auto rounded-md">
           {children}
         </main>
       </div>

@@ -9,6 +9,7 @@ export interface userContextType {
   userBuyProducts: IUserProducts[]|[];
   userPosts: IUserPosts[]|[];
   userReviews: IUserReviews[]|[];
+  userSendReview: IUserReviews[]|[];
 }
 
 export const UserContext = createContext<userContextType>(

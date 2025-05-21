@@ -2,7 +2,7 @@ import { getUser } from "@/lib/getUser";
 import { headers } from "next/headers";
 import ProfileMobile from "@/components/ProfileMobile";
 import ProfileDesktop from "@/components/ProfileDesktop";
-import { getUserBuyProducts, getUserPosts, getUserProducts, getUserReviews } from "./action";
+import { getUserBuyProducts, getUserPosts, getUserProducts, getUserReviews, getUserSendReviews } from "./action";
 import { CategoryType } from "@prisma/client";
 import UserProvider from "@/components/UserProvider";
 
@@ -48,8 +48,11 @@ export interface IUserReviews {
   updated_at: Date;
   payload: string;
   userId: number;
+  targetId: number;
+  authorId: number;
   productId: number;
   chatRoomId: string;
+  author: IUserProfile;
 }
 
 export default async function layout({children}: Readonly<{children: React.ReactNode;}>) {
@@ -58,14 +61,15 @@ export default async function layout({children}: Readonly<{children: React.React
   const isMobile = /mobile|android|iphone|ipad/i.test(userAgent);
 
   const user = await getUser();
-  const [userProducts, userBuyProducts, userPosts, userReviews] = await Promise.all([
+  const [userProducts, userBuyProducts, userPosts, userReviews, userSendReview] = await Promise.all([
     getUserProducts(user.id),
     getUserBuyProducts(user.id),
     getUserPosts(user.id),
     getUserReviews(user.id),
+    getUserSendReviews(user.id),
   ]);
 
-  const providerValue = { user, userProducts, userBuyProducts, userPosts, userReviews };
+  const providerValue = { user, userProducts, userBuyProducts, userPosts, userReviews, userSendReview };
 
 
   return isMobile

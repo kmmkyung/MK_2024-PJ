@@ -1,6 +1,4 @@
 import notFound from "@/app/not-found";
-import { formatToTimeAgo } from "@/lib/utils";
-import Image from "next/image";
 import { EyeIcon } from "@heroicons/react/24/solid";
 import { cachedPost, cachedLikeStatus, cachedGetComments, getPostView } from "./action";
 import PostLikeButton from "@/components/PostLikeButton";

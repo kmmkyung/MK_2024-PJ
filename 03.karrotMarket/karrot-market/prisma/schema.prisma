@@ -8,34 +8,35 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement())
-  username String @unique
-  email String? @unique
-  password String?
-  phone String? @unique
-  github_id String? @unique
-  google_id String? @unique
-  kakao_id String? @unique
-  avatar String? @default("/image/rabbit.png")
-  updated_at DateTime @updatedAt
-  SMSToken SMSToken[]
-  product Product[]
-  post Post[]
-  comment Comment[]
-  like Like[]
-  chatRoom ChatRoom[]
-  message Message[]
-  review Review[]
+  id              Int        @id @default(autoincrement())
+  username        String     @unique
+  email           String?    @unique
+  password        String?
+  phone           String?    @unique
+  github_id       String?    @unique
+  google_id       String?    @unique
+  kakao_id        String?    @unique
+  avatar          String?    @default("/image/rabbit.png")
+  updated_at      DateTime   @updatedAt
+  SMSToken        SMSToken[]
+  product         Product[]
+  post            Post[]
+  comment         Comment[]
+  like            Like[]
+  chatRoom        ChatRoom[]
+  message         Message[]
+  writtenReviews  Review[]   @relation("Author")
+  receivedReviews Review[]   @relation("Target")
 }
 
 model SMSToken {
-  id Int @id @default(autoincrement())
-  token Int @unique
-  created_at DateTime @default(now()) 
+  id         Int      @id @default(autoincrement())
+  token      Int      @unique
+  created_at DateTime @default(now())
   updated_at DateTime @updatedAt
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId Int
-  }
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     Int
+}
 
 enum CategoryType {
   Furniture
@@ -51,65 +52,66 @@ enum CategoryType {
 }
 
 model Product {
-  id Int @id @default(autoincrement())
-  title String
-  price Float
+  id          Int          @id @default(autoincrement())
+  title       String
+  price       Float
   description String
-  photo String
-  created_at DateTime @default(now()) 
-  updated_at DateTime @updatedAt
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId Int
-  category CategoryType
-  chatRoom ChatRoom[]
-  dealt Boolean @default(false)
-  review Review[]
+  photo       String
+  created_at  DateTime     @default(now())
+  updated_at  DateTime     @updatedAt
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      Int
+  category    CategoryType
+  chatRoom    ChatRoom[]
+  dealt       Boolean      @default(false)
+  review      Review[]
 }
 
 model Post {
-  id Int @id @default(autoincrement())
-  title String
+  id          Int       @id @default(autoincrement())
+  title       String
   description String
-  views Int @default(0)
-  created_at DateTime @default(now()) 
-  updated_at DateTime @updatedAt
-  userId Int
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  comment Comment[]
-  like Like[]
+  views       Int       @default(0)
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+  userId      Int
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  comment     Comment[]
+  like        Like[]
 }
 
 model Comment {
-  id Int @id @default(autoincrement())
-  payload String
-  created_at DateTime @default(now()) 
+  id         Int      @id @default(autoincrement())
+  payload    String
+  created_at DateTime @default(now())
   updated_at DateTime @updatedAt
-  userId Int
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  postId Int
-  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+  userId     Int
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  postId     Int
+  post       Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
 }
 
 model Like {
-  @@id(name: "id",[userId, postId])
-  created_at DateTime @default(now()) 
+  created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
   userId Int
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
   postId Int
-  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+  post   Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@id(name: "id", [userId, postId])
 }
 
 model ChatRoom {
-  id String @id @default(cuid())
-  users User[]
-  created_at DateTime @default(now()) 
-  updated_at DateTime @updatedAt
-  message Message[]
-  productId Int
-  product Product @relation(fields: [productId], references: [id])
-  review Review[]
+  id         String    @id @default(cuid())
+  users      User[]
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+  message    Message[]
+  productId  Int
+  product    Product   @relation(fields: [productId], references: [id])
+  review     Review[]
 }
 
 enum MessageType {
@@ -118,30 +120,33 @@ enum MessageType {
 }
 
 model Message {
-  id Int @id @default(autoincrement())
-  created_at DateTime @default(now()) 
-  updated_at DateTime @updatedAt
-  payload String
+  id         Int         @id @default(autoincrement())
+  created_at DateTime    @default(now())
+  updated_at DateTime    @updatedAt
+  payload    String
   chatRoomId String
-  userId Int
-  room ChatRoom @relation(fields: [chatRoomId], references: [id])
-  user User @relation(fields: [userId], references: [id])
-  view Boolean @default(false)
-  type MessageType @default(TEXT)
+  userId     Int
+  room       ChatRoom    @relation(fields: [chatRoomId], references: [id])
+  user       User        @relation(fields: [userId], references: [id])
+  view       Boolean     @default(false)
+  type       MessageType @default(TEXT)
 }
 
-model Review{
-  id Int @id @default(autoincrement())
-  created_at DateTime @default(now()) 
+model Review {
+  id         Int      @id @default(autoincrement())
+  created_at DateTime @default(now())
   updated_at DateTime @updatedAt
-  payload String
-  userId Int
-  users User[]
-  productId Int
-  product Product @relation(fields: [productId], references: [id])
+  payload    String
+  userId     Int
+  authorId   Int
+  author     User     @relation("Author", fields: [authorId], references: [id])
+  targetId   Int
+  target     User     @relation("Target", fields: [authorId], references: [id])
+  productId  Int
+  product    Product  @relation(fields: [productId], references: [id])
   chatRoomId String
-  chatRoom ChatRoom @relation(fields: [chatRoomId], references: [id])
+  chatRoom   ChatRoom @relation(fields: [chatRoomId], references: [id])
 }
 
-  // npx prisma migrate dev
-  // npx prisma studio
+// npx prisma migrate dev
+// npx prisma studio

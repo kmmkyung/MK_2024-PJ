@@ -13,12 +13,8 @@ export async function saveReview(room:ReviewFormProps, payload:string) {
       data: {
         payload,
         userId: session.id,
-        users: {
-          connect: [
-            { id: room.product.userId },
-            { id: session.id },
-          ],
-        },
+        targetId: room.users.find(user => user.id !== session.id)!.id,
+        authorId: session.id,
         productId: room.productId,
         chatRoomId: room.id,
       }

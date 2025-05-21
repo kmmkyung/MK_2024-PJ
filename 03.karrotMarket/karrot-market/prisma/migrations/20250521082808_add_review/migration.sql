@@ -1,18 +1,18 @@
 -- CreateTable
-CREATE TABLE "Evaluation" (
+CREATE TABLE "Review" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" DATETIME NOT NULL,
     "payload" TEXT NOT NULL,
-    "userId" INTEGER NOT NULL
-);
-
--- CreateTable
-CREATE TABLE "_EvaluationToUser" (
-    "A" INTEGER NOT NULL,
-    "B" INTEGER NOT NULL,
-    CONSTRAINT "_EvaluationToUser_A_fkey" FOREIGN KEY ("A") REFERENCES "Evaluation" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT "_EvaluationToUser_B_fkey" FOREIGN KEY ("B") REFERENCES "User" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+    "userId" INTEGER NOT NULL,
+    "authorId" INTEGER NOT NULL,
+    "targetId" INTEGER NOT NULL,
+    "productId" INTEGER NOT NULL,
+    "chatRoomId" TEXT NOT NULL,
+    CONSTRAINT "Review_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "Review_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "Review_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "Review_chatRoomId_fkey" FOREIGN KEY ("chatRoomId") REFERENCES "ChatRoom" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- RedefineTables
@@ -35,9 +35,3 @@ DROP TABLE "Message";
 ALTER TABLE "new_Message" RENAME TO "Message";
 PRAGMA foreign_keys=ON;
 PRAGMA defer_foreign_keys=OFF;
-
--- CreateIndex
-CREATE UNIQUE INDEX "_EvaluationToUser_AB_unique" ON "_EvaluationToUser"("A", "B");
-
--- CreateIndex
-CREATE INDEX "_EvaluationToUser_B_index" ON "_EvaluationToUser"("B");
