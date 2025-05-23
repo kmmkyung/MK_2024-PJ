@@ -28,6 +28,7 @@ interface ChatMessageListProps {
   room: {
     users: {
       id: number;
+      username: string;
     }[]
     product: { photo: string; userId: number; dealt: boolean };
     id: string;

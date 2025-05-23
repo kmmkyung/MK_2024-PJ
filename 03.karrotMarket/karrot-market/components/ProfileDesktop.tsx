@@ -10,9 +10,9 @@ export default function ProfileDesktop({children}:{children: React.ReactNode}) {
   const { user } = useUserContext();
 
   return (
-    <section className="pt-[60px] pb-[70px] min-h-screen md:bg-neutral-100 md:dark:bg-neutral-900">
-      <div className="my-5 max-w-screen-xl min-h-[calc(100vh-170px)] mx-auto px-10 grid grid-cols-1 gap-5 md:grid-cols-[1fr_2fr]">
-        <div className="w-full md:basis-2/5 flex-shrink-0 rounded-md overflow-hidden">
+    <section className="pt-[60px] pb-[70px] min-h-screen bg-neutral-100 dark:bg-neutral-900">
+      <div className="md:my-5 max-w-screen-xl min-h-[calc(100vh-170px)] mx-auto md:px-10 grid grid-cols-1 gap-5 md:grid-cols-[1fr_2fr]">
+        <div className="w-full md:basis-2/5 flex-shrink-0 rounded-md overflow-hidden bg-white dark:bg-neutral-800">
           {/* 사진 & 닉네임 */}
           <div className="setting-profileBox py-4">
             <h1 className="font-bold text-xl md:border-b border-neutral-100 dark:border-neutral-900 pb-4 flex gap-2">
@@ -79,7 +79,7 @@ export default function ProfileDesktop({children}:{children: React.ReactNode}) {
             </div>
           </div>
         </div>
-        <main className="min-h-full px-10 py-10 bg-white dark:bg-neutral-800 w-full h-auto rounded-md">
+        <main className="min-h-full bg-white dark:bg-neutral-800 w-full h-auto rounded-md">
           {children}
         </main>
       </div>

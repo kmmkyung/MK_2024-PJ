@@ -71,7 +71,6 @@ export default async function layout({children}: Readonly<{children: React.React
 
   const providerValue = { user, userProducts, userBuyProducts, userPosts, userReviews, userSendReview };
 
-
   return isMobile
     ? <UserProvider value={providerValue}>
         <ProfileMobile>{children}</ProfileMobile>
