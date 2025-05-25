@@ -70,7 +70,13 @@ export default async function ProductDetail({params}:{ params: Promise<{id:strin
             <Image className="object-cover object-center rounded-lg" fill priority sizes="600px 600px" src={product.photo} alt={product.title}/>
           </div>
           <div className="flex items-center gap-2 md:mb-0 mb-5 mt-5">
-            <AnotherUsername userInfo={product.user} page="product"/>
+          {isOwner ?
+            <div className="flex items-center gap-2">
+              <Image className="size-8 rounded-full overflow-hidden " width={40} height={40} src={product.user.avatar!} alt={product.user.username}/>
+              <h3 className="text-sm default-textColor">{product.user.username}</h3>
+            </div>
+          : <AnotherUsername userInfo={product.user} page="product"/>
+          }
           </div>
         </div>
         <div className="w-full md:max-h-[640] aspect-auto pt-5 md:mb-0 md:pt-0 md:aspect-square md:pb-0 md:justify-between flex flex-col md:w-1/2 border-neutral-300 dark:border-neutral-700 border-t md:border-none">

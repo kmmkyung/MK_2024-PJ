@@ -6,6 +6,8 @@ import PostCommentList from "@/components/PostCommentList";
 import { getUser } from "@/lib/getUser";
 import PostDelete from "@/components/PostDelete";
 import AnotherUsername from "@/components/AnotherUsername";
+import Image from "next/image";
+import { formatToTimeAgo } from "@/lib/utils";
 
 export async function generateMetadata({params}:{ params: Promise<{id:string}>}){
   const {id} = await params
@@ -36,7 +38,17 @@ export default async function Post({params}:{params:{id:number}}){
         <div className="bg-neutral-100 shadow-lg shadow-neutral-200/50 rounded-lg p-5 dark:bg-neutral-800 dark:shadow-neutral-800/50 mb-5">
           <div className="flex items-center justify-between">
             <div className="flex gap-2 items-center">
-              <AnotherUsername userInfo={post.user} page="life" post={post.created_at}/>
+              { user.id === post.user.id ?
+              <div className="flex items-center gap-2">
+              <Image className="size-10 rounded-full overflow-hidden " width={40} height={40} src={post.user.avatar!} alt={post.user.username}/>
+              <div>
+                <h3 className="text-sm default-textColor">{post.user.username}</h3>
+                <span className="text-xs text-neutral-500">{formatToTimeAgo(post.created_at.toString())}</span>
+              </div>
+            </div>
+            :
+              <AnotherUsername userInfo={post.user} page="post" post={post.created_at}/>
+              }
             </div>
             { user.id === post.user.id ? <PostDelete postId={numberId}/> : null }
           </div>

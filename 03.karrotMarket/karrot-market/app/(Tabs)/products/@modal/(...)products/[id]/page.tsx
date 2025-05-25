@@ -69,7 +69,13 @@ export default async function ModalPage({params}:{ params: Promise<{id:string}>}
               <div className="h-[calc(100%-76px)]">
                 <div>
                   <div className="pb-5 border-neutral-300 dark:border-neutral-700 border-b">
-                    <AnotherUsername userInfo={product.user} page="product"/>
+                    {isOwner ?
+                      <div className="flex items-center gap-2">
+                        <Image className="size-8 rounded-full overflow-hidden " width={40} height={40} src={product.user.avatar!} alt={product.user.username}/>
+                        <h3 className="text-sm default-textColor">{product.user.username}</h3>
+                      </div>
+                    : <AnotherUsername userInfo={product.user} page="product"/>
+                    }
                   </div>
                   <h1 className="text-lg md:text-2xl font-semibold mt-5 break-words overflow-hidden text-ellipsis whitespace-nowrap">{product.title}</h1>
                   <p className="mt-2 text-xs text-neutral-400">{product.category}<span className="mx-2">•</span>{formatToTimeAgo(product.created_at.toString())}</p>

@@ -29,7 +29,7 @@ export async function getMessages(chatRoomId:string, userId:number){
   const messages = await db.message.findMany({
     where: { chatRoomId },
     select: { id:true, payload:true, created_at:true, userId:true, view:true, type:true,
-              user: { select: { avatar:true, username:true } }
+              user: { select: { id:true, avatar:true, username:true } }
     },
   })
 

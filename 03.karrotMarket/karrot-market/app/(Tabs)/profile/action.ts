@@ -2,7 +2,57 @@
 
 import db from "@/lib/db";
 import getSession from "@/lib/session";
+import { CategoryType } from "@prisma/client";
 import { redirect } from "next/navigation";
+
+export interface IUserProfile {
+  id: number;
+  username: string;
+  email: string | null;
+  password: string | null;
+  phone: string | null;
+  github_id: string | null;
+  google_id: string | null;
+  kakao_id: string | null;
+  avatar: string | null;
+  updated_at: Date;
+}
+
+export interface IUserProducts {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  photo: string;
+  created_at: Date;
+  updated_at: Date;
+  userId: number;
+  category: CategoryType;
+  dealt: boolean;
+}
+
+export interface IUserPosts {
+  id: number;
+  title: string;
+  description: string;
+  views: number;
+  created_at: Date;
+  updated_at: Date;
+  userId: number;
+}
+
+export interface IUserReviews {
+  id: number;
+  created_at: Date;
+  updated_at: Date;
+  payload: string;
+  userId: number;
+  targetId: number;
+  authorId: number;
+  productId: number;
+  chatRoomId: string;
+  author: IUserProfile;
+}
 
 export async function logOut(){
   const session = await getSession();

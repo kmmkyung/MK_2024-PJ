@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react"
 import { RealtimeChannel } from "@supabase/supabase-js"
 import { supabaseClient } from "@/lib/supabaseClient"
 import { useRouter } from "next/navigation"
+import AnotherUsername from "./AnotherUsername"
 
 interface ChatMessageListProps {
   initialMessages: InitialChatMessages;
@@ -64,6 +65,7 @@ export default function ChatMessageList({initialMessages, userId, chatRoomId, us
       view: false,
       type: "TEXT",
       user:{
+        id: user.id,
         username:user.username,
         avatar: user.avatar
       }
@@ -80,6 +82,7 @@ export default function ChatMessageList({initialMessages, userId, chatRoomId, us
         view: false,
         type: "TEXT",
         user: {
+          id: user.id,
           username: user.username,
           avatar: user.avatar
         }
@@ -102,6 +105,7 @@ export default function ChatMessageList({initialMessages, userId, chatRoomId, us
       view: false,
       type: "DEAL",
       user:{
+        id: user.id,
         username:user.username,
         avatar: user.avatar
       }
@@ -118,6 +122,7 @@ export default function ChatMessageList({initialMessages, userId, chatRoomId, us
         view: false,
         type: "DEAL",
         user: {
+          id: user.id,
           username: user.username,
           avatar: user.avatar
         }
@@ -187,7 +192,7 @@ export default function ChatMessageList({initialMessages, userId, chatRoomId, us
           {messages.map(ele => 
             <div key={ele.id} className={`w-full flex mb-3 ${ele.userId === userId?"justify-end":"gap-2"}`}>
               {ele.userId === userId? null :
-              <Image className="size-8 rounded-full overflow-hidden flex-shrink-0" width={40} height={40} sizes="40px" src={ele.user.avatar!} alt={ele.user.username}/>
+              <AnotherUsername userInfo={ele.user} page="chat"/>
               }
               <div className={`flex flex-col gap-1 ${ele.userId === userId? "items-end":""}`}>
               

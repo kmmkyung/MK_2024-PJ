@@ -19,7 +19,7 @@ interface IListProduct{
 }
 
 export default function ProductListItem({title, price, created_at, photo, id, category, dealt, _count}:IListProduct) {
-  const searchParams = useSearchParams();  
+  const searchParams = useSearchParams();
   const searchCategory = searchParams?.get("category");
 
   return (
