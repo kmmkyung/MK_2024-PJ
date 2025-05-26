@@ -10,7 +10,7 @@ import { usePathname } from "next/navigation";
 export default function ProfileMenu({children}:{children: React.ReactNode}) {
   const { user, userAnother } = useUserContext();
   const pathName = usePathname();
-  const href = user ? "/profile" : `/profile/${userAnother?.id}`;
+  const href = user ? "/profile" : `/anotherUser/${userAnother?.id}`;
 
   return (
     <section className="pt-[60px] pb-[70px] min-h-screen bg-neutral-100 dark:bg-neutral-900">
@@ -96,7 +96,7 @@ export default function ProfileMenu({children}:{children: React.ReactNode}) {
             </div>
           </div>
         </div>
-        <main className="min-h-full bg-white dark:bg-neutral-800 w-full h-auto md:rounded-xl">
+        <main className="min-h-[calc(100vh-50%)] sm:h-full bg-white dark:bg-neutral-800 w-full md:rounded-xl">
           {children}
         </main>
       </div>

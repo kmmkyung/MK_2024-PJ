@@ -7,20 +7,25 @@ import { usePathname, useRouter } from "next/navigation";
 export default function NavLinkPageGo(){
   const router = useRouter();
   const pathName = usePathname();
-
+  
   function handleBack() {
     const cameFromSearch = sessionStorage.getItem('cameFromSearch') === 'true';
-    const cameFromAnotherUserProfile = sessionStorage.getItem('cameFromAnotherUserProfile') === 'true';
-  
-    if (cameFromSearch || cameFromAnotherUserProfile) {
+    const cameFromProfileItem = sessionStorage.getItem('cameFromProfileItem') === 'true';
+    const userProfileFrom = sessionStorage.getItem('userProfileFrom');
+    if (cameFromSearch || cameFromProfileItem) {
       router.back();
       if(cameFromSearch){
         sessionStorage.removeItem('cameFromSearch');
       }
       else {
-        sessionStorage.removeItem('cameFromAnotherUserProfile');
+        sessionStorage.removeItem('cameFromProfileItem');
       }
-    } else {
+    }
+    else if (userProfileFrom) {
+      router.push(userProfileFrom);
+      sessionStorage.removeItem('userProfileFrom');
+    }
+    else {
       // 그 외에는 fallback
       let fallback = '/';
       const link = pathName.split('/')[1];

@@ -1,7 +1,11 @@
+export const metadata = {
+  title:"Profile"
+}
+
 export default function ProfileBuy() {
   return (
-    <div>
+    <section className="p-10">
       buy
-    </div>
+    </section>
   )
 }

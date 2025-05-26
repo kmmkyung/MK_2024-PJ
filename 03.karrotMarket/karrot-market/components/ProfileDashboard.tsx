@@ -71,7 +71,7 @@ export default function ProfileDashboard(){
         {userProducts?.length === 0 ? (
           <p className="text-neutral-500 text-sm">판매 중인 상품이 없습니다.</p>
         ) : (
-          <ul className="grid grid-cols-2 sm:grid-cols-3 gap-5">
+          <ol className="grid grid-cols-2 sm:grid-cols-3 gap-5">
             {userProducts?.slice(0,2).map((product) => (
               <li key={product.id} className="dark:bg-neutral-800 rounded shadow dark:shadow-neutral-900 overflow-hidden">
                 <Image width={300} height={300} src={product.photo} alt={product.title} className="size-auto aspect-square object-cover" />
@@ -83,7 +83,7 @@ export default function ProfileDashboard(){
                 </div>
               </li>
             ))}
-          </ul>
+          </ol>
         )}
       </section>
     </>
