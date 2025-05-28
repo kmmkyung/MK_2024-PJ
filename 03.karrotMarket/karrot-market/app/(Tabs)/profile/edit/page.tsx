@@ -2,7 +2,7 @@
 
 import { useUserContext } from "@/context/userContext";
 
-export default function ProfileEdit() {
+export default function UserEdit() {
   const { user, userProducts, userBuyProducts, userPosts, userSendReview } = useUserContext();
 
   return (
