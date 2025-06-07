@@ -1,11 +1,13 @@
+import ProfilePost from "@/components/ProfilePost"
+
 export const metadata = {
   title:"Profile"
 }
 
-export default function ProfilePost() {
+export default function UserPost() {
   return (
     <section className="p-10 h-full w-full">
-      post
+      <ProfilePost/>
     </section>
   )
 }

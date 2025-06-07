@@ -81,7 +81,7 @@ export default function PostCommentList(props:IPostInput){
           return <div className="mb-5 last:mb-0" key={ele.id}>
             <div className="flex justify-between">
               <div className="flex items-start gap-2">
-                <Image className="rounded-full size-4" width={40} height={40} sizes="40px" src={ele.user.avatar!} alt={ele.user.username}/>
+                <Image className="rounded-full size-5" width={40} height={40} sizes="40px" src={ele.user.avatar!} alt={ele.user.username}/>
                 <div>
                   <p className="flex flex-col items-start justify-center gap-1">
                     <span className="text-xs font-semibold">{ele.user.username}</span>

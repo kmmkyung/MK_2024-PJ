@@ -55,7 +55,7 @@ export default function ReviewForm({room}:{room: ReviewFormProps}) {
     <>
     <form onSubmit={onsubmit} className="w-full">
       <div className="my-10">
-        <textarea minLength={5} onChange={(e) => setPayload(e.target.value)} value={payload} placeholder="거래 후기를 5자 이상 작성해주세요" className="align-middle h-20 text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all" />
+        <textarea minLength={5} onChange={(e) => setPayload(e.target.value)} maxLength={100} value={payload} placeholder="거래 후기를 5자 이상 100자 이하 작성해주세요" className="align-middle h-20 text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all" />
         {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
       </div>
       <Button text="리뷰 제출하기"/>
