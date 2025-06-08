@@ -78,7 +78,7 @@ export default function ProfileMenu({children}:{children: React.ReactNode}) {
               <div className="setting-profileBox">
                 <Link href={`${href}/post`}>
                   <div className="flex items-center justify-between py-3">
-                    <h3 className={`text-sm font-semibold default-textColor ${pathName === '/profile/post' || pathName === `/profile/${userAnother?.id}/post` ? 'text-primary':'default-textColor'}`}>동내활동</h3>
+                    <h3 className={`text-sm font-semibold default-textColor ${pathName === '/profile/post' || pathName === `/profile/${userAnother?.id}/post` ? 'text-primary':'default-textColor'}`}>동네활동</h3>
                     <ChevronRightIcon className={`w-5 h-5 ${pathName === '/profile/post' || pathName === `/profile/${userAnother?.id}/post` ? 'text-primary':'text-neutral-500'}`}/>
                   </div>
                 </Link>

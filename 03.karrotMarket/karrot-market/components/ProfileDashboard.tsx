@@ -58,7 +58,7 @@ export default function ProfileDashboard(){
           <ul className="space-y-2">
             {userPosts?.slice(0,3).map((post) => (
               <li key={post.id} className="p-2 bg-neutral-100 dark:bg-neutral-900 rounded-lg flex gap-2 not-first:mt-2">
-                <p className="text-sm text-ellipsis overflow-hidden">{post.title}</p>
+                <p className="text-sm text-ellipsis overflow-hidden">{post.title}{post.id}</p>
               </li>
             ))}    
           </ul>

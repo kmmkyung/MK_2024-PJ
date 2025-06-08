@@ -39,6 +39,10 @@ export interface IUserPosts {
   created_at: Date;
   updated_at: Date;
   userId: number;
+  _count:{
+    comment: number;
+    like: number;
+  }
 }
 
 export interface IUserReviews {
@@ -90,6 +94,20 @@ export async function getUserPosts(userId:number){
   const userPost = db.post.findMany({
     where: {
       userId: userId
+    },
+    select: {
+      id: true,
+      title: true,
+      description: true,
+      views: true,
+      created_at: true,
+      user: true,
+      _count: {
+        select: {
+          comment: true,
+          like: true
+        }
+      }
     },
     orderBy: { updated_at: "desc"}
   })

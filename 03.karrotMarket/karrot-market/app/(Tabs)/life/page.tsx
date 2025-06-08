@@ -12,7 +12,7 @@ export default async function Life(){
   const posts = await getPosts()
 
   return (
-    <section className="setting-page h-screen">
+    <section className="setting-page min-h-screen">
       {posts.length === 0?
       <div className="h-full flex items-center justify-center">
         <p className="text-sm">아직 포스트가 없습니다</p>

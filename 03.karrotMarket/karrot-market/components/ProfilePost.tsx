@@ -2,6 +2,9 @@
 
 import { useUserContext } from "@/context/userContext";
 import NavProfile from "./NavProfile";
+import { EyeIcon } from "@heroicons/react/24/solid";
+import { HandThumbUpIcon, ChatBubbleBottomCenterTextIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 export default function ProfilePost() {
   const { userPosts } = useUserContext();
@@ -9,10 +12,10 @@ export default function ProfilePost() {
   return (
     <div className="w-full h-full">
       <div className="flex items-center justify-between mb-5">
-        <h6 className="text-primary text-base font-semibold">동내활동</h6>
+        <h6 className="text-primary text-base font-semibold">동네활동</h6>
         <NavProfile/>
       </div>
-      {/* 작성한 리뷰 */}
+      {/* 작성한 글 */}
       {userPosts && (
         userPosts?.length === 0 ? (
           <div className="flex justify-center items-center h-[calc(100%-74px)]">
@@ -21,8 +24,16 @@ export default function ProfilePost() {
         ) : (
           <ol className="grid grid-rows-5 gap-5">
             {userPosts?.map((post) => (
-              <li key={post.id} className="p-2 dark:bg-neutral-800 rounded shadow dark:shadow-neutral-900 overflow-hidden flex gap-2 items-center">
-                <h6 className="text-sm default-textColor">{post.description}</h6>
+              <li key={post.id} className="p-2 dark:bg-neutral-800 rounded shadow dark:shadow-neutral-900 overflow-hidden">
+                <Link href={`/post/${post.id}`} onClick={()=>sessionStorage.setItem('cameFromProfileItem', 'true')}>
+                  <h6 className="text-sm default-textColor">{post.title}</h6>
+                  <p className="text-sm mt-2 text-neutral-500 overflow-hidden text-ellipsis whitespace-nowrap">{post.description}</p>
+                  <div className="flex justify-end gap-4 mt-5 text-neutral-500">
+                    <p className="flex items-center gap-1 text-xs"><EyeIcon className="size-3"/>{post.views}</p>
+                    <p className="flex items-center gap-1 text-xs"><ChatBubbleBottomCenterTextIcon className="size-3"/>{post._count.comment}</p>
+                    <p className="flex items-center gap-1 text-xs"><HandThumbUpIcon className="size-3"/>{post._count.like}</p>
+                  </div>
+                </Link>
               </li>
             ))}
           </ol>

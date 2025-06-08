@@ -40,7 +40,7 @@ export default function ProfileReview() {
             {userReviews?.map((review) => (
               <li key={review.id} className="p-2 dark:bg-neutral-800 rounded shadow dark:shadow-neutral-900 overflow-hidden flex gap-2 items-center">
                 <Image className="flex-shrink-0 size-5 rounded-full overflow-hidden" width={40} height={40} src={review.author.avatar ?? "/image/rabbit.png"} alt={review.author!.username}/>
-                  <p className="text-sm default-textColor">{review.payload}</p>
+                <p className="text-sm default-textColor">{review.payload}</p>
               </li>
             ))}
           </ol>
