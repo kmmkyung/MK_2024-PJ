@@ -14,7 +14,7 @@ export interface IUserProfile {
   github_id: string | null;
   google_id: string | null;
   kakao_id: string | null;
-  avatar: string | null;
+  avatar: string;
   updated_at: Date;
 }
 

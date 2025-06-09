@@ -24,11 +24,11 @@ export default function ProfilePost() {
         ) : (
           <ol className="grid grid-rows-5 gap-5">
             {userPosts?.map((post) => (
-              <li key={post.id} className="p-2 dark:bg-neutral-800 rounded shadow dark:shadow-neutral-900 overflow-hidden">
+              <li key={post.id} className="py-2 px-4 dark:bg-neutral-800 rounded shadow dark:shadow-neutral-900 overflow-hidden">
                 <Link href={`/post/${post.id}`} onClick={()=>sessionStorage.setItem('cameFromProfileItem', 'true')}>
                   <h6 className="text-sm default-textColor">{post.title}</h6>
                   <p className="text-sm mt-2 text-neutral-500 overflow-hidden text-ellipsis whitespace-nowrap">{post.description}</p>
-                  <div className="flex justify-end gap-4 mt-5 text-neutral-500">
+                  <div className="flex justify-end gap-4 mt-2 text-neutral-500">
                     <p className="flex items-center gap-1 text-xs"><EyeIcon className="size-3"/>{post.views}</p>
                     <p className="flex items-center gap-1 text-xs"><ChatBubbleBottomCenterTextIcon className="size-3"/>{post._count.comment}</p>
                     <p className="flex items-center gap-1 text-xs"><HandThumbUpIcon className="size-3"/>{post._count.like}</p>

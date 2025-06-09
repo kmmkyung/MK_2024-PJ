@@ -34,20 +34,20 @@ export default function ProductEditForm(props:IAddAndEditProps){
     const files = event.target.files;
     if(!files) return;
   
-  const file = files[0];
-  if (!file.type.startsWith("image/")) {
-    window.alert("이미지 파일만 업로드할 수 있습니다");
-    return;
+    const file = files[0];
+    if (!file.type.startsWith("image/")) {
+      window.alert("이미지 파일만 업로드할 수 있습니다");
+      return;
+    }
+    const fileSize = file.size / (1024 * 1024);
+    if (fileSize > 2) {
+      window.alert("이미지 크기가 2MB 미만 이미지를 올려주세요");
+      return;
+    }
+    setImgFile(file);
+    const url = URL.createObjectURL(file)
+    setPreview(url)
   }
-  const fileSize = file.size / (1024 * 1024);
-  if (fileSize > 2) {
-    window.alert("이미지 크기가 2MB 미만 이미지를 올려주세요");
-    return;
-  }
-  setImgFile(file);
-  const url = URL.createObjectURL(file)
-  setPreview(url)
-}
 
   async function onSubmit(){
     const formData = new FormData();

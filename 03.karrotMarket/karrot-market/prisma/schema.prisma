@@ -16,7 +16,7 @@ model User {
   github_id       String?    @unique
   google_id       String?    @unique
   kakao_id        String?    @unique
-  avatar          String?    @default("/image/rabbit.png")
+  avatar          String?    @default("/image/userAvatar/rabbit.png")
   updated_at      DateTime   @updatedAt
   SMSToken        SMSToken[]
   product         Product[]

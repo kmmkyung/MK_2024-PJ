@@ -6,7 +6,7 @@ export const metadata = {
 
 export default async function Profile(){
   return (
-    <section className="px-10 py-10">
+    <section className="p-10">
       <ProfileDashboard/>  
     </section>
   )
