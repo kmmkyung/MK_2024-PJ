@@ -4,6 +4,7 @@ import db from "@/lib/db";
 import getSession from "@/lib/session";
 import { CategoryType } from "@prisma/client";
 import { redirect } from "next/navigation";
+import { unstable_cache as nextCache } from "next/cache";
 
 export interface IUserProfile {
   id: number;
@@ -14,7 +15,7 @@ export interface IUserProfile {
   github_id: string | null;
   google_id: string | null;
   kakao_id: string | null;
-  avatar: string;
+  avatar: string | null;
   updated_at: Date;
 }
 
@@ -69,7 +70,7 @@ export async function getUserProducts(userId:number){
     where: {
       userId: userId
     },
-    orderBy: { updated_at: "desc"}
+    orderBy: { created_at: "desc"}
   })
   return userProducts;
 }
@@ -85,7 +86,7 @@ export async function getUserBuyProducts(userId:number){
         }
       }
     },
-    orderBy: { updated_at: "desc"}
+    orderBy: { created_at: "desc"}
   })
   return userBuyProducts;
 }
@@ -101,6 +102,8 @@ export async function getUserPosts(userId:number){
       description: true,
       views: true,
       created_at: true,
+      updated_at: true,
+      userId: true,
       user: true,
       _count: {
         select: {
@@ -109,7 +112,7 @@ export async function getUserPosts(userId:number){
         }
       }
     },
-    orderBy: { updated_at: "desc"}
+    orderBy: { created_at: "desc"}
   })
   return userPost;
 }
@@ -122,10 +125,16 @@ export async function getUserReviews(userId:number){
     include: {
       author: true,
     },
-    orderBy: { updated_at: "desc"}
+    orderBy: { created_at: "desc"}
   })
   return userReview;
 }
+
+export const cachedGetReviews = nextCache(
+  getUserReviews, ["get-reviews"],{
+    tags: ["get-reviews"]
+  })
+
 
 export async function getUserSendReviews(userId:number){
   const userSendReview = db.review.findMany({
@@ -135,7 +144,7 @@ export async function getUserSendReviews(userId:number){
     include: {
       author: true, // 리뷰 작성자 정보
     },
-    orderBy: { updated_at: "desc"}
+    orderBy: { created_at: "desc"}
   })
   return userSendReview;
 }

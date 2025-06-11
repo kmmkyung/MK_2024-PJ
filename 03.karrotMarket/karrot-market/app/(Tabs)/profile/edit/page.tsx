@@ -6,12 +6,13 @@ import { PhotoIcon } from "@heroicons/react/24/solid";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import { updateUserProfile } from "./action";
+import NavProfile from "@/components/NavProfile";
 
 export default function UserEdit() {
   const { user } = useUserContext();
   const [userName, setUserName] = useState<string>(user!.username);
   const [imgFile, setImgFile] = useState<File | null>(null);
-  const [preview, setPreview] = useState<string>(user!.avatar);
+  const [preview, setPreview] = useState<string>(user?.avatar || "");
   const [errors, setErrors] = useState<{ [key: string]: string[] } | null>(null);
 
   function onImageChange(event:React.ChangeEvent<HTMLInputElement>){
@@ -39,7 +40,7 @@ export default function UserEdit() {
     if(imgFile){
       formData.append("photo", imgFile);
     } else {
-      formData.append("photo", user!.avatar);
+      formData.append("photo", user!.avatar || "");
     }
     const profile = await updateUserProfile(formData);
     if (profile?.fieldErrors) {
@@ -52,7 +53,10 @@ export default function UserEdit() {
 
   return (
     <section className="px-10 pt-10 pb-[70px] h-full w-full md:p-10">
-      <h6 className="text-primary text-base font-semibold mb-5">개인 정보</h6>
+      <div className="flex items-center justify-between mb-5">
+        <h6 className="text-primary text-base font-semibold">개인 정보</h6>
+        <NavProfile/>
+      </div>
       <form className="h-[calc(100%-44px)] flex flex-col gap-5 justify-between" action={onSubmit}>
         <div className="flex flex-col gap-5">
           <div className="size-16 m-auto">

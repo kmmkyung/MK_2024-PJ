@@ -1,5 +1,3 @@
-import ModalCloseBg from "@/components/ModalCloseBg";
-import ModalCloseButton from "@/components/ModalCloseButton";
 import db from "@/lib/db";
 import getSession from "@/lib/session";
 import { formatToTimeAgo, formatToWon } from "@/lib/utils";
@@ -11,6 +9,8 @@ import { getIsOwner, getProduct } from "./action";
 import { ChatBubbleOvalLeftEllipsisIcon } from "@heroicons/react/24/outline";
 import { revalidateTag } from "next/cache";
 import AnotherUsername from "@/components/AnotherUsername";
+import ProductModalCloseBg from "@/components/ProductModalCloseBg";
+import ProductModalCloseButton from "@/components/ProductModalCloseButton";
 
 
 
@@ -58,8 +58,8 @@ export default async function ModalPage({params}:{ params: Promise<{id:string}>}
   return (
     <>
       <div className="fixed top-0 left-0 z-[51] w-full h-full px-10 py-20 flex justify-center items-center">
-        <ModalCloseBg/>
-        <ModalCloseButton/>
+        <ProductModalCloseBg/>
+        <ProductModalCloseButton/>
         <div className="relative rounded-lg overflow-hidden max-w-[1000px] w-full h-full no-scrollbar overflow-y-scroll md:overflow-y-visible flex md:flex-row flex-col">
           <div className="relative w-full h-full aspect-square md:aspect-auto basis-1/2">
             <Image className="object-cover object-center" fill priority sizes="600px 600px" src={product.photo} alt={product.title}/>

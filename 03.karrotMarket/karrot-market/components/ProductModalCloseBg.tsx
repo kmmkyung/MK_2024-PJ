@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-export default function ModalCloseBg(){
+export default function ProductModalCloseBg(){
   const router = useRouter();
 
   function onCloseClick(){

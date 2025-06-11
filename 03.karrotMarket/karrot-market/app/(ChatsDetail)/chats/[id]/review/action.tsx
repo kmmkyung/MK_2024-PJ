@@ -3,6 +3,7 @@
 import { ReviewFormProps } from "@/components/ReviewForm";
 import db from "@/lib/db";
 import getSession from "@/lib/session";
+import { revalidateTag } from "next/cache";
 
 export async function saveReview(room:ReviewFormProps, payload:string) {
   if(payload.length<5) {return {error:"리뷰를 5자 이상 작성해주세요"}}
@@ -21,4 +22,15 @@ export async function saveReview(room:ReviewFormProps, payload:string) {
     })
     return {success:true}
   }
+}
+
+export async function updateReview(reviewId:number,reviewPayload:string) {
+  if(reviewPayload.length<5) {return {error:"리뷰를 5자 이상 작성해주세요"}}
+  await db.review.update({
+    where: {id: reviewId},
+    data: {
+      payload: reviewPayload,
+    }
+  })
+  revalidateTag("get-reviews");
 }
