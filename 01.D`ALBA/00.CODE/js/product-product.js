@@ -10,7 +10,6 @@ window.addEventListener('DOMContentLoaded',function(){
   const filterBox = document.querySelector('.filterBox')
   const filterBoxBg = document.querySelector('.filterBox-Bg')
   const filterBoxClose = document.querySelector('.filter-back')
-  const filterBoxSelectBotten = document.querySelector('.filter-selectButton')
   filterButton.innerHTML = svgData.icon_filter
   filterButton.addEventListener('click',function(){
     filterBox.classList.add('active')

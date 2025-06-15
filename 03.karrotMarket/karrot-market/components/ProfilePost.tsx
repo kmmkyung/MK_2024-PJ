@@ -5,9 +5,14 @@ import NavProfile from "./NavProfile";
 import { EyeIcon } from "@heroicons/react/24/solid";
 import { HandThumbUpIcon, ChatBubbleBottomCenterTextIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import PageNation from "./PageNation";
+import { useState } from "react";
 
 export default function ProfilePost() {
   const { userPosts } = useUserContext();
+  const [page, setPage] = useState(1);
+  const paginatedReviews = userPosts?.slice((page - 1) * 5, page * 5);
+
 
   return (
     <div className="w-full h-full">
@@ -23,7 +28,7 @@ export default function ProfilePost() {
           </div>
         ) : (
           <ol className="grid grid-rows-5 gap-5">
-            {userPosts?.map((post) => (
+            {paginatedReviews?.map((post) => (
               <li key={post.id} className="py-2 px-4 dark:bg-neutral-800 rounded shadow dark:shadow-neutral-900 overflow-hidden">
                 <Link href={`/post/${post.id}`} onClick={()=>sessionStorage.setItem('cameFromProfileItem', 'true')}>
                   <h6 className="text-sm default-textColor">{post.title}</h6>
@@ -39,6 +44,7 @@ export default function ProfilePost() {
           </ol>
         )
       )}
+      <PageNation itemLength={userPosts?.length || 0} currentPage={page} onPageChange={(page) => setPage(page)}/>
     </div>
   );
 }

@@ -111,8 +111,7 @@ export async function getUserPosts(userId:number){
           like: true
         }
       }
-    },
-    orderBy: { created_at: "desc"}
+    }
   })
   return userPost;
 }
