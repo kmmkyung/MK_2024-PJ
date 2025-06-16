@@ -4,14 +4,14 @@ interface PaginationProps {
   onPageChange: (page: number) => void;
 }
 
-export default function Pagination({itemLength,currentPage,onPageChange}:PaginationProps) {
+export default function PageNation({itemLength,currentPage,onPageChange}:PaginationProps) {
   const itemShowLength = 5;
   const totalPages = Math.ceil(itemLength / itemShowLength);
 
-  if (totalPages <= 1) return null;
+  // if (totalPages <= 1) return null;
 
   return (
-    <ol className="flex justify-center items-center gap-1 text-sm mt-6 text-neutral-600 dark:text-neutral-400">
+    <ol className="my-5 flex justify-center items-end gap-1 text-sm text-neutral-600 dark:text-neutral-400">
     {Array.from({ length: totalPages }, (_, i) => {
       const page = i + 1;
       const isLast = page === totalPages;

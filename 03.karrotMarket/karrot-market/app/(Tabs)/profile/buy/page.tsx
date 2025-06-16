@@ -6,7 +6,7 @@ export const metadata = {
 
 export default function UserBuy() {
   return (
-    <section className="px-10 pt-10 pb-[70px] h-full w-full md:p-10">
+    <section className="px-10 pt-10 pb-[70px] md:pb-10 h-full w-full">
       <ProfileBuy/>
     </section>
   )

@@ -52,7 +52,7 @@ export default function UserEdit() {
   }
 
   return (
-    <section className="px-10 pt-10 pb-[70px] h-full w-full md:p-10">
+    <section className="px-10 pt-10 pb-[70px] md:pb-10 h-full w-full">
       <div className="flex items-center justify-between mb-5">
         <h6 className="text-primary text-base font-semibold">개인 정보</h6>
         <NavProfile/>
