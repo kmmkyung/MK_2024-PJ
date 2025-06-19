@@ -11,8 +11,7 @@ import { useState } from "react";
 export default function ProfilePost() {
   const { userPosts } = useUserContext();
   const [page, setPage] = useState(1);
-  const paginatedReviews = userPosts?.slice((page - 1) * 5, page * 5);
-
+  const paginatedReviews = userPosts?.slice((page - 1) * 5, page * 5); 
 
   return (
     <div className="w-full h-full">

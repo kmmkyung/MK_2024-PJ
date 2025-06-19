@@ -1,11 +1,11 @@
 interface PaginationProps {
   itemLength: number;
+  itemShowLength?: number;
   currentPage: number;
   onPageChange: (page: number) => void;
 }
 
-export default function PageNation({itemLength,currentPage,onPageChange}:PaginationProps) {
-  const itemShowLength = 5;
+export default function PageNation({itemLength,itemShowLength=5,currentPage,onPageChange}:PaginationProps) {
   const totalPages = Math.ceil(itemLength / itemShowLength);
 
   // if (totalPages <= 1) return null;

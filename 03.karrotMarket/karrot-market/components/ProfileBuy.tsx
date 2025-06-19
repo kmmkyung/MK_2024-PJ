@@ -25,7 +25,7 @@ export default function ProfileBuy() {
           <p className="text-neutral-500 text-sm">판매 완료인 상품이 없습니다.</p>
           </div>
           ) : (
-          <ol className="grid sm:grid-rows-5 grid-cols-1 sm:grid-cols-4 gap-5">
+          <ol className="grid grid-rows-3 grid-cols-1 sm:grid-cols-4 gap-5">
             {userBuyProducts?.filter((product) => product.dealt === true ).map((product) => (
               <li key={product.id} className="dark:bg-neutral-800 rounded shadow dark:shadow-neutral-900 overflow-hidden">
               <Link href={`/products/${product.id}`} className="flex items-center sm:block" onClick={()=>sessionStorage.setItem('cameFromProfileItem', 'true')}>
