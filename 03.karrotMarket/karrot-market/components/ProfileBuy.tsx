@@ -4,14 +4,32 @@ import { useUserContext } from "@/context/userContext";
 import Image from "next/image";
 import Link from "next/link";
 import NavProfile from "./NavProfile";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PageNation from "./PageNation";
 
 export default function ProfileBuy() {
   const { userBuyProducts } = useUserContext();
   const [page, setPage] = useState(1);
-  const paginatedBuyProducts = userBuyProducts?.slice((page - 1) * 5, page * 5);
+  const [limit, setLimit] = useState(5);
+  const sellOKProducts = userBuyProducts?.filter((product) => product.dealt === true) || [];
+  const paginatedBuyProducts = sellOKProducts?.slice((page - 1) * limit, page * limit);
 
+  useEffect(()=>{
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return ()=>{
+      window.removeEventListener('resize', handleResize);
+    }
+  },[])
+
+  function handleResize() {
+    if(innerWidth >= 640) {
+      setLimit(8);
+    }
+    else{
+      setLimit(5)
+    }
+  }
 
   return (
     <div className="w-full h-full">
@@ -25,7 +43,7 @@ export default function ProfileBuy() {
           <p className="text-neutral-500 text-sm">판매 완료인 상품이 없습니다.</p>
           </div>
           ) : (
-          <ol className="grid grid-rows-3 grid-cols-1 sm:grid-cols-4 gap-5">
+            <ol className="grid sm:grid-rows-2 grid-rows-5 grid-cols-1 sm:grid-cols-4 gap-5">
             {userBuyProducts?.filter((product) => product.dealt === true ).map((product) => (
               <li key={product.id} className="dark:bg-neutral-800 rounded shadow dark:shadow-neutral-900 overflow-hidden">
               <Link href={`/products/${product.id}`} className="flex items-center sm:block" onClick={()=>sessionStorage.setItem('cameFromProfileItem', 'true')}>
@@ -38,7 +56,7 @@ export default function ProfileBuy() {
             ))}
           </ol>
         )}
-        <PageNation itemLength={paginatedBuyProducts?.length || 0} currentPage={page} onPageChange={(page) => setPage(page)}/>
+        <PageNation itemLength={paginatedBuyProducts?.length || 0} itemShowLength={limit} currentPage={page} onPageChange={(page) => setPage(page)}/>
       </div>
     </div>
   );

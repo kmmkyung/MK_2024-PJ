@@ -14,7 +14,9 @@ export default function ProfileSell() {
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(5); 
   const sellingProducts = userProducts?.filter((product) => product.dealt === false) || [];
+  const sellOKProducts = userProducts?.filter((product) => product.dealt === true) || [];
   const paginatedSellProducts = sellingProducts.slice((page - 1) * limit, page * limit);
+  const paginatedSellOKProducts = sellOKProducts.slice((page - 1) * limit, page * limit);
     
   useEffect(() => {
     sessionStorage.setItem('sellTab', String(sellTab));
@@ -30,7 +32,7 @@ export default function ProfileSell() {
 
   function handleResize() {
     if(innerWidth >= 640) {
-      setLimit(15);
+      setLimit(8);
     }
     else{
       setLimit(5)
@@ -60,7 +62,7 @@ export default function ProfileSell() {
               <p className="text-neutral-500 text-sm">판매 중인 상품이 없습니다.</p>
             </div>
           ) : (
-            <ol className="grid sm:grid-rows-3 grid-cols-1 sm:grid-cols-4 gap-5">
+            <ol className="grid sm:grid-rows-2 grid-rows-5 grid-cols-1 sm:grid-cols-4 gap-5">
               {paginatedSellProducts?.map((product) => (
                 <li key={product.id} className="dark:bg-neutral-800 rounded shadow dark:shadow-neutral-900 overflow-hidden">
                   <Link href={`/products/${product.id}`} className="flex items-center sm:block" onClick={()=>sessionStorage.setItem('cameFromProfileItem', 'true')}>
@@ -76,12 +78,12 @@ export default function ProfileSell() {
         )}
         {/* 판매 완료 상품 */}
         {soldOutTab && (
-          userProducts?.filter((product) => product.dealt === true ).length === 0 ? (
+          paginatedSellOKProducts?.length === 0 ? (
             <div className="flex justify-center items-center h-[calc(100%-74px)]">
             <p className="text-neutral-500 text-sm">판매 완료인 상품이 없습니다.</p>
             </div>
             ) : (
-              <ol className="grid sm:grid-rows-3 grid-cols-1 sm:grid-cols-4 gap-5">
+              <ol className="grid sm:grid-rows-2 grid-rows-5 grid-cols-1 sm:grid-cols-4 gap-5">
               {userProducts?.filter((product) => product.dealt === true ).map((product) => (
                 <li key={product.id} className="dark:bg-neutral-800 rounded shadow dark:shadow-neutral-900 overflow-hidden">
                 <Link href={`/products/${product.id}`} className="flex items-center sm:block" onClick={()=>sessionStorage.setItem('cameFromProfileItem', 'true')}>
@@ -95,7 +97,14 @@ export default function ProfileSell() {
             </ol>
           )
         )}
-        <PageNation itemLength={userProducts?.length || 0} itemShowLength={limit} currentPage={page} onPageChange={(page) => setPage(page)}/>
+        {
+        sellTab &&
+        <PageNation itemLength={sellingProducts?.length || 0} itemShowLength={limit} currentPage={page} onPageChange={(page) => setPage(page)}/>
+        }
+        {
+        soldOutTab &&
+        <PageNation itemLength={sellOKProducts?.length || 0} itemShowLength={limit} currentPage={page} onPageChange={(page) => setPage(page)}/>
+          }
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ export default function ProfileMenu({children}:{children: React.ReactNode}) {
 
   return (
     <section className="pt-[60px] pb-[70px] min-h-screen bg-neutral-100 dark:bg-neutral-900">
-      <div className="md:my-5 max-w-screen-xl md:min-h-[calc(100vh-170px)] mx-auto md:px-10 grid grid-cols-1 gap-5 md:grid-cols-[1fr_2fr]">
+      <div className="md:my-5 max-w-screen-xl md:min-h-[calc(100vh-170px)] h-full mx-auto md:px-10 grid grid-cols-1 gap-5 md:grid-cols-[1fr_2fr]">
         <div>
           <div className="md:rounded-xl md:overflow-hidden *:bg-white *:dark:bg-neutral-800">
             <div className="setting-profileBox py-4">
@@ -96,7 +96,7 @@ export default function ProfileMenu({children}:{children: React.ReactNode}) {
             </div>
           </div>
         </div>
-        <main className="min-h-[calc(100vh-50%)] sm:h-full bg-white dark:bg-neutral-800 w-full md:rounded-xl">
+        <main className="min-h-[calc(calc(100vh-130px))] bg-white dark:bg-neutral-800 w-full md:rounded-xl">
           {children}
         </main>
       </div>
