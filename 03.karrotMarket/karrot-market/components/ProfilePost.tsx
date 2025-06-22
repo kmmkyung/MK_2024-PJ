@@ -23,7 +23,7 @@ export default function ProfilePost() {
         {/* 작성한 글 */}
         {userPosts && (
           userPosts?.length === 0 ? (
-            <div className="flex justify-center items-center h-[calc(100%-74px)]">
+            <div className="flex justify-center items-center h-full">
               <p className="text-neutral-500 text-sm">작성한 글이 없습니다.</p>
             </div>
           ) : (
@@ -44,7 +44,9 @@ export default function ProfilePost() {
             </ol>
           )
         )}
-        <PageNation itemLength={userPosts?.length || 0} currentPage={page} onPageChange={(page) => setPage(page)}/>
+        { userPosts?.length !==0 &&
+          <PageNation itemLength={userPosts?.length || 0} currentPage={page} onPageChange={(page) => setPage(page)}/>
+        }
       </div>
     </div>
   );

@@ -93,7 +93,7 @@ export default async function ProductDetail({params}:{ params: Promise<{id:strin
           </div>
           <div className="md:block hidden mt-3">
           {isOwner ?
-            <ProductOwnerButton numberId={numberId}/>
+            <ProductOwnerButton numberId={numberId} productDealt={product.dealt}/>
           : <form action={createChatRoom}><button disabled={product.dealt} className="primary-btn w-full px-5">채팅하기</button></form>}
           </div>
         </div>
@@ -103,7 +103,7 @@ export default async function ProductDetail({params}:{ params: Promise<{id:strin
           <div className="md:max-w-screen-xl mx-auto px-10 h-full flex items-center justify-between">
             <span className="font-semibold text-xl">{formatToWon(product.price)}원</span>
             {isOwner ?
-              <ProductOwnerButton numberId={numberId}/>
+              <ProductOwnerButton numberId={numberId} productDealt={product.dealt}/>
           : <form action={createChatRoom}>
               <button disabled={product.dealt} className="primary-btn w-auto px-4 flex justify-center items-center">
                 <SolidChatBubbleOvalLeftEllipsisIcon className="size-5 text-white"/>

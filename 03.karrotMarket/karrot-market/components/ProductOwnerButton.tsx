@@ -2,10 +2,9 @@
 
 import { deleteProduct } from "@/lib/productActions";
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/solid";
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
-export default function ProductOwnerButton({numberId}:{numberId:number}){
+export default function ProductOwnerButton({numberId, productDealt}:{numberId:number, productDealt:boolean}){
   const router = useRouter();
   const pathname = usePathname();
 
@@ -23,10 +22,10 @@ export default function ProductOwnerButton({numberId}:{numberId:number}){
     <>
       <div className="md:block hidden w-full">
         <div className="flex justify-center items-center gap-2">
-          <Link href={`/products/${numberId}/edit`} className="custom-link bg-lime-500 hover:bg-lime-400 flex justify-center items-center px-4">
+          <button className="custom-link bg-lime-500 hover:bg-lime-400 flex justify-center items-center px-4 disabled:bg-neutral-400 disabled:text-neutral-300 disabled:cursor-not-allowed" disabled={productDealt} onClick={()=>router.push(`/products/${numberId}/edit`)}>
             <PencilSquareIcon className="size-5 text-white"/>
             <span className="text-white">수정</span>
-          </Link>
+          </button>
           <form action={onDelete} className="w-full">
             <button className="custom-link bg-red-600 hover:bg-red-500 px-5 flex justify-center items-center gap-2">
               <TrashIcon className="size-5 text-white"/>
@@ -37,9 +36,9 @@ export default function ProductOwnerButton({numberId}:{numberId:number}){
       </div>
       <div className="md:hidden block">
         <div className="flex justify-center items-center gap-2">
-          <Link href={`/products/${numberId}/edit`} className="custom-link bg-lime-500 hover:bg-lime-400 flex justify-center items-center px-4">
+          <button className="custom-link bg-lime-500 hover:bg-lime-400 flex justify-center items-center px-4 disabled:bg-neutral-400 disabled:text-neutral-300 disabled:cursor-not-allowed" disabled={productDealt} onClick={()=>router.push(`/products/${numberId}/edit`)}>
             <PencilSquareIcon className="size-5 text-white"/>
-          </Link>
+          </button>
           <form action={onDelete} className="w-full">
             <button className="custom-link bg-red-600 hover:bg-red-500 px-5 flex justify-center items-center gap-2">
               <TrashIcon className="size-5 text-white"/>

@@ -38,13 +38,13 @@ export default function ProfileBuy() {
         <NavProfile/>
       </div>
       <div className="flex flex-col justify-between h-[calc(100%-44px)]">
-        { userBuyProducts?.filter((product) => product.dealt === true ).length === 0 ? (
-          <div className="flex justify-center items-center h-[calc(100%-74px)]">
-          <p className="text-neutral-500 text-sm">판매 완료인 상품이 없습니다.</p>
+        {sellOKProducts.length === 0 ? (
+          <div className="flex justify-center items-center h-full">
+          <p className="text-neutral-500 text-sm">구매한 상품이 없습니다.</p>
           </div>
           ) : (
             <ol className="grid sm:grid-rows-2 grid-rows-5 grid-cols-1 sm:grid-cols-4 gap-5">
-            {userBuyProducts?.filter((product) => product.dealt === true ).map((product) => (
+            {paginatedBuyProducts.map((product) => (
               <li key={product.id} className="dark:bg-neutral-800 rounded shadow dark:shadow-neutral-900 overflow-hidden">
               <Link href={`/products/${product.id}`} className="flex items-center sm:block" onClick={()=>sessionStorage.setItem('cameFromProfileItem', 'true')}>
                 <Image width={300} height={300} src={product.photo} alt={product.title} className="aspect-square object-cover size-20 sm:size-auto" />
@@ -56,7 +56,9 @@ export default function ProfileBuy() {
             ))}
           </ol>
         )}
-        <PageNation itemLength={paginatedBuyProducts?.length || 0} itemShowLength={limit} currentPage={page} onPageChange={(page) => setPage(page)}/>
+        {sellOKProducts.length !==0 &&
+          <PageNation itemLength={userBuyProducts?.length || 0} itemShowLength={limit} currentPage={page} onPageChange={(page) => setPage(page)}/>
+        }
       </div>
     </div>
   );
