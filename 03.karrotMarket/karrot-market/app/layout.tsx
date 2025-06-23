@@ -6,8 +6,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    template:"%s | 🥕Karrot",
-    default: "🥕Karrot Market"
+    template:"%s | 🥕Carrot",
+    default: "🥕Carrot Market"
   },
   description: "Sell and Buy all the things",
 };
