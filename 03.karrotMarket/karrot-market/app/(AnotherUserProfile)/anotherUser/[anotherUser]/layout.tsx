@@ -1,7 +1,7 @@
 import NavLinkPageGo from "@/components/NavLinkPageGo";
 import { getAnotherUser } from "./action";
 import ProfileMenu from "@/components/ProfileMenu";
-import { getUserPosts, getUserProducts, getUserReviews, getUserSendReviews } from "@/app/(Tabs)/profile/action";
+import { getUserPosts, getUserProducts, getUserReviews } from "@/app/(Tabs)/profile/action";
 import UserProvider from "@/components/UserProvider";
 import TabBar from "@/components/TabBar";
 interface LayoutProps {
