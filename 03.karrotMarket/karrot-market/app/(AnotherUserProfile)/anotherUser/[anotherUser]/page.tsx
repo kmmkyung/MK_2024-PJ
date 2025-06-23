@@ -12,7 +12,7 @@ export async function generateMetadata({params}:{ params: Promise<{anotherUser:s
 export default async function AnotherUser() {
 
   return (
-    <section className="px-10 py-10">
+    <section className="p-10">
       <ProfileDashboard/>  
     </section>
   )

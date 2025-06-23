@@ -11,7 +11,7 @@ import { useState } from "react";
 export default function ProfilePost() {
   const { userPosts } = useUserContext();
   const [page, setPage] = useState(1);
-  const paginatedReviews = userPosts?.slice((page - 1) * 5, page * 5); 
+  const paginatedPosts = userPosts?.slice((page - 1) * 5, page * 5); 
 
   return (
     <div className="w-full h-full">
@@ -28,7 +28,7 @@ export default function ProfilePost() {
             </div>
           ) : (
             <ol className="grid grid-rows-5 gap-5 h-full">
-              {paginatedReviews?.map((post) => (
+              {paginatedPosts?.map((post) => (
                 <li key={post.id} className="py-2 px-4 dark:bg-neutral-800 rounded shadow dark:shadow-neutral-900 overflow-hidden">
                   <Link href={`/post/${post.id}`} onClick={()=>sessionStorage.setItem('cameFromProfileItem', 'true')}>
                     <h6 className="text-sm default-textColor">{post.title}</h6>

@@ -11,6 +11,7 @@ export interface userContextType {
   userPosts?: IUserPosts[]|[];
   userReviews?: IUserReviews[]|[];
   userSendReview?: IUserReviews[]|[];
+  anotherUserId?: number;
 }
 
 export const UserContext = createContext<userContextType>(

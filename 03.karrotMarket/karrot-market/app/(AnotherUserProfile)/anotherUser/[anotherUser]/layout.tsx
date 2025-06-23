@@ -1,12 +1,13 @@
 import NavLinkPageGo from "@/components/NavLinkPageGo";
 import { getAnotherUser } from "./action";
 import ProfileMenu from "@/components/ProfileMenu";
-import { getUserPosts, getUserProducts, getUserSendReviews } from "@/app/(Tabs)/profile/action";
+import { getUserPosts, getUserProducts, getUserReviews, getUserSendReviews } from "@/app/(Tabs)/profile/action";
 import UserProvider from "@/components/UserProvider";
+import TabBar from "@/components/TabBar";
 interface LayoutProps {
-  params: {
-    anotherUser: string;
-  };
+  params: Promise<{
+  anotherUser: string;
+}>;
   children: React.ReactNode;
 }
 
@@ -14,14 +15,14 @@ export default async function layout({params, children}: LayoutProps) {
   const { anotherUser } = await params;
   const anotherUserId = Number(anotherUser);
 
-  const [userAnother, userProducts, userPosts, userSendReview] = await Promise.all([
+  const [userAnother, userProducts, userPosts, userReviews] = await Promise.all([
     getAnotherUser(anotherUserId),
     getUserProducts(anotherUserId),
     getUserPosts(anotherUserId),
-    getUserSendReviews(anotherUserId),
+    getUserReviews(anotherUserId),
   ]);
 
-  const providerValue = { userAnother, userProducts, userPosts, userSendReview };
+  const providerValue = { userAnother, userProducts, userPosts, userReviews, anotherUserId };
   
   return (
     <>
@@ -29,6 +30,7 @@ export default async function layout({params, children}: LayoutProps) {
       <UserProvider value={providerValue}>
         <ProfileMenu>{children}</ProfileMenu>
       </UserProvider>
+      <TabBar className="block md:hidden"/>
     </>
   );
 }
