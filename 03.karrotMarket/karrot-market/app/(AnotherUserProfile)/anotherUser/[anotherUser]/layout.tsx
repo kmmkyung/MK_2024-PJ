@@ -4,6 +4,7 @@ import ProfileMenu from "@/components/ProfileMenu";
 import { getUserPosts, getUserProducts, getUserReviews } from "@/app/(Tabs)/profile/action";
 import UserProvider from "@/components/UserProvider";
 import TabBar from "@/components/TabBar";
+
 interface LayoutProps {
   params: Promise<{
   anotherUser: string;
