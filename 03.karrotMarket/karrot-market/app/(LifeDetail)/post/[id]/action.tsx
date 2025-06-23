@@ -23,7 +23,9 @@ export async function getPostView(id: number) {
       },
     });
     return post;
-  } catch (e) {}
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 export async function getPost(id:number) {
@@ -40,6 +42,7 @@ export async function getPost(id:number) {
     return post;
   }
   catch(e){
+    console.log(e);
   }
 }
 
@@ -78,6 +81,8 @@ export async function likePost(postId:number){
     revalidateTag(`like-status-${postId}`)
   }
   catch(e){
+    console.log(e);
+    
   }
 }
 
