@@ -3,8 +3,14 @@ import { getAnotherUser } from "./action";
 import ProfileMenu from "@/components/ProfileMenu";
 import { getUserPosts, getUserProducts, getUserSendReviews } from "@/app/(Tabs)/profile/action";
 import UserProvider from "@/components/UserProvider";
+interface LayoutProps {
+  params: {
+    anotherUser: string;
+  };
+  children: React.ReactNode;
+}
 
-export default async function layout({params, children}: {params:{anotherUser: number}, children: React.ReactNode}) {
+export default async function layout({params, children}: LayoutProps) {
   const { anotherUser } = await params;
   const anotherUserId = Number(anotherUser);
 
