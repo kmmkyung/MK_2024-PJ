@@ -4,6 +4,7 @@ import ChatMessageList from "@/components/ChatMessage";
 import getSession from "@/lib/session";
 import { getUser } from "@/lib/getUser";
 
+
 export async function generateMetadata({params}:{ params: Promise<{id:string}>}){
   const {id} = await params
   const user = await getUser();
@@ -14,7 +15,7 @@ export async function generateMetadata({params}:{ params: Promise<{id:string}>})
   }
 }
 
-export default async function ChatDetailRoom({params}:{params:{id:string}}){
+export default async function ChatDetailRoom({params}:{params:Promise<{id:string}>}){
   const {id} = await params;
   const room = await getRoom(id)
   
