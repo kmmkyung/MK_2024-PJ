@@ -1,7 +1,7 @@
 import ReviewForm from "@/components/ReviewForm";
 import { getRoom } from "../action";
 
-export default async function Review({params}: { params: { id: string } }) {
+export default async function Review({params}: { params: Promise<{id: string}> }) {
   const { id } = await params;
 
   const room = await getRoom(id);
