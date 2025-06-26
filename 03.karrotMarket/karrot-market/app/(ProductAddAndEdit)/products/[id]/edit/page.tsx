@@ -5,7 +5,7 @@ import notFound from "@/app/not-found";
 export const metadata = {
   title:"Product Edit"
 }
-export default async function Edit({params}: {params:{id:string}}){
+export default async function Edit({params}: {params:Promise<{id:string}>}){
   const {id} = await params;
   const editProduct = await getEditProduct(Number(id))
   if (!editProduct) {
