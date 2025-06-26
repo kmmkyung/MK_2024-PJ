@@ -17,7 +17,7 @@ export async function generateMetadata({params}:{ params: Promise<{id:string}>})
   }
 }
 
-export default async function Post({params}:{params:{id:number}}){
+export default async function Post({params}:{params:Promise<{id:number}>}){
   // await new Promise((r) => setTimeout(r, 100000));
   const { id } = await params
   const numberId = Number(id)
