@@ -8,7 +8,7 @@ export const metadata = {
   title:"Search"
 }
 
-export default async function Search({ searchParams }: { searchParams: { keyword?: string } }) {
+export default async function Search({ searchParams }: { searchParams: Promise<{keyword?: string}> }) {
   const { keyword } = await searchParams
   const searchKeyword = keyword?.trim() || '';
 
