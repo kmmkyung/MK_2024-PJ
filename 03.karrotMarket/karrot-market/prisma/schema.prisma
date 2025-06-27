@@ -2,10 +2,16 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// datasource db {
+//   provider = "sqlite"
+//   url      = env("DATABASE_URL")
+// }
+
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
 
 model User {
   id              Int        @id @default(autoincrement())
@@ -141,7 +147,7 @@ model Review {
   authorId   Int
   author     User     @relation("Author", fields: [authorId], references: [id])
   targetId   Int
-  target     User     @relation("Target", fields: [authorId], references: [id])
+  target     User     @relation("Target", fields: [targetId], references: [id])
   productId  Int
   product    Product  @relation(fields: [productId], references: [id])
   chatRoomId String
