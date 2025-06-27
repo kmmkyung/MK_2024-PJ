@@ -4,7 +4,7 @@ export async function GET(){
   const baseURL = 'https://kauth.kakao.com/oauth/authorize'
   const params = {
     client_id : process.env.KAKAO_REST_KEY!,
-    redirect_uri: 'http://localhost:3000/kakao/complete',
+    redirect_uri: `${process.env.NEXT_PUBLIC_BASE_URL}/kakao/complete`,
     response_type:'code',
   };
 
