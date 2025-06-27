@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
-export function GET(){
+export async function GET(){
   const baseURL = 'https://accounts.google.com/o/oauth2/v2/auth'
   const params = {
     client_id : process.env.GOOGLE_CLIENT_ID!,
