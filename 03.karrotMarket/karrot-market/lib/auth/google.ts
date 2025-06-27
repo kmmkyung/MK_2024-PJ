@@ -4,7 +4,7 @@ export async function getAccessToken(code:string){
   const accessTokenParams = new URLSearchParams({
     client_id : process.env.GOOGLE_CLIENT_ID!,
     client_secret: process.env.GOOGLE_CLIENT_SECRET!,
-    redirect_uri: 'http://localhost:3000/google/complete',
+    redirect_uri: 'https://carrot-market-flame.vercel.app/google/complete',
     code: code,
     grant_type: 'authorization_code'
   }).toString();
