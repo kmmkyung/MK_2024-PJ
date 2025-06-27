@@ -1,6 +1,6 @@
 import { forwardRef } from "react"
 
-function SpinnerCode(_, ref: React.Ref<HTMLDivElement>){
+function SpinnerCode(_:unknown, ref: React.Ref<HTMLDivElement>){
   return (
     <div
       ref={ref}
