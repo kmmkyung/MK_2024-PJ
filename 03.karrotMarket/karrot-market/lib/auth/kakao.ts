@@ -4,7 +4,7 @@ export async function getAccessToken(code:string){
   const accessTokenParams = new URLSearchParams({
     client_id : process.env.KAKAO_REST_KEY!,
     client_secret: process.env.KAKAO_CLIENT_SECRET!,
-    redirect_uri: 'http://localhost:3000/kakao/complete',
+    redirect_uri: 'https://carrot-market-flame.vercel.app/kakao/complete',
     code: code,
     grant_type: 'authorization_code',
   }).toString();
