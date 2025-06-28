@@ -14,7 +14,7 @@ CREATE TABLE "User" (
     "github_id" TEXT,
     "google_id" TEXT,
     "kakao_id" TEXT,
-    "avatar" TEXT DEFAULT '/image/userAvatar/rabbit.png',
+    "avatar" TEXT DEFAULT '/userAvatar/rabbit.png',
     "updated_at" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
