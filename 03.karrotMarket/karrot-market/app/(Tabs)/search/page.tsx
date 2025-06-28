@@ -13,7 +13,7 @@ export default async function Search({ searchParams }: { searchParams: Promise<{
   const searchKeyword = keyword?.trim() || '';
 
   return (
-    <section>
+    <section className="setting-page">
       <SearchForm searchKeyword={searchKeyword} />
       {searchKeyword === "" ? (
         <SearchRecentWord />

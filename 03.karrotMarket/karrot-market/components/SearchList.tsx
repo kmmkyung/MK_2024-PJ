@@ -10,7 +10,7 @@ export default async function SearchList({ searchKeyword }: { searchKeyword: str
 
   if(searchResponse){
     return (
-      <section className="setting-page pt-[10]">
+      <section className="px-5 pt-[10]">
         <div className="mt-[10]">
           <div>
             <p className="text-sm font-semibold">
