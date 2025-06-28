@@ -30,7 +30,7 @@ export default function ProfileMenu({children}:{children: React.ReactNode}) {
                   <Link href={"/profile/edit"}>
                     <div className="flex items-center justify-between pt-4">
                       <div className="flex items-center gap-3 min-w-0">
-                        <Image className="flex-shrink-0 size-10 rounded-full overflow-hidden" width={40} height={40} src={user?.avatar ?? "/image/userAvatar/rabbit.png"} alt={user!.username}/>
+                        <Image className="flex-shrink-0 size-10 rounded-full overflow-hidden" width={40} height={40} src={user?.avatar ?? "/userAvatar/rabbit.png"} alt={user!.username}/>
                         <h3 className="text-base font-semibold default-textColor text-ellipsis whitespace-nowrap overflow-hidden">{user?.username}</h3>
                       </div>
                       <ChevronRightIcon className="flex-shrink-0 w-5 h-5 text-neutral-500"/>
@@ -39,7 +39,7 @@ export default function ProfileMenu({children}:{children: React.ReactNode}) {
                 </>
                 :
                 <div className="flex items-center gap-3 min-w-0">
-                  <Image className="flex-shrink-0 size-10 rounded-full overflow-hidden" width={40} height={40} src={userAnother?.avatar ?? "/image/rabbit.png"} alt={userAnother!.username}/>
+                  <Image className="flex-shrink-0 size-10 rounded-full overflow-hidden" width={40} height={40} src={userAnother?.avatar ?? "/userAvatar/rabbit.png"} alt={userAnother!.username}/>
                   <h3 className="text-base font-semibold default-textColor text-ellipsis whitespace-nowrap overflow-hidden">{userAnother?.username}</h3>
                 </div>
               }
