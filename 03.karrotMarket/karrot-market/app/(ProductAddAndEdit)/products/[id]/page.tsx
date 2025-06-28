@@ -65,7 +65,7 @@ export default async function ProductDetail({params}:{ params: Promise<{id:strin
   return (
     <section className="md:h-screen setting-page">
       <div className="h-full py-5 flex flex-col items-center md:gap-5 md:flex-row relative">
-        <div className="w-full md:w-1/2 md:max-h-[640]">
+        <div className="w-full md:w-1/2 md:max-h-[640px]">
           <div className="relative aspect-square">
             <Image className="object-cover object-center rounded-lg" fill priority sizes="600px 600px" src={product.photo} alt={product.title}/>
           </div>
@@ -99,7 +99,7 @@ export default async function ProductDetail({params}:{ params: Promise<{id:strin
         </div>
 
         {/* mobile */}
-        <div className="md:hidden block fixed w-full bottom-0 left-0 h-[70] bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700 border-t">
+        <div className="md:hidden block fixed w-full bottom-0 left-0 h-[70px] bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700 border-t">
           <div className="md:max-w-screen-xl mx-auto px-10 h-full flex items-center justify-between">
             <span className="font-semibold text-xl">{formatToWon(product.price)}원</span>
             {isOwner ?

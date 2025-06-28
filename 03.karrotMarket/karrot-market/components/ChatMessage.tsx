@@ -228,7 +228,7 @@ export default function ChatMessageList({initialMessages, userId, chatRoomId, us
             </div>
           )}
         </div>
-        <div className="h-[70] fixed w-full bottom-0 left-0 bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700 border-t">
+        <div className="h-[70px] fixed w-full bottom-0 left-0 bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700 border-t">
           <div className="relative md:max-w-screen-xl mx-auto px-10 h-full flex items-center justify-between w-full">
             <form className="flex gap-5 w-full" onSubmit={onSubmit}>
               <input name="message" type="text" placeholder="메시지를 입력해 주세요" min={1} max={200} required value={newMessage} onChange={onChange} className="rounded-full border-0 bg-neutral-100 dark:bg-neutral-800 focus:ring-0 text-sm w-full"/>

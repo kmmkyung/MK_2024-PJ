@@ -10,8 +10,8 @@ export default async function SearchList({ searchKeyword }: { searchKeyword: str
 
   if(searchResponse){
     return (
-      <section className="px-5 pt-[10]">
-        <div className="mt-[10]">
+      <section className="px-5 pt-[10px]">
+        <div className="mt-[10px]">
           <div>
             <p className="text-sm font-semibold">
               <ShoppingCartIcon className="size-5 inline mr-1"/>Product • {products.length}개

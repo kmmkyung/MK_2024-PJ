@@ -28,8 +28,8 @@ export default function SearchRecentWord(){
   },[])
 
   return (
-    <div className="setting-page pt-[10]">
-      <div className="mt-[10]">
+    <div className="setting-page pt-[10px]">
+      <div className="mt-[10px]">
         <h6 className="text-sm font-semibold">최근 검색</h6>
         {recent.length > 0 ? 
           <ol>

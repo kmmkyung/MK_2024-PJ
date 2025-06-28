@@ -17,9 +17,9 @@ export default function Loading(){
           <div className="h-5 mt-2 w-40 bg-neutral-400 dark:bg-neutral-700"/>
         </div>
         <div className="flex justify-between mt-5 gap-4 text-neutral-500">
-          <div className="w-10 h-[34] p-2 rounded-full bg-white dark:bg-black">
+          <div className="w-10 h-[34px] p-2 rounded-full bg-white dark:bg-black">
           </div>
-          <div className="w-10 h-[34] p-2 rounded-full bg-white dark:bg-black">
+          <div className="w-10 h-[34px] p-2 rounded-full bg-white dark:bg-black">
           </div>
         </div>
         <div className="mt-10 pt-10 border-t border-neutral-300 dark:border-neutral-700">

@@ -2,8 +2,8 @@ export default function Loading(){
 
   return (
     <section className="setting-page animate-pulse">
-      <div className="absolute left-0 top-[60] w-full h-[50] bg-neutral-50 dark:bg-neutral-950"/>
-      <div className="flex flex-col gap-5 mt-[70]">
+      <div className="absolute left-0 top-[60px] w-full h-[50px] bg-neutral-50 dark:bg-neutral-950"/>
+      <div className="flex flex-col gap-5 mt-[70px]">
       {[...Array(5)].map((_,idx) => {
         return <div className="flex gap-5" key={idx}>
         <div className="bg-neutral-400 dark:bg-neutral-700 rounded-md size-28"></div>

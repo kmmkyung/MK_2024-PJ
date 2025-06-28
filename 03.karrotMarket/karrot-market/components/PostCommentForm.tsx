@@ -20,7 +20,7 @@ interface IPostCommentForm {
 
 export default function PostCommentForm({ handleSubmit, state }: IPostCommentForm){
   return (
-    <div className="h-[70] fixed w-full bottom-0 left-0 bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700 border-t">
+    <div className="h-[70px] fixed w-full bottom-0 left-0 bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700 border-t">
       <div className="relative md:max-w-screen-xl mx-auto px-10 h-full flex items-center justify-between w-full">
         {state?.formErrors ?
         <p className="absolute left-1/2 -top-3 -translate-x-1/2 text-red-500 text-xs px-4 py-1 bg-neutral-100 dark:bg-neutral-800 rounded-full">{state.formErrors}</p> : null}

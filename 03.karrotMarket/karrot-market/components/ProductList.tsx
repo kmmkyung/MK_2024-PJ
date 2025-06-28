@@ -64,7 +64,7 @@ export default function ProductList({ initialProducts }: IProductList) {
   }, [cursor, searchParamsCategory]);
 
   return (
-    <div className="flex flex-col gap-5 mt-[70]">
+    <div className="flex flex-col gap-5 mt-[70px]">
       {products.map((product) => {
         return <ProductListItem key={product.id} {...product} />
       })}

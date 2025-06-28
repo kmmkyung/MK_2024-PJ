@@ -31,7 +31,7 @@ export default function ProductListItem({title, price, created_at, photo, id, ca
       <div className="w-[calc(100%-132px)] flex flex-col justify-between">
         <div>
           <h6 className="text-base default-textColor overflow-hidden text-ellipsis whitespace-nowrap flex items-center gap-1">
-            {dealt && <span className="px-1 py-[2] rounded-md text-xs bg-neutral-800 text-white block">거레완료</span>}
+            {dealt && <span className="px-1 py-[2px] rounded-md text-xs bg-neutral-800 text-white block">거레완료</span>}
             {title}</h6>
           <p className="text-xs text-neutral-500 mt-1">{formatToTimeAgo(created_at.toString())}</p>
           <p className="text-sm font-semibold default-textColor mt-2">{formatToWon(price)}원</p>

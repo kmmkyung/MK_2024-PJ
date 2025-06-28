@@ -26,7 +26,7 @@ export default function TabBar({className}:ComponentProps){
   const pathNameSplit = pathName.split('/')[1];
 
   return (
-    <div className={`h-[70] setting-nav bottom-0 grid grid-cols-5 border-neutral-300 dark:border-neutral-700 border-t px-5 py-3 ${className}`}>
+    <div className={`h-[70px] setting-nav bottom-0 grid grid-cols-5 border-neutral-300 dark:border-neutral-700 border-t px-5 py-3 ${className}`}>
       <Link className="flex flex-col items-center justify-center gap-px" href="/products">
         {pathNameSplit === 'products'? <SolidShoppingCartIcon className="size-6"/> :
         <OutlineShoppingCartIcon className="size-6 default-textColor"/>}
