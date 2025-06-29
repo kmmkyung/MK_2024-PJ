@@ -18,12 +18,8 @@ export default function SearchForm({ searchKeyword }:{ searchKeyword:string }) {
   function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const searchKeyword = searchWord.trim();
-    if (!searchKeyword) return;
-  
-    console.log("저장 전 searchKeyword:", searchKeyword);
-  
+    if (!searchKeyword) return;  
     const savedSearchWords = localStorage.getItem('searchWords');
-    console.log("기존 저장된 검색어:", savedSearchWords);
   
     let updatedSearchWords = [searchKeyword];
     if (savedSearchWords !== null) {
@@ -31,10 +27,7 @@ export default function SearchForm({ searchKeyword }:{ searchKeyword:string }) {
       const filtered = parsed.filter(item => item !== searchKeyword);
       updatedSearchWords = [searchKeyword, ...filtered].slice(0, 10);
     }
-  
     localStorage.setItem('searchWords', JSON.stringify(updatedSearchWords));
-    console.log("저장 후 localStorage:", localStorage.getItem('searchWords'));
-  
     router.push(`/search?keyword=${searchKeyword}`);
   }
 
