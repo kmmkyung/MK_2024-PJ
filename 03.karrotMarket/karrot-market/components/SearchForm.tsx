@@ -15,19 +15,20 @@ export default function SearchForm({ searchKeyword }:{ searchKeyword:string }) {
       router.push("/search");
     }
   }
-  function onSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+
+  function onSubmit(event:React.FormEvent<HTMLFormElement>){
+    event.preventDefault();    
     const searchKeyword = searchWord.trim();
-    if (!searchKeyword) return;  
+    if(!searchKeyword) return;
+
+    // 중복단어 체크
     const savedSearchWords = localStorage.getItem('searchWords');
-  
-    let updatedSearchWords = [searchKeyword];
-    if (savedSearchWords !== null) {
-      const parsed: string[] = JSON.parse(savedSearchWords);
+    if(savedSearchWords !== null){
+      const parsed:string[] = JSON.parse(savedSearchWords);
       const filtered = parsed.filter(item => item !== searchKeyword);
-      updatedSearchWords = [searchKeyword, ...filtered].slice(0, 10);
+      const updatedSearchWords = [searchKeyword, ...filtered].slice(0, 10);
+      localStorage.setItem('searchWords', JSON.stringify(updatedSearchWords));
     }
-    localStorage.setItem('searchWords', JSON.stringify(updatedSearchWords));
     router.push(`/search?keyword=${searchKeyword}`);
   }
 
