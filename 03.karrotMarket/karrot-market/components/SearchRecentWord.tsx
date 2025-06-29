@@ -25,7 +25,7 @@ export default function SearchRecentWord(){
     const savedSearchWords = localStorage.getItem('searchWords');    
     const parsed = savedSearchWords ? JSON.parse(savedSearchWords) : [];    
     setRecent(parsed)
-  },[])
+  },[recent])
 
   return (
     <div className="setting-page pt-[10px]">

@@ -15,21 +15,27 @@ export default function SearchForm({ searchKeyword }:{ searchKeyword:string }) {
       router.push("/search");
     }
   }
-
-  function onSubmit(event:React.FormEvent<HTMLFormElement>){
-    event.preventDefault();    
+  function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     const searchKeyword = searchWord.trim();
-    if(!searchKeyword) return;
-
-    // 중복단어 체크
+    if (!searchKeyword) return;
+  
+    console.log("저장 전 searchKeyword:", searchKeyword);
+  
     const savedSearchWords = localStorage.getItem('searchWords');
-    if(savedSearchWords !== null){
-      const parsed:string[] = JSON.parse(savedSearchWords);
+    console.log("기존 저장된 검색어:", savedSearchWords);
+  
+    let updatedSearchWords = [searchKeyword];
+    if (savedSearchWords !== null) {
+      const parsed: string[] = JSON.parse(savedSearchWords);
       const filtered = parsed.filter(item => item !== searchKeyword);
-      const updatedSearchWords = [searchKeyword, ...filtered].slice(0, 10);
-      localStorage.setItem('searchWords', JSON.stringify(updatedSearchWords));
+      updatedSearchWords = [searchKeyword, ...filtered].slice(0, 10);
     }
-    router.push(`/search?keyword=${searchWord}`);
+  
+    localStorage.setItem('searchWords', JSON.stringify(updatedSearchWords));
+    console.log("저장 후 localStorage:", localStorage.getItem('searchWords'));
+  
+    router.push(`/search?keyword=${searchKeyword}`);
   }
 
   useEffect(()=>{
