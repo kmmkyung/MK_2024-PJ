@@ -46,7 +46,9 @@ export async function updateUserProfile(formData: FormData) {
       upsert: true,
       contentType: userData.photo.type,
     })
-    if (error) throw new Error("이미지 업로드 실패")
+    if (error) {
+      throw new Error("이미지 업로드 실패")
+    }
 
     const { data } = supabaseClient.storage
     .from("carrot-user-avatar")
