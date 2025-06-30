@@ -24,22 +24,9 @@ export async function updateUserProfile(formData: FormData) {
   }
   
   if(userData.photo instanceof File){
-    // const photoData = await data.photo.arrayBuffer()
     const ext = path.extname(userData.photo.name) // ".png", ".jpg" 같은 확장자만 추출
     const fileName = `avatar${ext}`
     const pathInBucket = `userAvatar/${session.id}/${fileName}`
-
-    // 개인 폴더 만들기
-    // const userFolderPath = path.join(process.cwd(), "public", "userAvatar", session.id!.toString())
-    // await fs.mkdir(userFolderPath, { recursive: true })
-
-    // 폴더 이미지 덮어쓰기
-    // const filePath = path.join(userFolderPath, fileName)
-    // await fs.writeFile(filePath, Buffer.from(photoData))
-
-    // 브라우저에서 접근 가능한 경로로 저장
-    // data.photo = `/userAvatar/${session.id}/${fileName}?v=${Date.now()}`
-
     const { error } = await supabaseClient.storage
     .from("carrot-user-avatar")
     .upload(pathInBucket, userData.photo, {
@@ -47,6 +34,8 @@ export async function updateUserProfile(formData: FormData) {
       contentType: userData.photo.type,
     })
     if (error) {
+      console.log("이미지 업로드 실패", error);
+      
       throw new Error("이미지 업로드 실패")
     }
 
