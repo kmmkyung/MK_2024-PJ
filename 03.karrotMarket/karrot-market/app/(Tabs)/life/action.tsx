@@ -25,7 +25,7 @@ export default async function getPosts(){
   return posts
   };
 
-  export const cachedGetReviews = nextCache(
+  export const cachedGetPost = nextCache(
     getPosts, ["posts"],{
       tags: ["posts"]
     })

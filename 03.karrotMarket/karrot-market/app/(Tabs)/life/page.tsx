@@ -1,5 +1,5 @@
 import Link from "next/link";
-import getPosts from "./action";
+import { cachedGetPost } from "./action";
 import { formatToTimeAgo } from "@/lib/utils";
 import { EyeIcon, PlusIcon } from "@heroicons/react/24/solid";
 import { ChatBubbleBottomCenterTextIcon, HandThumbUpIcon } from "@heroicons/react/24/outline";
@@ -9,7 +9,7 @@ export const metadata = {
 }
 
 export default async function Life(){
-  const posts = await getPosts()
+  const posts = await cachedGetPost()
 
   return (
     <section className="setting-page h-screen">
