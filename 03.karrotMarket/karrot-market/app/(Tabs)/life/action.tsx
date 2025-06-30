@@ -1,4 +1,5 @@
 import db from "@/lib/db"
+import { unstable_cache as nextCache } from "next/cache";
 
 export default async function getPosts(){
   const posts = await db.post.findMany({
@@ -22,4 +23,10 @@ export default async function getPosts(){
     ],
   })
   return posts
-  }   
+  };
+
+  export const cachedGetReviews = nextCache(
+    getPosts, ["posts"],{
+      tags: ["posts"]
+    })
+  

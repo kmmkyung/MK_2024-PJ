@@ -43,6 +43,7 @@ export async function uploadPost(_: unknown, formData: FormData){
         }
       });
       revalidateTag('post-detail');
+      revalidateTag('posts');
       redirect(`/post/${post.id}`);
     }
   }
