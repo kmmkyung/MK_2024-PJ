@@ -26,7 +26,7 @@ export async function updateUserProfile(formData: FormData) {
   if(userData.photo instanceof File){
     const ext = path.extname(userData.photo.name) // ".png", ".jpg" 같은 확장자만 추출
     const fileName = `avatar${ext}`
-    const pathInBucket = `userAvatar/${session.id}/${fileName}`
+    const pathInBucket = `${session.id}/${fileName}`
     const { error } = await supabaseClient.storage
     .from("carrot-user-avatar")
     .upload(pathInBucket, userData.photo, {
