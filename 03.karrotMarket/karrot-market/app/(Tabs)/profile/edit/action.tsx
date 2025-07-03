@@ -34,8 +34,8 @@ export async function updateUserProfile(formData: FormData) {
       contentType: userData.photo.type,
     })
     if (error) {
-      console.log("이미지 업로드 실패", error);
-      
+      console.log("photo type:", userData.photo.type)
+      console.log("이미지 업로드 실패!!", error);
       throw new Error("이미지 업로드 실패")
     }
 
