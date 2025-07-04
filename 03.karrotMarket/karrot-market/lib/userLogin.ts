@@ -1,9 +1,10 @@
 import { redirect } from "next/navigation";
 import getSession from "./session"
 
-export default async function userLogin(userID:number){
-  const session = await getSession()
-  session.id = userID
-  await session.save()
-  return redirect('/profile')
+export default async function userLogin(userId: number, uid: string) {
+  const session = await getSession();
+  session.id = userId;
+  session.uid = uid;
+  await session.save();
+  return redirect('/profile');
 }

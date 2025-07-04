@@ -1,6 +1,7 @@
 import { getAccessToken, getUserProfile } from "@/lib/auth/google";
 import db from "@/lib/db";
 import userLogin from "@/lib/userLogin";
+import { loginWithSupabaseOAuth } from "@/lib/userSupabaseLogin";
 import { redirect } from "next/navigation";
 import { NextRequest } from "next/server";
 
@@ -31,7 +32,7 @@ export async function GET(request: NextRequest){
 
 // db에 user가 있으면 로그인
   if(user) {
-    await userLogin(user.id);
+    await loginWithSupabaseOAuth();
   }
   // db에 user가 없으면 새로등록하고 로그인
   const newUser = await db.user.create({
@@ -41,7 +42,7 @@ export async function GET(request: NextRequest){
       avatar: picture,
       email: !Boolean(userEmail) && email_verified ? email : null
     },
-    select: { id: true }
+    select: { id: true, uid: true }
   })
-  await userLogin(newUser.id)
+  await userLogin(newUser.id, newUser.uid)
 }
