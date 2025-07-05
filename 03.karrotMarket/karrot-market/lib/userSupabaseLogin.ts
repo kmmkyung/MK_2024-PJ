@@ -1,7 +1,7 @@
 import { supabaseClient } from "./supabaseClient";
 import userLogin from "./userLogin";
 
-export async function loginWithSupabaseEmail(email: string, password: string){
+export async function loginWithSupabaseEmail(userId:number, email: string, password: string){
   const { data, error } = await supabaseClient.auth.signInWithPassword({
     email,
     password,
@@ -10,13 +10,6 @@ export async function loginWithSupabaseEmail(email: string, password: string){
   if (!data.session || !data.user) {
     throw new Error("로그인 실패");
   }
-  const userId = data.user.id;
-  return await userLogin(userId);
-}
-
-export async function loginWithSupabaseOAuth(provider: string) {
-  const { data, error } = await supabaseClient.auth.signInWithOAuth({
-    provider,
-  });
-  if (error) throw error;
+  const userUid = data.user.id
+  return await userLogin(userId,userUid);
 }

@@ -4,7 +4,6 @@ import { PASSWORD_MAX_LENGTH, PASSWORD_MIN_LENGTH, PASSWORD_REGEX, PASSWORD_REGE
 import db from "@/lib/db";
 import { z } from "zod";
 import bcrypt from "bcrypt"
-import userLogin from "@/lib/userLogin";
 import { loginWithSupabaseEmail } from "@/lib/userSupabaseLogin";
 
 async function checkEmail(email:string){
@@ -41,7 +40,7 @@ export async function login(prevState:unknown, formData:FormData){
     })
     const passwordOK = await bcrypt.compare(result.data.password, user!.password ?? '') // 사용자가 입력한 값, 데이터베이스 해쉬값
     if(passwordOK){
-      await loginWithSupabaseEmail(result.data.email, result.data.password);
+      await loginWithSupabaseEmail(user!.id, result.data.email, result.data.password);
     }
     else {
       return { fieldErrors:{password: ['올바른 비밀번호가 아닙니다'], email:[]}, data }

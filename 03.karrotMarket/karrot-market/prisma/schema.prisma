@@ -7,9 +7,15 @@ generator client {
 //   url      = env("DATABASE_URL")
 // }
 
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL_Prisma")
+//   directUrl  = env("DIRECT_DATABASE_URL")
+// }
+
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL_Prisma")
+  url      = env("DIRECT_DATABASE_URL")
 }
 
 
