@@ -1,9 +1,9 @@
-import {getAccessToken, getUserEmail, getUserProfile} from "@/lib/auth/github";
+// import {getAccessToken, getUserEmail, getUserProfile} from "@/lib/auth/github";
 import db from "@/lib/db";
 import userLogin from "@/lib/userLogin";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { redirect } from "next/navigation";
-import { NextRequest } from "next/server";
+// import { NextRequest } from "next/server";
 
 // export async function GET(request: NextRequest){
 //   const code = request.nextUrl.searchParams.get('code');
