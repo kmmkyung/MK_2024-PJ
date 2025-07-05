@@ -3,6 +3,7 @@ import db from "@/lib/db";
 import userLogin from "@/lib/userLogin";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 // import { NextRequest } from "next/server";
 
 // export async function GET(request: NextRequest){
