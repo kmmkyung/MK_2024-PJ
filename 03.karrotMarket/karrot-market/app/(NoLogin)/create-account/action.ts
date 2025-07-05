@@ -4,7 +4,7 @@ import { PASSWORD_MAX_LENGTH, PASSWORD_MIN_LENGTH, PASSWORD_REGEX, PASSWORD_REGE
 import db from "@/lib/db";
 import { z } from "zod";
 import bcrypt from "bcrypt"
-import userLogin from "@/lib/userLogin";
+import { loginWithSupabaseEmail } from "@/lib/userSupabaseLogin";
 
 
 function passwordCheck({password, confirmPassword}:{password:string,confirmPassword:string}){
@@ -108,6 +108,6 @@ export async function createAccount(prevState: unknown, formData: FormData) {
     })
 
     // 로그인(쿠키받기)
-    await userLogin(user.id, user.uid!);
+    await loginWithSupabaseEmail(user.id, result.data.email, result.data.password);
   }
 }
