@@ -104,10 +104,10 @@ export async function createAccount(prevState: unknown, formData: FormData) {
         email: result.data.email,
         password: hashedPassword
       },
-      select: { id: true }
+      select: { id: true, uid: true }
     })
 
     // 로그인(쿠키받기)
-    await userLogin(user.id)
+    await userLogin(user.id, user.uid!);
   }
 }
