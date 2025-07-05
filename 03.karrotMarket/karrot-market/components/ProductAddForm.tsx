@@ -20,8 +20,8 @@ export default function ProductAddForm(){
       return;
     }
     const fileSize = file.size / (1024 * 1024);
-    if (fileSize > 2) {
-      window.alert("이미지 크기가 2MB 미만 이미지를 올려주세요");
+    if (fileSize > 3) {
+      window.alert("이미지 크기가 3MB 미만 이미지를 올려주세요");
       return;
     }
     const url = URL.createObjectURL(file)
