@@ -19,7 +19,6 @@ export default async function getPosts(){
     },
     orderBy: [
       { created_at: "desc" },
-      { id: "desc" },
     ],
   })
   return posts
