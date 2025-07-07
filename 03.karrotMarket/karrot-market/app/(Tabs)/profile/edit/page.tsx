@@ -21,11 +21,12 @@ export default function UserEdit() {
     formData.append("upload_preset", "UserAvatar"); 
     formData.append("public_id", `userAvatar/${user!.id}/avatar`);
     try {
-      const res = await fetch("https://api.cloudinary.com/v1_1/CarrotMarket/image/upload", {
+      const res = await fetch("https://api.cloudinary.com/v1_1/carrotmarket/image/upload", {
         method: "POST",
         body: formData,
       });
       const data = await res.json();
+      console.log("Cloudinary response:", data); 
       return data.secure_url;
     } catch (err) {
       console.error("Cloudinary 업로드 실패:", err);
