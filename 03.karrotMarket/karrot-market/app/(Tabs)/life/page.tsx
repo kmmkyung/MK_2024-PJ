@@ -4,6 +4,8 @@ import { formatToTimeAgo } from "@/lib/utils";
 import { EyeIcon, PlusIcon } from "@heroicons/react/24/solid";
 import { ChatBubbleBottomCenterTextIcon, HandThumbUpIcon } from "@heroicons/react/24/outline";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title:"Life"
 }
