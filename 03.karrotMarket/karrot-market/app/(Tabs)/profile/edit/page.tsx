@@ -16,7 +16,7 @@ export default function UserEdit() {
   const [errors, setErrors] = useState<{ [key: string]: string[] } | null>(null);
 
   async function getSignature(publicId: string) {
-    const res = await fetch("/api/cloudinary/sign", {
+    const res = await fetch("/api/cloudinary/route", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ publicId }),

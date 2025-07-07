@@ -23,5 +23,3 @@ export async function POST(req: NextRequest) {
   const sig = generateCloudinarySignature(publicId);
   return NextResponse.json(sig);
 }
-
-
