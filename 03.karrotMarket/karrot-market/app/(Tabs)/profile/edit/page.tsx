@@ -3,17 +3,19 @@
 import { useUserContext } from "@/context/userContext";
 import { useState } from "react";
 import { PhotoIcon } from "@heroicons/react/24/solid";
-import Button from "@/components/Button";
 import Input from "@/components/Input";
 import { updateUserProfile } from "./action";
 import NavProfile from "@/components/NavProfile";
+import { useFormStatus } from "react-dom";
 
 export default function UserEdit() {
   const { user } = useUserContext();
+  const { pending } = useFormStatus();
   const [userName, setUserName] = useState<string>(user!.username);
   const [imgFile, setImgFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string>(user?.avatar || "");
   const [errors, setErrors] = useState<{ [key: string]: string[] } | null>(null);
+  const [uploading, setUploading] = useState(false); // 업로드 진행 상태
 
   async function getSignature(publicId: string) {
     const res = await fetch("/api/cloudinary", {
@@ -24,29 +26,33 @@ export default function UserEdit() {
     if (!res.ok) throw new Error("서명 생성 실패");
     return res.json(); // { signature, timestamp, publicId, apiKey }
   }
-  
 
   async function uploadToCloudinary(file: File, userId: number): Promise<string | null> {
-    const publicId = `UserAvatar/${userId}/avatar`;
-    const { signature, timestamp, apiKey } = await getSignature(publicId);
+    setUploading(true);
+    try {
+      const publicId = `UserAvatar/${userId}/avatar`;
+      const { signature, timestamp, apiKey } = await getSignature(publicId);
   
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("api_key", apiKey);
-    formData.append("timestamp", timestamp);
-    formData.append("public_id", publicId);
-    formData.append("signature", signature);
-
-    const res = await fetch("https://api.cloudinary.com/v1_1/carrotmarket/image/upload", {
-      method: "POST",
-      body: formData,
-    });
-    const data = await res.json();
-    if (!res.ok) {
-      console.error("Cloudinary upload failed:", data);
-      return null;
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("api_key", apiKey);
+      formData.append("timestamp", timestamp);
+      formData.append("public_id", publicId);
+      formData.append("signature", signature);
+  
+      const res = await fetch("https://api.cloudinary.com/v1_1/carrotmarket/image/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        console.error("Cloudinary upload failed:", data);
+        return null;
+      }
+      return data.secure_url;
+    } finally {
+      setUploading(false);
     }
-    return data.secure_url;
   }
 
   async function onImageChange(event:React.ChangeEvent<HTMLInputElement>){
@@ -74,8 +80,6 @@ export default function UserEdit() {
     formData.append("username", userName);
     if(imgFile){
       formData.append("photo", preview);
-      console.log(preview);
-      
     } else {
       formData.append("photo", user!.avatar || "");
     }
@@ -117,7 +121,8 @@ export default function UserEdit() {
           </div>
         </div>
         <div className="mb-5 md:mb-0">
-          <Button text="수정 완료"/>
+          <button disabled={pending || uploading} className="text-sm primary-btn" type="submit">{uploading ? '이미지 변환중' : pending ? '🥕Loading🥕' : '수정완료'}
+          </button>
         </div>
       </form>
     </section>
