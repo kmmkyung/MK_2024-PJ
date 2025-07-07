@@ -15,23 +15,38 @@ export default function UserEdit() {
   const [preview, setPreview] = useState<string>(user?.avatar || "");
   const [errors, setErrors] = useState<{ [key: string]: string[] } | null>(null);
 
-  async function uploadToCloudinary(file: File): Promise<string | null> {
+  async function getSignature(publicId: string) {
+    const res = await fetch("/api/cloudinary/sign", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ publicId }),
+    });
+    if (!res.ok) throw new Error("서명 생성 실패");
+    return res.json(); // { signature, timestamp, publicId, apiKey }
+  }
+  
+
+  async function uploadToCloudinary(file: File, userId: number): Promise<string | null> {
+    const publicId = `  UserAvatar/${userId}/avatar`;
+    const { signature, timestamp, apiKey } = await getSignature(publicId);
+  
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", "UserAvatar"); 
-    formData.append("public_id", `userAvatar/${user!.id}/avatar`);
-    try {
-      const res = await fetch("https://api.cloudinary.com/v1_1/carrotmarket/image/upload", {
-        method: "POST",
-        body: formData,
-      });
-      const data = await res.json();
-      console.log("Cloudinary response:", data); 
-      return data.secure_url;
-    } catch (err) {
-      console.error("Cloudinary 업로드 실패:", err);
+    formData.append("api_key", apiKey);
+    formData.append("timestamp", timestamp);
+    formData.append("public_id", publicId);
+    formData.append("signature", signature);
+
+    const res = await fetch("https://api.cloudinary.com/v1_1/carrotmarket/image/upload", {
+      method: "POST",
+      body: formData,
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      console.error("Cloudinary upload failed:", data);
       return null;
     }
+    return data.secure_url;
   }
 
   async function onImageChange(event:React.ChangeEvent<HTMLInputElement>){
@@ -50,8 +65,7 @@ export default function UserEdit() {
     }
     setImgFile(file);
     setPreview(URL.createObjectURL(file));
-    const url = await uploadToCloudinary(file);
-    console.log("Cloudinary URL:", url); 
+    const url = await uploadToCloudinary(file, user!.id);
     if (url) setPreview(url);
   }
 
