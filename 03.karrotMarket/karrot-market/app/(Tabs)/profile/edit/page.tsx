@@ -18,7 +18,7 @@ export default function UserEdit() {
   async function uploadToCloudinary(file: File): Promise<string | null> {
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", "portfolio_unsigned"); 
+    formData.append("upload_preset", "UserAvatar"); 
     formData.append("public_id", `userAvatar/${user!.id}/avatar`);
     try {
       const res = await fetch("https://api.cloudinary.com/v1_1/doc8eukbh/image/upload", {
