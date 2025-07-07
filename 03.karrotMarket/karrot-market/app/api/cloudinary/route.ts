@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
 
-export function generateCloudinarySignature(publicId: string) {
+function generateCloudinarySignature(publicId: string) {
   const timestamp = Math.floor(Date.now() / 1000).toString();
   const paramsToSign = `public_id=${publicId}&timestamp=${timestamp}`;
   const apiSecret = process.env.CLOUDINARY_API_SECRET!;
