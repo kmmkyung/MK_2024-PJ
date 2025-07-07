@@ -38,7 +38,6 @@ export async function updateUserProfile(formData: FormData) {
           }
         }
       }
-  
       await db.user.update({
         where: {id: session.id},
         data: {

@@ -58,6 +58,8 @@ export default function UserEdit() {
     formData.append("username", userName);
     if(imgFile){
       formData.append("photo", imgFile);
+      console.log(imgFile);
+      
     } else {
       formData.append("photo", user!.avatar || "");
     }
