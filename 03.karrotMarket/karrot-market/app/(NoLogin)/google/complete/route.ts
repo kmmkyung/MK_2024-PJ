@@ -16,7 +16,7 @@ export async function GET(request: NextRequest){
   const { sub, name, picture, email, email_verified } = await getUserProfile(access_token);
   const user = await db.user.findUnique({
     where: { google_id: sub },
-    select: { id : true, uid: true }
+    select: { id : true }
   })
   
   const userName = await db.user.findUnique({
@@ -30,7 +30,7 @@ export async function GET(request: NextRequest){
   })
 
 // db에 user가 있으면 로그인
-  if(user && user.uid) {
+  if(user) {
     return await userLogin(user.id);
   }
   // db에 user가 없으면 새로등록하고 로그인
