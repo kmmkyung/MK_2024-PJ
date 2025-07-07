@@ -56,8 +56,8 @@ export default function UserEdit() {
   async function onSubmit(){
     const formData = new FormData();
     formData.append("username", userName);
-    if(preview){
-      formData.append("photo", preview);
+    if(imgFile){
+      formData.append("photo", imgFile);
     } else {
       formData.append("photo", user!.avatar || "");
     }
