@@ -27,7 +27,7 @@ export default function UserEdit() {
   
 
   async function uploadToCloudinary(file: File, userId: number): Promise<string | null> {
-    const publicId = `  UserAvatar/${userId}/avatar`;
+    const publicId = `UserAvatar/${userId}/avatar`;
     const { signature, timestamp, apiKey } = await getSignature(publicId);
   
     const formData = new FormData();
