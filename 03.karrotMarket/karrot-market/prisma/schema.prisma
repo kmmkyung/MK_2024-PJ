@@ -9,19 +9,14 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL_Prisma")
-  directUrl  = env("DIRECT_DATABASE_URL")
+  url      = env("DATABASE_URL")
+  // directUrl  = env("DATABASE_URL")
 }
 
-// datasource db {
-//   provider = "postgresql"
-//   url      = env("DIRECT_DATABASE_URL")
-// }
 
 
 model User {
   id              Int        @id @default(autoincrement())
-  uid             String?    @unique
   username        String     @unique
   email           String?    @unique
   password        String?

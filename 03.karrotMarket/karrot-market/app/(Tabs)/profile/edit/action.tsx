@@ -3,9 +3,7 @@
 import { USERNAME_REGEX } from "@/lib/constants"
 import db from "@/lib/db"
 import getSession from "@/lib/session"
-import { supabaseClient } from "@/lib/supabaseClient"
 import { revalidatePath } from "next/cache"
-import path from "path"
 import { z } from "zod"
 
 const userProfileSchema  = z.object({
@@ -21,29 +19,6 @@ export async function updateUserProfile(formData: FormData) {
   const userData = {
     username: formData.get('username'),
     photo: formData.get('photo'),
-  }
-  
-  if(userData.photo instanceof File){
-    const ext = path.extname(userData.photo.name) // ".png", ".jpg" 같은 확장자만 추출
-    const fileName = `avatar${ext}`
-    const pathInBucket = `${session.id}/${fileName}`
-    const { error } = await supabaseClient.storage
-    .from("carrot-user-avatar")
-    .upload(pathInBucket, userData.photo, {
-      upsert: true,
-      contentType: userData.photo.type,
-    })
-    if (error) {
-      console.log("photo type:", userData.photo.type)
-      console.log("이미지 업로드 실패!!", error);
-      throw new Error("이미지 업로드 실패")
-    }
-
-    const { data } = supabaseClient.storage
-    .from("carrot-user-avatar")
-    .getPublicUrl(pathInBucket)
-    const publicUrl = data.publicUrl;
-    userData.photo = publicUrl;
   }
 
   const result = userProfileSchema.safeParse(userData)

@@ -15,7 +15,25 @@ export default function UserEdit() {
   const [preview, setPreview] = useState<string>(user?.avatar || "");
   const [errors, setErrors] = useState<{ [key: string]: string[] } | null>(null);
 
-  function onImageChange(event:React.ChangeEvent<HTMLInputElement>){
+  async function uploadToCloudinary(file: File): Promise<string | null> {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "portfolio_unsigned"); 
+    formData.append("public_id", `userAvatar/${user!.id}/avatar`);
+    try {
+      const res = await fetch("https://api.cloudinary.com/v1_1/doc8eukbh/image/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      return data.secure_url;
+    } catch (err) {
+      console.error("Cloudinary 업로드 실패:", err);
+      return null;
+    }
+  }
+
+  async function onImageChange(event:React.ChangeEvent<HTMLInputElement>){
     const files = event.target.files;
     if(!files) return;
   
@@ -25,20 +43,21 @@ export default function UserEdit() {
       return;
     }
     const fileSize = file.size / (1024 * 1024);
-    if (fileSize > 2) {
-      window.alert("이미지 크기가 2MB 미만 이미지를 올려주세요");
+    if (fileSize > 3) {
+      window.alert("이미지 크기가 3MB 미만 이미지를 올려주세요");
       return;
     }
     setImgFile(file);
-    const url = URL.createObjectURL(file)
-    setPreview(url)
+    setPreview(URL.createObjectURL(file));
+    const url = await uploadToCloudinary(file);
+    if (url) setPreview(url);
   }
 
   async function onSubmit(){
     const formData = new FormData();
     formData.append("username", userName);
-    if(imgFile){
-      formData.append("photo", imgFile);
+    if(preview){
+      formData.append("photo", preview);
     } else {
       formData.append("photo", user!.avatar || "");
     }
