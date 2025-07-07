@@ -50,6 +50,7 @@ export default function UserEdit() {
     setImgFile(file);
     setPreview(URL.createObjectURL(file));
     const url = await uploadToCloudinary(file);
+    console.log("Cloudinary URL:", url); 
     if (url) setPreview(url);
   }
 
