@@ -41,7 +41,7 @@ export async function GET(request: NextRequest){
       avatar: picture,
       email: !Boolean(userEmail) && email_verified ? email : null
     },
-    select: { id: true, uid: true }
+    select: { id: true }
   })
   return await userLogin(newUser.id);
 }
