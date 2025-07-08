@@ -15,7 +15,7 @@ export default function UserEdit() {
   const [imgFile, setImgFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string>(user?.avatar || "");
   const [errors, setErrors] = useState<{ [key: string]: string[] } | null>(null);
-  // const [uploading, setUploading] = useState(false); // 업로드 진행 상태
+  const [uploading, setUploading] = useState(false); // 업로드 진행 상태
 
   async function getSignature(publicId: string) {
     const res = await fetch("/api/cloudinary", {
@@ -28,7 +28,7 @@ export default function UserEdit() {
   }
 
   async function uploadToCloudinary(file: File, userId: number): Promise<string | null> {
-    // setUploading(true);
+    setUploading(true);
     try {
       const publicId = `UserAvatar/${userId}/avatar`;
       const { signature, timestamp, apiKey } = await getSignature(publicId);
@@ -51,9 +51,7 @@ export default function UserEdit() {
       }
       return data.secure_url;
     } finally {
-      // setUploading(false);
-      console.log('ok');
-      
+      setUploading(false);
     }
   }
 
@@ -78,6 +76,7 @@ export default function UserEdit() {
   }
 
   async function onSubmit(){
+    console.log('uploading',uploading);
     console.log('pending',pending);
     
     const formData = new FormData();
