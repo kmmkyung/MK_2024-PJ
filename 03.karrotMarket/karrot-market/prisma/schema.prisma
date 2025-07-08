@@ -2,15 +2,24 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// 개발용
 // datasource db {
 //   provider = "sqlite"
 //   url      = env("DATABASE_URL")
 // }
 
+
+// 배포확인용
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL_PRISMAAccelerate")
+  url      = env("DATABASE_URL")
 }
+
+// 배포 PRISMAAccelerate는 확인로컬 못들어감
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL_PRISMAAccelerate")
+// }
 
 
 
