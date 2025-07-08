@@ -78,6 +78,7 @@ export default function UserEdit() {
   async function onSubmit(){
     console.log('uploading',uploading);
     console.log('pending',pending);
+    console.log('preview',preview);
     
     const formData = new FormData();
     formData.append("username", userName);
