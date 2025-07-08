@@ -75,9 +75,8 @@ export default function UserEdit() {
     if (url) setPreview(url);
   }
 
-  async function onSubmit(){
-    console.log('클릭');
-    
+  async function onSubmit(event: React.FormEvent<HTMLFormElement>){
+    event.preventDefault();
     const formData = new FormData();
     formData.append("username", userName);
     if(imgFile){
@@ -100,7 +99,7 @@ export default function UserEdit() {
         <h6 className="text-primary text-base font-semibold">개인 정보</h6>
         <NavProfile/>
       </div>
-      <form className="h-[calc(100%-44px)] flex flex-col gap-5 justify-between" action={onSubmit}>
+      <form className="h-[calc(100%-44px)] flex flex-col gap-5 justify-between" onSubmit={onSubmit}>
         <div className="flex flex-col gap-5">
           <div className="size-16 m-auto">
             <label htmlFor="photo" className="border-2 border-neutral-400 aspect-square block text-neutral-400 rounded-full border-dashed cursor-pointer bg-center bg-cover" style={{backgroundImage:`url(${preview})`} }>
