@@ -7,7 +7,7 @@ const globalForPrisma = globalThis as unknown as {
 export const db = globalForPrisma.prisma ?? new PrismaClient({
   datasources: {
     db: {
-      url: process.env.DATABASE_URL_Prisma, // <- 새 환경변수 사용
+      url: process.env.DATABASE_URL_PRISMAAccelerate, // <- 새 환경변수 사용
     },
   },
 })
