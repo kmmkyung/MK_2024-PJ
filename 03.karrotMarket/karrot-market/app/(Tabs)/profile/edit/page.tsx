@@ -75,8 +75,9 @@ export default function UserEdit() {
     if (url) setPreview(url);
   }
 
-  async function onSubmit(event: React.FormEvent<HTMLFormElement>){
-    event.preventDefault();
+  async function onSubmit(){
+    console.log('pending',pending);
+    
     const formData = new FormData();
     formData.append("username", userName);
     if(imgFile){
@@ -99,7 +100,7 @@ export default function UserEdit() {
         <h6 className="text-primary text-base font-semibold">개인 정보</h6>
         <NavProfile/>
       </div>
-      <form className="h-[calc(100%-44px)] flex flex-col gap-5 justify-between" onSubmit={onSubmit}>
+      <form className="h-[calc(100%-44px)] flex flex-col gap-5 justify-between" action={onSubmit}>
         <div className="flex flex-col gap-5">
           <div className="size-16 m-auto">
             <label htmlFor="photo" className="border-2 border-neutral-400 aspect-square block text-neutral-400 rounded-full border-dashed cursor-pointer bg-center bg-cover" style={{backgroundImage:`url(${preview})`} }>
@@ -122,8 +123,8 @@ export default function UserEdit() {
           </div>
         </div>
         <div className="mb-5 md:mb-0">
-          <button disabled={!pending || uploading} className="text-sm primary-btn" type="submit">
-            {uploading || !pending ? '🥕Loading🥕' : '수정완료'}
+          <button disabled={pending || uploading} className="text-sm primary-btn" type="submit">
+            {uploading || pending ? '🥕Loading🥕' : '수정완료'}
           </button>
         </div>
       </form>
