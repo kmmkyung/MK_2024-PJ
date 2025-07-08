@@ -76,6 +76,8 @@ export default function UserEdit() {
   }
 
   async function onSubmit(){
+    console.log('클릭');
+    
     const formData = new FormData();
     formData.append("username", userName);
     if(imgFile){
@@ -121,7 +123,8 @@ export default function UserEdit() {
           </div>
         </div>
         <div className="mb-5 md:mb-0">
-          <button disabled={pending || uploading} className="text-sm primary-btn" type="submit">{uploading ? '이미지 변환중' : pending ? '🥕Loading🥕' : '수정완료'}
+          <button disabled={pending || uploading} className="text-sm primary-btn" type="submit">
+            {uploading || pending ? '🥕Loading🥕' : '수정완료'}
           </button>
         </div>
       </form>
