@@ -17,11 +17,11 @@ export default function UserEdit() {
   const [errors, setErrors] = useState<{ [key: string]: string[] } | null>(null);
   const [uploading, setUploading] = useState(false); // 업로드 진행 상태
 
-  async function getSignature(publicId: string) {
+  async function getSignature(publicId: string, options: Record<string, string>) {
     const res = await fetch("/api/cloudinary", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ publicId }),
+      body: JSON.stringify({ publicId, options }),
     });
     if (!res.ok) throw new Error("서명 생성 실패");
     return res.json(); // { signature, timestamp, publicId, apiKey }
@@ -30,16 +30,22 @@ export default function UserEdit() {
   async function uploadToCloudinary(file: File, userId: number): Promise<string | null> {
     setUploading(true);
     try {
-      const publicId = `UserAvatar/${userId}/avatar`;
-      const { signature, timestamp, apiKey } = await getSignature(publicId);
+      const folder = `UserAvatar/${userId}`;
+      const publicId = "avatar";
+      const options = {
+        folder,
+        use_filename: "true"
+      };
   
+      const { signature, timestamp, apiKey } = await getSignature(publicId, options);
+    
       const formData = new FormData();
       formData.append("file", file);
       formData.append("api_key", apiKey);
       formData.append("timestamp", timestamp);
       formData.append("public_id", publicId);
       formData.append("signature", signature);
-      formData.append("use_filename", "true");
+      formData.append("folder", folder);
   
       const res = await fetch("https://api.cloudinary.com/v1_1/carrotmarket/image/upload", {
         method: "POST",
