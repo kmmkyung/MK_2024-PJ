@@ -39,6 +39,7 @@ export default function UserEdit() {
       formData.append("timestamp", timestamp);
       formData.append("public_id", publicId);
       formData.append("signature", signature);
+      
   
       const res = await fetch("https://api.cloudinary.com/v1_1/carrotmarket/image/upload", {
         method: "POST",
