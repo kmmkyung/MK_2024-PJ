@@ -4,13 +4,7 @@ const globalForPrisma = globalThis as unknown as {
   prisma?: PrismaClient
 }
 
-export const db = globalForPrisma.prisma ?? new PrismaClient({
-  datasources: {
-    db: {
-      url: process.env.DATABASE_URL_NEON, // <- 새 환경변수 사용
-    },
-  },
-})
+export const db = globalForPrisma.prisma ?? new PrismaClient()
 if (process.env.NODE_ENV !== "production") {
   globalForPrisma.prisma = db
 }
