@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
       {hostname: "avatars.githubusercontent.com"},
       {hostname: "lh3.googleusercontent.com"},
       {hostname: "k.kakaocdn.net"},
+      { hostname: "res.cloudinary.com" }
     ]
   }
 };
