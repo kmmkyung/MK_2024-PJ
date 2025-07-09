@@ -10,15 +10,20 @@ function generateCloudinarySignature(publicId: string, options: Record<string, s
     timestamp,
     ...options,
   };
-  
+
   const paramsToSign = Object.keys(params)
     .sort()
-    .map(key => `${key}=${params[key]}`)
+    .map(key => `${key}=${(params as Record<string, string>)[key]}`)
     .join("&");
 
   const signature = crypto.createHash("sha1").update(paramsToSign + apiSecret).digest("hex");
-    
-  return { signature, timestamp, publicId, apiKey: process.env.CLOUDINARY_API_KEY! };
+
+  return {
+    signature,
+    timestamp,
+    publicId,
+    apiKey: process.env.CLOUDINARY_API_KEY!,
+  };
 }
 
 export async function POST(req: NextRequest) {
