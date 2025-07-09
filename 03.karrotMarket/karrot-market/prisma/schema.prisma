@@ -12,7 +12,7 @@ generator client {
 // 배포 PRISMAAccelerate는 확인로컬 못들어감
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL_PRISMAAccelerate")
+  url      = env("DATABASE_URL_NEON")
 }
 
 
