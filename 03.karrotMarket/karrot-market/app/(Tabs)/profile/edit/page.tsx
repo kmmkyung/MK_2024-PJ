@@ -126,7 +126,7 @@ export default function UserEdit() {
           </div>
         </div>
         <div className="mb-5 md:mb-0">
-          <button disabled={pending} className="text-sm primary-btn" type="submit">
+          <button disabled={uploading||pending} className="text-sm primary-btn" type="submit">
             {pending ? '🥕Loading🥕' : '수정하기'}
           </button>
         </div>
