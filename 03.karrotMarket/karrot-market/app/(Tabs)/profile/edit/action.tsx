@@ -1,6 +1,5 @@
 "use server"
 
-import { USERNAME_REGEX } from "@/lib/constants"
 import db from "@/lib/db"
 import getSession from "@/lib/session"
 import { revalidatePath } from "next/cache"
@@ -11,7 +10,7 @@ const userProfileSchema  = z.object({
   username: z.string({
     invalid_type_error: 'Username은 문자이어야 합니다.',
     required_error: 'Username을 입력해주세요'
-  }).min(2, '2자 이상 입력해주세요').max(10, '10자 이하 입력해주세요').regex(USERNAME_REGEX, '특수문자를 제외하고 입력해주세요')
+  }).min(2, '2자 이상 입력해주세요').max(10, '10자 이하 입력해주세요').trim().regex(/^[a-zA-Z0-9가-힣 ]+$/, '특수문자를 제외하고 입력해주세요')
 })
 
 export async function updateUserProfile(formData: FormData) {

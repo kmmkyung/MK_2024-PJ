@@ -6,11 +6,10 @@ import { PhotoIcon } from "@heroicons/react/24/solid";
 import Input from "@/components/Input";
 import { updateUserProfile } from "./action";
 import NavProfile from "@/components/NavProfile";
-import { useFormStatus } from "react-dom";
+import Button from "@/components/Button";
 
 export default function UserEdit() {
   const { user } = useUserContext();
-  const { pending } = useFormStatus();
   const [userName, setUserName] = useState<string>(user!.username);
   const [imgFile, setImgFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string>(user?.avatar || "");
@@ -122,10 +121,7 @@ export default function UserEdit() {
           </div>
         </div>
         <div className="mb-5 md:mb-0">
-          {uploading}
-          <button disabled={pending} className="text-sm primary-btn" type="submit">
-            {pending ? '🥕Loading🥕' : '수정하기'}
-          </button>
+          <Button text="수정하기" uploading={uploading}/>
         </div>
       </form>
     </section>
