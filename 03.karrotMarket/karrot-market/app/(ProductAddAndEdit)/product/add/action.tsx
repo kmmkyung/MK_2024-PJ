@@ -1,7 +1,6 @@
 "use server"
 
 import { z } from "zod";
-import fs from "fs/promises"
 import db from "@/lib/db";
 import { CategoryType } from "@prisma/client";
 import getSession from "@/lib/session";
@@ -34,19 +33,12 @@ export async function uploadProduct(_: unknown, formData: FormData){
     existingPhoto: formData.get('existingPhoto')
   }
 
-  if(data.photo instanceof File && data.photo.size > 0){
-    const photoData = await data.photo.arrayBuffer()
-    const timestamp = Date.now();
-    await fs.writeFile(`./public/product/${timestamp}-${data.photo.name}`,
-      Buffer.from(photoData)
-    )
-    data.photo = `/product/${timestamp}-${data.photo.name}`
-  }
-  else if (typeof data.existingPhoto === "string"){
-    data.photo = data.existingPhoto
-  }
-  else {
-    data.photo = ''
+  if (typeof data.photo === "string" && data.photo.length > 0) {
+    data.photo = data.photo
+  } else if (typeof data.existingPhoto === "string") {
+    data.photo = data.existingPhoto;
+  } else {
+    data.photo = "";
   }
 
   const result = await productSchema.safeParseAsync(data)

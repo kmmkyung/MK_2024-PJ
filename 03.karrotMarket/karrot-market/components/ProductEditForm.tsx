@@ -29,8 +29,47 @@ export default function ProductEditForm(props:IAddAndEditProps){
   const [imgFile, setImgFile] = useState<File | null>(null);
   const [preview, setPreview] = useState(editProduct.photo);
   const [errors, setErrors] = useState<{ [key: string]: string[] } | null>(null);
+  const [uploading, setUploading] = useState(false); // 업로드 진행 상태
 
-  function onImageChange(event:React.ChangeEvent<HTMLInputElement>){
+  async function getSignature() {
+    const res = await fetch("/api/cloudinaryProducts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    });
+    if (!res.ok) throw new Error("서명 생성 실패");
+    return res.json(); // { signature, timestamp, publicId, folder, apiKey }
+  }
+  
+  async function uploadToCloudinary(file: File): Promise<string | null> {
+    setUploading(true);
+    try {
+      const { signature, timestamp, apiKey, publicId, folder } = await getSignature();
+  
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("api_key", apiKey);
+      formData.append("timestamp", timestamp);
+      formData.append("public_id", publicId);
+      formData.append("folder", folder);
+      formData.append("signature", signature);
+      
+      const res = await fetch("https://api.cloudinary.com/v1_1/carrotmarket/image/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+  
+      if (!res.ok) {
+        console.error("Cloudinary upload failed:", data);
+        return null;
+      }
+      return data.secure_url;
+    } finally {
+      setUploading(false);
+    }
+  }
+
+  async function onImageChange(event:React.ChangeEvent<HTMLInputElement>){
     const files = event.target.files;
     if(!files) return;
   
@@ -40,13 +79,14 @@ export default function ProductEditForm(props:IAddAndEditProps){
       return;
     }
     const fileSize = file.size / (1024 * 1024);
-    if (fileSize > 2) {
-      window.alert("이미지 크기가 2MB 미만 이미지를 올려주세요");
+    if (fileSize > 3) {
+      window.alert("이미지 크기가 3MB 미만 이미지를 올려주세요");
       return;
     }
     setImgFile(file);
-    const url = URL.createObjectURL(file)
-    setPreview(url)
+    setPreview(URL.createObjectURL(file));
+    const url = await uploadToCloudinary(file);
+    if (url) setPreview(url);
   }
 
   async function onSubmit(){
@@ -57,7 +97,7 @@ export default function ProductEditForm(props:IAddAndEditProps){
     formData.append("description", description);
     formData.append("category", category);
     if(imgFile){
-      formData.append("photo", imgFile);
+      formData.append("photo", preview);
     } else {
       formData.append("photo", editProduct.photo);
     }
@@ -108,7 +148,7 @@ export default function ProductEditForm(props:IAddAndEditProps){
               return <p key={idx} className="text-red-500 mt-3 text-sm">{ele}</p>
             })}
           </div>
-          <Button text="수정 완료"/>
+          <Button text="수정 완료" uploading={uploading}/>
         </div>
       </form>
     </section>

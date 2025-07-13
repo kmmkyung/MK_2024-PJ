@@ -39,7 +39,7 @@ export default function ProfileMenu({children}:{children: React.ReactNode}) {
                 </>
                 :
                 <div className="flex items-center gap-3 min-w-0">
-                  <Image className="flex-shrink-0 size-10 rounded-full overflow-hidden" width={40} height={40} src={userAnother?.avatar ?? "/userAvatar/rabbit.png"} alt={userAnother!.username}/>
+                  <Image className="flex-shrink-0 size-10 rounded-full overflow-hidden aspect-square" width={40} height={40} src={userAnother?.avatar ?? "/userAvatar/rabbit.png"} alt={userAnother!.username}/>
                   <h3 className="text-base font-semibold default-textColor text-ellipsis whitespace-nowrap overflow-hidden">{userAnother?.username}</h3>
                 </div>
               }
