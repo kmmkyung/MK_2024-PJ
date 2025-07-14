@@ -51,6 +51,7 @@ export default function ProductAddForm(){
         console.error("Cloudinary upload failed:", data);
         return null;
       }
+      setCloudinaryUrl(data.secure_url);
       return data.secure_url;
     } finally {
       setUploading(false);
@@ -75,7 +76,6 @@ export default function ProductAddForm(){
     const url = await uploadToCloudinary(file);
     if (url) {
       setPreview(url);
-      setCloudinaryUrl(url);
     }
   }
 
