@@ -3,6 +3,7 @@
 import db from "@/lib/db"
 import getSession from "@/lib/session";
 import { MessageType, Prisma } from "@prisma/client";
+import { revalidateTag } from "next/cache";
 
 export async function getRoom(id:string){
   const room = await db.chatRoom.findUnique({
@@ -52,4 +53,12 @@ export async function saveMessage(payload:string, chatRoomId:string, type: Messa
     },
     select: {id:true}
   })
+}
+
+export async function chatProductDeal(productId: number){
+  await db.product.update({
+    where: {id: productId},
+    data: {dealt: true}
+  });
+  revalidateTag('products');
 }

@@ -1,6 +1,6 @@
 "use client"
 
-import { InitialChatMessages, saveMessage } from "@/app/(ChatsDetail)/chats/[id]/action"
+import { chatProductDeal, InitialChatMessages, saveMessage } from "@/app/(ChatsDetail)/chats/[id]/action"
 import { formatToTimeAgo } from "@/lib/utils"
 import { PaperAirplaneIcon } from "@heroicons/react/24/solid"
 import Image from "next/image"
@@ -135,11 +135,7 @@ export default function ChatMessageList({initialMessages, userId, chatRoomId, us
   async function onClickDeal(productId:number){
     const confirmDeal = confirm("거래 하시겠습니까?");
     if(!confirmDeal) return;
-    await fetch("/api/chatDeal", {
-      method: "PATCH",
-      body: JSON.stringify({ productId }),
-      headers: {"Content-Type": "application/json"}
-    });
+    await chatProductDeal(productId);
     setIsDealt(true);
     channel.current?.send({
       type: "broadcast",

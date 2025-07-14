@@ -1,6 +1,6 @@
 'use client'
 
-import { deleteProduct } from "@/lib/productActions";
+import { deleteProduct } from "@/app/(Tabs)/products/action";
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { usePathname, useRouter } from "next/navigation";
 

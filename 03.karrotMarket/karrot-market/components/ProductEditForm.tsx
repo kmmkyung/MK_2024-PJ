@@ -32,7 +32,7 @@ export default function ProductEditForm(props:IAddAndEditProps){
   const [uploading, setUploading] = useState(false); // 업로드 진행 상태
 
   async function getSignature() {
-    const res = await fetch("/api/cloudinaryProducts", {
+    const res = await fetch("/api/cloudinary/productImg", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
     });

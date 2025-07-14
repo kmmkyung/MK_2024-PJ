@@ -1,7 +1,9 @@
 'use server'
 
+import cloudinary from "@/lib/cloudinary";
 import db from "@/lib/db";
 import { CategoryType } from "@prisma/client";
+import { revalidateTag } from "next/cache";
 
 export async function getInitialProducts(category: CategoryType | null ) {
   const products = await db.product.findMany({
@@ -76,4 +78,16 @@ export async function getMoreProducts(cursorId: number | null, category: Categor
     where: category ? { category } : {},
   });
   return products;
+}
+
+// product 이미지 & db삭제
+export async function deleteProduct(numberId:number){
+  const deletedProduct = await db.product.delete({
+    where: { id: numberId },
+    select: { photo: true }
+  })
+  if(deletedProduct.photo){
+    await cloudinary.uploader.destroy(deletedProduct.photo);
+  }
+  revalidateTag('products')
 }

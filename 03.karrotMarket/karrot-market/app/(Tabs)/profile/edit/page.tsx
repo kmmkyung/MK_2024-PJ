@@ -17,7 +17,7 @@ export default function UserEdit() {
   const [uploading, setUploading] = useState(false); // 업로드 진행 상태
 
   async function getSignature(userId: number) {
-    const res = await fetch("/api/cloudinaryAvatar", {
+    const res = await fetch("/api/cloudinary/userAvatar", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ userId }),
