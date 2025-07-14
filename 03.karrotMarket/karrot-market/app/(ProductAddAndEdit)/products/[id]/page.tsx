@@ -85,7 +85,7 @@ export default async function ProductDetail({params}:{ params: Promise<{id:strin
               <h1 className="text-lg md:text-2xl font-semibold">{product.title}</h1>
               <p className="mt-2 text-xs text-neutral-500">{product.category}<span className="mx-2">•</span>{formatToTimeAgo(product.created_at.toString())}</p>
               <p className="text-lg md:text-xl font-semibold mt-5 md:block hidden">{formatToWon(product.price)}원</p>
-              <p className="md:h-[calc(100%-140px)] overflow-y-scroll text-sm mt-5">{product.description}</p>
+              <p className="md:h-[calc(100%-140px)] whitespace-pre-wrap overflow-y-scroll text-sm mt-5">{product.description}</p>
             </div>
             <p className="flex items-center gap-1 text-xs text-neutral-500">
               <OutlineChatBubbleOvalLeftEllipsisIcon className="size-3"/>채팅 {product._count.chatRoom}

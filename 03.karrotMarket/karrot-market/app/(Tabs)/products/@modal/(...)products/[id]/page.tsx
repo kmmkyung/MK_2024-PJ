@@ -82,7 +82,7 @@ export default async function ModalPage({params}:{ params: Promise<{id:string}>}
                   <p className="text-base md:text-xl font-semibold mt-5 ">{formatToWon(product.price)}원</p>
                 </div>
                 <div className="mt-5 h-[calc(100%-196px)] overflow-y-scroll no-scrollbar">
-                  <p className="text-sm pb-2">{product.description}</p>
+                  <p className="whitespace-pre-wrap text-sm pb-2">{product.description}</p>
                 </div>
               </div>
               <div>
