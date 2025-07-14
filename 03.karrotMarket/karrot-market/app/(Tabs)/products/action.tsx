@@ -84,10 +84,10 @@ export async function getMoreProducts(cursorId: number | null, category: Categor
 export async function deleteProduct(numberId:number){
   const deletedProduct = await db.product.delete({
     where: { id: numberId },
-    select: { photo: true }
+    select: { publicId: true }
   })
-  if(deletedProduct.photo){
-    await cloudinary.uploader.destroy(deletedProduct.photo);
+  if(deletedProduct.publicId){
+    await cloudinary.uploader.destroy(deletedProduct.publicId);
   }
   revalidateTag('products')
 }
