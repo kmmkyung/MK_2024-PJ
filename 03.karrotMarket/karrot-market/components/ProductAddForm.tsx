@@ -13,6 +13,7 @@ export default function ProductAddForm(){
   const [ category, setCategory ] = useState(data?.category as CategoryType);
   const [ preview, setPreview ] = useState('');
   const [ cloudinaryUrl, setCloudinaryUrl ] = useState("");
+  const [ publicId, setPublicId ] = useState(""); // 클라우디너리 업로드 시 사용할 publicId
   const [ uploading, setUploading ] = useState(false); // 업로드 진행 상태
 
   async function getSignature() {
@@ -30,7 +31,8 @@ export default function ProductAddForm(){
     setUploading(true);
     try {
       const { signature, timestamp, apiKey, publicId, folder } = await getSignature();
-  
+      setPublicId(publicId);
+      
       const formData = new FormData();
       formData.append("file", file);
       formData.append("api_key", apiKey);
@@ -44,7 +46,7 @@ export default function ProductAddForm(){
         body: formData,
       });
       const data = await res.json();
-  
+
       if (!res.ok) {
         console.error("Cloudinary upload failed:", data);
         return null;
@@ -97,6 +99,8 @@ export default function ProductAddForm(){
       <input onChange={onImageChange} className="hidden" type="file" id="photo" name="imageFile" accept="image/*"/>
       {/* 클라우디너리 URL을 폼 데이터에 추가 */}
       <input type="hidden" name="photo" value={cloudinaryUrl} />
+      {/* 클라우디너리 업로드 시 사용할 publicId를 폼 데이터에 추가 */}
+      <input type="hidden" name="publicId" value={publicId} />
       {/* 폼데이터 제출 후 이미지 리셋 방지 */}
       {data?.photo && <input name="existingPhoto" type="hidden" value={data?.photo.toString()} /> }
       {errors?.fieldErrors.photo && <p className="text-red-500 mt-3 text-sm">{errors.fieldErrors.photo}</p>}

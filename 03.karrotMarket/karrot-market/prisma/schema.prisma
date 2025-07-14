@@ -44,6 +44,7 @@ model Product {
   price       Float
   description String
   photo       String
+  publicId    String
   created_at  DateTime     @default(now())
   updated_at  DateTime     @updatedAt
   userId      Int

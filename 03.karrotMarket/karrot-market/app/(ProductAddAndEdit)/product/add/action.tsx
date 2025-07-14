@@ -26,6 +26,7 @@ const productSchema  = z.object({
 export async function uploadProduct(_: unknown, formData: FormData){
   const data = {
     photo: formData.get('photo'),
+    publicId: formData.get('public_id'),
     title: formData.get('title'),
     price: formData.get('price'),
     description: formData.get('description'),
@@ -53,6 +54,7 @@ export async function uploadProduct(_: unknown, formData: FormData){
           photo: result.data.photo,
           title: result.data.title,
           price: result.data.price,
+          publicId: result.data.publicId,
           description: result.data.description,
           category: result.data.category,
           dealt: false,

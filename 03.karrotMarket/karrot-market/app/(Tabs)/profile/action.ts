@@ -23,6 +23,7 @@ export interface IUserProducts {
   id: number;
   title: string;
   price: number;
+  publicId: string;
   description: string;
   photo: string;
   created_at: Date;
