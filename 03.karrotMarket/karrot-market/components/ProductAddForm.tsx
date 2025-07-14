@@ -16,9 +16,11 @@ export default function ProductAddForm(){
   const [ uploading, setUploading ] = useState(false); // 업로드 진행 상태
 
   async function getSignature() {
+    const publicId = `productImg-${Date.now()}`;
     const res = await fetch("/api/cloudinary/productImg", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ publicId }),
     });
     if (!res.ok) throw new Error("서명 생성 실패");
     return res.json(); // { signature, timestamp, publicId, folder, apiKey }
