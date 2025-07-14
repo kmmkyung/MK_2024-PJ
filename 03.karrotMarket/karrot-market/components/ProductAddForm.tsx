@@ -117,13 +117,12 @@ export default function ProductAddForm(){
         <Input name="title" placeholder="제목" type="text" required errors={errors?.fieldErrors.title} defaultValue={data?.title?.toString()}/>
         <Input name="price" placeholder="가격을 입력해 주세요" type="number" required errors={errors?.fieldErrors.price} defaultValue={data?.price?.toString()}/>
         <div>
-          <textarea name="description" placeholder="게시글 내용을 작성해 주세요" required className="align-middle h-40 text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all" defaultValue={data?.description?.toString()}></textarea>
+          <textarea name="description" placeholder="게시글 내용을 작성해 주세요" required className="whitespace-pre-wrap align-middle h-40 text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all" defaultValue={data?.description?.toString()}></textarea>
             {errors?.fieldErrors.description && errors.fieldErrors.description.map((ele,idx)=>{
               return <p key={idx} className="text-red-500 mt-3 text-sm">{ele}</p>
             })}
         </div>
       </div>
-      {uploading && <p className="mb-2 text-primary text-sm text-center font-bold">이미지를 그리는 중 입니다. 잠시만 기다려주세요!</p>}
       <Button text="작성 완료" uploading={uploading}/>
     </div>
   </form>
