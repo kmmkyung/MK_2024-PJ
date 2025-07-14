@@ -121,7 +121,7 @@ export default function UserEdit() {
           </div>
         </div>
         <div className="mb-5 md:mb-0">
-          {uploading && <p className="mb-2 text-primary text-sm text-center font-bold">이미지 변환중입니다. 잠시만 기다려주세요!</p>}
+          {uploading && <p className="mb-2 text-primary text-sm text-center font-bold">이미지를 그리는 중 입니다. 잠시만 기다려주세요!</p>}
           <Button text="수정하기" uploading={uploading}/>
         </div>
       </form>

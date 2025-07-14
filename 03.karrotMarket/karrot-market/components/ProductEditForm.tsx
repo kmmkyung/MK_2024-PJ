@@ -143,7 +143,8 @@ export default function ProductEditForm(props:IAddAndEditProps){
           <Input name="title" placeholder="제목" type="text" value={title} required onChange={(event)=>setTitle(event.target.value)} errors={errors?.title}/>
           <Input name="price" placeholder="가격을 입력해 주세요" type="number" value={price} required onChange={(event)=>setPrice(Number(event.target.value))} errors={errors?.price}/>
           <div>
-            <textarea name="description" placeholder="게시글 내용을 작성해 주세요" value={description} required onChange={event=>setDescription(event.target.value)} className="align-middle h-40 text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all" />
+          <textarea name="description" placeholder="게시글 내용을 작성해 주세요" value={description} required onChange={event => setDescription(event.target.value)} className="align-middle h-40 text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all">
+          </textarea>
             {errors?.description && errors.description.map((ele,idx)=>{
               return <p key={idx} className="text-red-500 mt-3 text-sm">{ele}</p>
             })}
