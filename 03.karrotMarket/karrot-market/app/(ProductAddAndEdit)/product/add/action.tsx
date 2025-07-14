@@ -11,6 +11,7 @@ const categoryEnum = z.nativeEnum(CategoryType)
 
 const productSchema  = z.object({
   photo: z.string({required_error: "상품 사진은 필수입니다"}).min(1, "상품 사진은 필수입니다"),
+  publicId: z.string(),
   title: z.string({
     required_error: "게시물 제목은 필수입니다"
   }).trim().min(1,"게시물 제목은 필수입니다"),
@@ -26,7 +27,7 @@ const productSchema  = z.object({
 export async function uploadProduct(_: unknown, formData: FormData){
   const data = {
     photo: formData.get('photo'),
-    publicId: formData.get('public_id'),
+    publicId: formData.get('publicId'),
     title: formData.get('title'),
     price: formData.get('price'),
     description: formData.get('description'),

@@ -22,14 +22,15 @@ export default function ProductEditForm(props:IAddAndEditProps){
   const editProduct = props.editProduct;
   const id = props.id;
 
-  const [title, setTitle] = useState(editProduct.title);
-  const [category, setCategory] = useState(editProduct.category);
-  const [price, setPrice] = useState(editProduct.price);
-  const [description, setDescription] = useState(editProduct.description);
-  const [imgFile, setImgFile] = useState<File | null>(null);
-  const [preview, setPreview] = useState(editProduct.photo);
-  const [errors, setErrors] = useState<{ [key: string]: string[] } | null>(null);
-  const [uploading, setUploading] = useState(false); // 업로드 진행 상태
+  const [ title, setTitle ] = useState(editProduct.title);
+  const [ category, setCategory ] = useState(editProduct.category);
+  const [ price, setPrice ] = useState(editProduct.price);
+  const [ description, setDescription ] = useState(editProduct.description);
+  const [ imgFile, setImgFile ] = useState<File | null>(null);
+  const [ preview, setPreview ] = useState(editProduct.photo);
+  const [ publicId, setPublicId ] = useState(""); // 클라우디너리 업로드 시 사용할 publicId
+  const [ errors, setErrors ] = useState<{ [key: string]: string[] } | null>(null);
+  const [ uploading, setUploading ] = useState(false); // 업로드 진행 상태
 
   async function getSignature() {
     const res = await fetch("/api/cloudinary/productImg", {
@@ -63,6 +64,7 @@ export default function ProductEditForm(props:IAddAndEditProps){
         console.error("Cloudinary upload failed:", data);
         return null;
       }
+      setPublicId(publicId);
       return data.secure_url;
     } finally {
       setUploading(false);
@@ -96,6 +98,7 @@ export default function ProductEditForm(props:IAddAndEditProps){
     formData.append("price", price.toString());
     formData.append("description", description);
     formData.append("category", category);
+    formData.append("publicId", publicId);
     if(imgFile){
       formData.append("photo", preview);
     } else {
@@ -125,6 +128,7 @@ export default function ProductEditForm(props:IAddAndEditProps){
           }
           </label>
           <input onChange={onImageChange} className="hidden" type="file" id="photo" name="photo" accept="image/*" />
+          <input type="hidden" name="publicId" value={publicId} />
         </div>
         <div className="md:w-1/2 flex flex-col gap-3">
           <select name="category" required value={category} onChange={(event)=>setCategory(event.target.value as CategoryType)} className="text-sm bg-transparent rounded-md w-full ring-2 focus:ring-3 ring-neutral-400 focus:ring-primary border-none placeholder:text-neutral-400 transition-all">
