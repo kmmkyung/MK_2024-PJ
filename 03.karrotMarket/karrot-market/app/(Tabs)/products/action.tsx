@@ -84,10 +84,12 @@ export async function getMoreProducts(cursorId: number | null, category: Categor
 export async function deleteProduct(numberId:number){
   const deletedProduct = await db.product.delete({
     where: { id: numberId },
-    select: { publicId: true }
+    select: { user:true ,publicId: true }
   })
   if(deletedProduct.publicId){
-    await cloudinary.uploader.destroy(deletedProduct.publicId);
+    const folder = `Products/${deletedProduct.user.id}`;
+    const fullPublicId = `${folder}/${deletedProduct.publicId}`;
+    await cloudinary.uploader.destroy(fullPublicId);
   }
   revalidateTag('products')
 }
