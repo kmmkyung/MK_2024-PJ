@@ -5,7 +5,6 @@ import db from "@/lib/db";
 import { z } from "zod";
 import bcrypt from "bcrypt"
 import userLogin from "@/lib/userLogin";
-import { redirect } from "next/navigation";
 
 async function checkEmail(email:string){
   const user = await db.user.findUnique({
