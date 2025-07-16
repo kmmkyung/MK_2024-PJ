@@ -8,5 +8,6 @@ export default async function userLogin(id:number) {
   await session.save();
   revalidatePath('/products')
   revalidatePath('/life')
+  revalidatePath('/chats')
   return redirect('/profile');
 }
