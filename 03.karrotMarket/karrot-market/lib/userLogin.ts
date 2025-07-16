@@ -6,6 +6,6 @@ export default async function userLogin(id:number) {
   const session = await getSession();
   session.id = id;
   await session.save();
-  await revalidatePath('/')
+  revalidatePath('/')
   return redirect('/profile');
 }
