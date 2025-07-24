@@ -14,15 +14,19 @@ body::-webkit-scrollbar{
 
 /* section-1 */
 .section-wrap{
-  display: flex;
+  width: 100%;
+}
+
+.section-content {
   width: 820%;
   height: 100%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 #section-1{
   width: 100%;
   height: 100vh;
-  /* background-image: url(../assets/images/story-1.jpg); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -52,7 +56,6 @@ body::-webkit-scrollbar{
 #section-2{
   width: 100%;
   height: 100vh;
-  /* background-image: url(../assets/images/story-2.jpg); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -96,7 +99,6 @@ body::-webkit-scrollbar{
 #section-3{
   width: 100%;
   height: 100vh;
-  /* background-image: url(../assets/images/story-3.jpg); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -148,7 +150,6 @@ body::-webkit-scrollbar{
 #section-4{
   width: 100%;
   height: 100vh;
-  /* background-image: url(../assets/images/story-4.jpg); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -260,7 +261,6 @@ body::-webkit-scrollbar{
 #section-7{
   width: 100%;
   height: 100vh;
-  /* background-image: url(../assets/images/story-7.jpg); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -323,7 +323,6 @@ body::-webkit-scrollbar{
 #section-8{
   width: 100%;
   height: 100vh;
-  /* background-image: url(../assets/images/story-8.jpg); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -371,7 +370,7 @@ body::-webkit-scrollbar{
     overflow: hidden;
   }
 
-  .section-wrap{
+  .section-content{
     display: flex;
     flex-direction: column;
     width: 100%;

@@ -4,6 +4,10 @@ body::-webkit-scrollbar{
 }
 
 .section-wrap{
+  width: 100%;
+}
+
+.section-content{
   display: flex;
   width: 800%;
   height: 100%;
@@ -443,7 +447,7 @@ body::-webkit-scrollbar{
 }
 
 @media screen and (max-width:900px){
-  .section-wrap{
+  .section-content{
     display: flex;
     flex-direction: column;
     width: 100%;

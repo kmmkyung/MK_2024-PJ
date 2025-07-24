@@ -25,7 +25,7 @@ const museCampaignData = {
     ],
     "section5-bg":"muse1-5.jpg",
     "section5-bg_mobile":"mobile-muse1-5.jpg",
-    "section5-bg":"muse1-5.jpg",
+    "section6-bg":"muse1-6.jpg",
     "section6-bg_mobile":"mobile-muse1-6.jpg",
     "section6-p":"바쁘지만 완벽한 당신을 위해 매일 세럼을 스프레이 하세요.",
     "section6-h3":"세럼을 스프레이하다"
