@@ -8,6 +8,7 @@ export default function HomeMatter() {
 
   useEffect(() => {
     let isClick = false;
+
     const Engine = Matter.Engine;
     const Bodies = Matter.Bodies;
     const Render = Matter.Render;
@@ -16,7 +17,6 @@ export default function HomeMatter() {
     const runner = Matter.Runner.create();
     engine.gravity.y = 1.5;
 
-    // 렌더 설정
     const render = Render.create({
       element: canvasRef.current as HTMLElement,
       engine: engine,
@@ -28,67 +28,86 @@ export default function HomeMatter() {
       }
     });
 
-    // 바닥 & 벽 만들기 (초기 설정)
-    let ground = Bodies.rectangle(window.innerWidth / 2, window.innerHeight - 50, window.innerWidth, 100, { isStatic: true , render:{fillStyle:'transparent'}});
-    let leftWall = Bodies.rectangle(10, window.innerHeight / 2, 20, window.innerHeight, { isStatic: true , render:{fillStyle:'transparent'}});
-    let rightWall = Bodies.rectangle(window.innerWidth - 10, window.innerHeight / 2, 20, window.innerHeight, { isStatic: true , render:{fillStyle:'transparent'}});
+    let ground = Bodies.rectangle(window.innerWidth / 2, window.innerHeight - 50, window.innerWidth, 100, { isStatic: true, render: { fillStyle: 'transparent' } });
+    let leftWall = Bodies.rectangle(10, window.innerHeight / 2, 20, window.innerHeight, { isStatic: true, render: { fillStyle: 'transparent' } });
+    let rightWall = Bodies.rectangle(window.innerWidth - 10, window.innerHeight / 2, 20, window.innerHeight, { isStatic: true, render: { fillStyle: 'transparent' } });
     World.add(engine.world, [ground, leftWall, rightWall]);
 
-    // 엔진 구동 및 렌더 실행
     Matter.Runner.run(runner, engine);
     Render.run(render);
-    document.body.addEventListener('mousedown', ()=>{
-      isClick = true
-    })
-    document.body.addEventListener('mouseup', ()=>{
-      isClick = false
-    })
-    document.body.addEventListener('mouseleave', ()=>{
-      isClick = false
-    })
-    document.body.addEventListener('mousemove', event => {
-      if(isClick){
-        const carrot = Bodies.rectangle( event.clientX-15, event.clientY, 30, 30, {
-          render: {
-            sprite: {
-              texture: "/image/carrot.png",
-              xScale: 0.3, 
-              yScale: 0.3 
-            }
-          },
-          restitution: 0.8,
-        })
 
-        const rabbit = Bodies.rectangle( event.clientX+15, event.clientY, 30, 30, {
-          render: {
-            sprite: {
-              texture: "/image/rabbit.png",
-              xScale: 0.3, 
-              yScale: 0.3 
-            }
-          },
-          restitution: 0.8,
-        });
+    // 클릭 및 터치 이벤트 공통 로직
+    const addBodies = (x: number, y: number) => {
+      const carrot = Bodies.rectangle(x - 15, y, 30, 30, {
+        render: {
+          sprite: {
+            texture: "/image/carrot.png",
+            xScale: 0.3,
+            yScale: 0.3
+          }
+        },
+        restitution: 0.8,
+      });
 
-        Matter.World.add(engine.world, [carrot, rabbit])
+      const rabbit = Bodies.rectangle(x + 15, y, 30, 30, {
+        render: {
+          sprite: {
+            texture: "/image/rabbit.png",
+            xScale: 0.3,
+            yScale: 0.3
+          }
+        },
+        restitution: 0.8,
+      });
+
+      Matter.World.add(engine.world, [carrot, rabbit]);
+    };
+
+    // 마우스 이벤트
+    const onMouseDown = () => { isClick = true; };
+    const onMouseUp = () => { isClick = false; };
+    const onMouseLeave = () => { isClick = false; };
+    const onMouseMove = (event: MouseEvent) => {
+      if (isClick) {
+        addBodies(event.clientX, event.clientY);
       }
-    })
+    };
 
-    // 창 크기 변경 감지 (리사이징 대응)
+    // 터치 이벤트
+    const onTouchStart = () => { isClick = true; };
+    const onTouchEnd = () => { isClick = false; };
+    const onTouchCancel = () => { isClick = false; };
+    const onTouchMove = (event: TouchEvent) => {
+      if (isClick && event.touches.length > 0) {
+        const touch = event.touches[0];
+        addBodies(touch.clientX, touch.clientY);
+      }
+    };
+
+    // 이벤ㅌ 등록
+    document.body.addEventListener('mousedown', onMouseDown);
+    document.body.addEventListener('mouseup', onMouseUp);
+    document.body.addEventListener('mouseleave', onMouseLeave);
+    document.body.addEventListener('mousemove', onMouseMove);
+
+    document.body.addEventListener('touchstart', onTouchStart);
+    document.body.addEventListener('touchend', onTouchEnd);
+    document.body.addEventListener('touchcancel', onTouchCancel);
+    document.body.addEventListener('touchmove', onTouchMove);
+
+    // 리사이즈 처리
     function windowResize() {
       const newWidth = window.innerWidth;
       const newHeight = window.innerHeight;
 
-      // 기존 바디 제거 후, 새로운 크기로 다시 추가
       World.remove(engine.world, [ground, leftWall, rightWall]);
 
-      ground = Bodies.rectangle(newWidth / 2, newHeight - 50, newWidth, 100, { isStatic: true , render:{fillStyle:'transparent'}});
-      leftWall = Bodies.rectangle(10, newHeight / 2, 20, newHeight, { isStatic: true , render:{fillStyle:'transparent'}});
-      rightWall = Bodies.rectangle(newWidth - 10, newHeight / 2, 20, newHeight, { isStatic: true , render:{fillStyle:'transparent'}});
+      ground = Bodies.rectangle(newWidth / 2, newHeight - 50, newWidth, 100, { isStatic: true, render: { fillStyle: 'transparent' } });
+      leftWall = Bodies.rectangle(10, newHeight / 2, 20, newHeight, { isStatic: true, render: { fillStyle: 'transparent' } });
+      rightWall = Bodies.rectangle(newWidth - 10, newHeight / 2, 20, newHeight, { isStatic: true, render: { fillStyle: 'transparent' } });
 
       World.add(engine.world, [ground, leftWall, rightWall]);
 
-      // 캔버스 크기 업데이트 (렌더링 크기 수정)
       render.canvas.width = newWidth;
       render.canvas.height = newHeight;
       render.options.width = newWidth;
@@ -97,12 +116,23 @@ export default function HomeMatter() {
 
     window.addEventListener("resize", windowResize);
 
+    // 초기화
     return () => {
       window.removeEventListener("resize", windowResize);
       Matter.Render.stop(render);
       Matter.World.clear(engine.world, false);
       Matter.Engine.clear(engine);
       render.canvas.remove();
+
+      document.body.removeEventListener('mousedown', onMouseDown);
+      document.body.removeEventListener('mouseup', onMouseUp);
+      document.body.removeEventListener('mouseleave', onMouseLeave);
+      document.body.removeEventListener('mousemove', onMouseMove);
+
+      document.body.removeEventListener('touchstart', onTouchStart);
+      document.body.removeEventListener('touchend', onTouchEnd);
+      document.body.removeEventListener('touchcancel', onTouchCancel);
+      document.body.removeEventListener('touchmove', onTouchMove);
     };
   }, []);
 
@@ -110,5 +140,3 @@ export default function HomeMatter() {
     <div ref={canvasRef} className="absolute top-0 left-0 w-full h-full -z-10"></div>
   );
 }
-
-
