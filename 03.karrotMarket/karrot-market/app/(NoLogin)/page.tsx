@@ -3,6 +3,7 @@ import HomeMatter from "@/components/HomeMatter";
 import HomeCarrot from "@/components/HomeCarrot";
 
 export default function Home() {
+  
   return (
     <section className="relative w-full h-screen p-10">
       <div className="max-w-screen-sm mx-auto h-full flex flex-col justify-end items-center">

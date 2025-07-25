@@ -7,6 +7,9 @@ export default function HomeMatter() {
   const canvasRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    alert("clicked") 
+    console.log("useEffect 실행");
+
     let isClick = false;
 
     const Engine = Matter.Engine;
@@ -84,7 +87,7 @@ export default function HomeMatter() {
       }
     };
 
-    // 이벤ㅌ 등록
+    // 이벤트 등록
     document.body.addEventListener('mousedown', onMouseDown);
     document.body.addEventListener('mouseup', onMouseUp);
     document.body.addEventListener('mouseleave', onMouseLeave);
@@ -99,6 +102,7 @@ export default function HomeMatter() {
     function windowResize() {
       const newWidth = window.innerWidth;
       const newHeight = window.innerHeight;
+      console.log(newWidth, newHeight);
 
       World.remove(engine.world, [ground, leftWall, rightWall]);
 
@@ -108,10 +112,19 @@ export default function HomeMatter() {
 
       World.add(engine.world, [ground, leftWall, rightWall]);
 
+      // render.canvas.width = newWidth;
+      // render.canvas.height = newHeight;
+      // render.options.width = newWidth;
+      // render.options.height = newHeight;
       render.canvas.width = newWidth;
       render.canvas.height = newHeight;
+      render.canvas.style.display = "block";
+      render.canvas.style.width = "100%";
+      render.canvas.style.height = "100%";
+  
       render.options.width = newWidth;
       render.options.height = newHeight;
+  
     }
 
     window.addEventListener("resize", windowResize);
