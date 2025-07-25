@@ -7,57 +7,39 @@ window.addEventListener('DOMContentLoaded',function(){
   arrowLeft.innerHTML = svgData.arrowLeft_w
   arrowRight.innerHTML = svgData.arrowRight_w
 
-  // 배경화면
-  function sizeBg(){
-    const section1 = document.querySelector('.section-1')
-    const section2 = document.querySelector('.section-2')
-    const section3 = document.querySelector('.section-3')
-    const section4 = document.querySelector('.section-4')
-
-    if(window.innerWidth<=900){
-      section1.src='./assets/images/collection/mobile_antioxidant.jpg'
-      section2.src='./assets/images/collection/mobile_vegan.jpg'
-      section3.src='./assets/images/collection/mobile_moisture.jpg'
-      section4.src='./assets/images/collection/mobile_relax.jpg'
-    }
-    if(window.innerWidth>900){
-      section1.src='./assets/images/collection/antioxidant.jpg'
-      section2.src='./assets/images/collection/vegan.jpg'
-      section3.src='./assets/images/collection/moisture.jpg'
-      section4.src='./assets/images/collection/relax.jpg'
-    }
-  }
-  window.addEventListener('load',function(){
-    sizeBg()
-  })
-  window.addEventListener('resize',function(){
-    sizeBg()
-  })
-
   // collection-bg__slide
   const collectionSwiper1 = new Swiper('.collection-bg__swiper',{
-    centeredSlides: true,
     loop: true,
     loopedSlides: 4,
-    // touchRatio: 0,
-    loopAdditionalSlides :1,
+    slidesPerView: 1,
+    loopAdditionalSlides: 1,
+    centeredSlides: true,
     allowTouchMove:false,
     effect:'fade',
+    fadeEffect: {
+      crossFade: true
+    },
+    watchSlidesProgress: true,
   })
   
   // collection-content__slide
   const collectionSwiper2 = new Swiper('.collection-content__swiper',{
-    centeredSlides: true,
-    slideToClickedSlide: true,
     loop: true,
-    loopAdditionalSlides :1,
     loopedSlides: 4,
+    slidesPerView: 1,
+    loopAdditionalSlides: 1,
+    centeredSlides: true,
+    allowTouchMove:false,
+
+    slideToClickedSlide: true,
     navigation: {
       nextEl: '.arrow-right',
       prevEl: '.arrow-left',
     },
+  
     on:{
       slideChange: function(){
+        
         let collectionTitle = document.querySelector('.collection-bg h1')
         let collectionItem = document.querySelectorAll('.collection-content__item')
         let collectionItemBtn = document.querySelectorAll('.item-button')
@@ -96,10 +78,10 @@ window.addEventListener('DOMContentLoaded',function(){
         }
       }
     }
-
   })
-  collectionSwiper1.controller.control = collectionSwiper2
-  collectionSwiper2.controller.control = collectionSwiper1
+
+  collectionSwiper1.controller.control = collectionSwiper2;
+  collectionSwiper2.controller.control = collectionSwiper1;
 })
 
 
