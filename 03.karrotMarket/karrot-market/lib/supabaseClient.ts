@@ -18,10 +18,6 @@ export const supabaseClient =
     auth: {
       persistSession: true,
       autoRefreshToken: true,
+      debug: false,   // 디버그 로그 끄기
     },
   });
-
-// 개발 모드에서만 전역에 저장 (HMR 시 재사용)
-if (process.env.NODE_ENV !== "production") {
-  globalForSupabase.supabase = supabaseClient;
-}
