@@ -55,11 +55,11 @@ const filterTagBox = document.querySelector('.filter-tag')
   const select = document.querySelector('.select')
   const selectList = document.querySelector('.select-list')
   const selectOption = document.querySelectorAll('.select-option')
-  let MenuClick = 0;
+  let MenuClick = false;
   select.addEventListener('click',function(){
+    MenuClick = true;
     selectList.classList.add('active')
-    click ++;
-    if(MenuClick%2== 0){
+    if(!MenuClick){
       selectList.classList.remove('active')
     }
   })
