@@ -177,7 +177,7 @@ export default function ChatMessageList({initialMessages, userId, chatRoomId, us
       <div ref={messageContainerRef} className="mt-[60px] h-[calc(100vh-130px)]">
         <div className="fixed left-0 h-20 w-full border-b bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700">
           <div className="px-10 py-3 md:max-w-screen-xl mx-auto flex items-center gap-5">
-            <Image className="size-14 rounded-lg overflow-hidden object-cover object-center" width={75} height={75} sizes="75px" src={room.product.photo} alt="product" />
+            <Image className="size-14 rounded-lg overflow-hidden object-cover object-center" width={56} height={56} src={room.product.photo} alt="product" />
             { userId == room.product.userId ?
               <button disabled={isDealt} onClick={dealRequest} className="text-sm text-white rounded-md p-2 bg-primary hover:bg-primaryHover transition-colors disabled:bg-neutral-400 disabled:text-neutral-300 disabled:cursor-not-allowed">구매자에게 거래요청 보내기</button>
               : (isDealt? <p className="text-sm">거래 완료된 물건입니다</p>:<p className="text-sm">현재 거래중인 물건입니다</p>)

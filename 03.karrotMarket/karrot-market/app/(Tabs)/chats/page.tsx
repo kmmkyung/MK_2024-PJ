@@ -28,7 +28,7 @@ export default async function Chats(){
                 <div className="flex items-start gap-2 relative">
                   <div className="flex items-center">
                     <div className="relative size-14 rounded-lg overflow-hidden aspect-square">
-                      <Image src={ele.product.photo} alt="product" fill priority sizes="40px" className="object-cover object-center"/>
+                      <Image src={ele.product.photo} alt="product" fill sizes="40px" width={40} height={40} className="object-cover object-center"/>
                     </div>
                     <div className="relative bg-white dark:bg-neutral-900 -ml-3 size-8 rounded-full overflow-hidden outline-2 outline outline-white dark:outline-neutral-900">
                       <Image src={ele.users[0].avatar!} alt="user" width={40} height={40} sizes="40px"/>
