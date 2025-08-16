@@ -1,3 +1,7 @@
+img[data-loading] { visibility: hidden; opacity: 0; }
+img.is-loaded { visibility: visible; opacity: 1; transition: opacity .25s ease; }
+
+
 .button{
   position: fixed;
   right: 0;

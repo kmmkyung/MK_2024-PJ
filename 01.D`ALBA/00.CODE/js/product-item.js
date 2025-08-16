@@ -5,6 +5,33 @@ let locationLink = location.href;
 let locationLinkKey = locationLink.split("?")[1]
 let locationLinkValue = locationLinkKey.split("=")[1]
 
+function setImageSafely(imgEl, realSrc, fallbackSrc = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=') {
+  if (!imgEl || !realSrc) return;
+
+  imgEl.setAttribute('data-loading', '');
+  imgEl.classList.remove('is-loaded');
+
+  const pre = new Image();
+  pre.src = realSrc;
+
+  const show = () => {
+    imgEl.src = realSrc;
+    imgEl.removeAttribute('data-loading');
+    imgEl.classList.add('is-loaded');
+  };
+
+  (pre.decode ? pre.decode() : Promise.resolve())
+    .then(show)
+    .catch(() => { pre.onload = show; });
+
+  pre.onerror = () => {
+    imgEl.src = fallbackSrc; // 실패 시 폴백
+    imgEl.removeAttribute('data-loading');
+    imgEl.classList.add('is-loaded');
+  };
+}
+
+
 window.addEventListener('DOMContentLoaded',function(){
   // section-buy
   const buyButton = document.querySelector('.button-list .buy')
@@ -51,26 +78,32 @@ window.addEventListener('DOMContentLoaded',function(){
     if(ele.id == locationLinkValue){
       itemNameH1.innerHTML = ele["name-ko"]
       itemNameH2.innerHTML = ele["name-en"]
-      itemNameImg.src = `./assets/images/itemContent/${ele.class}/${ele.id}/${ele["item-images"]}`
+
+      setImageSafely(
+        itemNameImg,
+        `./assets/images/itemContent/${ele.class}/${ele.id}/${ele["item-images"]}`
+      );
+
       function homeTryImgSize(){
-        if(ele["homeTry-pc_img"] != '' && window.innerWidth>900){
-          homeTryImg.src = `./assets/images/itemContent/${ele.class}/${ele.id}/${ele["homeTry-pc_img"]}`
-          introTitle.style.marginTop = 100+'px'
+          if(ele["homeTry-pc_img"] && window.innerWidth > 900){
+            setImageSafely(homeTryImg, `./assets/images/itemContent/${ele.class}/${ele.id}/${ele["homeTry-pc_img"]}`);
+            introTitle.style.marginTop = '100px';
+          } else if(ele["homeTry-mobile_img"] && window.innerWidth <= 900){
+            setImageSafely(homeTryImg, `./assets/images/itemContent/${ele.class}/${ele.id}/${ele["homeTry-mobile_img"]}`);
+            introTitle.style.marginTop = '100px';
+          } else {
+            homeTry.style.display = 'none';
+            homeTryImg.style.display = 'none';
+          }
         }
-        if(ele["homeTry-mobile_img"] != '' && window.innerWidth<=900){
-          homeTryImg.src = `./assets/images/itemContent/${ele.class}/${ele.id}/${ele["homeTry-mobile_img"]}`
-          introTitle.style.marginTop = 100+'px'
-        }
-        if(ele["homeTry-img"] == "" || ele["homeTry-mobile_img"] == "" ){
-          homeTry.style.display='none'
-          homeTryImg.style.display='none'
-        }
-      }
       homeTryImgSize()
       window.addEventListener('resize',homeTryImgSize)
 
       if(ele["itemIntro-img"] != '' ){
-        introImg.src = `./assets/images/itemContent/${ele.class}/${ele.id}/${ele["itemIntro-img"]}`
+        setImageSafely(
+          introImg,
+          `./assets/images/itemContent/${ele.class}/${ele.id}/${ele["itemIntro-img"]}`
+        );
         introTitle.style.marginTop = 100+'px'
       }
       if(ele["itemIntro-img"] == "" ){
