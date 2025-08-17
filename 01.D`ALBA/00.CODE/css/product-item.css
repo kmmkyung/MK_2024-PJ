@@ -399,7 +399,7 @@ img.is-loaded { visibility: visible; opacity: 1; transition: opacity .25s ease; 
   height: auto;
   box-sizing: border-box;
   padding: 200px 50px;
-  transition: all 2s;
+  transition: background-color 2s;
 }
 
 .section-4-wrap{
@@ -561,6 +561,7 @@ img.is-loaded { visibility: visible; opacity: 1; transition: opacity .25s ease; 
   text-align: center;
   position: relative;
   overflow: hidden;
+  min-height: 800px;
 }
 
 .section-6 .section-6__bg{
@@ -571,12 +572,9 @@ img.is-loaded { visibility: visible; opacity: 1; transition: opacity .25s ease; 
   left: 0;
   z-index: 0;
   object-fit: cover;
-  /* background-size: cover;
+  background-size: cover;
   background-position: center center;
-  background-repeat: no-repeat; */
-  /* -webkit-transition: background-image 0.5s ease-in-out; */
-  /* -moz-transition: background-image 0.5s ease-in-out; */
-  /* -o-transition: background-image 0.5s ease-in-out; */
+  background-repeat: no-repeat;
   transition: background-image 0.5s ease-in-out;
 }
 
@@ -775,7 +773,7 @@ img.is-loaded { visibility: visible; opacity: 1; transition: opacity .25s ease; 
 
 .info-tested__title{
   position: relative;
-  padding: 20px 0;
+  padding: 20px 20px 20px 0;
   font-size: var(--font-size-SubMenu);
   cursor: pointer;
 }

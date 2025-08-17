@@ -122,7 +122,6 @@ window.addEventListener('DOMContentLoaded',function(){
   })
 
   // section2
-  const section2 = document.querySelector('.section-2')
   const section2Wrap = document.querySelector('.section-2-wrap')
   let veganCode = /*html*/`
   <div class="vegan"> <!-- 비건 -->
@@ -236,75 +235,109 @@ window.addEventListener('DOMContentLoaded',function(){
   })
 
   // section3
-  itemContentData.forEach(function(ele){
-    const section3Img = document.querySelector('.section-3 img')
-    const section3H3 = document.querySelector('.section-3 h3')
-    const section3P = document.querySelector('.section-3 p')
-    if(ele.id == locationLinkValue){
-      if(ele["section3-img"] != ''){
-        section3Img.src = `./assets/images/itemContent/${ele.class}/${ele.id}/${ele["section3-img"]}`
-      }
-      if(ele["section3-img"] == ''){
-        section3Img.style.display='none'
-      }
-      section3H3.innerHTML = ele['section3-h3']
-      section3P.innerHTML = ele['section3-p']
+  itemContentData.forEach(function (ele) {
+    if (String(ele.id) !== String(locationLinkValue)) return;
+    const section3   = document.querySelector('.section-3');
+    const imgEl      = document.querySelector('.section-3 img');
+    const h3El       = document.querySelector('.section-3 h3');
+    const pEl        = document.querySelector('.section-3 p');
+  
+    // 요소가 없으면 그냥 중단
+    if (!section3 || !imgEl || !h3El || !pEl) return;
+  
+    // 이미지
+    if (ele['section3-img']) {
+      imgEl.src = `./assets/images/itemContent/${ele.class}/${ele.id}/${ele['section3-img']}`;
+      imgEl.style.removeProperty('display'); // 혹시 이전에 숨겨졌다면 다시 보여주기
+    } else {
+      imgEl.style.display = 'none';
     }
-  })
+  
+    // 제목
+    if (ele['section3-h3']) {
+      h3El.innerHTML = ele['section3-h3'];
+      h3El.style.removeProperty('display');
+    } else {
+      h3El.style.display = 'none';
+    }
+  
+    // 설명
+    if (ele['section3-p']) {
+      pEl.innerHTML = ele['section3-p'];
+      pEl.style.removeProperty('display');
+    } else {
+      pEl.style.display = 'none';
+    }
+  
+    // 다 비어있으면 섹션 전체 숨김
+    if (!ele['section3-img'] && !ele['section3-h3'] && !ele['section3-p']) {
+      section3.style.display = 'none';
+    }
+  });
+  
 
   // section4
-  itemContentData.forEach(function(ele){
-    const section4 = document.querySelector('.section-4')
-    const section4Wrap = document.querySelector('.section-4-wrap')
-    const contentTitle = document.querySelector('.content-title')
-    if(ele.id == locationLinkValue){
-      contentTitle.innerHTML = ele['content-title']      
-      for(let content of ele["section4-content"]){
-        let contentCode = `
-        <div class="content">
-        <img class="content-img" src="./assets/images/itemContent/${ele.class}/${ele.id}/${content['content-img']}">
-        <div class="content-text">
-          <h6>${content['content-h6']}</h6>
-          <p>${content['content-p']}</p>
-          </div>
-        </div>
-        `
-        section4Wrap.innerHTML += contentCode
-        let contentImg = document.querySelectorAll('.content:last-child .content-img')
-        let contentTextLast = document.querySelector('.content:last-child .content-text')
-        let contentTextH6Last = document.querySelector('.content:last-child .content-text h6')
-        let contentTextPLast = document.querySelector('.content:last-child .content-text p')
+  itemContentData.forEach(function (ele) {
+    const section4 = document.querySelector('.section-4');
+    const section4Wrap = document.querySelector('.section-4-wrap');
+    const contentTitle = document.querySelector('.content-title');
+  
+    if (!section4 || !section4Wrap || !contentTitle) return; // 널가드
+  
+    if (String(ele.id) === String(locationLinkValue)) {
+      contentTitle.innerHTML = ele['content-title'] || '';
+  
+      for (let content of ele['section4-content']) {
+        const hasImg = !!content['content-img'];
+        const hasH6 = !!content['content-h6'];
+        const hasP  = !!content['content-p'];
+  
+        if(!hasImg && (hasH6 || hasP)){
+          section4.style.padding='0px'
+        }
 
-        contentImg.forEach((ele,idx)=>{
-          if(content['content-img'] == ''){
-            contentImg[idx].style.display='none'
-          }
-        })
-        if(content['content-h6'] == ''){
-          contentTextH6Last.style.display='none'
-        }
-        else{
-          contentTextLast.style.marginTop = 100+'px'
-        }
-        if(content['content-p'] == ''){
-          contentTextPLast.style.display='none'
-        }
-        else{
-          contentTextLast.style.marginTop = 100+'px'
-        }
+        // 값이 있을 때만 해당 태그 생성
+        const imgHTML = hasImg
+          ? `<img class="content-img" src="./assets/images/itemContent/${ele.class}/${ele.id}/${content['content-img']}" alt="">`
+          : '';
+  
+        const h6HTML = hasH6 ? `<h6>${content['content-h6']}</h6>` : '';
+        const pHTML  = hasP  ? `<p>${content['content-p']}</p>`   : '';
+  
+        // 이미지가 없고 텍스트가 있을 때만 여백 부여
+        const textExtraStyle = !hasImg && (hasH6 || hasP) ? ' style="margin-top:100px"' : '';
+
+  
+        const contentCode = `
+          <div class="content">
+            ${imgHTML}
+            <div class="content-text"${textExtraStyle}>
+              ${h6HTML}
+              ${pHTML}
+            </div>
+          </div>
+        `;
+  
+        // += 대신 insertAdjacentHTML
+        section4Wrap.insertAdjacentHTML('beforeend', contentCode);
       }
-      
-      window.addEventListener('scroll',function(){
-        let section4Height = section4.offsetHeight;              
-        if(window.scrollY<section4Height*1.5){
-          section4.style.backgroundColor = ele["section4-bg"][0]
+  
+      // 스크롤 배경 전환 (passive 옵션 권장)
+      const onScroll = () => {
+        const section4Height = section4.offsetHeight;
+        if (window.scrollY < section4Height * 1.5) {
+          section4.style.backgroundColor = ele['section4-bg']?.[0] || '';
         }
-        if(window.scrollY>=section4Height*1.2){
-          section4.style.backgroundColor = ele["section4-bg"][1]
+        if (window.scrollY >= section4Height * 1.2) {
+          section4.style.backgroundColor = ele['section4-bg']?.[1] || '';
         }
-      })
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      // 초기 1회 적용
+      onScroll();
     }
-  })
+  });
+  
   
   // section5
   const section5 = document.querySelector('.section-5')
@@ -447,97 +480,88 @@ let codePatent4 = /*html*/`
     }
   })
 
-  // section6
-  itemContentData.forEach(function(ele){
-    if(ele.id == locationLinkValue){
-    const section6 = document.querySelector('.section-6')
-    // const section6Img = document.querySelector('.section-6 .section-6__bg')
-    const section6Bg = document.querySelector('.section-6 .section-6__bg')
-    const section6H5 =  document.querySelector('.section-6 h5')
-    const ingredientsTitleUl = document.querySelector('.ingredients-title__list')
-    const ingredientsTextUl = document.querySelector('.ingredients-text__list')
-    let ingredientsTitleCode = /*html*/``      
-    let ingredientsTextCode = /*html*/``      
-    if(ele.id == locationLinkValue){
-      if(ele['ingredients-item'] == ""){
-        section6.style.display='none'
-      }
-      if(ele['ingredients-item'] != ""){
-        section6H5.innerHTML = ele["ingredients-h5"]
-        for(let list in itemIngredientsData){
-          for(let i = 0; i<ele['ingredients-item'].length; i++){
-            if(list == ele['ingredients-item'][i]){              
-              ingredientsTitleCode += `<li class="list-item"><a href="javascript:void(0)">${itemIngredientsData[list]["ingredients-title"]}</a></li>` 
-              
-            }
-          }
-          ingredientsTitleUl.innerHTML = ingredientsTitleCode
-        }
-        
-        const ingredientsLiA = document.querySelectorAll('.ingredients-title__list .list-item a')
-        window.addEventListener('load',section5BgSize)
-        function section5BgSize(){
-          if(window.innerWidth>900){
-            // section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__pc"]}`
-            section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__pc"]})`
-          }
-          else{
-            // section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__mobile"]}`
-            section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-bg__mobile"]})`
-          }
-        }
-        ingredientsLiA[0].classList.add('active')
-        ingredientsTextCode += `
-        <li class="list-item" >
-        <h6 class="text-title">${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-title"]}</h6>
-        <p class="text-ingredients">${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-text"]}</p>
-        <p class="text-caption">${itemIngredientsData[ingredientsLiA[0].textContent]["ingredients-caption"]}</p>
-        </li>
-        `
-        ingredientsTextUl.innerHTML = ingredientsTextCode
-
-        ingredientsLiA.forEach(function(item){
-          item.addEventListener('click',function(event){
-            if(window.innerWidth>900){
-              // section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__pc"]}`
-              section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__pc"]})`
-            }
-            else{
-              // section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__mobile"]}`
-              section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[event.target.textContent]["ingredients-bg__mobile"]})`
-            }
-            let liActive = document.querySelector('.ingredients-title__list .list-item a.active')
-            let ingredientsTextCodeChange = `
-            <li class="list-item" >
-            <h6 class="text-title">${itemIngredientsData[event.target.textContent]["ingredients-title"]}</h6>
-            <p class="text-ingredients">${itemIngredientsData[event.target.textContent]["ingredients-text"]}</p>
-            <p class="text-caption">${itemIngredientsData[event.target.textContent]["ingredients-caption"]}</p>
-            </li>
-            `
-            ingredientsTextUl.innerHTML = ingredientsTextCodeChange
-            if(liActive.classList.contains('active')){
-              liActive.classList.remove('active')
-              event.target.classList.add('active')
-            }
-          })
-        })
-      }
+  itemContentData.forEach(function (ele) {
+    if (String(ele.id) !== String(locationLinkValue)) return;
+  
+    const section6 = document.querySelector('.section-6');
+    const section6Bg = document.querySelector('.section-6 .section-6__bg');
+    const section6H5 = document.querySelector('.section-6 h5');
+    const ingredientsTitleUl = document.querySelector('.ingredients-title__list');
+    const ingredientsTextUl = document.querySelector('.ingredients-text__list');
+    if (!section6 || !section6Bg || !section6H5 || !ingredientsTitleUl || !ingredientsTextUl) return;
+    console.log(ele['ingredients-item'] );
+    if (!ele['ingredients-item'] || ele['ingredients-item'].length === 0) {
+      section6.remove();
+      return;
     }
-
-      window.addEventListener('resize',section5BgSize2)
-      function section5BgSize2(){
-        let liActive = document.querySelector('.ingredients-title__list .list-item a.active')
-        if(window.innerWidth>900){
-          // section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[liActive.textContent]["ingredients-bg__pc"]}`
-          section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[liActive.textContent]["ingredients-bg__pc"]})`
+  
+    // 타이틀
+    section6H5.innerHTML = ele['ingredients-h5'] || '';
+  
+    // 리스트 채우기
+    let titleHTML = '';
+    ele['ingredients-item'].forEach(key => {
+      const item = itemIngredientsData[key];
+      if (!item) return;
+      titleHTML += `<li class="list-item"><a href="#" data-key="${key}">${item['ingredients-title']}</a></li>`;
+    });
+    ingredientsTitleUl.innerHTML = titleHTML;
+  
+    const links = document.querySelectorAll('.ingredients-title__list a');
+    if (links.length === 0) return;
+  
+    // 현재 활성화된 키
+    let activeKey = ele['ingredients-item'][0];
+  
+    // 배경/텍스트 변경 함수
+    function updateContent(key) {
+      const item = itemIngredientsData[key];
+      if (!item) return;
+  
+      // 배경 (이미지 프리로드 → 교체)
+      const url = window.innerWidth > 900 
+        ? `./assets/images/itemContent/ingredients/${item['ingredients-bg__pc']}`
+        : `./assets/images/itemContent/ingredients/${item['ingredients-bg__mobile']}`;
+  
+      const img = new Image();
+      img.src = url;
+      img.onload = () => {
+        section6Bg.style.backgroundImage = `url(${url})`;
+      };
+  
+      // 텍스트
+      ingredientsTextUl.innerHTML = `
+        <li class="list-item">
+          <h6 class="text-title">${item['ingredients-title']}</h6>
+          <p class="text-ingredients">${item['ingredients-text']}</p>
+          <p class="text-caption">${item['ingredients-caption']}</p>
+        </li>
+      `;
+  
+      // active 표시
+      links.forEach(a => a.classList.remove('active'));
+      document.querySelector(`.ingredients-title__list a[data-key="${key}"]`).classList.add('active');
+    }
+  
+    // 첫 번째 아이템으로 초기화
+    updateContent(activeKey);
+  
+    // 클릭 이벤트
+    links.forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const key = a.dataset.key;
+        if (key && key !== activeKey) {
+          activeKey = key;
+          updateContent(activeKey);
         }
-        else{
-          // section6Img.src = `./assets/images/itemContent/ingredients/${itemIngredientsData[liActive.textContent]["ingredients-bg__mobile"]}`
-          section6Bg.style.backgroundImage = `url(./assets/images/itemContent/ingredients/${itemIngredientsData[liActive.textContent]["ingredients-bg__mobile"]})`
-        }
-      }
-    } //// if
-  }) //// itemContentData
+      });
+    });
+  
+    // 리사이즈 시 배경 다시 세팅
+    window.addEventListener('resize', () => updateContent(activeKey));
+  });
+  
 
   // section7
   itemContentData.forEach(function(ele){
@@ -645,58 +669,100 @@ let codePatent4 = /*html*/`
       })
 
       // ingredients
-      const infoIngredients = document.querySelector('.info-ingredients')
-      const infoIngredientsTitle = document.querySelector('.info-ingredients .info-title')
-      const infoIngredientsUl = document.querySelector('.info-ingredients ul')
-      const infoIngredientsTextWrap = document.querySelector('.info-ingredients__textWrap')
-      const infoIngredientsWrap = document.querySelector('.info-ingredients__wrap')
+      const infoIngredients         = document.querySelector('.info-ingredients');
+      const infoIngredientsTitle    = document.querySelector('.info-ingredients .info-title');
+      const infoIngredientsWrap     = document.querySelector('.info-ingredients__wrap');
+      const infoIngredientsUl       = document.querySelector('.info-ingredients__wrap ul');
+      const infoIngredientsTextWrap = document.querySelector('.info-ingredients__textWrap');
+      
       let infoIngredientCode1 = ``;
       let infoIngredientCode2 = ``;
-
-      for(let item of itemContentData[idx]['infoIngredients-item']){ 
-        infoIngredientCode1 += `
-        <li class="info-ingredients__item">
-          <p class="info-ingredients__subTitle">${Object.keys(item)}</p>
-        </li>
-        `
-        infoIngredientCode2 += `
-        <div class="info-ingredients__text">${item[Object.keys(item)]}</div>
-        `
-      }
-      infoIngredientsUl.innerHTML = infoIngredientCode1
-      infoIngredientsTextWrap.innerHTML = infoIngredientCode2
-
-
-      const infoIngredientsSubTitle = document.querySelectorAll('.info-ingredients__subTitle')
-      const infoIngredientsText = document.querySelectorAll('.info-ingredients__text')
-      if(ele['infoIngredients-item'] != ''){
-        infoIngredientsSubTitle[0].classList.add('active')
-        infoIngredientsText[0].classList.add('active')
-      }
-
-      infoIngredientsTitle.addEventListener('click',function(){
-        infoIngredients.classList.toggle('active')
-        if(infoIngredients.classList.contains('active')){
-          infoIngredientsWrap.style.height = infoIngredientsWrap.scrollHeight+'px'
+      
+      const items = itemContentData[idx]?.['infoIngredients-item'];
+      
+      if (!infoIngredients || !infoIngredientsTitle || !infoIngredientsWrap || !infoIngredientsUl || !infoIngredientsTextWrap) {
+        // 요소 못 찾으면 중단
+      } else if (!Array.isArray(items) || items.length === 0) {
+        // 데이터 없으면 섹션 제거
+        infoIngredients.remove();
+      } else {
+        // 리스트/텍스트 렌더
+        for (let item of items) {
+          const key = Object.keys(item)[0]; // 첫 키
+          infoIngredientCode1 += `
+            <li class="info-ingredients__item">
+              <p class="info-ingredients__subTitle">${key}</p>
+            </li>
+          `;
+          infoIngredientCode2 += `
+            <div class="info-ingredients__text">${item[key]}</div>
+          `;
         }
-        else{
-          infoIngredientsWrap.style.height = 0
-        }
-      })
-      infoIngredientsSubTitle.forEach(function(ele,idx){
-        ele.addEventListener('click',function(event){
-          let itemActive = document.querySelector('.info-ingredients__subTitle.active')
-          let itemTextActive = document.querySelector('.info-ingredients__text.active')
-          ele.classList.add('active')
-          infoIngredientsText[idx].classList.add('active')
-          if(itemActive.classList.contains('active') && itemActive !== event.target){
-            itemActive.classList.remove('active')
-            itemTextActive.classList.remove('active')
-            event.target.classList.add('active')
+        infoIngredientsUl.innerHTML = infoIngredientCode1;
+        infoIngredientsTextWrap.innerHTML = infoIngredientCode2;
+      
+        const infoIngredientsSubTitle = document.querySelectorAll('.info-ingredients__subTitle');
+        const infoIngredientsText     = document.querySelectorAll('.info-ingredients__text');
+      
+        if (infoIngredientsSubTitle.length === 0 || infoIngredientsText.length === 0) {
+          infoIngredients.remove();
+        } else {
+          // 초기 활성화
+          infoIngredientsSubTitle[0].classList.add('active');
+          infoIngredientsText[0].classList.add('active');
+      
+          // 공용: 높이 재계산 (PC: max, Mobile: sum)
+          function hightCalc() {
+            if (!infoIngredients.classList.contains('active')) {
+              infoIngredientsWrap.style.height = '0px';
+              return;
+            }
+            const ulH  = infoIngredientsUl.scrollHeight || 0;
+            const txtH = infoIngredientsTextWrap.scrollHeight || 0;
+            const isMobile = window.innerWidth <= 900;
+            const targetH  = isMobile ? (ulH + txtH) : Math.max(ulH, txtH);
+            infoIngredientsWrap.style.height = targetH + 'px';
           }
-        })
-      })
-
+      
+          // 아코디언 토글
+          infoIngredientsTitle.addEventListener('click', function(){
+            infoIngredients.classList.toggle('active');
+            if (infoIngredients.classList.contains('active')) {
+              hightCalc();
+            } else {
+              infoIngredientsWrap.style.height = '0px';
+            }
+          });
+      
+          // 서브타이틀 클릭 (이전 active 제거 → 새 active → 높이 갱신)
+          infoIngredientsSubTitle.forEach(function(ele, idx){
+            ele.addEventListener('click', function(event){
+              if (ele.classList.contains('active')) { hightCalc(); return; }
+      
+              let itemActive     = document.querySelector('.info-ingredients__subTitle.active');
+              let itemTextActive = document.querySelector('.info-ingredients__text.active');
+      
+              if (itemActive) itemActive.classList.remove('active');
+              if (itemTextActive) itemTextActive.classList.remove('active');
+      
+              ele.classList.add('active');
+              if (infoIngredientsText[idx]) infoIngredientsText[idx].classList.add('active');
+      
+              hightCalc();
+            });
+          });
+      
+          // 리사이즈 시 높이 재계산
+          window.addEventListener('resize', hightCalc);
+      
+          // 초기 상태 높이(열려 있으면 설정)
+          if (infoIngredients.classList.contains('active')) {
+            hightCalc();
+          } else {
+            infoIngredientsWrap.style.height = '0px';
+          }
+        }
+      }
 
 
       // product
@@ -801,9 +867,7 @@ let codePatent4 = /*html*/`
       let shippingCapacityCode = ``
       ele.capacity.forEach(item=>{
         shippingCapacityCode += `<li>${item}</li>`
-      })
-      console.log(shippingCapacityCode);
-      
+      })      
       shippingCapacity.innerHTML = shippingCapacityCode
     }
   })
