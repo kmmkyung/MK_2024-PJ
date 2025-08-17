@@ -374,8 +374,8 @@ const itemIngredientsData = {
     "ingredients-title":"Natural Oil Complex",
     "ingredients-text":"빅사씨오일, 해바라기씨오일, 콩오일",
     "ingredients-caption":"피부에 부드럽게 흡수되면서 건조하고 푸석한 피부에 영양감과 보습감을 부여해줍니다.",
-    "ingredients-bg__pc":"Natural Oil Complex.jpg",
-    "ingredients-bg__mobile":"mobile_Natural Oil Complex.jpg"
+    "ingredients-bg__pc":"NaturalOilComplex.jpg",
+    "ingredients-bg__mobile":"mobile_NaturalOilComplex.jpg"
   },
   "Propolis Extract":{
     "ingredients-title":"Propolis Extract",
@@ -395,8 +395,8 @@ const itemIngredientsData = {
     "ingredients-title":"Prunus Persica (Peach) Fruit Extract",
     "ingredients-text":"복숭아 추출물",
     "ingredients-caption":"칙칙하고 어두운 피부 톤을 맑고 화사하게 관리해주는데 도움을 줍니다.",
-    "ingredients-bg__pc":"Prunus Persica.jpg",
-    "ingredients-bg__mobile":"mobile_Prunus Persica.jpg"
+    "ingredients-bg__pc":"Prunus-Persica.jpg",
+    "ingredients-bg__mobile":"mobile_Prunus-Persica.jpg"
   },
   "Hydrolyzed Hyaluronic Acid":{
     "ingredients-title":"Hydrolyzed Hyaluronic Acid",
@@ -416,8 +416,8 @@ const itemIngredientsData = {
     "ingredients-title":"Xylityl Glucosyde",
     "ingredients-text":"자일리틸글루코사이드",
     "ingredients-caption":"수분과 보습을 전달하여 촉촉한 피부로 가꾸어 주는 데 도움을 줍니다.",
-    "ingredients-bg__pc":"Xylityl Glucosyde.jpg",
-    "ingredients-bg__mobile":"mobile_Xylityl Glucosyde.jpg"
+    "ingredients-bg__pc":"Xylityl-Glucosyde.jpg",
+    "ingredients-bg__mobile":"mobile_Xylityl-Glucosyde.jpg"
   },
   "Houttuynia Cordata Extract":{
     "ingredients-title":"Houttuynia Cordata Extract",
@@ -479,8 +479,8 @@ const itemIngredientsData = {
     "ingredients-title":"Herb complex",
     "ingredients-text":"바질추출물, 로즈마리잎추출물, 캐모마일꽃추출물, 레몬밤잎추출물",
     "ingredients-caption":"풍부한 수분과 영양 공급으로 피부에 편안한 보습을 선사합니다.",
-    "ingredients-bg__pc":"Multi Herb.jpg",
-    "ingredients-bg__mobile":"mobile_Multi Herb.jpg"
+    "ingredients-bg__pc":"Multi-Herb.jpg",
+    "ingredients-bg__mobile":"mobile_Multi-Herb.jpg"
   },
   "Fructan":{
     "ingredients-title":"Fructan",

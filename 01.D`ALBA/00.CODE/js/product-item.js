@@ -480,6 +480,7 @@ let codePatent4 = /*html*/`
     }
   })
 
+  //section6 
   itemContentData.forEach(function (ele) {
     if (String(ele.id) !== String(locationLinkValue)) return;
   
@@ -488,12 +489,13 @@ let codePatent4 = /*html*/`
     const section6H5 = document.querySelector('.section-6 h5');
     const ingredientsTitleUl = document.querySelector('.ingredients-title__list');
     const ingredientsTextUl = document.querySelector('.ingredients-text__list');
-    if (!section6 || !section6Bg || !section6H5 || !ingredientsTitleUl || !ingredientsTextUl) return;
+    if (!section6 || !section6Bg) return;
     console.log(ele['ingredients-item'] );
     if (!ele['ingredients-item'] || ele['ingredients-item'].length === 0) {
       section6.remove();
       return;
     }
+
   
     // 타이틀
     section6H5.innerHTML = ele['ingredients-h5'] || '';
